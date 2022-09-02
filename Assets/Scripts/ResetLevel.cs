@@ -22,8 +22,8 @@ public class ResetLevel : MonoBehaviour
     //attach the void to a button to make it do it's magic.
    public void Restart_Current_Level()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        scene.name = CurrentSceneName;
+        CurrentSceneName = SceneManager.GetActiveScene().name;
+        
         SceneManager.LoadScene(CurrentSceneName);
     }
 }
