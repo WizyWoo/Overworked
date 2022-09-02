@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform grabSpot;
     [SerializeField] Sprite[] playerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
+    [SerializeField] Animator flipAnimator;
+
+    [SerializeField] bool goingUpward;
 
 
     // Grabbing
@@ -66,6 +69,8 @@ public class PlayerController : MonoBehaviour
             sr.flipX = false;
         else if (rb.velocity.x < -.2f)
             sr.flipX = true;
+
+        FlipAnim();
     }
 
 
@@ -196,4 +201,21 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+    private void FlipAnim()
+    {
+        if((goingUpward && rb.velocity.z < -.01f) || (!goingUpward && rb.velocity.z > .01f))
+        {
+            flipAnimator.SetTrigger("Flip");
+        }
+
+        if (rb.velocity.z > .1f)
+        {
+            goingUpward = true;
+        }
+        else if (rb.velocity.z < -0.1f)
+        {
+            goingUpward = false;
+        }
+    } 
 }
