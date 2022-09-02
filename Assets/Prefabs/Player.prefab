@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4399654408042963768}
   - component: {fileID: 832722991685738710}
+  - component: {fileID: 5376688896846119680}
   m_Layer: 0
   m_Name: Gfx
   m_TagString: Untagged
@@ -84,6 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5376688896846119680
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399654408042963767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b713b60ddcf3b54ab98a679afaec383, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4399654409087059595
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +192,9 @@ MonoBehaviour:
   playerSprites:
   - {fileID: 21300000, guid: 7122fd2c7ae3c8e48b7ab365c593ff1e, type: 3}
   - {fileID: 21300000, guid: d0fcff918d82f43468121a06b9a69cc0, type: 3}
+  animatorControllers:
+  - {fileID: 9100000, guid: 0b713b60ddcf3b54ab98a679afaec383, type: 2}
+  - {fileID: 22100000, guid: 766bf584096048d4dbf925c852e9c283, type: 2}
   speed: 4
   itemGrabbed: {fileID: 0}
   ItemsInRangeForGrabbing: []
