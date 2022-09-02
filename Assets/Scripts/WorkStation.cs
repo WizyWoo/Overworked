@@ -14,12 +14,35 @@ public class WorkStation : MonoBehaviour , IInteractable
     public void Activate(Transform _player = null, bool _buttonDown = true)
     {
 
-        if(ItemOnStaion.TryGetComponent<CraftableItem>(out craftingItem))
-            InUse = _buttonDown;
-        else
+        if(!_player)
+        {
+
             InUse = false;
-        
-        if(!ItemOnStaion)
+            OccupiedBy = null;
+            return;
+
+        }
+
+        if(ItemOnStaion)
+        {
+
+            if(ItemOnStaion.TryGetComponent<CraftableItem>(out craftingItem))
+            {
+
+                InUse = _buttonDown;
+                OccupiedBy = _player;
+
+            }
+            else
+            {
+                
+                InUse = false;
+                OccupiedBy = null;
+
+            }
+
+        }
+        else if(_player.GetComponent<PlayerController>().itemGrabbed)
         {
 
             ItemOnStaion = _player.GetComponent<PlayerController>().itemGrabbed;
@@ -30,6 +53,9 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     private void Update()
     {
+
+        if(!OccupiedBy)
+            return;
 
         if(Vector3.Distance(OccupiedBy.position, transform.position) > UseRange)
         {

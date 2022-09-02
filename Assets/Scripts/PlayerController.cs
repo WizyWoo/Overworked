@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using System.Linq;
 
 
 public class PlayerController : MonoBehaviour
@@ -194,9 +195,42 @@ public class PlayerController : MonoBehaviour
     public void Interact(InputAction.CallbackContext context)
     {
 
-        if(context.canceled)Debug.Log("pp");
+        Collider[] _interactables = Physics.OverlapSphere(transform.position, 3, 1 << LayerMask.NameToLayer("Interactable"));
 
+        Debug.Log(_interactables.Length);
 
+        if(_interactables.Length == 0)
+            return;
+
+        IInteractable _closestInteractable = null;
+        float _dist = 100;
+        for(int i = 0; i < _interactables.Length; i++)
+        {
+
+            float _new = Vector3.Distance(_interactables[i].transform.position, transform.position);
+
+            if(_new < _dist)
+            {
+
+                _dist = _new;
+                _closestInteractable = _interactables[i].GetComponent<IInteractable>();
+
+            }
+
+        }
+
+        if(context.canceled)
+        {
+
+            _closestInteractable.Activate(null, false);
+
+        }
+        else
+        {
+
+            _closestInteractable.Activate(transform, true);
+
+        }
 
     }
 

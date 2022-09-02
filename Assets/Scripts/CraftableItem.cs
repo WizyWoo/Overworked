@@ -5,6 +5,7 @@ using UnityEngine;
 public class CraftableItem : GrabbableItem
 {
 
+    [SerializeField]
     private bool assembled;
     public bool Assembled
     {
