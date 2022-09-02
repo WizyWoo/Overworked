@@ -129,9 +129,9 @@ public class PlayerController : MonoBehaviour
 
 
                 float horDropSpeed;
-                if (sr.flipX)
-                    horDropSpeed = -4;
-                else horDropSpeed = 4;
+                if (goingRight)
+                    horDropSpeed = 4;
+                else horDropSpeed = -4;
 
                 itemGrabbed.GetComponent<Rigidbody>().velocity =
                     new Vector3(horDropSpeed, 5, 0);
@@ -146,6 +146,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GrabItem()
     {
+        // Stop in the place
+        rb.velocity = Vector3.zero;
+
         itemGrabbed.transform.SetParent(grabSpot);
         itemGrabbed.transform.DOMove(grabSpot.position, grabTime);
         itemGrabbed.GrabItem();
