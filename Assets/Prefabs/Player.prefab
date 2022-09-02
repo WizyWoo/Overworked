@@ -166,7 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71dbf0e46bef9545a55b78232856286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabSpot: {fileID: 4399654409087059596}
   speed: 4
+  itemGrabbed: {fileID: 0}
+  ItemsInRangeForGrabbing: []
 --- !u!114 &2412234843627154072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +252,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5f65ff71-278b-4bbf-b083-e33f18760094
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7554035013872420965}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: PressGrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7ad2f942-4d1a-48f7-aa2c-9ffb1baae1f5
+    m_ActionName: Player/Grab[/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
