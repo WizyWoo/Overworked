@@ -166,7 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71dbf0e46bef9545a55b78232856286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
   grabSpot: {fileID: 4399654409087059596}
+  playerSprites:
+  - {fileID: 21300000, guid: 7122fd2c7ae3c8e48b7ab365c593ff1e, type: 3}
+  - {fileID: 21300000, guid: d0fcff918d82f43468121a06b9a69cc0, type: 3}
   speed: 4
   itemGrabbed: {fileID: 0}
   ItemsInRangeForGrabbing: []

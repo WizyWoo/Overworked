@@ -8,10 +8,14 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+    public int playerIndex;
+
+
     // References
     Rigidbody rb;
     SpriteRenderer sr;
     [SerializeField] Transform grabSpot;
+    [SerializeField] Sprite[] playerSprites;
 
     // Movement
     [SerializeField] float speed;
@@ -39,6 +43,15 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         sr = GetComponentInChildren<SpriteRenderer>();
+
+
+        // PLAYER INDEX SETUP
+        sr.sprite = playerSprites[playerIndex];
+        Debug.Log("playerIndex = " + playerSprites);
+    }
+
+    private void Start()
+    {
     }
 
 
@@ -51,12 +64,12 @@ public class PlayerController : MonoBehaviour
     public void AddItem(GrabbableItem g)
     {
         ItemsInRangeForGrabbing.Add(g);
-        Debug.Log("inRangeItem = " + ItemsInRangeForGrabbing.Count);
+        //Debug.Log("inRangeItem = " + ItemsInRangeForGrabbing.Count);
     }
     public void RemoveItem(GrabbableItem g)
     {
         ItemsInRangeForGrabbing.Remove(g);
-        Debug.Log("inRangeItem = " + ItemsInRangeForGrabbing.Count);
+        //Debug.Log("inRangeItem = " + ItemsInRangeForGrabbing.Count);
     }
 
     // Called when the grab button is pressed
