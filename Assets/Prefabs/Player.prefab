@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 0
   speed: 4
+  throwForce: 10
   movementAnimator: {fileID: 5376688896846119680}
   grabSpot: {fileID: 4399654409087059596}
   playerSprites:

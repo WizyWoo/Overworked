@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Linq;
-
+using UnityEngine.InputSystem.Interactions;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     // Movement
     [Header("DESIGNER VARIABLES")]
-    [SerializeField] float speed;
+    [SerializeField] float speed, throwForce = 5;
     float horInput, verInput;
 
     // References
@@ -89,12 +89,42 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("inRangeItem = " + ItemsInRangeForGrabbing.Count);
     }
 
+    public void HoldGrab(InputAction.CallbackContext context)
+    {
+        if (itemGrabbed == null)
+            return;
+
+        if (context.duration <= 0.4f)
+            return;
+
+
+        //if(context.canceled)
+        //{
+        //    float duration_Clamped = Mathf.Clamp((float)context.duration, 0.4f, 1);
+
+        //    itemGrabbed.transform.SetParent(null);
+        //    itemGrabbed.UngrabItem();
+
+        //    int flipped = 1;
+        //    if (!goingRight)
+        //        flipped = -1;
+
+        //    //last player input
+        //    Vector2 lastPlayerInput = Vector2.zero;
+
+        //    itemGrabbed.GetComponent<Rigidbody>().AddForce(transform.right * throwForce * duration_Clamped * flipped, ForceMode.Impulse);
+
+        //    itemGrabbed = null;
+        //}
+    }
+
     // Called when the grab button is pressed
     // Checks if there are any near objects, if so pick the nearest one
     public void PressGrab(InputAction.CallbackContext context)
     {
         if (context.started)
         {
+
             // Try grab item
             if (itemGrabbed == null)
             {
@@ -124,6 +154,7 @@ public class PlayerController : MonoBehaviour
             // Ungrab item
             else if (itemGrabbed != null)
             {
+
                 itemGrabbed.transform.SetParent(null);
                 itemGrabbed.UngrabItem();
 
@@ -142,6 +173,7 @@ public class PlayerController : MonoBehaviour
                 //AddItem(itemGrabbed);
             }
         }
+        
     }
 
     IEnumerator GrabItem()
