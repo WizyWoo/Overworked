@@ -23,6 +23,8 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
         newPlayerController.playerIndex = playerInputManager.playerCount - 1;
 
+        newPlayerController.transform.SetParent(transform);
+
         //newPlayerController
     }
 }

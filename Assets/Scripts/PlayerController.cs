@@ -11,17 +11,19 @@ public class PlayerController : MonoBehaviour
     public int playerIndex;
 
 
+    // Movement
+    [Header("DESIGNER VARIABLES")]
+    [SerializeField] float speed;
+    float horInput, verInput;
+
     // References
     Rigidbody rb;
     SpriteRenderer sr;
+    Animator anim;
+    [Header("REFERENCES")]
     [SerializeField] Transform grabSpot;
     [SerializeField] Sprite[] playerSprites;
-    Animator anim;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
-
-    // Movement
-    [SerializeField] float speed;
-    float horInput, verInput;
 
 
     // Grabbing
