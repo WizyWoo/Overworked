@@ -11,15 +11,19 @@ public class PlayerController : MonoBehaviour
     public int playerIndex;
 
 
+    // Movement
+    [Header("DESIGNER VARIABLES")]
+    [SerializeField] float speed;
+    float horInput, verInput;
+
     // References
     Rigidbody rb;
     SpriteRenderer sr;
+    Animator anim;
+    [Header("REFERENCES")]
     [SerializeField] Transform grabSpot;
     [SerializeField] Sprite[] playerSprites;
-
-    // Movement
-    [SerializeField] float speed;
-    float horInput, verInput;
+    [SerializeField] RuntimeAnimatorController[] animatorControllers;
 
 
     // Grabbing
@@ -37,21 +41,31 @@ public class PlayerController : MonoBehaviour
     bool currentlyGrabbingAnItem;
 
 
-
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         sr = GetComponentInChildren<SpriteRenderer>();
 
 
+        anim = GetComponentInChildren<Animator>();
+
         // PLAYER INDEX SETUP
-        sr.sprite = playerSprites[playerIndex];
-        Debug.Log("playerIndex = " + playerSprites);
+        anim.runtimeAnimatorController = animatorControllers[playerIndex];
     }
 
     private void Start()
     {
+    }
+
+    private void Update()
+    {
+        // Update GFX
+        anim.SetFloat("CurrentVelocity", rb.velocity.magnitude);
+
+        if (rb.velocity.x > .2f)
+            sr.flipX = false;
+        else if (rb.velocity.x < -.2f)
+            sr.flipX = true;
     }
 
 
