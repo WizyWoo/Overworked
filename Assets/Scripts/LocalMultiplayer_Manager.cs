@@ -7,7 +7,14 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 {
     PlayerInputManager playerInputManager;
 
+    // A list with all the players
     List<PlayerController> allPlayers;
+
+    // Empty object that contains all the players as childs
+    [SerializeField] Transform playerContainer;
+
+    // Half of players are in the first spawnpoint, other half in second
+    [SerializeField] Transform[] spawnpoints;
 
     private void Awake()
     {
@@ -19,12 +26,16 @@ public class LocalMultiplayer_Manager : MonoBehaviour
     // This function is called everytime a player joined
     public void PlayerJoined(PlayerInput newplayer)
     {
+        // Get a reference
         PlayerController newPlayerController = newplayer.GetComponent<PlayerController>();
 
-        newPlayerController.playerIndex = playerInputManager.playerCount - 1;
+        // Set player index
+        int playerIndex = playerInputManager.playerCount - 1;
+        newPlayerController.playerIndex = playerIndex;
+        newPlayerController.transform.SetParent(playerContainer);
 
-        newPlayerController.transform.SetParent(transform);
+       // allPlayers.Add(newPlayerController);
 
-        //newPlayerController
+        newPlayerController.transform.position = spawnpoints[playerIndex%2].position;
     }
 }
