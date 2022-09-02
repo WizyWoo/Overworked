@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     // If it is null, the player is not grabbing anything
     public GrabbableItem itemGrabbed;
 
+    public IInteractable InteractingWith;
+
     // The time it takes the character to grab an item before he can moves
     float grabTime = .5f;
 
@@ -155,6 +157,15 @@ public class PlayerController : MonoBehaviour
     {
         horInput = context.ReadValue<Vector2>().x;
         verInput = context.ReadValue<Vector2>().y;
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+
+        if(context.canceled)Debug.Log("pp");
+
+
+
     }
 
     #endregion
