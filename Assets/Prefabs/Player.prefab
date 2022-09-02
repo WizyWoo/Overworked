@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &548851391506651990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6276358788982762758}
+  m_Layer: 0
+  m_Name: RotationControlParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6276358788982762758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548851391506651990}
+  m_LocalRotation: {x: 0.38268346, y: -0, z: -0, w: 0.9238796}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2048360782148443970}
+  m_Father: {fileID: 4399654409153324546}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4399654408042963767
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +202,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2048360782148443970}
+  - {fileID: 6276358788982762758}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0.343, z: 0}
@@ -188,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 0
   speed: 4
+  movementAnimator: {fileID: 5376688896846119680}
   grabSpot: {fileID: 4399654409087059596}
   playerSprites:
   - {fileID: 21300000, guid: 7122fd2c7ae3c8e48b7ab365c593ff1e, type: 3}
@@ -195,7 +228,8 @@ MonoBehaviour:
   animatorControllers:
   - {fileID: 9100000, guid: 0b713b60ddcf3b54ab98a679afaec383, type: 2}
   - {fileID: 22100000, guid: 766bf584096048d4dbf925c852e9c283, type: 2}
-  flipAnimator: {fileID: 7973594291074209530}
+  flipAnimator: {fileID: 3240056448944229999}
+  goingRight: 0
   itemGrabbed: {fileID: 0}
   ItemsInRangeForGrabbing: []
 --- !u!114 &2412234843627154072
@@ -406,7 +440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2048360782148443970}
-  - component: {fileID: 7973594291074209530}
+  - component: {fileID: 3240056448944229999}
   m_Layer: 0
   m_Name: FlipController
   m_TagString: Untagged
@@ -421,17 +455,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6805346369998880252}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4399654408042963768}
   - {fileID: 4399654409087059596}
-  m_Father: {fileID: 4399654409153324546}
+  m_Father: {fileID: 6276358788982762758}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!95 &7973594291074209530
+--- !u!95 &3240056448944229999
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
