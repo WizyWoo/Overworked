@@ -20,14 +20,14 @@ public class PlayerController : MonoBehaviour
     // References
     Rigidbody rb;
     SpriteRenderer sr;
-    Animator anim;
+    [SerializeField] Animator movementAnimator;
     [Header("REFERENCES")]
     [SerializeField] Transform grabSpot;
     [SerializeField] Sprite[] playerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
     [SerializeField] Animator flipAnimator;
 
-    [SerializeField] bool goingUpward;
+    [SerializeField] bool goingRight;
 
 
     // Grabbing
@@ -50,11 +50,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         sr = GetComponentInChildren<SpriteRenderer>();
 
-
-        anim = GetComponentInChildren<Animator>();
-
         // PLAYER INDEX SETUP
-        anim.runtimeAnimatorController = animatorControllers[playerIndex];
+        movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex];
     }
 
     private void Start()
@@ -64,12 +61,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Update GFX
-        anim.SetFloat("CurrentVelocity", rb.velocity.magnitude);
+        movementAnimator.SetFloat("CurrentVelocity", rb.velocity.magnitude);
 
-        if (rb.velocity.x > .2f)
-            sr.flipX = false;
-        else if (rb.velocity.x < -.2f)
-            sr.flipX = true;
+        //if (rb.velocity.x > .2f)
+        //    sr.flipX = false;
+        //else if (rb.velocity.x < -.2f)
+        //    sr.flipX = true;
 
         FlipAnim();
     }
@@ -238,18 +235,18 @@ public class PlayerController : MonoBehaviour
 
     private void FlipAnim()
     {
-        if((goingUpward && rb.velocity.z < -.01f) || (!goingUpward && rb.velocity.z > .01f))
+        if((goingRight && rb.velocity.x < -.01f) || (!goingRight && rb.velocity.x > .01f))
         {
             flipAnimator.SetTrigger("Flip");
         }
 
-        if (rb.velocity.z > .1f)
+        if (rb.velocity.x > .1f)
         {
-            goingUpward = true;
+            goingRight = true;
         }
-        else if (rb.velocity.z < -0.1f)
+        else if (rb.velocity.x < -0.1f)
         {
-            goingUpward = false;
+            goingRight = false;
         }
     } 
 }
