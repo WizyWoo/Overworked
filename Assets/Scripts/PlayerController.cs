@@ -91,14 +91,14 @@ public class PlayerController : MonoBehaviour
 
     public void HoldGrab(InputAction.CallbackContext context)
     {
-        if (itemGrabbed == null)
-            return;
+        //if (itemGrabbed == null)
+        //    return;
 
-        if (context.duration <= 0.4f)
-            return;
+        //if (context.duration <= 0.4f)
+        //    return;
 
 
-        //if(context.canceled)
+        //if(context.canceled)dd
         //{
         //    float duration_Clamped = Mathf.Clamp((float)context.duration, 0.4f, 1);
 
@@ -120,60 +120,71 @@ public class PlayerController : MonoBehaviour
 
     // Called when the grab button is pressed
     // Checks if there are any near objects, if so pick the nearest one
+    float time;
     public void PressGrab(InputAction.CallbackContext context)
     {
         if (context.started)
+            time = Time.time;
+
+
+        if (context.canceled)
         {
-
-            // Try grab item
-            if (itemGrabbed == null)
+            if (time - Time.time <= 0.4f)
             {
-                if (ItemsInRangeForGrabbing.Count == 0) return;
-
-                GrabbableItem nearestItem = ItemsInRangeForGrabbing[0];
-                if (ItemsInRangeForGrabbing.Count == 1)
-                    nearestItem = ItemsInRangeForGrabbing[0];
-
-                else
+                // Try grab item
+                if (itemGrabbed == null)
                 {
-                    for (int i = 0; i < ItemsInRangeForGrabbing.Count; i++)
+                    if (ItemsInRangeForGrabbing.Count == 0) return;
+
+                    GrabbableItem nearestItem = ItemsInRangeForGrabbing[0];
+                    if (ItemsInRangeForGrabbing.Count == 1)
+                        nearestItem = ItemsInRangeForGrabbing[0];
+
+                    else
                     {
-                        float shortestDistance = Vector3.Distance(nearestItem.transform.position, transform.position);
+                        for (int i = 0; i < ItemsInRangeForGrabbing.Count; i++)
+                        {
+                            float shortestDistance = Vector3.Distance(nearestItem.transform.position, transform.position);
 
-                        float newDistance = Vector3.Distance(ItemsInRangeForGrabbing[i].transform.position, transform.position);
+                            float newDistance = Vector3.Distance(ItemsInRangeForGrabbing[i].transform.position, transform.position);
 
-                        if (newDistance < shortestDistance)
-                            nearestItem = ItemsInRangeForGrabbing[i];
+                            if (newDistance < shortestDistance)
+                                nearestItem = ItemsInRangeForGrabbing[i];
+                        }
                     }
+
+                    itemGrabbed = nearestItem;
+                    StartCoroutine("GrabItem");
                 }
 
-                itemGrabbed = nearestItem;
-                StartCoroutine("GrabItem");
+                // Ungrab item
+                else if (itemGrabbed != null)
+                {
+
+                    itemGrabbed.transform.SetParent(null);
+                    itemGrabbed.UngrabItem();
+
+
+                    float horDropSpeed;
+                    if (goingRight)
+                        horDropSpeed = 4;
+                    else horDropSpeed = -4;
+
+                    itemGrabbed.GetComponent<Rigidbody>().velocity =
+                        new Vector3(horDropSpeed, 5, 0);
+
+                    itemGrabbed = null;
+
+                    // take into account this object for grabbing
+                    //AddItem(itemGrabbed);
+                }
             }
 
-            // Ungrab item
-            else if (itemGrabbed != null)
+            else if (time - Time.time > 0.4f)
             {
-
-                itemGrabbed.transform.SetParent(null);
-                itemGrabbed.UngrabItem();
-
-
-                float horDropSpeed;
-                if (goingRight)
-                    horDropSpeed = 4;
-                else horDropSpeed = -4;
-
-                itemGrabbed.GetComponent<Rigidbody>().velocity =
-                    new Vector3(horDropSpeed, 5, 0);
-
-                itemGrabbed = null;
-
-                // take into account this object for grabbing
-                //AddItem(itemGrabbed);
+                Debug.Log("THROW");
             }
         }
-        
     }
 
     IEnumerator GrabItem()
@@ -229,19 +240,17 @@ public class PlayerController : MonoBehaviour
 
         Collider[] _interactables = Physics.OverlapSphere(transform.position, 3, 1 << LayerMask.NameToLayer("Interactable"));
 
-        Debug.Log(_interactables.Length);
-
-        if(_interactables.Length == 0)
+        if (_interactables.Length == 0)
             return;
 
         IInteractable _closestInteractable = null;
         float _dist = 100;
-        for(int i = 0; i < _interactables.Length; i++)
+        for (int i = 0; i < _interactables.Length; i++)
         {
 
             float _new = Vector3.Distance(_interactables[i].transform.position, transform.position);
 
-            if(_new < _dist)
+            if (_new < _dist)
             {
 
                 _dist = _new;
@@ -251,7 +260,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if(context.canceled)
+        if (context.canceled)
         {
 
             _closestInteractable.Activate(null, false);
@@ -270,7 +279,7 @@ public class PlayerController : MonoBehaviour
 
     private void FlipAnim()
     {
-        if((goingRight && rb.velocity.x < -.01f) || (!goingRight && rb.velocity.x > .01f))
+        if ((goingRight && rb.velocity.x < -.01f) || (!goingRight && rb.velocity.x > .01f))
         {
             flipAnimator.SetTrigger("Flip");
         }
@@ -283,5 +292,5 @@ public class PlayerController : MonoBehaviour
         {
             goingRight = false;
         }
-    } 
+    }
 }

@@ -26,6 +26,8 @@ public class GrabbableItem : MonoBehaviour
 
         beingGrabbed = true;
         rb.isKinematic = true;
+
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     public void UngrabItem()
     {
