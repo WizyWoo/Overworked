@@ -492,10 +492,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 988595195}
+  - component: {fileID: 988595191}
   - component: {fileID: 988595194}
   - component: {fileID: 988595193}
   - component: {fileID: 988595192}
-  - component: {fileID: 988595191}
   m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged

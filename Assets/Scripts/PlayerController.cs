@@ -178,6 +178,7 @@ public class PlayerController : MonoBehaviour
 
         itemGrabbed.transform.SetParent(grabSpot);
         itemGrabbed.transform.DOMove(grabSpot.position, grabTime);
+        itemGrabbed.transform.DORotate( Vector3.zero, grabTime);
         itemGrabbed.GrabItem();
 
         // Take it out of the inrange grabbable items list
@@ -236,9 +237,9 @@ public class PlayerController : MonoBehaviour
         verInput = context.ReadValue<Vector2>().y;
     }
 
+
     public void Interact(InputAction.CallbackContext context)
     {
-
         Collider[] _interactables = Physics.OverlapSphere(transform.position, 3, 1 << LayerMask.NameToLayer("Interactable"));
 
         if (_interactables.Length == 0)

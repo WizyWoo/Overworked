@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GrabbableItem : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class GrabbableItem : MonoBehaviour
 
         beingGrabbed = false;
         rb.isKinematic = false;
+
+        // If the player is rotating while throwing this item, put the rotation normally
+        transform.DORotate(Vector3.zero, .2f);
     }
 
 
