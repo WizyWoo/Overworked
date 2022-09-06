@@ -124,10 +124,6 @@ public class PlayerController : MonoBehaviour
     public void PressGrab(InputAction.CallbackContext context)
     {
         if (context.started)
-            time = Time.time;
-
-
-        if (context.canceled)
         {
             if (time - Time.time <= 0.4f)
             {
@@ -160,29 +156,11 @@ public class PlayerController : MonoBehaviour
                 // Ungrab item
                 else if (itemGrabbed != null)
                 {
-
-                    itemGrabbed.transform.SetParent(null);
-                    itemGrabbed.UngrabItem();
-
-
-                    float horDropSpeed;
-                    if (goingRight)
-                        horDropSpeed = 4;
-                    else horDropSpeed = -4;
-
-                    itemGrabbed.GetComponent<Rigidbody>().velocity =
-                        new Vector3(horDropSpeed, 5, 0);
-
-                    itemGrabbed = null;
+                    DropItem(5);
 
                     // take into account this object for grabbing
                     //AddItem(itemGrabbed);
                 }
-            }
-
-            else if (time - Time.time > 0.4f)
-            {
-                Debug.Log("THROW");
             }
         }
     }
@@ -203,6 +181,23 @@ public class PlayerController : MonoBehaviour
         currentlyGrabbingAnItem = true;
         yield return new WaitForSeconds(grabTime);
         currentlyGrabbingAnItem = false;
+    }
+
+    void DropItem(float throwForce)
+    {
+        itemGrabbed.transform.SetParent(null);
+        itemGrabbed.UngrabItem();
+
+
+        float horDropSpeed;
+        if (goingRight)
+            horDropSpeed = 4;
+        else horDropSpeed = -4;
+
+        itemGrabbed.GetComponent<Rigidbody>().velocity =
+            new Vector3(horDropSpeed, throwForce, 0);
+
+        itemGrabbed = null;
     }
 
     #endregion
