@@ -176,9 +176,20 @@ public class PlayerController : MonoBehaviour
         // Stop in the place
         rb.velocity = Vector3.zero;
 
+        //itemGrabbed.transform.SetParent(grabSpot);
+        //itemGrabbed.GrabItem();
+        //itemGrabbed.transform.DOMove(grabSpot.position, grabTime);
+        //itemGrabbed.transform.DORotate( Vector3.zero, grabTime);
+
+        // If this item has been grabbed from a conveyor belt, inform the conveyor belt
+        ConveyorBelt cb = itemGrabbed.GetComponentInParent<ConveyorBelt>();
+        if (cb != null)
+        {
+            cb.RemoveItemFromConveyor(itemGrabbed);
+        }
+
         itemGrabbed.transform.SetParent(grabSpot);
         itemGrabbed.transform.DOMove(grabSpot.position, grabTime);
-        itemGrabbed.transform.DORotate( Vector3.zero, grabTime);
         itemGrabbed.GrabItem();
 
         // Take it out of the inrange grabbable items list

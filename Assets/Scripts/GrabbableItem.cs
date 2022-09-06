@@ -18,18 +18,19 @@ public class GrabbableItem : MonoBehaviour
         colliders = GetComponents<SphereCollider>();
     }
 
+    // This is called when the player grab this item
     // Update parameters when the item is grabbed/ungrabbed
     public void GrabItem()
     {
-        // Disable all colliders
+        //Disable all colliders
         foreach (SphereCollider col in colliders)
             col.enabled = false;
 
         beingGrabbed = true;
         rb.isKinematic = true;
-
-        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
+
+
     public void UngrabItem()
     {
         // Enable all colliders
