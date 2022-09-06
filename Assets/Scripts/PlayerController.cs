@@ -125,45 +125,51 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (time - Time.time <= 0.4f)
+            // Try grab item
+            if (itemGrabbed == null)
             {
-                // Try grab item
-                if (itemGrabbed == null)
+                if (ItemsInRangeForGrabbing.Count == 0) return;
+
+                GrabbableItem nearestItem = ItemsInRangeForGrabbing[0];
+                if (ItemsInRangeForGrabbing.Count == 1)
+                    nearestItem = ItemsInRangeForGrabbing[0];
+
+                else
                 {
-                    if (ItemsInRangeForGrabbing.Count == 0) return;
-
-                    GrabbableItem nearestItem = ItemsInRangeForGrabbing[0];
-                    if (ItemsInRangeForGrabbing.Count == 1)
-                        nearestItem = ItemsInRangeForGrabbing[0];
-
-                    else
+                    for (int i = 0; i < ItemsInRangeForGrabbing.Count; i++)
                     {
-                        for (int i = 0; i < ItemsInRangeForGrabbing.Count; i++)
-                        {
-                            float shortestDistance = Vector3.Distance(nearestItem.transform.position, transform.position);
+                        float shortestDistance = Vector3.Distance(nearestItem.transform.position, transform.position);
 
-                            float newDistance = Vector3.Distance(ItemsInRangeForGrabbing[i].transform.position, transform.position);
+                        float newDistance = Vector3.Distance(ItemsInRangeForGrabbing[i].transform.position, transform.position);
 
-                            if (newDistance < shortestDistance)
-                                nearestItem = ItemsInRangeForGrabbing[i];
-                        }
+                        if (newDistance < shortestDistance)
+                            nearestItem = ItemsInRangeForGrabbing[i];
                     }
-
-                    itemGrabbed = nearestItem;
-                    StartCoroutine("GrabItem");
                 }
 
-                // Ungrab item
-                else if (itemGrabbed != null)
-                {
-                    DropItem(5);
+                itemGrabbed = nearestItem;
+                StartCoroutine("GrabItem");
+            }
 
-                    // take into account this object for grabbing
-                    //AddItem(itemGrabbed);
-                }
+            // Ungrab item
+            else if (itemGrabbed != null)
+            {
+                DropItem(5);
+
+                // take into account this object for grabbing
+                //AddItem(itemGrabbed);
             }
         }
     }
+
+    public void PressThrow(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            if (itemGrabbed != null)
+                DropItem(10);
+    }
+
+
 
     IEnumerator GrabItem()
     {
@@ -188,14 +194,14 @@ public class PlayerController : MonoBehaviour
         itemGrabbed.transform.SetParent(null);
         itemGrabbed.UngrabItem();
 
-
-        float horDropSpeed;
+        float horDropForce;
         if (goingRight)
-            horDropSpeed = 4;
-        else horDropSpeed = -4;
+            horDropForce = throwForce;
+        else horDropForce = -throwForce;
+        float verDropForce = 5;
 
         itemGrabbed.GetComponent<Rigidbody>().velocity =
-            new Vector3(horDropSpeed, throwForce, 0);
+            new Vector3(horDropForce, verDropForce, 0);
 
         itemGrabbed = null;
     }
