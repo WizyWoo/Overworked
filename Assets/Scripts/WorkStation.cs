@@ -60,6 +60,26 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
+    private void OnTriggerEnter(Collider _col)
+    {
+
+        if(_col.TryGetComponent<GrabbableItem>(out GrabbableItem _item))
+        {
+
+            PlaceItem(_item);
+
+        }
+
+    }
+
+    public void PlaceItem(GrabbableItem _item)
+    {
+
+        if(!ItemOnStaion.TryGetComponent<CraftableItem>(out craftingItem))
+            InvalidItem();
+
+    }
+
     public void InvalidItem()
     {
 
