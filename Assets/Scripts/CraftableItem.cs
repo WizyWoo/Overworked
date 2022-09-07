@@ -5,6 +5,7 @@ using UnityEngine;
 public class CraftableItem : GrabbableItem
 {
 
+    public int ID;
     public SpriteRenderer ProgressIndicator, ItemSprite;
     public Sprite AssembledItemSprite;
     [SerializeField]

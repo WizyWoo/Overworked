@@ -9,7 +9,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public bool InUse;
     public GrabbableItem ItemOnStaion;
     public Transform UsedBy, DisplayPoint;
-    private CraftableItem craftingItem;
+    public CraftableItem CraftingItem;
 
     public void Activate(Transform _player = null, bool _buttonDown = true)
     {
@@ -26,7 +26,7 @@ public class WorkStation : MonoBehaviour , IInteractable
         if(ItemOnStaion)
         {
 
-            if(craftingItem)
+            if(CraftingItem)
             {
 
                 InUse = _buttonDown;
@@ -46,15 +46,8 @@ public class WorkStation : MonoBehaviour , IInteractable
         {
 
             PlayerController _pC = _player.GetComponent<PlayerController>();
-            ItemOnStaion = _pC.itemGrabbed;
+            PlaceItem(_pC.itemGrabbed);
             _pC.itemGrabbed = null;
-            ItemOnStaion.transform.SetParent(null);
-            ItemOnStaion.transform.position = DisplayPoint.position;
-
-            if(!ItemOnStaion.TryGetComponent<CraftableItem>(out craftingItem))
-                InvalidItem();
-            else if(craftingItem.Assembled)
-                InvalidItem();
 
         }
 
@@ -72,50 +65,44 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
-    public void PlaceItem(GrabbableItem _item)
+    private void OnTriggerExit(Collider _col)
     {
 
-        if(!ItemOnStaion.TryGetComponent<CraftableItem>(out craftingItem))
+        if(_col.TryGetComponent<GrabbableItem>(out GrabbableItem _item) && _item == ItemOnStaion)
+            ItemOnStaion = null;
+
+    }
+
+    public virtual void PlaceItem(GrabbableItem _item)
+    {
+
+        if(ItemOnStaion)
+            return;
+
+        ItemOnStaion = _item;
+
+        if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
             InvalidItem();
+        else if(CraftingItem.Assembled)
+            InvalidItem();
+        else
+        {
+
+            ItemOnStaion.transform.SetParent(null);
+            ItemOnStaion.transform.position = DisplayPoint.position;
+
+        }
 
     }
 
     public void InvalidItem()
     {
 
-        craftingItem.UngrabItem();
+        ItemOnStaion.UngrabItem();
         ItemOnStaion = null;
         UsedBy = null;
         InUse = false;
         
-    }
-
-    private void Update()
-    {
-
-        if(!UsedBy)
-            return;
-
-        if(Vector3.Distance(UsedBy.position, transform.position) > UseRange)
-        {
-
-            InUse = false;
-
-        }
-
-        if(InUse)
-        {
-
-            craftingItem.Progress += CraftingSpeed * Time.deltaTime;
-            if(craftingItem.Progress >= 100)
-            {
-
-                InvalidItem();
-
-            }
-
-        }
-
     }
 
 }
