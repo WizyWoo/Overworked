@@ -16,6 +16,6 @@ public class ItemSpawner : MonoBehaviour
 
     void SpawnItem()
     {
-        Instantiate(spawnThisPrefab, null);
+        Instantiate(spawnThisPrefab, transform);
     }
 }
