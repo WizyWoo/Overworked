@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConveyorBelt : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] Vector3 direction;
+    [SerializeField] Vector2 direction;
     Rigidbody rb;
 
     List<GrabbableItem> itemsInConveyor = new List<GrabbableItem>();
@@ -21,7 +21,7 @@ public class ConveyorBelt : MonoBehaviour
             foreach (GrabbableItem item in itemsInConveyor)
             {
                 Rigidbody itemRb = item.GetComponent<Rigidbody>();
-                itemRb.velocity = speed * direction.normalized;
+                itemRb.velocity = speed * new Vector3(direction.x, 0, direction.y).normalized;
             }
     }
 
