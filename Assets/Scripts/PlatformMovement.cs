@@ -6,51 +6,74 @@ public class PlatformMovement : MonoBehaviour
 {
     [SerializeField] Transform a, b;
 
-    [SerializeField] bool goLeftAtStart;
+    [SerializeField] bool goAAtStart;
 
     [SerializeField] float velocity;
+
+    [SerializeField] AnimationCurve animationCurve;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (goLeftAtStart) 
+        if (goAAtStart) 
         {
             transform.position = b.position;
-            StartCoroutine(GoLeft());
+            StartCoroutine(GoA());
         }
         else
         {
             transform.position = a.position;
-            GoRight();
+            StartCoroutine(GoB());
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator GoA()
     {
-        
-    }
-
-    IEnumerator GoLeft()
-    {   
-        float c = 0;
-        while(Vector3.Distance(transform.position, a.position) > 0.1f)
+        float c = 0; 
+        while (Vector3.Distance(transform.position, a.position) > 0.1f)
         {
             yield return 0;
+            transform.position = Vector3.Lerp(b.position, a.position, animationCurve.Evaluate(c));
             c += velocity * Time.deltaTime;
-            Vector3.Lerp(transform.position, a.position, c);
+            c = Mathf.Clamp(c, 0, 1);
         }
+
+        StartCoroutine(GoB());
+        StopCoroutine(GoA());
     }
 
-    IEnumerator GoRight()
+    IEnumerator GoB()
     {
-        yield return 0;
-        if (Vector3.Distance(transform.position, b.position) > 0.1f)
+        float c = 0;
+        while (Vector3.Distance(transform.position, b.position) > 0.1f)
         {
-            Vector3.Lerp(transform.position, b.position, velocity * Time.deltaTime);
+            yield return 0;
+            transform.position = Vector3.Lerp(a.position, b.position, animationCurve.Evaluate(c));
+            c += velocity * Time.deltaTime;
+            c = Mathf.Clamp(c, 0, 1);
         }
-        else
-        {
 
-        }
+        StartCoroutine(GoA());
+        StopCoroutine(GoB());
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        PlayerController playerController = collision.transform.GetComponent<PlayerController>();
+
+        if (playerController == null)
+            return;
+
+        playerController.transform.parent = transform;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        PlayerController playerController = collision.transform.GetComponent<PlayerController>();
+
+        if (playerController == null)
+            return;
+
+        playerController.transform.parent = null;
     }
 }
