@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    enum allItemTypes { arm, wheel, }
+    // Craftable Item
+    [SerializeField] GameObject spawnThisPrefab;
 
-    //allItemTypes spawnItem
+    [SerializeField] int repeatRate;
+
+    private void Awake()
+    {
+        InvokeRepeating("SpawnItem", 0, repeatRate);
+    }
+
+    void SpawnItem()
+    {
+        Instantiate(spawnThisPrefab, null);
+    }
 }
