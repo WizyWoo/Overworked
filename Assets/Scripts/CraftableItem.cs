@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CraftableItem : GrabbableItem
 {
+    public enum TypeOfItem { arm, wheel }
+    [HideInInspector] public TypeOfItem typeOfItem;
 
     public SpriteRenderer ProgressIndicator, ItemSprite;
     public Sprite AssembledItemSprite;
