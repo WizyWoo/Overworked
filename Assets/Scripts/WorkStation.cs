@@ -8,7 +8,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public float UseRange, CraftingSpeed;
     public bool InUse;
     public GrabbableItem ItemOnStaion;
-    public Transform OccupiedBy, DisplayPoint;
+    public Transform UsedBy, DisplayPoint;
     private CraftableItem craftingItem;
 
     public void Activate(Transform _player = null, bool _buttonDown = true)
@@ -18,7 +18,7 @@ public class WorkStation : MonoBehaviour , IInteractable
         {
 
             InUse = false;
-            OccupiedBy = null;
+            UsedBy = null;
             return;
 
         }
@@ -30,14 +30,14 @@ public class WorkStation : MonoBehaviour , IInteractable
             {
 
                 InUse = _buttonDown;
-                OccupiedBy = _player;
+                UsedBy = _player;
 
             }
             else
             {
                 
                 InUse = false;
-                OccupiedBy = null;
+                UsedBy = null;
 
             }
 
@@ -65,7 +65,7 @@ public class WorkStation : MonoBehaviour , IInteractable
 
         craftingItem.UngrabItem();
         ItemOnStaion = null;
-        OccupiedBy = null;
+        UsedBy = null;
         InUse = false;
         
     }
@@ -73,10 +73,10 @@ public class WorkStation : MonoBehaviour , IInteractable
     private void Update()
     {
 
-        if(!OccupiedBy)
+        if(!UsedBy)
             return;
 
-        if(Vector3.Distance(OccupiedBy.position, transform.position) > UseRange)
+        if(Vector3.Distance(UsedBy.position, transform.position) > UseRange)
         {
 
             InUse = false;
