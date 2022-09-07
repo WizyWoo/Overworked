@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1fc4029ffe7250544861293b84c5406a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9532f4625d2cfac4d904280316869475, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 3670930037122264565}
   - component: {fileID: 3670930037122264564}
   m_Layer: 6
-  m_Name: Arm
+  m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,11 +217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948e9ef37fae1dd43af6f31ea6b81ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfItem: 0
+  typeOfItem: 1
   ID: 0
   ProgressIndicator: {fileID: 3670930035728738504}
   ItemSprite: {fileID: 3670930036268102308}
-  AssembledItemSprite: {fileID: 21300000, guid: bbe8a272789587447be4db3ddecd191f,
+  AssembledItemSprite: {fileID: 21300000, guid: 1464cba70dd48804cbc0621dfd0ae525,
     type: 3}
   assembled: 0
 --- !u!54 &3670930037122264562
