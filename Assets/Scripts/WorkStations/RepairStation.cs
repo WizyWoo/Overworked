@@ -25,7 +25,7 @@ public class RepairStation : WorkStation
             if(CraftingItem.Progress >= 100)
             {
 
-                InvalidItem();
+                RemoveItem();
 
             }
 

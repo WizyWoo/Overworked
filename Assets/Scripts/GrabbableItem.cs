@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class GrabbableItem : MonoBehaviour
 {
+
+    public WorkStation OnWorkstation;
     bool beingGrabbed = false;
 
     Rigidbody rb;
@@ -28,6 +30,9 @@ public class GrabbableItem : MonoBehaviour
 
         beingGrabbed = true;
         rb.isKinematic = true;
+
+        if(OnWorkstation)
+            OnWorkstation.RemoveItem();
     }
 
 

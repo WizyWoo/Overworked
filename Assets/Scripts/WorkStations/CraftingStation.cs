@@ -24,9 +24,9 @@ public class CraftingStation : WorkStation
         ItemOnStaion = _item;
 
         if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
-            InvalidItem();
+            RemoveItem();
         else if(CraftingItem.Assembled)
-            InvalidItem();
+            RemoveItem();
         else
         {
 

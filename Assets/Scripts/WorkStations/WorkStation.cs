@@ -65,14 +65,6 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
-    private void OnTriggerExit(Collider _col)
-    {
-
-        if(_col.TryGetComponent<GrabbableItem>(out GrabbableItem _item) && _item == ItemOnStaion)
-            ItemOnStaion = null;
-
-    }
-
     public virtual void PlaceItem(GrabbableItem _item)
     {
 
@@ -82,23 +74,24 @@ public class WorkStation : MonoBehaviour , IInteractable
         ItemOnStaion = _item;
 
         if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
-            InvalidItem();
+            RemoveItem();
         else if(CraftingItem.Assembled)
-            InvalidItem();
+            RemoveItem();
         else
         {
 
+            ItemOnStaion.UngrabItem();
             ItemOnStaion.transform.SetParent(null);
             ItemOnStaion.transform.position = DisplayPoint.position;
+            ItemOnStaion.OnWorkstation = this;
 
         }
 
     }
 
-    public void InvalidItem()
+    public void RemoveItem()
     {
 
-        ItemOnStaion.UngrabItem();
         ItemOnStaion = null;
         UsedBy = null;
         InUse = false;
