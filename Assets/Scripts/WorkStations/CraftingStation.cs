@@ -5,6 +5,7 @@ using UnityEngine;
 public class CraftingStation : WorkStation
 {
 
+    [Tooltip("Order doesn't matter :)")]
     public CraftableItem RecipeItem1, RecipeItem2;
     public GameObject Result;
     public bool ResultIsAssembled;
