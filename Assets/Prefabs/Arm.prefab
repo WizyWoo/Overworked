@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3670930035728738505}
   - component: {fileID: 3670930035728738504}
   m_Layer: 0
-  m_Name: Yepper
+  m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948e9ef37fae1dd43af6f31ea6b81ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWorkstation: {fileID: 0}
   typeOfItem: 0
   ID: 0
   ProgressIndicator: {fileID: 3670930035728738504}
