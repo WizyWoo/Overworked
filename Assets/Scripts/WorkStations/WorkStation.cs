@@ -50,7 +50,6 @@ public class WorkStation : MonoBehaviour , IInteractable
 
             if(ItemOnStaion == _pC.itemGrabbed)
                 _pC.itemGrabbed = null;
-
         }
 
     }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RepairStation : WorkStation
 {
-    
+    [SerializeField] CraftableItem.TypeOfRepairableItem canRepairThisItem;
+
     private void Update()
     {
 
@@ -18,7 +19,7 @@ public class RepairStation : WorkStation
 
         }
 
-        if(InUse)
+        if(InUse && CraftingItem.typeOfItem == canRepairThisItem)
         {
 
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;

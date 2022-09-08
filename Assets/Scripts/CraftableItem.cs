@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CraftableItem : GrabbableItem
 {
-    public enum TypeOfItem { arm, wheel }
-    public TypeOfItem typeOfItem;
+    public enum TypeOfRepairableItem { arm, wheel }
+    public TypeOfRepairableItem typeOfItem;
 
     public int ID;
     public SpriteRenderer ProgressIndicator, ItemSprite;
