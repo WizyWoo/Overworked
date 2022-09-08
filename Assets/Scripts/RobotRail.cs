@@ -32,8 +32,14 @@ public class RobotRail : MonoBehaviour
         if (collision.rigidbody.TryGetComponent<RobotBody>(out r))
         {
             itemsInConveyor.Add(r);
-            //r.transform.SetParent(transform, true);
+            r.transform.SetParent(transform, true);
         }
+    }
+
+    // This method is called from a RobotDeliverySpot when the robot is delivered and destroyed
+    public void RemoveRobotFromConveyor(RobotBody r)
+    {
+        itemsInConveyor.Remove(r);
     }
 
     private void OnCollisionExit(Collision collision)
@@ -43,7 +49,7 @@ public class RobotRail : MonoBehaviour
         if (collision.rigidbody.TryGetComponent<RobotBody>(out r))
         {
             itemsInConveyor.Remove(r);
-            //r.transform.SetParent(null, true);
+            r.transform.SetParent(null, true);
         }
     }
 }
