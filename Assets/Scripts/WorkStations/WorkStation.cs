@@ -7,8 +7,10 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     public float UseRange, CraftingSpeed;
     public bool InUse;
-    public GrabbableItem ItemOnStaion;
     public Transform UsedBy, DisplayPoint;
+    [HideInInspector]
+    public GrabbableItem ItemOnStaion;
+    [HideInInspector]
     public CraftableItem CraftingItem;
 
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)
