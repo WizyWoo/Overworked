@@ -10,6 +10,10 @@ public class LocalMultiplayer_Manager : MonoBehaviour
     // A list with all the players
     List<PlayerController> allPlayers;
 
+    [Header("Parameters")]
+    // If the player is below this Y position, respawn him
+    [SerializeField] float fallDistanceBeforeRespawning;
+
     // Empty object that contains all the players as childs
     [SerializeField] Transform playerContainer;
 
@@ -20,6 +24,7 @@ public class LocalMultiplayer_Manager : MonoBehaviour
     {
         playerInputManager = GetComponent<PlayerInputManager>();
 
+        allPlayers = new List<PlayerController>();
         //playerInputManager.JoinPlayer(1);
     }
 
@@ -34,8 +39,29 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         newPlayerController.playerIndex = playerIndex;
         newPlayerController.transform.SetParent(playerContainer);
 
-       // allPlayers.Add(newPlayerController);
+        allPlayers.Add(newPlayerController);
 
-        newPlayerController.transform.position = spawnpoints[playerIndex%2].position;
+        TeleportPlayerToSpawnPoint(newPlayerController.transform, playerIndex);
+    }
+
+    void TeleportPlayerToSpawnPoint(Transform playerTr, int playerIndex)
+    {
+        playerTr.position = spawnpoints[playerIndex % 2].position;
+    }
+
+
+    private void Update()
+    {
+        RespawnSystem();
+    }
+
+    void RespawnSystem()
+    {
+        if (allPlayers.Count != 0)
+            foreach (PlayerController player in allPlayers)
+            {
+                if (player.transform.position.y < fallDistanceBeforeRespawning)
+                    TeleportPlayerToSpawnPoint(player.transform, player.playerIndex);
+            }
     }
 }

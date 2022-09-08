@@ -221,6 +221,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9440a090-0b7e-422c-a8db-805678a55112",
+                    "path": "<DualShockGamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "13f78b7d-845b-4304-95a6-9a62acd70c79",
                     "path": "<Keyboard>/j",
                     "interactions": "",

@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 {
     public int playerIndex;
 
-
     // Movement
     [Header("DESIGNER VARIABLES")]
     [SerializeField] float speed, throwForce = 5;
@@ -69,6 +68,13 @@ public class PlayerController : MonoBehaviour
         //    sr.flipX = true;
 
         FlipAnim();
+
+
+
+
+        // Quick bug fix, need to change in the future
+        if (rb.velocity.y > 0)
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);
     }
 
 

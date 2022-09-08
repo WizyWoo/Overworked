@@ -24,17 +24,17 @@ public class RobotBody : MonoBehaviour
 
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
             {
-                if (!leftArmAssembled)
+                if (!rightArmAssembled)
+                {
+                    newSpot = rightArm_Spot;
+                    rightArmAssembled = true;
+                }
+                else if (!leftArmAssembled)
                 {
                     newSpot = leftArm_Spot;
                     item.transform.GetComponentInChildren<SpriteRenderer>().flipX = true;
 
                     leftArmAssembled = true;
-                }
-                else if (!rightArmAssembled)
-                {
-                    newSpot = rightArm_Spot;
-                    rightArmAssembled = true;
                 }
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
