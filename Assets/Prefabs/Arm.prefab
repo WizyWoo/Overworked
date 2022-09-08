@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3670930035728738505}
   - component: {fileID: 3670930035728738504}
   m_Layer: 0
-  m_Name: Yepper
+  m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
