@@ -1040,7 +1040,7 @@ GameObject:
   - component: {fileID: 1010300528}
   - component: {fileID: 1010300530}
   - component: {fileID: 1010300529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RobotRail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
