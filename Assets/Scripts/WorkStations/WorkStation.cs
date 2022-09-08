@@ -11,7 +11,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public Transform UsedBy, DisplayPoint;
     public CraftableItem CraftingItem;
 
-    public void Activate(Transform _player = null, bool _buttonDown = true)
+    public virtual void Activate(Transform _player = null, bool _buttonDown = true)
     {
 
         if(!_player)
@@ -66,11 +66,11 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
-    public virtual void PlaceItem(GrabbableItem _item)
+    public virtual bool PlaceItem(GrabbableItem _item)
     {
 
         if(ItemOnStaion || _item.OnWorkstation)
-            return;
+            return false;
 
         ItemOnStaion = _item;
 
@@ -88,9 +88,11 @@ public class WorkStation : MonoBehaviour , IInteractable
 
         }
 
+        return true;
+
     }
 
-    public void RemoveItem()
+    public virtual void RemoveItem()
     {
 
         ItemOnStaion.OnWorkstation = null;
