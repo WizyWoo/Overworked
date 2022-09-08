@@ -55,7 +55,8 @@ public class RobotBody : MonoBehaviour
             item.transform.SetParent(newSpot);
             //item.GetComponent<Rigidbody>().useGravity = false;
             //item.GetComponent<Rigidbody>().isKinematic = true;
-            item.transform.DOMove(newSpot.position, .5f);
+            //item.transform.DOMove(newSpot.position, .5f);
+            StartCoroutine(MoveItemToAssembledSpot(item.transform, newSpot.transform, .5f));
 
             // DisableItem
             //SphereCollider[] coll = item.transform.GetComponents<SphereCollider>();
@@ -66,6 +67,24 @@ public class RobotBody : MonoBehaviour
             //item.assembled = true;
 
             item.enabled = false;
+        }
+    }
+
+
+    [SerializeField] AnimationCurve animationCurve;
+    float assembleVelocity = 2;
+    IEnumerator MoveItemToAssembledSpot(Transform item, Transform assembleSpot, float seconds)
+    {
+        Vector3 initialPosition = item.position;
+
+        float c = 0;
+        while (Vector3.Distance(assembleSpot.position, item.position) > 0.001f)
+        {
+             item.transform.position = Vector3.Lerp(initialPosition, assembleSpot.position, animationCurve.Evaluate(c));
+            //item.transform.position = Vector3.Lerp(initialPosition, assembleSpot.position, c);
+            c += (Time.deltaTime / seconds);
+            c = Mathf.Clamp(c, 0, 1);
+            yield return new WaitForSeconds(0);
         }
     }
 }
