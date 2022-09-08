@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    public Transform RespawnPoint;
+    public Transform[] RespawnPoint;
+    public bool Respawning;
+    public int TotalRespawns;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,12 @@ public class Respawn : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.position = RespawnPoint.position;
+        other.transform.position = RespawnPoint[Random.Range(0, RespawnPoint.Length)].position;
+        Respawning = true;
+        if(other.name == "Player(Clone)")
+        {
+            TotalRespawns++;
+        }
+        
     }
 }
