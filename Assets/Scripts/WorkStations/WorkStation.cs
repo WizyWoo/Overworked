@@ -47,7 +47,9 @@ public class WorkStation : MonoBehaviour , IInteractable
 
             PlayerController _pC = _player.GetComponent<PlayerController>();
             PlaceItem(_pC.itemGrabbed);
-            _pC.itemGrabbed = null;
+
+            if(ItemOnStaion == _pC.itemGrabbed)
+                _pC.itemGrabbed = null;
 
         }
 
@@ -68,7 +70,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public virtual void PlaceItem(GrabbableItem _item)
     {
 
-        if(ItemOnStaion)
+        if(ItemOnStaion || _item.OnWorkstation)
             return;
 
         ItemOnStaion = _item;
@@ -92,6 +94,8 @@ public class WorkStation : MonoBehaviour , IInteractable
     public void RemoveItem()
     {
 
+        ItemOnStaion.OnWorkstation = null;
+        CraftingItem = null;
         ItemOnStaion = null;
         UsedBy = null;
         InUse = false;

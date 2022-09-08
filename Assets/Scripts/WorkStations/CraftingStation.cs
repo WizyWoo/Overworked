@@ -8,7 +8,8 @@ public class CraftingStation : WorkStation
     public CraftableItem RecipeItem1, RecipeItem2;
     public GameObject Result;
     private int recipeID1, recipeID2;
-    private bool part1, part2;
+    private bool part1Ready, part2Ready;
+    private GameObject part1, part2;
 
     private void Start()
     {
@@ -21,17 +22,20 @@ public class CraftingStation : WorkStation
     public override void PlaceItem(GrabbableItem _item)
     {
 
+        if(_item.OnWorkstation)
+            return;
+
         ItemOnStaion = _item;
 
         if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
             RemoveItem();
-        else if(CraftingItem.Assembled)
+        else if(!CraftingItem.Assembled)
             RemoveItem();
         else
         {
 
-            ItemOnStaion.transform.SetParent(null);
-            ItemOnStaion.transform.position = DisplayPoint.position;
+            if(CraftingItem.ID == recipeID1)
+                part1Ready = true;
 
         }
 

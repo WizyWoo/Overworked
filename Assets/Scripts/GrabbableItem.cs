@@ -51,6 +51,7 @@ public class GrabbableItem : MonoBehaviour
 
         beingGrabbed = false;
         rb.isKinematic = false;
+        rb.velocity = Vector3.zero;
 
         // If the player is rotating while throwing this item, put the rotation normally
         transform.DORotate(Vector3.zero, .2f);
