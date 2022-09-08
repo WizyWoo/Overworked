@@ -564,6 +564,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376289673}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &450753696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450753697}
+  m_Layer: 0
+  m_Name: Wheel_Spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450753697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450753696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1981143118}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &465148116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,6 +1642,7 @@ GameObject:
   - component: {fileID: 1595153363}
   - component: {fileID: 1595153362}
   - component: {fileID: 1595153361}
+  - component: {fileID: 1595153366}
   - component: {fileID: 1595153360}
   m_Layer: 0
   m_Name: RobotBody
@@ -1727,6 +1759,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d572fe3cdc46d941b99ae49932d991c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftArm_Spot: {fileID: 1765463653}
+  rightArm_Spot: {fileID: 2044654908}
+  wheel_Spot: {fileID: 450753697}
+--- !u!65 &1595153366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595153359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 2.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1748423405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1816,7 +1864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1765463653}
   m_Layer: 0
-  m_Name: LeftArm
+  m_Name: LeftArm_Spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1830,7 +1878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765463652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.894, y: 0, z: -0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1968,7 +2016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981143118}
   m_Layer: 0
-  m_Name: AssembledParts
+  m_Name: AssembleSpots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,6 +2036,7 @@ Transform:
   m_Children:
   - {fileID: 1765463653}
   - {fileID: 2044654908}
+  - {fileID: 450753697}
   m_Father: {fileID: 1595153364}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2001,7 +2050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2044654908}
   m_Layer: 0
-  m_Name: RightArm
+  m_Name: RightArm_Spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2015,7 +2064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044654907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.894, y: 0, z: -0.080000065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
