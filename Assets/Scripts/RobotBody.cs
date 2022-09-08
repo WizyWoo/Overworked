@@ -7,9 +7,7 @@ public class RobotBody : MonoBehaviour
 {
     [SerializeField] Transform leftArm_Spot, rightArm_Spot, wheel_Spot;
 
-    bool leftArmAssembled, rightArmAssembled, wheelAssembled;
-
-
+    [HideInInspector] public bool leftArmAssembled, rightArmAssembled, wheelAssembled;
 
     private void OnTriggerEnter(Collider other)
     {
