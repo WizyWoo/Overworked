@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
         // Quick bug fix, need to change in the future
         if (rb.velocity.y > 0)
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
     }
 
 
@@ -134,6 +134,10 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
+                // If there are any null references destroy them
+                foreach (GrabbableItem item in ItemsInRangeForGrabbing)
+                    if (item == null) ItemsInRangeForGrabbing.Remove(item);
+
                 if (ItemsInRangeForGrabbing.Count == 0) return;
 
                 GrabbableItem nearestItem = ItemsInRangeForGrabbing[0];
@@ -209,6 +213,8 @@ public class PlayerController : MonoBehaviour
 
     void DropItem(float throwForce)
     {
+        //RemoveItem(itemGrabbed);
+
         itemGrabbed.transform.SetParent(null);
         itemGrabbed.UngrabItem();
 
