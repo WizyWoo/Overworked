@@ -18,7 +18,7 @@ public class RobotBody : MonoBehaviour
         if (item != null)
         {
             //// Comprobar si esta crafteado
-            //if (!item.Assembled) return;
+            if (!item.Assembled) return;
 
 
             // Compobar en que lado se implementa
