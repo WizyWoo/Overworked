@@ -20,6 +20,13 @@ public class GrabbableItem : MonoBehaviour
         colliders = GetComponents<SphereCollider>();
     }
 
+    private void Update()
+    {
+        if (transform.position.y < -50)
+            Destroy(this.gameObject);
+    }
+
+
     // This is called when the player grab this item
     // Update parameters when the item is grabbed/ungrabbed
     public void GrabItem()
