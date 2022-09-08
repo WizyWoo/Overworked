@@ -502,8 +502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: {fileID: 2091472999}
   b: {fileID: 1828721383}
-  goLeftAtStart: 0
-  startVelocity: 0.2
+  goAAtStart: 0
+  velocity: 1
   animationCurve:
     serializedVersion: 2
     m_Curve:
