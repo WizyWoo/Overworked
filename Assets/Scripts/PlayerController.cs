@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Linq;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed, throwForce = 5;
     float horInput, verInput;
 
+    // Stamina
+    float maxStamina = 5;
+    float currentStamina;
+
     // References
     Rigidbody rb;
     SpriteRenderer sr;
@@ -25,15 +30,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Sprite[] playerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
     [SerializeField] Animator flipAnimator;
-
     [SerializeField] bool goingRight;
+    [SerializeField] Image staminaUI;
 
 
     // Grabbing
 
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
-    public GrabbableItem itemGrabbed;
+    [HideInInspector] public GrabbableItem itemGrabbed;
 
     public IInteractable InteractingWith;
 
@@ -50,7 +55,10 @@ public class PlayerController : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
 
         // PLAYER INDEX SETUP
-        movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex%2];
+        movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex % 2];
+
+        // Starting stamina
+        currentStamina = maxStamina;
     }
 
     private void Start()
@@ -62,10 +70,9 @@ public class PlayerController : MonoBehaviour
         // Update GFX
         movementAnimator.SetFloat("CurrentVelocity", rb.velocity.magnitude);
 
-        //if (rb.velocity.x > .2f)
-        //    sr.flipX = false;
-        //else if (rb.velocity.x < -.2f)
-        //    sr.flipX = true;
+
+        StaminaSystem();
+
 
         FlipAnim();
 
@@ -75,6 +82,33 @@ public class PlayerController : MonoBehaviour
         // Quick bug fix, need to change in the future
         if (rb.velocity.y > 0)
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+    }
+
+
+    void StaminaSystem()
+    {
+        // Lose stamina if moving
+        if (horInput != 0 || verInput != 0)
+            currentStamina -= Time.deltaTime;
+        else
+            currentStamina += Time.deltaTime;
+
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+
+        // Update stamina UI
+        float newAmount = (currentStamina / maxStamina) / 2;
+        staminaUI.fillAmount = newAmount;
+        if (currentStamina < maxStamina / 2)
+        {
+            float f = (currentStamina / (maxStamina / 2));
+            staminaUI.color = Color.Lerp(Color.red, Color.yellow, f);
+        }
+        else
+        {
+            float f = (currentStamina - maxStamina / 2) / (maxStamina / 2);
+            staminaUI.color = Color.Lerp(Color.yellow, Color.green, f);
+        }
     }
 
 
