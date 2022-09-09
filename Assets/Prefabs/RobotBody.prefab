@@ -57,6 +57,11 @@ MonoBehaviour:
   leftArmAssembled: 0
   rightArmAssembled: 0
   wheelAssembled: 0
+  explosion: {fileID: 5287922387022479612, guid: b938d9fb844dcbb4cb4ddd718f6ba42c,
+    type: 3}
+  arm: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074, type: 3}
+  wheel: {fileID: 3670930037122264567, guid: 8046ef736ac597a4497296f5d16164e9, type: 3}
+  throwForce: {x: 500, y: 1000}
   animationCurve:
     serializedVersion: 2
     m_Curve:

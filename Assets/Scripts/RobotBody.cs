@@ -70,6 +70,7 @@ public class RobotBody : MonoBehaviour
     }
 
 
+
     [SerializeField] AnimationCurve animationCurve;
     float assembleVelocity = 2;
     IEnumerator MoveItemToAssembledSpot(Transform item, Transform assembleSpot, float seconds)
