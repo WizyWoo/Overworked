@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoseCondition : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class LoseCondition : MonoBehaviour
     public int Failed_Robots, Successful_Robots;
     private WinCondition WC;
     public GameObject LoserHud;
-    public float Timer;
+    private Text TimerText;
+    public float Timer, seconds;
     public RobotDeliverySpot[] DeliverySpots;
    public GameObject[] DeliveryGameObjects;
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class LoseCondition : MonoBehaviour
         {
             DeliverySpots[i] = DeliveryGameObjects[i].GetComponent<RobotDeliverySpot>();
         }
+        TimerText = gameObject.transform.Find("TimerAndFails").GetComponentInChildren<Text>();
     }
 
     // Update is called once per frame
@@ -51,7 +54,9 @@ public class LoseCondition : MonoBehaviour
         // turning on the LoserHud object containing the Game Over "hud"
         // as a result of this physics will be kinda slow until reset back to 1
         Timer -= Time.deltaTime;
-        if(Successful_Robots >= 4)
+         seconds = Mathf.FloorToInt(Timer % 60);
+        TimerText.text = seconds.ToString();
+        if (Successful_Robots >= 4)
         {
             Failed_Robots--;
             Successful_Robots = 0;
