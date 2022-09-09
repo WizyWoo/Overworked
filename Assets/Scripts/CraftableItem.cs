@@ -49,6 +49,7 @@ public class CraftableItem : GrabbableItem
 
         ItemSprite.sprite = AssembledItemSprite;
         ProgressIndicator.size = Vector2.zero;
+        NeedsCrafting = false;
 
     }
 
