@@ -10,6 +10,7 @@ public class LoseCondition : MonoBehaviour
     public GameObject LoserHud;
     public float Timer;
     public RobotDeliverySpot[] DeliverySpots;
+   public GameObject[] DeliveryGameObjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,12 @@ public class LoseCondition : MonoBehaviour
 
         LoserHud.SetActive(false);
         WC = gameObject.GetComponent<WinCondition>();
+        DeliveryGameObjects = GameObject.FindGameObjectsWithTag("DeliverySpot");
+        DeliverySpots = new RobotDeliverySpot[DeliveryGameObjects.Length];
+        for (int i = 0; i < DeliveryGameObjects.Length; i++)
+        {
+            DeliverySpots[i] = DeliveryGameObjects[i].GetComponent<RobotDeliverySpot>();
+        }
     }
 
     // Update is called once per frame
