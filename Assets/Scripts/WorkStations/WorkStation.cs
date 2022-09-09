@@ -5,13 +5,14 @@ using UnityEngine;
 public class WorkStation : MonoBehaviour , IInteractable
 {
 
-    public float UseRange, CraftingSpeed;
+    public float UseRange, CraftingSpeed, WorkIntensity;
     public bool InUse;
-    public Transform UsedBy, DisplayPoint;
+    public Transform DisplayPoint;
     [HideInInspector]
     public GrabbableItem ItemOnStaion;
     [HideInInspector]
     public CraftableItem CraftingItem;
+    public PlayerController UsedBy;
 
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)
     {
@@ -32,7 +33,7 @@ public class WorkStation : MonoBehaviour , IInteractable
             {
 
                 InUse = _buttonDown;
-                UsedBy = _player;
+                UsedBy = _player.GetComponent<PlayerController>();
 
             }
             else

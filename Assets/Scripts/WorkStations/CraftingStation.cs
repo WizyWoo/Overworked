@@ -40,7 +40,7 @@ public class CraftingStation : WorkStation
             {
 
                 InUse = _buttonDown;
-                UsedBy = _player;
+                UsedBy = _player.GetComponent<PlayerController>();
 
             }
             else
@@ -171,16 +171,18 @@ public class CraftingStation : WorkStation
         if(!UsedBy)
             return;
 
-        if(Vector3.Distance(UsedBy.position, transform.position) > UseRange)
+        if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange)
         {
 
             InUse = false;
+            return;
 
         }
 
         if(InUse && part1Ready && part2Ready)
         {
 
+            UsedBy.DoingWork(WorkIntensity);
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
             if(CraftingItem.Progress >= 100)
             {

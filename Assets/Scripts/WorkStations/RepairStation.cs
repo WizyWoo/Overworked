@@ -12,16 +12,18 @@ public class RepairStation : WorkStation
         if(!UsedBy)
             return;
 
-        if(Vector3.Distance(UsedBy.position, transform.position) > UseRange)
+        if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange)
         {
 
             InUse = false;
+            return;
 
         }
 
         if(InUse && CraftingItem.typeOfItem == canRepairThisItem)
         {
 
+            UsedBy.DoingWork(WorkIntensity);
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
             if(CraftingItem.Progress >= 100)
             {
