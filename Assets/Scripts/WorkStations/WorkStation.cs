@@ -8,9 +8,9 @@ public class WorkStation : MonoBehaviour , IInteractable
     public float UseRange, CraftingSpeed;
     public bool InUse;
     public Transform UsedBy, DisplayPoint;
-    //[HideInInspector]
+    [HideInInspector]
     public GrabbableItem ItemOnStaion;
-    //[HideInInspector]
+    [HideInInspector]
     public CraftableItem CraftingItem;
 
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)

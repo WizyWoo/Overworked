@@ -33,6 +33,26 @@ public class CraftingStation : WorkStation
 
         }
 
+        if(ItemOnStaion)
+        {
+
+            if(CraftingItem)
+            {
+
+                InUse = _buttonDown;
+                UsedBy = _player;
+
+            }
+            else
+            {
+                
+                InUse = false;
+                UsedBy = null;
+
+            }
+
+        }
+
         if(_player.GetComponent<PlayerController>().itemGrabbed)
         {
 
@@ -113,12 +133,11 @@ public class CraftingStation : WorkStation
             part2.transform.position = Vector3.down * 10;
             //Destroy(part1);
             //Destroy(part2);
-            part1Ready = false;
-            part2Ready = false;
             GameObject _tempGO = Instantiate(Result, DisplayPoint.position, Quaternion.identity);
             GrabbableItem _tempGI = _tempGO.GetComponent<GrabbableItem>();
             _tempGI.OnWorkstation = this;
             ItemOnStaion = _tempGI;
+            CraftingItem = _tempGO.GetComponent<CraftableItem>();
 
             if(ResultIsAssembled)
                 _tempGO.GetComponent<CraftableItem>().Assembled = true;
@@ -144,6 +163,35 @@ public class CraftingStation : WorkStation
         
         base.RemoveItem();
         
+    }
+
+    private void Update()
+    {
+
+        if(!UsedBy)
+            return;
+
+        if(Vector3.Distance(UsedBy.position, transform.position) > UseRange)
+        {
+
+            InUse = false;
+
+        }
+
+        if(InUse && part1Ready && part2Ready)
+        {
+
+            CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+            if(CraftingItem.Progress >= 100)
+            {
+                
+                part1Ready = false;
+                part2Ready = false;
+
+            }
+
+        }
+
     }
 
 }
