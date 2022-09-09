@@ -14,18 +14,25 @@ public class PlayerController : MonoBehaviour
 
     // Movement
     [Header("DESIGNER VARIABLES")]
-    [SerializeField] float speed, throwForce = 5;
+    [SerializeField] float speed;
+    [SerializeField] float weakThrowForce;
+    [SerializeField] float strongThrowForce;
     float horInput, verInput;
 
     // Stamina
-    float maxStamina = 5;
+
+    [Header("Stamina")]
+    [SerializeField] float maxStamina;
     float currentStamina;
+    [SerializeField] float staminaCooldown;
+    bool exhausted;
+    [SerializeField] float regainStaminaSpeed;
 
     // References
     Rigidbody rb;
     SpriteRenderer sr;
-    [SerializeField] Animator movementAnimator;
     [Header("REFERENCES")]
+    [SerializeField] Animator movementAnimator;
     [SerializeField] Transform grabSpot;
     [SerializeField] Sprite[] playerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
@@ -67,15 +74,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Update GFX
+        // Update player GFX
         movementAnimator.SetFloat("CurrentVelocity", rb.velocity.magnitude);
 
-
+        // Update stamina variables and stamina gfx
         StaminaSystem();
 
 
         FlipAnim();
-
 
 
 
@@ -87,14 +93,24 @@ public class PlayerController : MonoBehaviour
 
     void StaminaSystem()
     {
-        // Lose stamina if moving
-        if (horInput != 0 || verInput != 0)
-            currentStamina -= Time.deltaTime;
-        else
+        if (exhausted)
+        {
             currentStamina += Time.deltaTime;
 
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+            if (currentStamina >= maxStamina)
+                exhausted = false;
+        }
+        else
+        {
+            // Lose stamina if moving
+            if (horInput != 0 || verInput != 0)
+                currentStamina -= Time.deltaTime;
+            else
+                currentStamina += Time.deltaTime * regainStaminaSpeed;
+        }
 
+        // Clamp min and max values
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
 
         // Update stamina UI
         float newAmount = (currentStamina / maxStamina) / 2;
@@ -108,6 +124,15 @@ public class PlayerController : MonoBehaviour
         {
             float f = (currentStamina - maxStamina / 2) / (maxStamina / 2);
             staminaUI.color = Color.Lerp(Color.yellow, Color.green, f);
+        }
+
+        // Exhausted ?
+        if (currentStamina == 0)
+        {
+            exhausted = true;
+            // Drop the
+            if (itemGrabbed != null)
+                DropItem(weakThrowForce);
         }
     }
 
@@ -129,40 +154,13 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("inRangeItem = " + ItemsInRangeForGrabbing.Count);
     }
 
-    public void HoldGrab(InputAction.CallbackContext context)
-    {
-        //if (itemGrabbed == null)
-        //    return;
-
-        //if (context.duration <= 0.4f)
-        //    return;
-
-
-        //if(context.canceled)dd
-        //{
-        //    float duration_Clamped = Mathf.Clamp((float)context.duration, 0.4f, 1);
-
-        //    itemGrabbed.transform.SetParent(null);
-        //    itemGrabbed.UngrabItem();
-
-        //    int flipped = 1;
-        //    if (!goingRight)
-        //        flipped = -1;
-
-        //    //last player input
-        //    Vector2 lastPlayerInput = Vector2.zero;
-
-        //    itemGrabbed.GetComponent<Rigidbody>().AddForce(transform.right * throwForce * duration_Clamped * flipped, ForceMode.Impulse);
-
-        //    itemGrabbed = null;
-        //}
-    }
-
     // Called when the grab button is pressed
     // Checks if there are any near objects, if so pick the nearest one
     float time;
     public void PressGrab(InputAction.CallbackContext context)
     {
+        if (exhausted) return;
+
         if (context.started)
         {
             // Try grab item
@@ -198,7 +196,7 @@ public class PlayerController : MonoBehaviour
             // Ungrab item
             else if (itemGrabbed != null)
             {
-                DropItem(5);
+                DropItem(weakThrowForce);
 
                 // take into account this object for grabbing
                 //AddItem(itemGrabbed);
@@ -208,12 +206,12 @@ public class PlayerController : MonoBehaviour
 
     public void PressThrow(InputAction.CallbackContext context)
     {
+        if (exhausted) return;
+
         if (context.started)
             if (itemGrabbed != null)
-                DropItem(10);
+                DropItem(strongThrowForce);
     }
-
-
 
     IEnumerator GrabItem()
     {
@@ -244,7 +242,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(grabTime);
         currentlyGrabbingAnItem = false;
     }
-
     void DropItem(float throwForce)
     {
         //RemoveItem(itemGrabbed);
@@ -284,7 +281,14 @@ public class PlayerController : MonoBehaviour
 
         newVelocity += new Vector3(horInput, rb.velocity.y, verInput);
 
+
         rb.velocity = newVelocity.normalized * speed;
+
+
+        if (exhausted)
+            rb.velocity *= 0;
+        else
+            rb.velocity *= Mathf.Lerp(.5f, 1, currentStamina / maxStamina);
     }
 
     // INPUT
