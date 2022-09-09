@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorkStation : MonoBehaviour , IInteractable
 {
 
+    [Header("Workstation Settings")]
     [Tooltip("How far away the player can interact with the table from")]
     public float UseRange;
     [Tooltip("The speed at which you do work at this station")]
