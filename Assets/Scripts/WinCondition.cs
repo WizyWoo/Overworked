@@ -7,6 +7,7 @@ public class WinCondition : MonoBehaviour
     public bool Win;
     public int Wincondition_Robotchain, Current_RobotChain;
     public GameObject WinnerHud;
+   [Tooltip("The Objects with the tag delivery spot will show up here, please tag them so this works")]
     public RobotDeliverySpot[] DeliverySpots;
     public GameObject[] DeliveryGameObjects;
     // Start is called before the first frame update

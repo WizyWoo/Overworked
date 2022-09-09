@@ -11,6 +11,7 @@ public class LoseCondition : MonoBehaviour
     public GameObject LoserHud;
     private Text TimerText;
     public float Timer, seconds;
+    [Tooltip("The Objects with the tag delivery spot will show up here, please tag them so this works")]
     public RobotDeliverySpot[] DeliverySpots;
    public GameObject[] DeliveryGameObjects;
     // Start is called before the first frame update
