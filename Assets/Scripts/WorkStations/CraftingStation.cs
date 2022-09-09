@@ -5,9 +5,11 @@ using UnityEngine;
 public class CraftingStation : WorkStation
 {
 
-    [Tooltip("Order doesn't matter :)")]
+    [Tooltip("The Items needed to craft an item .Order doesn't matter :)")]
     public CraftableItem RecipeItem1, RecipeItem2;
+    [Tooltip("The prefab that should spawn when the recipe items are combined")]
     public GameObject Result;
+    [Tooltip("Whether the result is finished by default or needs to be crafted")]
     public bool ResultIsAssembled;
     private int recipeID1, recipeID2;
     private bool part1Ready, part2Ready;
