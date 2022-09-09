@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour
             flipAnimator.SetTrigger("Flip");
         }
 
-        if (rb.velocity.x > .1f)
+        if (rb.velocity.x > 0.1f)
         {
             goingRight = true;
         }
