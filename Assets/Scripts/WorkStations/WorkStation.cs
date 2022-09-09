@@ -5,13 +5,22 @@ using UnityEngine;
 public class WorkStation : MonoBehaviour , IInteractable
 {
 
-    public float UseRange, CraftingSpeed, WorkIntensity;
+    [Header("Workstation Settings")]
+    [Tooltip("How far away the player can interact with the table from")]
+    public float UseRange;
+    [Tooltip("The speed at which you do work at this station")]
+    public float CraftingSpeed;
+    [Tooltip("A multiplier for how much stamina you use at this station, 0 = no stamina used")]
+    public float WorkIntensity;
+    [Tooltip("If this Workstation is in use")]
     public bool InUse;
+    [Tooltip("Where the item lands on the table")]
     public Transform DisplayPoint;
     [HideInInspector]
     public GrabbableItem ItemOnStaion;
     [HideInInspector]
     public CraftableItem CraftingItem;
+    [Tooltip("The player that is using this Workstation. DO NOT TOUCH")]
     public PlayerController UsedBy;
 
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)
