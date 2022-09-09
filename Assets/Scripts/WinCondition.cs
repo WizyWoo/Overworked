@@ -8,10 +8,17 @@ public class WinCondition : MonoBehaviour
     public int Wincondition_Robotchain, Current_RobotChain;
     public GameObject WinnerHud;
     public RobotDeliverySpot[] DeliverySpots;
+    public GameObject[] DeliveryGameObjects;
     // Start is called before the first frame update
     void Start()
     {
         WinnerHud.SetActive(false);
+        DeliveryGameObjects = GameObject.FindGameObjectsWithTag("DeliverySpot");
+        DeliverySpots = new RobotDeliverySpot[DeliveryGameObjects.Length];
+        for (int i = 0; i < DeliveryGameObjects.Length; i++)
+        {
+            DeliverySpots[i] = DeliveryGameObjects[i].GetComponent<RobotDeliverySpot>();
+        }
     }
 
     // Update is called once per frame
