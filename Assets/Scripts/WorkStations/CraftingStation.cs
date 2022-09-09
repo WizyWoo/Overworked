@@ -79,7 +79,7 @@ public class CraftingStation : WorkStation
 
         bool _stopPlz = false;
 
-        if(_item.OnWorkstation)
+        if(_item.OnWorkstation || ItemOnStaion && !part1Ready && !part2Ready)
             return false;
 
         ItemOnStaion = _item;
@@ -98,7 +98,7 @@ public class CraftingStation : WorkStation
             return false;
 
         }
-        else if(CraftingItem.NeedsCrafting)
+        else if(CraftingItem.NeedsCrafting && !part1Ready && !part2Ready)
         {
 
             ItemOnStaion.UngrabItem();
@@ -148,6 +148,8 @@ public class CraftingStation : WorkStation
             
             part1.transform.position = Vector3.down * 10;
             part2.transform.position = Vector3.down * 10;
+            part1Ready = false;
+            part2Ready = false;
             //Destroy(part1);
             //Destroy(part2);
             GameObject _tempGO = Instantiate(Result, DisplayPoint.position, Quaternion.identity);
@@ -197,18 +199,11 @@ public class CraftingStation : WorkStation
 
         }
 
-        if(InUse && part1Ready && part2Ready && CraftingItem.NeedsCrafting && !UsedBy.exhausted)
+        if(InUse && CraftingItem.NeedsCrafting && !UsedBy.exhausted)
         {
 
             UsedBy.DoingWork(WorkIntensity);
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
-            if(CraftingItem.Progress >= 100)
-            {
-                
-                part1Ready = false;
-                part2Ready = false;
-
-            }
 
         }
 

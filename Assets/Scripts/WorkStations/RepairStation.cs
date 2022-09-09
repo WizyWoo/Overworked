@@ -9,6 +9,34 @@ public class RepairStation : WorkStation
     [Tooltip("Specifies what items can be repaired at this Station")]
     [SerializeField] CraftableItem.TypeOfRepairableItem canRepairThisItem;
 
+    public override bool PlaceItem(GrabbableItem _item)
+    {
+
+        if(ItemOnStaion || _item.OnWorkstation)
+            return false;
+
+        ItemOnStaion = _item;
+
+        if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
+            RemoveItem();
+        else if(CraftingItem.Assembled)
+            RemoveItem();
+        else if(CraftingItem.typeOfItem != canRepairThisItem)
+            RemoveItem();
+        else
+        {
+
+            ItemOnStaion.UngrabItem();
+            ItemOnStaion.transform.SetParent(null);
+            ItemOnStaion.transform.position = DisplayPoint.position;
+            ItemOnStaion.OnWorkstation = this;
+
+        }
+
+        return true;
+
+    }
+
     private void Update()
     {
 
