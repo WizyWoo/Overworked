@@ -116,6 +116,9 @@ public class CraftingStation : WorkStation
             part1Ready = false;
             part2Ready = false;
             GameObject _tempGO = Instantiate(Result, DisplayPoint.position, Quaternion.identity);
+            GrabbableItem _tempGI = _tempGO.GetComponent<GrabbableItem>();
+            _tempGI.OnWorkstation = this;
+            ItemOnStaion = _tempGI;
 
             if(ResultIsAssembled)
                 _tempGO.GetComponent<CraftableItem>().Assembled = true;
@@ -129,10 +132,15 @@ public class CraftingStation : WorkStation
     public override void RemoveItem()
     {
 
-        if(ItemOnStaion.gameObject == part1)
-            part1Ready = false;
-        else if(ItemOnStaion.gameObject == part2)
-            part2Ready = false;
+        if(ItemOnStaion)
+        {
+
+            if(ItemOnStaion.gameObject == part1)
+                part1Ready = false;
+            else if(ItemOnStaion.gameObject == part2)
+                part2Ready = false;
+
+        }
         
         base.RemoveItem();
         

@@ -27,7 +27,7 @@ public class WinCondition : MonoBehaviour
                 {
                     Current_RobotChain = 0;
                     DeliverySpots[i].IncrementLoseCon = false;
-                    goto Skipcheck;
+                    
                 }
                 Current_RobotChain++;
                 DeliverySpots[i].IncrementWinCon = false;
@@ -37,7 +37,7 @@ public class WinCondition : MonoBehaviour
     // turning on the WinnerHud object containing  winning "hud"
     // as a result of this physics will be kinda slow until reset back to 1
 
-    Skipcheck:;
+    
         if(Wincondition_Robotchain <= Current_RobotChain)
         {
             Win = true;
