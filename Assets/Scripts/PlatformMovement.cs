@@ -74,14 +74,14 @@ public class PlatformMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         PlayerController playerController = collision.transform.GetComponent<PlayerController>();
-        GrabbableItem grabbableItem = collision.transform.GetComponent<GrabbableItem>();
+        CraftableItem craftableItem = collision.transform.GetComponent<CraftableItem>();
 
-        if (playerController == null && grabbableItem == null)
+        if (playerController == null && craftableItem == null)
             return;
 
-        if (grabbableItem == null)
+        if (craftableItem == null)
             playerController.transform.parent = null;
         else
-            grabbableItem.transform.parent = null;
+            craftableItem.transform.parent = null;
     }
 }
