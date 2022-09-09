@@ -15,7 +15,7 @@ public class WinCondition : MonoBehaviour
     void Start()
     {
         WinnerHud.SetActive(false);
-
+        LC = gameObject.GetComponent<LoseCondition>();
         //We find the deliveryspots, usually whatever is tagged deliveryspot
         //then define the length of the array and fill it in
         DeliveryGameObjects = GameObject.FindGameObjectsWithTag("DeliverySpot");
