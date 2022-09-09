@@ -56,6 +56,10 @@ public class LoseCondition : MonoBehaviour
         // as a result of this physics will be kinda slow until reset back to 1
         Timer -= Time.deltaTime;
          seconds = Mathf.FloorToInt(Timer % 60);
+        if (seconds <= 0)
+        {
+            seconds = 0;
+        }
         TimerText.text = seconds.ToString();
         if (Successful_Robots >= 4)
         {
@@ -68,7 +72,7 @@ public class LoseCondition : MonoBehaviour
         }
         if(Timer < 0)
         {
-            Game_Over = true;
+           // Game_Over = true;
         }
         if (Game_Over == true)
         {

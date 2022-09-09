@@ -7,7 +7,8 @@ public class WinCondition : MonoBehaviour
     public bool Win;
     public int Wincondition_Robotchain, Current_RobotChain;
     public GameObject WinnerHud;
-   [Tooltip("The Objects with the tag delivery spot will show up here, please tag them so this works")]
+    public LoseCondition LC;
+    [Tooltip("The Objects with the tag delivery spot will show up here, please tag them so this works")]
     public RobotDeliverySpot[] DeliverySpots;
     public GameObject[] DeliveryGameObjects;
     // Start is called before the first frame update
@@ -52,10 +53,14 @@ public class WinCondition : MonoBehaviour
     // turning on the WinnerHud object containing  winning "hud"
     // as a result of this physics will be kinda slow until reset back to 1
 
-    
-        if(Wincondition_Robotchain <= Current_RobotChain)
+    if(LC.Timer <= 0)
         {
             Win = true;
+        }
+
+        if(Wincondition_Robotchain <= Current_RobotChain)
+        {
+            //Win = true;
         }
         if(Win == true)
         {
