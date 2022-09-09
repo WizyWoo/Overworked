@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RobotDeliverySpot : MonoBehaviour
 {
+    [SerializeField] ParticleSystem particleSystem;
     public int Total_Assembled_Robots;
     public bool IncrementWinCon, IncrementLoseCon;
     private void OnTriggerEnter(Collider other)
@@ -20,12 +21,17 @@ public class RobotDeliverySpot : MonoBehaviour
 
             else 
             {
+                Instantiate(particleSystem, robotDelivered.transform.position, robotDelivered.transform.rotation);
                 Debug.Log("INCORRECT");
                 IncrementLoseCon = true;
-            } 
+            }
+
 
             // Inform the conveyor belt of the robot to remove it
-            robotDelivered.transform.GetComponentInParent<RobotRail>().RemoveRobotFromConveyor(robotDelivered);
+            RobotRail robotRail = robotDelivered.transform.GetComponentInParent<RobotRail>();
+            if (robotRail != null)
+                robotRail.RemoveRobotFromConveyor(robotDelivered);
+
             Destroy(robotDelivered.gameObject);
         }       
     }
