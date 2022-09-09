@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RepairStation : WorkStation
 {
+
+    [Header("Repairing")]
+    [Tooltip("Specifies what items can be repaired at this Station")]
     [SerializeField] CraftableItem.TypeOfRepairableItem canRepairThisItem;
 
     private void Update()
