@@ -1331,11 +1331,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
-        type: 3}
-      propertyPath: WorkIntensity
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918170, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: m_Name
@@ -1365,11 +1360,6 @@ PrefabInstance:
       propertyPath: RecipeItem2
       value: 
       objectReference: {fileID: 1005588270}
-    - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
-        type: 3}
-      propertyPath: WorkIntensity
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5595768151472524687, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: m_RootOrder

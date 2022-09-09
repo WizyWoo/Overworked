@@ -82,11 +82,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseRange: 3
   CraftingSpeed: 50
+  WorkIntensity: 2
   InUse: 0
-  UsedBy: {fileID: 0}
   DisplayPoint: {fileID: 1299811073026984507}
   ItemOnStaion: {fileID: 0}
   CraftingItem: {fileID: 0}
+  UsedBy: {fileID: 0}
   canRepairThisItem: 0
 --- !u!33 &1299811073256918166
 MeshFilter:

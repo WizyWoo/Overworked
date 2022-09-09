@@ -82,11 +82,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseRange: 3
   CraftingSpeed: 0
+  WorkIntensity: 2
   InUse: 0
-  ItemOnStaion: {fileID: 0}
-  UsedBy: {fileID: 0}
   DisplayPoint: {fileID: 5595768150498218261}
+  ItemOnStaion: {fileID: 0}
   CraftingItem: {fileID: 0}
+  UsedBy: {fileID: 0}
   RecipeItem1: {fileID: 0}
   RecipeItem2: {fileID: 0}
   Result: {fileID: 3670930037122264567, guid: ae766a90fae6ad5419c4a09ba67b6002, type: 3}

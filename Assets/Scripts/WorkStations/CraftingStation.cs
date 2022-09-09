@@ -72,6 +72,8 @@ public class CraftingStation : WorkStation
     public override bool PlaceItem(GrabbableItem _item)
     {
 
+        bool _stopPlz = false;
+
         if(_item.OnWorkstation)
             return false;
 
@@ -84,7 +86,7 @@ public class CraftingStation : WorkStation
             return false;
 
         }
-        else if(!CraftingItem.Assembled)
+        else if(!CraftingItem.Assembled && !CraftingItem.NeedsCrafting)
         {
 
             RemoveItem();
@@ -98,7 +100,7 @@ public class CraftingStation : WorkStation
             ItemOnStaion.transform.SetParent(null);
             ItemOnStaion.transform.position = DisplayPoint.position;
             ItemOnStaion.OnWorkstation = this;
-            Debug.Log("piss");
+            _stopPlz = true;
 
         }
         else
@@ -136,7 +138,7 @@ public class CraftingStation : WorkStation
 
         }
 
-        if(part1Ready && part2Ready)
+        if(part1Ready && part2Ready && !_stopPlz)
         {
             
             part1.transform.position = Vector3.down * 10;
