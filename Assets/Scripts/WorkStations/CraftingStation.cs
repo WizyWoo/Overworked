@@ -91,6 +91,16 @@ public class CraftingStation : WorkStation
             return false;
 
         }
+        else if(CraftingItem.NeedsCrafting)
+        {
+
+            ItemOnStaion.UngrabItem();
+            ItemOnStaion.transform.SetParent(null);
+            ItemOnStaion.transform.position = DisplayPoint.position;
+            ItemOnStaion.OnWorkstation = this;
+            Debug.Log("piss");
+
+        }
         else
         {
 
@@ -138,6 +148,7 @@ public class CraftingStation : WorkStation
             _tempGI.OnWorkstation = this;
             ItemOnStaion = _tempGI;
             CraftingItem = _tempGO.GetComponent<CraftableItem>();
+            CraftingItem.NeedsCrafting = true;
 
             if(ResultIsAssembled)
                 _tempGO.GetComponent<CraftableItem>().Assembled = true;
@@ -179,7 +190,7 @@ public class CraftingStation : WorkStation
 
         }
 
-        if(InUse && part1Ready && part2Ready)
+        if(InUse && part1Ready && part2Ready && CraftingItem.NeedsCrafting)
         {
 
             UsedBy.DoingWork(WorkIntensity);

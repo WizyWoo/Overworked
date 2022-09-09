@@ -6,7 +6,7 @@ public class CraftableItem : GrabbableItem
 {
     public enum TypeOfRepairableItem { arm, wheel }
     public TypeOfRepairableItem typeOfItem;
-
+    public bool NeedsCrafting;
     public int ID;
     public SpriteRenderer ProgressIndicator, ItemSprite;
     public Sprite AssembledItemSprite;
