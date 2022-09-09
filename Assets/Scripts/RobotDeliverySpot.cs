@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RobotDeliverySpot : MonoBehaviour
 {
+    [SerializeField] ParticleSystem particleSystem;
     public int Total_Assembled_Robots;
     public bool IncrementWinCon, IncrementLoseCon;
     private void OnTriggerEnter(Collider other)
@@ -20,6 +21,7 @@ public class RobotDeliverySpot : MonoBehaviour
 
             else 
             {
+                Instantiate(particleSystem, robotDelivered.transform.position, robotDelivered.transform.rotation);
                 Debug.Log("INCORRECT");
                 IncrementLoseCon = true;
             } 
