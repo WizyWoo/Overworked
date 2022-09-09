@@ -60,20 +60,28 @@ public class PlatformMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         PlayerController playerController = collision.transform.GetComponent<PlayerController>();
+        GrabbableItem grabbableItem = collision.transform.GetComponent<GrabbableItem>();
 
-        if (playerController == null)
+        if (playerController == null && grabbableItem == null)
             return;
 
-        playerController.transform.parent = transform;
+        if (grabbableItem == null)
+            playerController.transform.parent = transform;
+        else
+            grabbableItem.transform.parent = transform;
     }
 
     private void OnCollisionExit(Collision collision)
     {
         PlayerController playerController = collision.transform.GetComponent<PlayerController>();
+        GrabbableItem grabbableItem = collision.transform.GetComponent<GrabbableItem>();
 
-        if (playerController == null)
+        if (playerController == null && grabbableItem == null)
             return;
 
-        playerController.transform.parent = null;
+        if (grabbableItem == null)
+            playerController.transform.parent = null;
+        else
+            grabbableItem.transform.parent = null;
     }
 }

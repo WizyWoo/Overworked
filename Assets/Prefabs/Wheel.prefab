@@ -217,8 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948e9ef37fae1dd43af6f31ea6b81ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWorkstation: {fileID: 0}
   typeOfItem: 1
-  ID: 0
+  NeedsCrafting: 0
+  ID: 1
   ProgressIndicator: {fileID: 3670930035728738504}
   ItemSprite: {fileID: 3670930036268102308}
   AssembledItemSprite: {fileID: 21300000, guid: 1464cba70dd48804cbc0621dfd0ae525,
