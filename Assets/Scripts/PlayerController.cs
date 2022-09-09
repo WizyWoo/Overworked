@@ -152,6 +152,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Relaxing(float relaxSpeed)
+    {
+        currentStamina += Time.deltaTime * relaxSpeed;
+    }
+
 
     #region GrabbingSystem
 

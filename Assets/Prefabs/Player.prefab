@@ -327,9 +327,10 @@ MonoBehaviour:
   speed: 8
   weakThrowForce: 3
   strongThrowForce: 10
-  maxStamina: 5
+  maxStamina: 10
   staminaCooldown: 2
-  regainStaminaSpeed: 2
+  exhausted: 0
+  regainStaminaSpeed: 0
   movementAnimator: {fileID: 5376688896846119680}
   grabSpot: {fileID: 4399654409087059596}
   playerSprites:

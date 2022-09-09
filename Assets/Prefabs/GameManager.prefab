@@ -287,7 +287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 301, y: 157}
+  m_AnchoredPosition: {x: 0, y: 157}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1813227861511455422
@@ -1587,6 +1587,7 @@ MonoBehaviour:
   Wincondition_Robotchain: 0
   Current_RobotChain: 0
   WinnerHud: {fileID: 8221879889596753303}
+  LC: {fileID: 0}
   DeliverySpots: []
   DeliveryGameObjects: []
 --- !u!1 &8221879889596753303
