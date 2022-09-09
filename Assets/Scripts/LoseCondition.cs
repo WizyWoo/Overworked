@@ -6,7 +6,7 @@ public class LoseCondition : MonoBehaviour
 {
     public bool Game_Over;
     public int Failed_Robots, Successful_Robots;
-
+    private WinCondition WC;
     public GameObject LoserHud;
     public float Timer;
     public RobotDeliverySpot[] DeliverySpots;
@@ -14,12 +14,10 @@ public class LoseCondition : MonoBehaviour
     void Start()
     {
         if (Timer == 0)
-        {
             Timer = 60;
-        }
-            
 
         LoserHud.SetActive(false);
+        WC = gameObject.GetComponent<WinCondition>();
     }
 
     // Update is called once per frame
@@ -31,15 +29,15 @@ public class LoseCondition : MonoBehaviour
             {
                 if (DeliverySpots[i].IncrementWinCon == true)
                 {
-                    Successful_Robots++;
+                    
                     DeliverySpots[i].IncrementWinCon = false;
-                    goto Skipcheck;
+                    
                 }
                 Failed_Robots++;
                 DeliverySpots[i].IncrementLoseCon = false;
             }
         }
-    Skipcheck:;
+        Successful_Robots = WC.Current_RobotChain;
         // if Game_Over is true, sets timescale to 0.001   making the game slower     
         // turning on the LoserHud object containing the Game Over "hud"
         // as a result of this physics will be kinda slow until reset back to 1

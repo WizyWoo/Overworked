@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
 
         // PLAYER INDEX SETUP
-        movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex];
+        movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex%2];
     }
 
     private void Start()
