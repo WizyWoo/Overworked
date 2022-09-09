@@ -8,10 +8,11 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] GameObject spawnThisPrefab;
 
     [SerializeField] int repeatRate;
+    [SerializeField] int initialOffset;
 
     private void Awake()
     {
-        InvokeRepeating("SpawnItem", 0, repeatRate);
+        InvokeRepeating("SpawnItem", initialOffset, repeatRate);
     }
 
     void SpawnItem()

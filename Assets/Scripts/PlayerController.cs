@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public int playerIndex;
+    [HideInInspector] public int playerIndex;
 
     // Movement
     [Header("DESIGNER VARIABLES")]
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxStamina;
     float currentStamina;
     [SerializeField] float staminaCooldown;
-    bool exhausted;
+    [HideInInspector] public bool exhausted;
     [SerializeField] float regainStaminaSpeed;
 
     // References
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator flipAnimator;
     [SerializeField] bool goingRight;
     [SerializeField] Image staminaUI;
+    [SerializeField] ParticleSystem sweatParticleSystem;
 
 
     // Grabbing
@@ -66,10 +67,14 @@ public class PlayerController : MonoBehaviour
 
         // Starting stamina
         currentStamina = maxStamina;
+
+
+        sweatParticleSystem.Stop();
     }
 
     private void Start()
     {
+
     }
 
     private void Update()
@@ -104,7 +109,10 @@ public class PlayerController : MonoBehaviour
             currentStamina += Time.deltaTime;
 
             if (currentStamina >= maxStamina)
+            {
                 exhausted = false;
+                sweatParticleSystem.Stop();
+            }
         }
         else
         {
@@ -139,6 +147,8 @@ public class PlayerController : MonoBehaviour
             // Drop the
             if (itemGrabbed != null)
                 DropItem(weakThrowForce);
+
+            sweatParticleSystem.Play();
         }
     }
 

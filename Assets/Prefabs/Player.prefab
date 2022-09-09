@@ -341,6 +341,7 @@ MonoBehaviour:
   flipAnimator: {fileID: 3240056448944229999}
   goingRight: 0
   staminaUI: {fileID: 5776556255383701288}
+  sweatParticleSystem: {fileID: 8941736650439707026}
   itemGrabbed: {fileID: 0}
   ItemsInRangeForGrabbing: []
 --- !u!114 &2412234843627154072
