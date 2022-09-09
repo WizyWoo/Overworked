@@ -14,10 +14,7 @@ public class LoseCondition : MonoBehaviour
     void Start()
     {
         if (Timer == 0)
-        {
             Timer = 60;
-        }
-            
 
         LoserHud.SetActive(false);
     }

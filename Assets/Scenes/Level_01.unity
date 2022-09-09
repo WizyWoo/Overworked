@@ -353,7 +353,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1842943145}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &247251753
 GameObject:
@@ -434,7 +434,7 @@ PrefabInstance:
     - target: {fileID: 1299811073256918164, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.24
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918164, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
@@ -444,7 +444,7 @@ PrefabInstance:
     - target: {fileID: 1299811073256918164, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.09
+      value: 2.78
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918164, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
@@ -821,7 +821,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1842943145}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &536473752 stripped
 Transform:
@@ -1847,10 +1847,10 @@ Transform:
   - {fileID: 1053562824}
   - {fileID: 1400885953}
   - {fileID: 131675154}
-  - {fileID: 465148120}
-  - {fileID: 240287220}
   - {fileID: 2074545411}
   - {fileID: 2108080832}
+  - {fileID: 465148120}
+  - {fileID: 240287220}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2150,7 +2150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1842943145}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2074545412
 MonoBehaviour:
@@ -2164,6 +2164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a646ec5d8060408bc344f1902864a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Total_Assembled_Robots: 0
+  IncrementWinCon: 0
+  IncrementLoseCon: 0
 --- !u!1 &2108080831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,7 +2200,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1842943145}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2108080833
 BoxCollider:
@@ -2274,6 +2277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a646ec5d8060408bc344f1902864a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Total_Assembled_Robots: 0
+  IncrementWinCon: 0
+  IncrementLoseCon: 0
 --- !u!1001 &3569856403289606246
 PrefabInstance:
   m_ObjectHideFlags: 0
