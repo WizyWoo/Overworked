@@ -18,6 +18,8 @@ public class LoseCondition : MonoBehaviour
             Timer = 60;
 
         LoserHud.SetActive(false);
+        //We find the deliveryspots, usually whatever is tagged deliveryspot
+        //then define the length of the array and fill it in
         WC = gameObject.GetComponent<WinCondition>();
         DeliveryGameObjects = GameObject.FindGameObjectsWithTag("DeliverySpot");
         DeliverySpots = new RobotDeliverySpot[DeliveryGameObjects.Length];

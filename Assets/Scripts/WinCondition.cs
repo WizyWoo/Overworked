@@ -13,11 +13,18 @@ public class WinCondition : MonoBehaviour
     void Start()
     {
         WinnerHud.SetActive(false);
+
+        //We find the deliveryspots, usually whatever is tagged deliveryspot
+        //then define the length of the array and fill it in
         DeliveryGameObjects = GameObject.FindGameObjectsWithTag("DeliverySpot");
         DeliverySpots = new RobotDeliverySpot[DeliveryGameObjects.Length];
         for (int i = 0; i < DeliveryGameObjects.Length; i++)
         {
             DeliverySpots[i] = DeliveryGameObjects[i].GetComponent<RobotDeliverySpot>();
+        }
+        if(Wincondition_Robotchain == 0)
+        {
+            Wincondition_Robotchain = 10;
         }
     }
 
