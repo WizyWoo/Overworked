@@ -9,8 +9,6 @@ public class RelaxZone : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("playersInRelaxZone = " + playersInRelaxZone);
-
         foreach (PlayerController player in playersInRelaxZone)
             player.Relaxing(relaxSpeed);
     }

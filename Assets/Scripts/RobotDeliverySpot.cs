@@ -13,34 +13,46 @@ public class RobotDeliverySpot : MonoBehaviour
 
     [SerializeField] Vector2 throwAngle;
     [SerializeField] float gravity = 9.8f;
+
+    Level01_Manager level01Manager;
+
+    private void Awake()
+    {
+        level01Manager = GetComponentInParent<Level01_Manager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+
         RobotBody robotDelivered;
         if (other.TryGetComponent<RobotBody>(out robotDelivered))
         {
             if (IsRobotRepaired(robotDelivered))
             {
-                Debug.Log("CORRECT");
                 Total_Assembled_Robots++;
                 IncrementWinCon = true;
+
+                level01Manager.CorrectRobot();
             }
 
             else
             {
+                level01Manager.IncorrectRobot();
+
                 Instantiate(particleSystem, robotDelivered.transform.position, robotDelivered.transform.rotation);
                 if (robotDelivered.leftArmAssembled)
                 {
-                    ThrowItem(arm);
+                   // ThrowItem(arm);
                 }
                 if (robotDelivered.rightArmAssembled)
                 {
-                    ThrowItem(arm);
+                   // ThrowItem(arm);
                 }
                 if (robotDelivered.wheelAssembled)
                 {
-                    ThrowItem(wheel);
+                   // ThrowItem(wheel);
                 }
-                Debug.Log("INCORRECT");
+
                 IncrementLoseCon = true;
             }
 
@@ -49,6 +61,11 @@ public class RobotDeliverySpot : MonoBehaviour
             RobotRail robotRail = robotDelivered.transform.GetComponentInParent<RobotRail>();
             if (robotRail != null)
                 robotRail.RemoveRobotFromConveyor(robotDelivered);
+
+            // Disable collisions
+            BoxCollider[] coll = robotDelivered.GetComponents<BoxCollider>();
+            foreach (BoxCollider box in coll)
+                box.enabled = false;
 
             Destroy(robotDelivered.gameObject);
         }
