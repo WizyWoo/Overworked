@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         currentTime = maxTime;
+
+        Invoke("Lose", 1);
     }
 
     private void Update()
@@ -55,15 +57,20 @@ public class LevelManager : MonoBehaviour
         return true;
     }
 
+    
+
     // It is called when the players loses
     protected void Lose()
     {
         Debug.Log("LOSE THIS");
+        GameManager.instance.LoadResultsScene(false);
+
     }
 
     // It is called when the players wins
     protected void Win()
     {
         Debug.Log("WIN THIS");
+        GameManager.instance.LoadResultsScene(false);
     }
 }
