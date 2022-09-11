@@ -1516,7 +1516,11 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 512
-  shadowSprite: {fileID: 0}
+  shadowSprite: {fileID: 7433176579509340071, guid: aa5b30112af5323499fc93ea6602b17c,
+    type: 3}
+  offset: 0.1
+  arm: {fileID: 3670930037122264567, guid: a466926a9b31791408394480c68d713a, type: 3}
+  wheel: {fileID: 3670930037122264567, guid: 5a81a80a1115e5e4a8deffc22337b2ff, type: 3}
 --- !u!4 &880173325
 Transform:
   m_ObjectHideFlags: 0
@@ -2560,7 +2564,7 @@ MonoBehaviour:
   wheel: {fileID: 3670930037122264567, guid: 5a81a80a1115e5e4a8deffc22337b2ff, type: 3}
   throwAngle: {x: 45, y: 80}
   gravity: 30
-  ceiling: {fileID: 0}
+  ceiling: {fileID: 880173324}
 --- !u!1 &2108080831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,7 +2684,7 @@ MonoBehaviour:
   wheel: {fileID: 3670930037122264567, guid: 5a81a80a1115e5e4a8deffc22337b2ff, type: 3}
   throwAngle: {x: 45, y: 80}
   gravity: 9.8
-  ceiling: {fileID: 0}
+  ceiling: {fileID: 880173324}
 --- !u!1001 &3569856403289606246
 PrefabInstance:
   m_ObjectHideFlags: 0
