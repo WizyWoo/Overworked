@@ -14,6 +14,8 @@ public class RobotDeliverySpot : MonoBehaviour
     [SerializeField] Vector2 throwAngle;
     [SerializeField] float gravity = 9.8f;
 
+    [SerializeField] Ceiling ceiling;
+
     Level01_Manager level01Manager;
 
     private void Awake()
@@ -42,15 +44,18 @@ public class RobotDeliverySpot : MonoBehaviour
                 Instantiate(particleSystem, robotDelivered.transform.position, robotDelivered.transform.rotation);
                 if (robotDelivered.leftArmAssembled)
                 {
+                    ceiling.ThrowItem(arm);
                    // ThrowItem(arm);
                 }
                 if (robotDelivered.rightArmAssembled)
                 {
-                   // ThrowItem(arm);
+                    ceiling.ThrowItem(arm);
+                    // ThrowItem(arm);
                 }
                 if (robotDelivered.wheelAssembled)
                 {
-                   // ThrowItem(wheel);
+                    ceiling.ThrowItem(wheel);
+                    // ThrowItem(wheel);
                 }
 
                 IncrementLoseCon = true;
