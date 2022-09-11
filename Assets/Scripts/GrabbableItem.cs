@@ -39,7 +39,7 @@ public class GrabbableItem : MonoBehaviour
         rb.isKinematic = true;
 
         if(OnWorkstation)
-            OnWorkstation.RemoveItem();
+            OnWorkstation.RemoveItem(this);
     }
 
 

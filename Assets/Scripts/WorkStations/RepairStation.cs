@@ -18,11 +18,11 @@ public class RepairStation : WorkStation
         ItemOnStaion = _item;
 
         if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
-            RemoveItem();
+            RemoveItem(ItemOnStaion);
         else if(CraftingItem.Assembled)
-            RemoveItem();
+            RemoveItem(ItemOnStaion);
         else if(CraftingItem.typeOfItem != canRepairThisItem)
-            RemoveItem();
+            RemoveItem(ItemOnStaion);
         else
         {
 
@@ -59,7 +59,7 @@ public class RepairStation : WorkStation
             if(CraftingItem.Progress >= 100)
             {
 
-                RemoveItem();
+                RemoveItem(CraftingItem);
 
             }
 

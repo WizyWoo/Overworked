@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &57213241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3670930037122264563, guid: 17eb99d3636ec7b4baea9e1de3ca414d,
+    type: 3}
+  m_PrefabInstance: {fileID: 898160140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948e9ef37fae1dd43af6f31ea6b81ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &247251753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1441,16 @@ PrefabInstance:
       propertyPath: RecipeItem2
       value: 
       objectReference: {fileID: 1005588270}
+    - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
+        type: 3}
+      propertyPath: recipeItem1
+      value: 
+      objectReference: {fileID: 1005588270}
+    - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
+        type: 3}
+      propertyPath: recipeItem2
+      value: 
+      objectReference: {fileID: 57213241}
     - target: {fileID: 5595768151472524687, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: m_RootOrder

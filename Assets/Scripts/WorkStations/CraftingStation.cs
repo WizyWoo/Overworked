@@ -5,24 +5,30 @@ using UnityEngine;
 public class CraftingStation : WorkStation
 {
 
-    [Header("Crafting")]
-    [Tooltip("The Items needed to craft an item .Order doesn't matter :)")]
-    public CraftableItem RecipeItem1;
-    [Tooltip("The Items needed to craft an item .Order doesn't matter :)")]
-    public CraftableItem RecipeItem2;
+    [Space]
+    [Header("Crafting"), Tooltip("The Items needed to craft an item. Order doesn't matter :) Can use this instead of inputting ID below"), SerializeField]
+    private CraftableItem recipeItem1;
+    [Tooltip("The Items needed to craft an item. Order doesn't matter :) Can use this instead of inputting ID below"), SerializeField]
+    private CraftableItem recipeItem2;
     [Tooltip("The prefab that should spawn when the recipe items are combined")]
     public GameObject Result;
     [Tooltip("Whether the result is finished by default or needs to be crafted")]
     public bool ResultIsAssembled;
+    [Tooltip("The ID for what items can be used for crafting, id found on CraftableItems. Order doesn't matter :) Use this if you don't want to input RecipeItem 1 and 2"), SerializeField]
     private int recipeID1, recipeID2;
-    private bool part1Ready, part2Ready;
-    private GameObject part1, part2;
 
     private void Start()
     {
 
-        recipeID1 = RecipeItem1.ID;
-        recipeID2 = RecipeItem2.ID;
+        if(recipeItem1 || recipeItem2)
+        {
+
+            recipeID1 = recipeItem1.ID;
+            recipeID2 = recipeItem2.ID;
+            recipeItem1 = null;
+            recipeItem2 = null;
+
+        }
 
     }
 
@@ -79,7 +85,7 @@ public class CraftingStation : WorkStation
 
         bool _stopPlz = false;
 
-        if(_item.OnWorkstation || ItemOnStaion && !part1Ready && !part2Ready)
+        if(_item.OnWorkstation || ItemOnStaion && !recipeItem1 && !recipeItem2)
             return false;
 
         ItemOnStaion = _item;
@@ -87,18 +93,18 @@ public class CraftingStation : WorkStation
         if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
         {
 
-            RemoveItem();
+            RemoveItem(ItemOnStaion);
             return false;
 
         }
         else if(!CraftingItem.Assembled && !CraftingItem.NeedsCrafting)
         {
 
-            RemoveItem();
+            RemoveItem(ItemOnStaion);
             return false;
 
         }
-        else if(CraftingItem.NeedsCrafting && !part1Ready && !part2Ready)
+        else if(CraftingItem.NeedsCrafting && !recipeItem1 && !recipeItem2)
         {
 
             ItemOnStaion.UngrabItem();
@@ -111,22 +117,20 @@ public class CraftingStation : WorkStation
         else
         {
 
-            if(CraftingItem.ID == recipeID1 && !part1Ready)
+            if(CraftingItem.ID == recipeID1 && !recipeItem1)
             {
 
-                part1Ready = true;
-                part1 = CraftingItem.gameObject;
+                recipeItem1 = CraftingItem;
                 ItemOnStaion.UngrabItem();
                 ItemOnStaion.transform.SetParent(null);
                 ItemOnStaion.transform.position = DisplayPoint.position;
                 ItemOnStaion.OnWorkstation = this;
 
             }
-            else if(CraftingItem.ID == recipeID2 && !part2Ready)
+            else if(CraftingItem.ID == recipeID2 && !recipeItem2)
             {
 
-                part2Ready = true;
-                part2 = CraftingItem.gameObject;
+                recipeItem2 = CraftingItem;
                 ItemOnStaion.UngrabItem();
                 ItemOnStaion.transform.SetParent(null);
                 ItemOnStaion.transform.position = DisplayPoint.position;
@@ -136,22 +140,22 @@ public class CraftingStation : WorkStation
             else
             {
 
-                RemoveItem();
+                RemoveItem(ItemOnStaion);
                 return false;
 
             }
 
         }
 
-        if(part1Ready && part2Ready && !_stopPlz)
+        if(recipeItem1 && recipeItem2 && !_stopPlz)
         {
             
-            part1.transform.position = Vector3.down * 10;
-            part2.transform.position = Vector3.down * 10;
-            part1Ready = false;
-            part2Ready = false;
-            //Destroy(part1);
-            //Destroy(part2);
+            recipeItem1.transform.position = Vector3.down * 10;
+            recipeItem2.transform.position = Vector3.down * 10;
+            recipeItem1 = null;
+            recipeItem2 = null;
+            //Destroy(recipeItem1);
+            //Destroy(recipeItem2);
             GameObject _tempGO = Instantiate(Result, DisplayPoint.position, Quaternion.identity);
             GrabbableItem _tempGI = _tempGO.GetComponent<GrabbableItem>();
             _tempGI.OnWorkstation = this;
@@ -168,20 +172,20 @@ public class CraftingStation : WorkStation
 
     }
 
-    public override void RemoveItem()
+    public override void RemoveItem(GrabbableItem _item)
     {
 
-        if(ItemOnStaion)
+        if(_item)
         {
 
-            if(ItemOnStaion.gameObject == part1)
-                part1Ready = false;
-            else if(ItemOnStaion.gameObject == part2)
-                part2Ready = false;
+            if(_item == recipeItem1)
+                recipeItem1 = null;
+            else if(_item == recipeItem2)
+                recipeItem2 = null;
 
         }
         
-        base.RemoveItem();
+        base.RemoveItem(_item);
         
     }
 

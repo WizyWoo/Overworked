@@ -62,6 +62,7 @@ public class WorkStation : MonoBehaviour , IInteractable
 
             if(ItemOnStaion == _pC.itemGrabbed)
                 _pC.itemGrabbed = null;
+            
         }
 
     }
@@ -87,9 +88,9 @@ public class WorkStation : MonoBehaviour , IInteractable
         ItemOnStaion = _item;
 
         if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
-            RemoveItem();
+            RemoveItem(ItemOnStaion);
         else if(CraftingItem.Assembled)
-            RemoveItem();
+            RemoveItem(ItemOnStaion);
         else
         {
 
@@ -104,12 +105,17 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
-    public virtual void RemoveItem()
+    public virtual void RemoveItem(GrabbableItem _item)
     {
 
-        ItemOnStaion.OnWorkstation = null;
-        CraftingItem = null;
-        ItemOnStaion = null;
+        _item.OnWorkstation = null;
+        if(_item = ItemOnStaion)
+        {
+
+            ItemOnStaion = null;
+            CraftingItem = null;
+        
+        }
         UsedBy = null;
         InUse = false;
         
