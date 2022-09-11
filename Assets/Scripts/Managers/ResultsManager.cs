@@ -12,27 +12,35 @@ public class ResultsManager : MonoBehaviour
     [SerializeField] Button retry_Bt;
     [SerializeField] Button mainMenu_Bt;
 
+    // Returns true at the end of a game if the players won the level
+    public bool playersWon;
+    // Returns the level just completed or just failed
+    public int levelFinished;
+
     private void Awake()
     {
-        Debug.Log("RESULTS = " + GameManager.instance.playersWon);
+    }
 
-        // Hide everything
-        winScreen.gameObject.SetActive(false);
-        loseScreen.gameObject.SetActive(false);
-        Button[] buttons = GetComponentsInChildren<Button>();
-        foreach (Button button in buttons)
-            button.gameObject.SetActive(false);
+    private void Start()
+    {
+    }
 
+    public void Setup()
+    {
+        Debug.Log("playersWon = " + playersWon);
+        Debug.Log("levelFinished = " + levelFinished);
 
-        if (GameManager.instance.playersWon)
+        if (playersWon)
             SetupWinState();
         else SetupLoseState();
     }
+
 
     // It prepares the scene with all the win elements, hiding the lose elements
     void SetupWinState()
     {
         winScreen.gameObject.SetActive(true);
+        loseScreen.gameObject.SetActive(false);
 
         nextLevel_Bt.gameObject.SetActive(true);
         retry_Bt.gameObject.SetActive(true);
@@ -42,9 +50,29 @@ public class ResultsManager : MonoBehaviour
     // It prepares the scene with all the lose elements, hiding the win elements
     void SetupLoseState()
     {
-        winScreen.gameObject.SetActive(true);
+        winScreen.gameObject.SetActive(false);
+        loseScreen.gameObject.SetActive(true);
 
+        nextLevel_Bt.gameObject.SetActive(false);
         retry_Bt.gameObject.SetActive(true);
         mainMenu_Bt.gameObject.SetActive(true);
+    }
+
+
+    // Buttons
+
+    public void Overworld_Btn()
+    {
+        Debug.Log("GO TO OVERWORLD");
+    }
+
+    public void Retry_Btn()
+    {
+        GameManager.instance.LoadLevel(levelFinished);
+    }
+
+    public void MainMenu_Btn()
+    {
+        Debug.Log("GO TO MAIN MENU");
     }
 }

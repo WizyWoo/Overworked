@@ -8,9 +8,6 @@ public class GameManager : MonoBehaviour
 
     static public GameManager instance;
 
-    // Returns true at the end of a game if the players won the level
-    public bool playersWon;
-
     private void Awake()
     {
         // Singleton
@@ -25,10 +22,31 @@ public class GameManager : MonoBehaviour
 
 
     // At the end of a level this is called by the level manager for loading the results scene
-    public void LoadResultsScene(bool win)
+    public void LoadResultsScene(bool win, int level)
     {
-        playersWon = win;
-        LoadScene("ResultsScene");
+        StartCoroutine(LoadResultsScene_IEnum(win, level));
+    }
+
+    IEnumerator LoadResultsScene_IEnum(bool win, int level)
+    {
+        LoadScene("ResultsScreen");
+
+        // Wait 1 frame
+        yield return new WaitForSeconds(0);
+
+        // Assign the necessary variables to the ResultManager of the scene
+        ResultsManager resultManager = FindObjectOfType<ResultsManager>();
+        resultManager.levelFinished = level;
+        resultManager.playersWon = win;
+        resultManager.Setup();
+    }
+
+    public void LoadLevel(int levelNumber)
+    {
+        string levelNumberString = levelNumber.ToString();
+        if (levelNumber <= 9) levelNumberString = "0" + levelNumberString;
+
+        SceneManager.LoadScene("Level_" + levelNumberString);
     }
 
     public void LoadScene(string sceneName)
@@ -36,7 +54,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    //IEnumerator ChangeScene_IEnum()
+    //IEnumerator LoadScene_IEnum()
     //{
     //    yield return new WaitForSeconds(1);
     //}
