@@ -53,23 +53,15 @@ public class RobotBody : MonoBehaviour
 
 
             PlayerController pl = item.transform.GetComponentInParent<PlayerController>();
-            if (pl != null) pl.itemGrabbed = null;
-
+            if (pl != null)
+            {
+                pl.itemGrabbed = null;
+                //pl.RemoveItem(item);
+            }
 
             item.GrabItem();
             item.transform.SetParent(newSpot);
-            //item.GetComponent<Rigidbody>().useGravity = false;
-            //item.GetComponent<Rigidbody>().isKinematic = true;
-            //item.transform.DOMove(newSpot.position, .5f);
             StartCoroutine(MoveItemToAssembledSpot(item.transform, newSpot.transform, .5f));
-
-            // DisableItem
-            //SphereCollider[] coll = item.transform.GetComponents<SphereCollider>();
-            ////foreach (SphereCollider col in coll)
-            ////    col.enabled = false;
-            //coll[0].enabled = false;
-            //coll[1].enabled = false;
-            //item.assembled = true;
 
             item.enabled = false;
         }

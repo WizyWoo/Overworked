@@ -38,7 +38,7 @@ public class GrabbableItem : MonoBehaviour
         beingGrabbed = true;
         rb.isKinematic = true;
 
-        if(OnWorkstation)
+        if (OnWorkstation)
             OnWorkstation.RemoveItem(this);
     }
 
@@ -64,9 +64,8 @@ public class GrabbableItem : MonoBehaviour
 
         if (player != null)
         {
-            //if (assembled) return;
-
-            player.AddItem(this);
+            if (!GetComponent<CraftableItem>().Assembled)
+                player.AddItem(this);
         }
     }
 
