@@ -13,7 +13,7 @@ public class Ceiling : MonoBehaviour
 
     [SerializeField] GameObject arm, wheel;
 
-    float initialScale = 0.2f, scaleGrowPerSec = 3f, finalScale = 1f, destroyTime = 2;
+    float initialScale = 0.2f, scaleGrowPerSec = 3f, finalScale = 1f, destroyTime = 2f;
 
     private void Update()
     {
