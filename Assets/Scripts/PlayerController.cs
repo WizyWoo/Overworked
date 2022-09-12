@@ -97,9 +97,7 @@ public class PlayerController : MonoBehaviour
 
     public void DoingWork(float _intensity)
     {
-
         currentStamina -= (_intensity * Time.deltaTime) + (Time.deltaTime * regainStaminaSpeed);
-
     }
 
     void StaminaSystem()
