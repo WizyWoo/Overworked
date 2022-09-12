@@ -9,6 +9,7 @@ public class RepairStation : WorkStation
     [Tooltip("Specifies what items can be repaired at this Station")]
     [SerializeField] CraftableItem.TypeOfRepairableItem canRepairThisItem;
 
+    //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
     {
 
@@ -37,6 +38,7 @@ public class RepairStation : WorkStation
 
     }
 
+    //repair :)
     private void Update()
     {
 

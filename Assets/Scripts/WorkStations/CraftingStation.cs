@@ -32,6 +32,7 @@ public class CraftingStation : WorkStation
 
     }
 
+    //This shite happens when the player interacts with the station
     public override void Activate(Transform _player = null, bool _buttonDown = true)
     {
 
@@ -80,6 +81,7 @@ public class CraftingStation : WorkStation
 
     }
 
+    //Checks if the input item is allowed on this station and if all nessecary items are present, it will output the result item which can then be crafted :)
     public override bool PlaceItem(GrabbableItem _item)
     {
 
@@ -172,6 +174,7 @@ public class CraftingStation : WorkStation
 
     }
 
+    //Some extra removing stuff so the recipe items arend stored
     public override void RemoveItem(GrabbableItem _item)
     {
 
@@ -189,6 +192,7 @@ public class CraftingStation : WorkStation
         
     }
 
+    //While UsedBy is set, you can craft shit
     private void Update()
     {
 

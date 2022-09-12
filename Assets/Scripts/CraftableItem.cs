@@ -20,6 +20,7 @@ public class CraftableItem : GrabbableItem
         }
         set
         {
+            //It's all good ;)
             assembled = value;
             if(value)
                 ItemAssembled();
@@ -34,6 +35,7 @@ public class CraftableItem : GrabbableItem
         }
         set
         {
+            //Don't worry about it :)
             progress = value;
             ProgressIndicator.size = new Vector2((progress / 100) * 20, ProgressIndicator.size.y);
             if(progress >= 100)
@@ -44,6 +46,7 @@ public class CraftableItem : GrabbableItem
         }
     }
 
+    //Called when Progress is set to 100 or Assembled is set to true. Just puts on new sprite and removes indicator :))))
     public void ItemAssembled()
     {
 

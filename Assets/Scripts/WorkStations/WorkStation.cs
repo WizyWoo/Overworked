@@ -23,6 +23,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     [HideInInspector]
     public PlayerController UsedBy;
 
+    //This shite happens when the player interacts with the station
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)
     {
 
@@ -67,6 +68,7 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
+    //Places item on station if it hits the trigger :)
     private void OnTriggerEnter(Collider _col)
     {
 
@@ -79,6 +81,7 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
+    //Checks if the input item is allowed on this station. If not, it will be removed :)))
     public virtual bool PlaceItem(GrabbableItem _item)
     {
 
@@ -105,6 +108,11 @@ public class WorkStation : MonoBehaviour , IInteractable
 
     }
 
+    ///<Summary>
+    ///Removes the input item from a station when called
+    ///</Summary>
+
+    //Removes the item properly :))))))))))))))
     public virtual void RemoveItem(GrabbableItem _item)
     {
 
