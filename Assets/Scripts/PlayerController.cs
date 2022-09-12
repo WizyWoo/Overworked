@@ -93,6 +93,9 @@ public class PlayerController : MonoBehaviour
         // Quick bug fix, need to change in the future
         if (rb.velocity.y > 0)
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+
+
+        Debug.Log("ItemsInRangeForGrabbing = " + ItemsInRangeForGrabbing.Count);
     }
 
     public void DoingWork(float _intensity)
@@ -263,7 +266,7 @@ public class PlayerController : MonoBehaviour
     }
     void DropItem(float throwForce)
     {
-        //RemoveItem(itemGrabbed);
+       // RemoveItem(itemGrabbed);
 
         itemGrabbed.transform.SetParent(null);
         itemGrabbed.UngrabItem();
@@ -278,6 +281,11 @@ public class PlayerController : MonoBehaviour
             new Vector3(horDropForce, verDropForce, 0);
 
         itemGrabbed = null;
+    }
+
+    public void TryRemoveGrabbableItemFromList(GrabbableItem g)
+    {
+        RemoveItem(g);
     }
 
     #endregion
