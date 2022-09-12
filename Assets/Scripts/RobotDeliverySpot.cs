@@ -42,21 +42,21 @@ public class RobotDeliverySpot : MonoBehaviour
                 level01Manager.IncorrectRobot();
 
                 Instantiate(particleSystem, robotDelivered.transform.position, robotDelivered.transform.rotation);
-                if (robotDelivered.leftArmAssembled)
-                {
-                    ceiling.ThrowItem(arm);
-                   // ThrowItem(arm);
-                }
-                if (robotDelivered.rightArmAssembled)
-                {
-                    ceiling.ThrowItem(arm);
-                    // ThrowItem(arm);
-                }
-                if (robotDelivered.wheelAssembled)
-                {
-                    ceiling.ThrowItem(wheel);
-                    // ThrowItem(wheel);
-                }
+                // if (robotDelivered.leftArmAssembled)
+                // {
+                //     ceiling.ThrowItem(arm);
+                //    // ThrowItem(arm);
+                // }
+                // if (robotDelivered.rightArmAssembled)
+                // {
+                //     ceiling.ThrowItem(arm);
+                //     // ThrowItem(arm);
+                // }
+                // if (robotDelivered.wheelAssembled)
+                // {
+                //     ceiling.ThrowItem(wheel);
+                //     // ThrowItem(wheel);
+                // }
 
                 IncrementLoseCon = true;
             }
