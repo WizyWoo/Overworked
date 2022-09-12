@@ -30,16 +30,22 @@ public class RobotBody : MonoBehaviour
                     item.transform.GetComponentInChildren<SpriteRenderer>().flipX = true;
 
                     leftArmAssembled = true;
-                } else if (!rightArmAssembled)
+                }
+                else if (!rightArmAssembled)
                 {
                     newSpot = rightArm_Spot;
                     rightArmAssembled = true;
                 }
+                else return;
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
             {
-                newSpot = wheel_Spot;
-                wheelAssembled = true;
+                if (!wheelAssembled)
+                {
+                    newSpot = wheel_Spot;
+                    wheelAssembled = true;
+                }
+                else return;
             }
 
             // Set the rotation normal
@@ -80,7 +86,7 @@ public class RobotBody : MonoBehaviour
         float c = 0;
         while (Vector3.Distance(assembleSpot.position, item.position) > 0.001f)
         {
-             item.transform.position = Vector3.Lerp(initialPosition, assembleSpot.position, animationCurve.Evaluate(c));
+            item.transform.position = Vector3.Lerp(initialPosition, assembleSpot.position, animationCurve.Evaluate(c));
             //item.transform.position = Vector3.Lerp(initialPosition, assembleSpot.position, c);
             c += (Time.deltaTime / seconds);
             c = Mathf.Clamp(c, 0, 1);
