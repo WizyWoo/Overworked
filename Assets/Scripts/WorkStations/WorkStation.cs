@@ -12,7 +12,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public float CraftingSpeed;
     [Tooltip("A multiplier for how much stamina you use at this station, 0 = no stamina used")]
     public float WorkIntensity;
-    [Tooltip("If this Workstation is in use")]
+    [HideInInspector]
     public bool InUse;
     [Tooltip("Where the item lands on the table")]
     public Transform DisplayPoint;
@@ -20,7 +20,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public GrabbableItem ItemOnStaion;
     [HideInInspector]
     public CraftableItem CraftingItem;
-    [Tooltip("The player that is using this Workstation. DO NOT TOUCH")]
+    [HideInInspector]
     public PlayerController UsedBy;
 
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)
