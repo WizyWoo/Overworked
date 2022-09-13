@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class ResultsManager : MonoBehaviour
 {
     [SerializeField] Transform winScreen;
@@ -73,6 +73,7 @@ public class ResultsManager : MonoBehaviour
 
     public void MainMenu_Btn()
     {
+        SceneManager.LoadScene(0);
         Debug.Log("GO TO MAIN MENU");
     }
 }
