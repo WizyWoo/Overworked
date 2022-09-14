@@ -41,11 +41,14 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
         allPlayers.Add(newPlayerController);
 
-        TeleportPlayerToSpawnPoint(newPlayerController.transform, playerIndex);
+        StartCoroutine(TeleportPlayerToSpawnPointInXsec(newPlayerController.transform, playerIndex, 0));
     }
 
-    void TeleportPlayerToSpawnPoint(Transform playerTr, int playerIndex)
+    IEnumerator TeleportPlayerToSpawnPointInXsec(Transform playerTr, int playerIndex, float seconds)
     {
+        yield return new WaitForSeconds(seconds);
+
+        playerTr.gameObject.SetActive(true);
         playerTr.position = spawnpoints[playerIndex % 2].position;
     }
 
@@ -60,8 +63,13 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         if (allPlayers.Count != 0)
             foreach (PlayerController player in allPlayers)
             {
-                if (player.transform.position.y < fallDistanceBeforeRespawning)
-                    TeleportPlayerToSpawnPoint(player.transform, player.playerIndex);
+                if (player.gameObject.activeSelf && player.transform.position.y < fallDistanceBeforeRespawning) 
+                {
+                    player.gameObject.SetActive(false);
+                    StartCoroutine(TeleportPlayerToSpawnPointInXsec(player.transform, player.playerIndex, 5));
+                }
             }
     }
+
+
 }
