@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 77fcd697b48fec4408498ae4f63dc946, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3670930037122264562}
   - component: {fileID: 3670930037122264565}
   - component: {fileID: 3670930037122264564}
+  - component: {fileID: 8058346174341742422}
   m_Layer: 0
   m_Name: ArmAssembledThrow
   m_TagString: Untagged
@@ -161,3 +162,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8058346174341742422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670930037122264567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce20b3e46eb618448b4a3984fa8220eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaToRemove: 1
+  shadow: {fileID: 0}
