@@ -25,15 +25,15 @@ public class Level01_Manager : LevelManager
         foreach (Image strike in strikes)
             strike.enabled = false;
 
-        addMoneyImg.enabled = false;
-        addMoneyText.enabled = false;
+        //addMoneyImg.enabled = false;
+        //addMoneyText.enabled = false;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        moneyText.text = money.ToString();
+        //moneyText.text = money.ToString();
     }
 
     public void CorrectRobot()

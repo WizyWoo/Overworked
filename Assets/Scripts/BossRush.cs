@@ -30,9 +30,11 @@ public class BossRush : MonoBehaviour
 
     void Awake()
     {
-
         Invoke("StartSpeedingThingsUp", startSpeedingThingsIn);
 
+
+        // Set up dialogue elements
+        redScreenEffect.color = new Color(redScreenEffect.color.r, redScreenEffect.color.g, redScreenEffect.color.b, 0);
         dialoguePanel.localScale = new Vector3(0, 1, 1);
         bossFace.localScale = new Vector3(0, 0, 1);
     }
@@ -45,7 +47,7 @@ public class BossRush : MonoBehaviour
         StartCoroutine(ShowBossDialogue());
 
         // Red Screen Effect
-        redScreenEffect.DOFade(1, 1);
+        redScreenEffect.DOFade(.15f, 1);
 
         SpeedEverything();
 
@@ -54,7 +56,7 @@ public class BossRush : MonoBehaviour
         SlowEverything();
 
         // Red Screen Effect
-        redScreenEffect.DOFade(1, 1);
+        redScreenEffect.DOFade(0, 1);
     }
 
 
@@ -81,9 +83,8 @@ public class BossRush : MonoBehaviour
             bossText.text += letter;
             yield return new WaitForSeconds(.05f);
         }
-
+        // Duration of the dialogue in the scene
         yield return new WaitForSeconds(1);
-
 
         #region CloseDialogueAnimation
 
@@ -105,13 +106,22 @@ public class BossRush : MonoBehaviour
         foreach (ConveyorBelt conveyorBelt in fasterConveyorBelts)
             conveyorBelt.speed *= speedUpMultiplier;
 
-        //foreach (ConveyorBelt conveyorBelt in fasterConveyorBelts)
-        //    conveyorBelt.speed *= speedUpMultiplier;
+        foreach (ItemSpawner itemSpawner in FasterSpawners)
+            itemSpawner.repeatRate /= speedUpMultiplier;
+
+        foreach (RobotRail robotRail in fasterRobotRail)
+            robotRail.speed *= speedUpMultiplier;
     }
 
     void SlowEverything()
     {
         foreach (ConveyorBelt conveyorBelt in fasterConveyorBelts)
             conveyorBelt.speed /= speedUpMultiplier;
+
+        foreach (ItemSpawner itemSpawner in FasterSpawners)
+            itemSpawner.repeatRate *= speedUpMultiplier;
+
+        foreach (RobotRail robotRail in fasterRobotRail)
+            robotRail.speed /= speedUpMultiplier;
     }
 }
