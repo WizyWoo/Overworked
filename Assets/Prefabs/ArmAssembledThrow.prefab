@@ -174,5 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce20b3e46eb618448b4a3984fa8220eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaToRemove: 1
+  staminaToRemove: 3
+  explosionRadius: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
   shadow: {fileID: 0}
+  explosion: {fileID: 879436457821227990, guid: b938d9fb844dcbb4cb4ddd718f6ba42c,
+    type: 3}

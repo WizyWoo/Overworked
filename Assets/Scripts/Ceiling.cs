@@ -5,28 +5,17 @@ using UnityEngine;
 public class Ceiling : MonoBehaviour
 {
     [SerializeField] Vector2 size = new Vector2(7, 4), force = new Vector2(2, 5), delay = new Vector2(0.5f, 2);
-    [SerializeField] LayerMask layer;
+    [SerializeField] LayerMask floorLayer;
 
     [SerializeField] GameObject shadow;
 
     [SerializeField] float offset = 0.1f;
 
-    [SerializeField] GameObject arm, wheel;
-
     float initialScale = 0.2f, scaleGrowPerSec = 3f, finalScale = 1f, destroyTime = 2f;
 
     private void Update()
     {
-        //testing controls
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ThrowItem(arm);
-        }
 
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            ThrowItem(wheel);
-        }
     }
 
     public void ThrowItem(GameObject item)
@@ -59,7 +48,7 @@ public class Ceiling : MonoBehaviour
         Destroy(clon, destroyTime);
 
         //if raycast from pos touches floor create shadow
-        if (Physics.Raycast(pos, Vector3.down, out RaycastHit raycastHit, layer))
+        if (Physics.Raycast(pos, Vector3.down, out RaycastHit raycastHit, floorLayer))
         {
             //create shadow
             GameObject go = Instantiate(shadow);

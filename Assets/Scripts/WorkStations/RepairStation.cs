@@ -42,10 +42,10 @@ public class RepairStation : WorkStation
     private void Update()
     {
 
-        if(!UsedBy)
+        if(!UsedBy || (!AutoRepair && !UsedBy))
             return;
 
-        if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange)
+        if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange && !AutoRepair)
         {
 
             InUse = false;
@@ -53,10 +53,22 @@ public class RepairStation : WorkStation
 
         }
 
-        if(InUse && CraftingItem.typeOfItem == canRepairThisItem)
+        if(InUse && CraftingItem.typeOfItem == canRepairThisItem && !AutoRepair)
         {
 
             UsedBy.DoingWork(WorkIntensity);
+            CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+            if(CraftingItem.Progress >= 100)
+            {
+
+                RemoveItem(CraftingItem);
+
+            }
+
+        }
+        else if(AutoRepair && CraftingItem.typeOfItem == canRepairThisItem)
+        {
+
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
             if(CraftingItem.Progress >= 100)
             {
