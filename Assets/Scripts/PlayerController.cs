@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Exhausted ?
-        if (currentStamina == 0)
+        if (currentStamina <= 0)
         {
             exhausted = true;
             // Drop the
@@ -156,6 +156,11 @@ public class PlayerController : MonoBehaviour
     public void Relaxing(float relaxSpeed)
     {
         currentStamina += Time.deltaTime * relaxSpeed;
+    }
+
+    public void HitOnStamina (float amount)
+    {
+        currentStamina -= amount;
     }
 
 

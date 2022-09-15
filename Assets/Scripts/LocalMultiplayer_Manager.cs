@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class LocalMultiplayer_Manager : MonoBehaviour
@@ -19,6 +21,9 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
     // Half of players are in the first spawnpoint, other half in second
     [SerializeField] Transform[] spawnpoints;
+
+    [SerializeField] Image[] spawnRadialImage;
+    [SerializeField] TMP_Text[] spawnText;
 
     private void Awake()
     {
@@ -41,14 +46,37 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
         allPlayers.Add(newPlayerController);
 
-        TeleportPlayerToSpawnPoint(newPlayerController.transform, playerIndex);
+        StartCoroutine(TeleportPlayerToSpawnPointInXsec(newPlayerController.transform, playerIndex, 0));
     }
 
-    void TeleportPlayerToSpawnPoint(Transform playerTr, int playerIndex)
+    IEnumerator TeleportPlayerToSpawnPointInXsec(Transform playerTr, int playerIndex, float seconds)
     {
+        int spawnPoint = playerIndex % 2;
+
+        float currentTime = seconds;
+
+        spawnpoints[spawnPoint].gameObject.SetActive(true);
+
+
+        playerTr.GetComponentInChildren<PlayerController>().enabled = false;
+
+
+        while (currentTime > 0)
+        {
+            currentTime -= Time.deltaTime;
+
+            spawnText[spawnPoint].text = Mathf.CeilToInt(currentTime).ToString();
+            spawnRadialImage[spawnPoint].fillAmount = 1 - (currentTime / 5);
+
+            yield return 0;
+        }
+
+        spawnpoints[spawnPoint].gameObject.SetActive(false);
+
+        playerTr.GetComponentInChildren<PlayerController>().enabled = true;
+
         playerTr.position = spawnpoints[playerIndex % 2].position;
     }
-
 
     private void Update()
     {
@@ -60,8 +88,12 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         if (allPlayers.Count != 0)
             foreach (PlayerController player in allPlayers)
             {
-                if (player.transform.position.y < fallDistanceBeforeRespawning)
-                    TeleportPlayerToSpawnPoint(player.transform, player.playerIndex);
+                if (player.enabled && player.transform.position.y < fallDistanceBeforeRespawning) 
+                {
+                    player.enabled = false;
+                    StartCoroutine(TeleportPlayerToSpawnPointInXsec(player.transform, player.playerIndex, 5));
+                }
             }
+        // Update spawnerItem
     }
 }
