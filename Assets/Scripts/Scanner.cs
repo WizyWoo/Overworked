@@ -19,6 +19,8 @@ public class Scanner : MonoBehaviour
     [SerializeField] float timeBulbOn;
     [SerializeField] Renderer bulbRenderer;
     [SerializeField] Transform okayRobotPos;
+
+    int cont;
     private void Awake()
     {
         level01Manager = GetComponentInParent<Level01_Manager>();
@@ -28,6 +30,8 @@ public class Scanner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        cont++;
+        Debug.Log(cont);
 
         RobotBody robotDelivered;
         if (other.TryGetComponent<RobotBody>(out robotDelivered))

@@ -40,11 +40,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _DissolveAmount: 0
-    - _DissolveScale: 30
+    - _DissolveScale: 13
     - _DissolveSpeed: 3.01
     - _DissolveWidth: 0.5
     - _TwirlStrength: 8.28
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveColor: {r: 2.5340312, g: 3.3298426, b: 4.6282716, a: 1}
+    - _DissolveColor: {r: 0.57758063, g: 0.57758063, b: 0.57758063, a: 1}
   m_BuildTextureStacks: []
