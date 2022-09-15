@@ -42,38 +42,47 @@ public class RepairStation : WorkStation
     private void Update()
     {
 
-        if(!UsedBy || (!AutoRepair && !UsedBy))
+        if(!UsedBy && !AutoRepair)
             return;
-
-        if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange && !AutoRepair)
+        else if(UsedBy && !AutoRepair)
         {
 
-            InUse = false;
-            return;
-
-        }
-
-        if(InUse && CraftingItem.typeOfItem == canRepairThisItem && !AutoRepair)
-        {
-
-            UsedBy.DoingWork(WorkIntensity);
-            CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
-            if(CraftingItem.Progress >= 100)
+            if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange && !AutoRepair)
             {
 
-                RemoveItem(CraftingItem);
+                InUse = false;
+                return;
+
+            }
+
+            if(InUse && CraftingItem.typeOfItem == canRepairThisItem && !AutoRepair)
+            {
+
+                UsedBy.DoingWork(WorkIntensity);
+                CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+                if(CraftingItem.Progress >= 100)
+                {
+
+                    RemoveItem(CraftingItem);
+
+                }
 
             }
 
         }
-        else if(AutoRepair && CraftingItem.typeOfItem == canRepairThisItem)
+        else if(AutoRepair && CraftingItem)
         {
 
-            CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
-            if(CraftingItem.Progress >= 100)
+            if(AutoRepair && CraftingItem.typeOfItem == canRepairThisItem)
             {
 
-                RemoveItem(CraftingItem);
+                CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+                if(CraftingItem.Progress >= 100)
+                {
+
+                    RemoveItem(CraftingItem);
+
+                }
 
             }
 

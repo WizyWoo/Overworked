@@ -550,6 +550,7 @@ MonoBehaviour:
   UseRange: 3
   CraftingSpeed: 10
   WorkIntensity: 0
+  AutoRepair: 0
   InUse: 0
   DisplayPoint: {fileID: 1526265865}
   ItemOnStaion: {fileID: 0}
@@ -1350,6 +1351,8 @@ MonoBehaviour:
   spawnpoints:
   - {fileID: 312540558}
   - {fileID: 1101923418}
+  spawnRadialImage: []
+  spawnText: []
 --- !u!1001 &1299811072479203119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1411,6 +1414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: AutoRepair
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918170, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
