@@ -12,6 +12,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public float CraftingSpeed;
     [Tooltip("A multiplier for how much stamina you use at this station, 0 = no stamina used")]
     public float WorkIntensity;
+    public bool AutoRepair;
     [HideInInspector]
     public bool InUse;
     [Tooltip("Where the item lands on the table")]
