@@ -165,7 +165,7 @@ MonoBehaviour:
   a: {fileID: 3785572362713744789}
   b: {fileID: 3785572362976464661}
   goAAtStart: 0
-  velocity: 1
+  velocity: 0.1
   animationCurve:
     serializedVersion: 2
     m_Curve:
