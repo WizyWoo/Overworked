@@ -6464,6 +6464,8 @@ MonoBehaviour:
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
   addMoneyImg: {fileID: 538108139}
+  addColor: {r: 1, g: 1, b: 1, a: 1}
+  subsColor: {r: 1, g: 0, b: 0, a: 1}
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3

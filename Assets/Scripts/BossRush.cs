@@ -19,7 +19,7 @@ public class BossRush : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(StartSpeedingEverything());
+        //StartCoroutine(StartSpeedingEverything());
 
         Invoke("StartSpeedingThingsUp", startSpeedingThingsIn);
     }
