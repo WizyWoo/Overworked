@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4432132866689624400}
-  - component: {fileID: -7806078346421066013}
+  - component: {fileID: 1509899620154570847}
   - component: {fileID: 4432132866689624402}
   - component: {fileID: 4432132866689624405}
   - component: {fileID: 4432132866689624404}
@@ -37,7 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7806078346421066013
+--- !u!114 &1509899620154570847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,10 +46,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4432132866689624407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 548ed955ffe70ed438436a5c2670616f, type: 3}
+  m_Script: {fileID: 11500000, guid: 948e9ef37fae1dd43af6f31ea6b81ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnWorkstation: {fileID: 0}
+  typeOfItem: 4
+  NeedsCrafting: 0
+  ProgressIndicator: {fileID: 4432132867342593128}
+  ItemSprite: {fileID: 4432132867869898244}
+  AssembledItemSprite: {fileID: 21300000, guid: 7e7ee272d5437b246b79804299548efc,
+    type: 3}
+  assembled: 1
 --- !u!54 &4432132866689624402
 Rigidbody:
   m_ObjectHideFlags: 0

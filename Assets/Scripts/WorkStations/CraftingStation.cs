@@ -14,8 +14,8 @@ public class CraftingStation : WorkStation
     public GameObject Result;
     [Tooltip("Whether the result is finished by default or needs to be crafted")]
     public bool ResultIsAssembled;
-    [Tooltip("The ID for what items can be used for crafting, id found on CraftableItems. Order doesn't matter :) Use this if you don't want to input RecipeItem 1 and 2"), SerializeField]
-    private int recipeID1, recipeID2;
+    [Tooltip("The ItemType for what items can be used for crafting. Order doesn't matter :) Use this if you don't want to input RecipeItem 1 and 2"), SerializeField]
+    private CraftableItem.TypeOfRepairableItem recipeID1, recipeID2;
 
     private void Start()
     {
@@ -23,8 +23,8 @@ public class CraftingStation : WorkStation
         if(recipeItem1 || recipeItem2)
         {
 
-            recipeID1 = recipeItem1.ID;
-            recipeID2 = recipeItem2.ID;
+            recipeID1 = recipeItem1.typeOfItem;
+            recipeID2 = recipeItem2.typeOfItem;
             recipeItem1 = null;
             recipeItem2 = null;
 
@@ -119,7 +119,7 @@ public class CraftingStation : WorkStation
         else
         {
 
-            if(CraftingItem.ID == recipeID1 && !recipeItem1)
+            if(CraftingItem.typeOfItem == recipeID1 && !recipeItem1)
             {
 
                 recipeItem1 = CraftingItem;
@@ -129,7 +129,7 @@ public class CraftingStation : WorkStation
                 ItemOnStaion.OnWorkstation = this;
 
             }
-            else if(CraftingItem.ID == recipeID2 && !recipeItem2)
+            else if(CraftingItem.typeOfItem == recipeID2 && !recipeItem2)
             {
 
                 recipeItem2 = CraftingItem;
@@ -163,10 +163,21 @@ public class CraftingStation : WorkStation
             _tempGI.OnWorkstation = this;
             ItemOnStaion = _tempGI;
             CraftingItem = _tempGO.GetComponent<CraftableItem>();
-            CraftingItem.NeedsCrafting = true;
 
             if(ResultIsAssembled)
-                _tempGO.GetComponent<CraftableItem>().Assembled = true;
+            {
+
+                CraftingItem.Assembled = true;
+                CraftingItem.NeedsCrafting = false;
+
+            }
+            else
+            {
+
+                CraftingItem.Assembled = false;
+                CraftingItem.NeedsCrafting = true;
+
+            }
 
         }
 

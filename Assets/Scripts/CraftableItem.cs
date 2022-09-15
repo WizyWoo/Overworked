@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class CraftableItem : GrabbableItem
 {
-    public enum TypeOfRepairableItem { arm, wheel, head, body }
+    public enum TypeOfRepairableItem { arm, wheel, head, body, robot }
     public TypeOfRepairableItem typeOfItem;
     public bool NeedsCrafting;
-    public int ID;
     public SpriteRenderer ProgressIndicator, ItemSprite;
     public Sprite AssembledItemSprite;
     [SerializeField]
