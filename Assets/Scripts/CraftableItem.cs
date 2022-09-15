@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CraftableItem : GrabbableItem
 {
-    public enum TypeOfRepairableItem { arm, wheel }
+    public enum TypeOfRepairableItem { arm, wheel, head, body }
     public TypeOfRepairableItem typeOfItem;
     public bool NeedsCrafting;
     public int ID;
