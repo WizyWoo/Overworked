@@ -12,18 +12,45 @@ public class BossRush : MonoBehaviour
     [SerializeField] int duration;
 
     [SerializeField] ConveyorBelt[] fasterConveyorBelts;
-
     [SerializeField] ItemSpawner[] FasterSpawners;
+
+    [SerializeField] RobotRail[] fasterRobotRail;
 
 
     void Awake()
     {
+        StartCoroutine(StartSpeedingEverything());
 
+        Invoke("StartSpeedingThingsUp", startSpeedingThingsIn);
     }
 
-    IEnumerator StartSpeedingEverything()
+    void StartSpeedingThingsUp()
     {
-        yield return new WaitForSeconds(0);
+
     }
 
+    IEnumerator StartSpeedingEverythingIEnumerator()
+    {
+        SpeedEverything();
+
+        yield return new WaitForSeconds(duration);
+
+        SlowEverything();
+    }
+
+
+    void SpeedEverything()
+    {
+        foreach (ConveyorBelt conveyorBelt in fasterConveyorBelts)
+            conveyorBelt.speed *= speedUpMultiplier;
+
+        //foreach (ConveyorBelt conveyorBelt in fasterConveyorBelts)
+        //    conveyorBelt.speed *= speedUpMultiplier;
+    }
+
+    void SlowEverything()
+    {
+        foreach (ConveyorBelt conveyorBelt in fasterConveyorBelts)
+            conveyorBelt.speed *= speedUpMultiplier;
+    }
 }
