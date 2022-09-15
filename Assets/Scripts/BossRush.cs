@@ -32,7 +32,6 @@ public class BossRush : MonoBehaviour
     {
         Invoke("StartSpeedingThingsUp", startSpeedingThingsIn);
 
-
         // Set up dialogue elements
         redScreenEffect.color = new Color(redScreenEffect.color.r, redScreenEffect.color.g, redScreenEffect.color.b, 0);
         dialoguePanel.localScale = new Vector3(0, 1, 1);
