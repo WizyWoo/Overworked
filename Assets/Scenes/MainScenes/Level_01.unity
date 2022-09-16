@@ -5414,10 +5414,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 20
   timerText: {fileID: 2063368424}
-  strikes:
-  - {fileID: 841279898}
-  - {fileID: 854230718}
-  - {fileID: 134781575}
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
   addMoneyImg: {fileID: 538108139}
@@ -5429,6 +5425,10 @@ MonoBehaviour:
   moneyToWin: 77
   MoneyMultiplier: 0
   moneyWhenFall: -5
+  strikes:
+  - {fileID: 841279898}
+  - {fileID: 854230718}
+  - {fileID: 134781575}
 --- !u!114 &1780669303
 MonoBehaviour:
   m_ObjectHideFlags: 0

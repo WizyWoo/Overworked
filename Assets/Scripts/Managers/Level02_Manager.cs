@@ -4,19 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Level01_Manager : LevelManager
+public class Level02_Manager : LevelManager
 {
     [Header("This Level Variables")]
 
     [SerializeField] Image[] strikes;
-
-   
-
-
     int correctRobots, incorrectRobots;
-
-    
-
     private void Start()
     {
         foreach (Image strike in strikes)
