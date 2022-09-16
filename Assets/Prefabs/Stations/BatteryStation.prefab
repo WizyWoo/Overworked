@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1299811073026984507}
   m_Layer: 3
-  m_Name: RDP
+  m_Name: BDP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1299811073256918168}
   - component: {fileID: 1299811073256918169}
   m_Layer: 3
-  m_Name: RepairStation
+  m_Name: BatteryStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,13 +82,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseRange: 3
   CraftingSpeed: 50
-  WorkIntensity: 2
+  WorkIntensity: 0
+  AutoRepair: 1
   InUse: 0
   DisplayPoint: {fileID: 1299811073026984507}
   ItemOnStaion: {fileID: 0}
   CraftingItem: {fileID: 0}
   UsedBy: {fileID: 0}
-  canRepairThisItem: 0
+  canRepairThisItem: 5
 --- !u!33 &1299811073256918166
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -117,7 +118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 972a69c934cca9d4bb2384b8471581f0, type: 2}
+  - {fileID: 2100000, guid: 803e0d800e3de1543ab9880d35700b71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

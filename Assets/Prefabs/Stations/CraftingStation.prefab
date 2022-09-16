@@ -83,15 +83,18 @@ MonoBehaviour:
   UseRange: 3
   CraftingSpeed: 25
   WorkIntensity: 2
+  AutoRepair: 0
   InUse: 0
   DisplayPoint: {fileID: 5595768150498218261}
   ItemOnStaion: {fileID: 0}
   CraftingItem: {fileID: 0}
   UsedBy: {fileID: 0}
-  RecipeItem1: {fileID: 0}
-  RecipeItem2: {fileID: 0}
+  recipeItem1: {fileID: 0}
+  recipeItem2: {fileID: 0}
   Result: {fileID: 3670930037122264567, guid: ae766a90fae6ad5419c4a09ba67b6002, type: 3}
   ResultIsAssembled: 0
+  recipeID1: 0
+  recipeID2: 0
 --- !u!33 &5595768151472524685
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -166,5 +169,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 0.2, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 1.5, z: 0}

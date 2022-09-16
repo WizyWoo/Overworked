@@ -1,10 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+
+#if UNITY_EDITOR
+namespace CustomStuffPog
+{
+
+    [CustomEditor(typeof(CraftableItem))]
+    public class CraftableItemEditor : Editor
+    {
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            CraftableItem _cI = (CraftableItem)target;
+
+            if(GUILayout.Button("Pog"))
+            {
+
+                Debug.Log("Poggers :3");
+
+                _cI.NeedsCrafting = !_cI.NeedsCrafting;
+
+            }
+            
+        }
+
+    }
+    
+}
+#endif
 
 public class CraftableItem : GrabbableItem
 {
-    public enum TypeOfRepairableItem { arm, wheel, head, body, robot }
+
+    //Custom editor values
+
+
+    //Regular stuff
+    public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery }
     public TypeOfRepairableItem typeOfItem;
     public bool NeedsCrafting;
     public SpriteRenderer ProgressIndicator, ItemSprite;
