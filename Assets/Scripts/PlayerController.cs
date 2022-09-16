@@ -27,11 +27,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float staminaCooldown;
     [HideInInspector] public bool exhausted;
     [SerializeField] float regainStaminaSpeed;
+    [SerializeField] Color zeroStamina;
+    [SerializeField] Color midStamina;
+    [SerializeField] Color fullStamina;
 
     // References
     Rigidbody rb;
     SpriteRenderer sr;
     [Header("REFERENCES")]
+    [SerializeField] SpriteRenderer gfx;
     [SerializeField] Animator movementAnimator;
     [SerializeField] Transform grabSpot;
     [SerializeField] Sprite[] playerSprites;
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator flipAnimator;
     [SerializeField] bool goingRight;
     [SerializeField] Image staminaUI;
+    [SerializeField] Image staminaUI_back;
     [SerializeField] ParticleSystem sweatParticleSystem;
 
 
@@ -103,6 +108,21 @@ public class PlayerController : MonoBehaviour
         currentStamina -= (_intensity * Time.deltaTime) + (Time.deltaTime * regainStaminaSpeed);
     }
 
+
+    // Intermittent colors for when the player runs out of stamina
+    float IntermittentTime = .5f;
+    void gfxRed()
+    {
+        gfx.DOColor(Color.red, IntermittentTime);
+        Invoke("gfxNormal", IntermittentTime);
+    }
+
+    void gfxNormal()
+    {
+        gfx.DOColor(Color.white, IntermittentTime);
+        Invoke("gfxRed", IntermittentTime);
+    }
+
     void StaminaSystem()
     {
         if (exhausted)
@@ -113,6 +133,9 @@ public class PlayerController : MonoBehaviour
             {
                 exhausted = false;
                 sweatParticleSystem.Stop();
+
+                gfxNormal();
+                CancelInvoke();
             }
         }
         else
@@ -128,23 +151,40 @@ public class PlayerController : MonoBehaviour
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
 
         // Update stamina UI
+        if (currentStamina >= maxStamina)
+        {
+            staminaUI.enabled = false;
+            staminaUI_back.enabled = false;
+
+            return;
+        }
+        else
+        {
+            staminaUI.enabled = true;
+            staminaUI_back.enabled = true;
+        }
+
+
+
         float newAmount = (currentStamina / maxStamina) / 2;
         staminaUI.fillAmount = newAmount;
         if (currentStamina < maxStamina / 2)
         {
             float f = (currentStamina / (maxStamina / 2));
-            staminaUI.color = Color.Lerp(Color.red, Color.yellow, f);
+            staminaUI.color = Color.Lerp(zeroStamina, midStamina, f);
         }
         else
         {
             float f = (currentStamina - maxStamina / 2) / (maxStamina / 2);
-            staminaUI.color = Color.Lerp(Color.yellow, Color.green, f);
+            staminaUI.color = Color.Lerp(midStamina, fullStamina, f);
         }
 
         // Exhausted ?
         if (currentStamina <= 0)
         {
             exhausted = true;
+            gfxRed();
+
             // Drop the
             if (itemGrabbed != null)
                 DropItem(weakThrowForce);
@@ -158,7 +198,7 @@ public class PlayerController : MonoBehaviour
         currentStamina += Time.deltaTime * relaxSpeed;
     }
 
-    public void HitOnStamina (float amount)
+    public void HitOnStamina(float amount)
     {
         currentStamina -= amount;
     }
@@ -271,7 +311,7 @@ public class PlayerController : MonoBehaviour
     }
     void DropItem(float throwForce)
     {
-       // RemoveItem(itemGrabbed);
+        // RemoveItem(itemGrabbed);
 
         itemGrabbed.transform.SetParent(null);
         itemGrabbed.UngrabItem();
