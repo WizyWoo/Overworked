@@ -1,6 +1,8 @@
 /*
 !Assets/
 Assets/*.meta
+Assets/Scripts/K3VO.meta
+Assets/Scripts/K3VO
 !ProjectSettings
 !ProjectSettings/*
 !.gitignore
