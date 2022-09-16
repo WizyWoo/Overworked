@@ -41,6 +41,10 @@ public class CraftableItem : GrabbableItem
     public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery }
     public TypeOfRepairableItem typeOfItem;
     public bool NeedsCrafting;
+    [SerializeField, Tooltip("Recolours the item when it is assembled")]
+    private bool recolorWhenDone;
+    [SerializeField]
+    private Color newColor;
     public SpriteRenderer ProgressIndicator, ItemSprite;
     public Sprite AssembledItemSprite;
     [SerializeField]
@@ -86,6 +90,13 @@ public class CraftableItem : GrabbableItem
         ItemSprite.sprite = AssembledItemSprite;
         ProgressIndicator.size = Vector2.zero;
         NeedsCrafting = false;
+
+        if(recolorWhenDone)
+        {
+
+            ItemSprite.color = newColor;
+
+        }
 
     }
 
