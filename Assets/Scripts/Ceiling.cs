@@ -45,7 +45,7 @@ public class Ceiling : MonoBehaviour
         clon.GetComponent<Rigidbody>().AddForce(Vector3.down * _force, ForceMode.Impulse);
 
         //item destruction
-        Destroy(clon, destroyTime);
+        StartCoroutine(Destroy(clon, destroyTime));
 
         //if raycast from pos touches floor create shadow
         if (Physics.Raycast(pos, Vector3.down, out RaycastHit raycastHit, floorLayer))
@@ -61,14 +61,24 @@ public class Ceiling : MonoBehaviour
             go.transform.localScale = new Vector3(initialScale, initialScale, 1f);
 
             //set up shadow destruction
-            Destroy(go, destroyTime);
+            StartCoroutine(Destroy(go, destroyTime));
 
             //scale animation
-            while (go.transform.localScale.x <= finalScale)
-            {
+            while (go != null && go.transform.localScale.x <= finalScale)
+            {                   
                 go.transform.localScale += new Vector3(scaleGrowPerSec, scaleGrowPerSec, 0f) * Time.deltaTime;
                 yield return 0;
             }
+        }
+    }
+
+    IEnumerator Destroy(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        if(obj != null)
+        {
+            Destroy(obj);
         }
     }
 }

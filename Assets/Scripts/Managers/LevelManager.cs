@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         currentTime = maxTime;
+        addMoneyImg.gameObject.SetActive(false);
     }
 
     protected virtual void Update()
@@ -99,21 +100,21 @@ public class LevelManager : MonoBehaviour
     public void UpdateMoney(int amount)
     {
         money += amount;
+        if (money <= 0) money = 0;
         StartCoroutine(AddMoneyVisuals(amount));
     }
 
     IEnumerator AddMoneyVisuals(int amount)
     {
-        addMoneyImg.enabled = true;
-        addMoneyText.enabled = true;
+        addMoneyText.text = amount.ToString();
+
+        addMoneyImg.gameObject.SetActive(true);
 
         if (amount > 0)
             addMoneyImg.color = addColor;
         else addMoneyImg.color = subsColor;
 
         addMoneyText.color = new Vector4(addMoneyText.color.r, addMoneyText.color.g, addMoneyText.color.b, 255);
-
-        addMoneyText.text = amount.ToString();
 
         float iniY = addMoneyImg.rectTransform.position.y;
         float y = iniY;
@@ -132,7 +133,6 @@ public class LevelManager : MonoBehaviour
 
         addMoneyImg.rectTransform.position = new Vector3(addMoneyImg.rectTransform.position.x, iniY, addMoneyImg.rectTransform.position.z);
 
-        addMoneyImg.enabled = false;
-        addMoneyText.enabled = false;
+        addMoneyImg.gameObject.SetActive(false);
     }
 }
