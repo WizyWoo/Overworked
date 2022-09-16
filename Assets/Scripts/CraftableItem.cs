@@ -10,7 +10,6 @@ namespace CustomStuffPog
     [CustomEditor(typeof(CraftableItem))]
     public class CraftableItemEditor : Editor
     {
-
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -51,7 +50,7 @@ public class CraftableItem : GrabbableItem
     public SpriteRenderer ProgressIndicator;
     public SpriteRenderer ItemSprite;
     public Sprite AssembledItemSprite;
-    private bool assembled;
+    [SerializeField] bool assembled;
     public bool Assembled
     {
         get

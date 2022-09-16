@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
             if (currentStamina >= maxStamina)
             {
                 exhausted = false;
+                movementAnimator.SetBool("IsExhausted", false);
                 sweatParticleSystem.Stop();
 
                 gfxNormal();
@@ -156,8 +157,6 @@ public class PlayerController : MonoBehaviour
             staminaUI_back.enabled = true;
         }
 
-
-
         float newAmount = (currentStamina / maxStamina) / 2;
         staminaUI.fillAmount = newAmount;
         if (currentStamina < maxStamina / 2)
@@ -174,6 +173,7 @@ public class PlayerController : MonoBehaviour
         // Exhausted ?
         if (currentStamina <= 0)
         {
+            movementAnimator.SetBool("IsExhausted", true);
             exhausted = true;
             gfxRed();
 

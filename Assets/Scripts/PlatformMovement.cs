@@ -30,7 +30,7 @@ public class PlatformMovement : MonoBehaviour
     IEnumerator GoA()
     {
         float c = 0; 
-        while (Vector3.Distance(transform.position, a.position) > 0.1f)
+        while (Vector3.Distance(transform.position, a.position) > 0.01f)
         {
             yield return 0;
             transform.position = Vector3.Lerp(b.position, a.position, animationCurve.Evaluate(c));
