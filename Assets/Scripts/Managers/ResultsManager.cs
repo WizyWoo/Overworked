@@ -15,7 +15,7 @@ public class ResultsManager : MonoBehaviour
 
     [SerializeField] GameObject stars;
 
-    [SerializeField] TextMeshProUGUI moneyText;
+    [SerializeField] TextMeshProUGUI moneyText, minimumMoneyText, neededMoney;
 
     // Returns true at the end of a game if the players won the level
     public bool playersWon;
@@ -37,6 +37,7 @@ public class ResultsManager : MonoBehaviour
         Debug.Log("levelFinished = " + levelFinished);
 
         moneyText.text = GameManager.instance.finishedMoneyLevel.ToString();
+        minimumMoneyText.text = GameManager.instance.minimumMoney.ToString();
 
         if (playersWon)
             SetupWinState();
@@ -71,6 +72,9 @@ public class ResultsManager : MonoBehaviour
         nextLevel_Bt.gameObject.SetActive(false);
         retry_Bt.gameObject.SetActive(true);
         mainMenu_Bt.gameObject.SetActive(true);
+
+        neededMoney.gameObject.SetActive(true);
+        minimumMoneyText.gameObject.SetActive(true);
     }
 
 
