@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
             if (currentStamina >= maxStamina)
             {
                 exhausted = false;
+                movementAnimator.SetBool("IsExhausted", false);
                 sweatParticleSystem.Stop();
 
                 gfxNormal();
@@ -174,6 +175,7 @@ public class PlayerController : MonoBehaviour
         // Exhausted ?
         if (currentStamina <= 0)
         {
+          
             exhausted = true;
             gfxRed();
 
