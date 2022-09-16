@@ -5,6 +5,8 @@ using UnityEngine;
 public class WorkStation : MonoBehaviour , IInteractable
 {
 
+    [Tooltip("Where the item lands on the table")]
+    public Transform DisplayPoint;
     [Header("Workstation Settings")]
     [Tooltip("How far away the player can interact with the table from")]
     public float UseRange;
@@ -15,8 +17,6 @@ public class WorkStation : MonoBehaviour , IInteractable
     public bool AutoRepair;
     [HideInInspector]
     public bool InUse;
-    [Tooltip("Where the item lands on the table")]
-    public Transform DisplayPoint;
     [HideInInspector]
     public GrabbableItem ItemOnStaion;
     [HideInInspector]
