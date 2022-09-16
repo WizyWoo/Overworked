@@ -4748,7 +4748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1148291660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4776,7 +4776,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148291659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -6785,9 +6785,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUpMultiplier: 2
-  startSpeedingThingsIn: 10
+  startSpeedingThingsIn: 5
   duration: 10
-  sentence: WORK FASTEEEEEER!!!
+  sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:
   - {fileID: 1806520483}
   - {fileID: 1026594497}
