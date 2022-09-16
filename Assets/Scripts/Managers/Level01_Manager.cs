@@ -18,6 +18,7 @@ public class Level01_Manager : LevelManager
     int correctRobots, incorrectRobots;
 
     [SerializeField] int money = 0, moneyCorrectRobot, moneyWrongRobot, moneyToWin;
+    public int MoneyMultiplier;
     public int moneyWhenFall = 25;
 
     private void Start()
@@ -34,16 +35,38 @@ public class Level01_Manager : LevelManager
 
     public void CorrectRobot()
     {
-        UpdateMoney(moneyCorrectRobot);
-
+        UpdateMoney(moneyCorrectRobot*MoneyMultiplier);
+        if(MoneyMultiplier >= 3)
+        {
+            goto JustResetOnce;
+        }
+        if (MoneyMultiplier > 0)
+        {
+            MoneyMultiplier = 0;
+            MoneyMultiplier++;
+            goto JustResetOnce;
+        }
+        MoneyMultiplier++;
+    JustResetOnce:;
         Debug.Log("Correct Robot");
         //correctRobots++;
     }
 
     public void IncorrectRobot()
     {
-        UpdateMoney(moneyWrongRobot);
-
+        UpdateMoney(moneyWrongRobot * MoneyMultiplier);
+        if(MoneyMultiplier >= 3)
+        {
+            goto NoMore;
+        }
+        if (MoneyMultiplier > 0)
+        {
+            MoneyMultiplier++;
+            goto NoMore;
+        }
+        MoneyMultiplier = 0;
+        MoneyMultiplier++;
+    NoMore:;
         Debug.Log("Incorrect Robot");
         //incorrectRobots++;
 
