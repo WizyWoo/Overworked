@@ -55,6 +55,9 @@ public class RepairStation : WorkStation
 
             }
 
+            if(UsedBy.exhausted)
+                return;
+
             if(InUse && CraftingItem.typeOfItem == canRepairThisItem && !AutoRepair)
             {
 
