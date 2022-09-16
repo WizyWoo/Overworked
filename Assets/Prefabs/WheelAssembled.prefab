@@ -154,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 537346857
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1464cba70dd48804cbc0621dfd0ae525, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -219,12 +219,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnWorkstation: {fileID: 0}
   typeOfItem: 1
-  ID: 0
+  NeedsCrafting: 0
+  recolorWhenDone: 0
+  newColor: {r: 0, g: 0, b: 0, a: 0}
   ProgressIndicator: {fileID: 3670930035728738504}
   ItemSprite: {fileID: 3670930036268102308}
   AssembledItemSprite: {fileID: 21300000, guid: 1464cba70dd48804cbc0621dfd0ae525,
     type: 3}
-  assembled: 1
 --- !u!54 &3670930037122264562
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float weakThrowForce;
     [SerializeField] float strongThrowForce;
     float horInput, verInput;
+    // The direction the character is facing
+    Vector2 dir;
 
     // Stamina
 
@@ -48,16 +50,12 @@ public class PlayerController : MonoBehaviour
 
 
     // Grabbing
-
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
     [HideInInspector] public GrabbableItem itemGrabbed;
-
     public IInteractable InteractingWith;
-
     // The time it takes the character to grab an item before he can moves
     float grabTime = .5f;
-
     // Returns true if this character is grabbing an item right now
     bool currentlyGrabbingAnItem;
 
@@ -90,17 +88,11 @@ public class PlayerController : MonoBehaviour
         // Update stamina variables and stamina gfx
         StaminaSystem();
 
-
         FlipAnim();
-
-
 
         // Quick bug fix, need to change in the future
         if (rb.velocity.y > 0)
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-
-
-        Debug.Log("ItemsInRangeForGrabbing = " + ItemsInRangeForGrabbing.Count);
     }
 
     public void DoingWork(float _intensity)
@@ -316,14 +308,8 @@ public class PlayerController : MonoBehaviour
         itemGrabbed.transform.SetParent(null);
         itemGrabbed.UngrabItem();
 
-        float horDropForce;
-        if (goingRight)
-            horDropForce = throwForce;
-        else horDropForce = -throwForce;
-        float verDropForce = 5;
-
         itemGrabbed.GetComponent<Rigidbody>().velocity =
-            new Vector3(horDropForce, verDropForce, 0);
+            new Vector3(dir.x * throwForce, throwForce, dir.y * throwForce);
 
         itemGrabbed = null;
     }
@@ -339,12 +325,18 @@ public class PlayerController : MonoBehaviour
     #region Movement
 
     private void FixedUpdate()
-    {
-        Movement();
-    }
+    { Movement(); }
 
     private void Movement()
     {
+        // Update dir
+        if (horInput != 0)
+            dir = new Vector2(Mathf.Sign(horInput), 0);
+        else if (verInput != 0)
+            dir = new Vector2(0, Mathf.Sign(verInput));
+
+        Debug.Log(dir);
+
         // If the character is in the process of grabbing an item
         // Dont let the player move
         if (currentlyGrabbingAnItem) return;
@@ -353,9 +345,7 @@ public class PlayerController : MonoBehaviour
 
         newVelocity += new Vector3(horInput, rb.velocity.y, verInput);
 
-
         rb.velocity = newVelocity.normalized * speed;
-
 
         if (exhausted)
             rb.velocity *= 0;
