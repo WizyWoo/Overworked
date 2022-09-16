@@ -20,7 +20,7 @@ namespace CustomStuffPog
             if(GUILayout.Button("Pog"))
             {
 
-                Debug.Log("Poggers :3");
+                Debug.LogError("You got pogged :)");
 
             }
             
