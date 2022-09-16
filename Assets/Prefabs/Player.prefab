@@ -328,10 +328,14 @@ MonoBehaviour:
   speed: 8
   weakThrowForce: 3
   strongThrowForce: 10
-  maxStamina: 10
+  maxStamina: 2
   staminaCooldown: 2
   exhausted: 0
   regainStaminaSpeed: 0
+  zeroStamina: {r: 1, g: 0, b: 0, a: 1}
+  midStamina: {r: 1, g: 0.6890694, b: 0, a: 1}
+  fullStamina: {r: 0.98823524, g: 1, b: 0, a: 1}
+  gfx: {fileID: 832722991685738710}
   movementAnimator: {fileID: 5376688896846119680}
   grabSpot: {fileID: 4399654409087059596}
   playerSprites:
@@ -343,6 +347,7 @@ MonoBehaviour:
   flipAnimator: {fileID: 3240056448944229999}
   goingRight: 0
   staminaUI: {fileID: 5776556255383701288}
+  staminaUI_back: {fileID: 7735959217342800931}
   sweatParticleSystem: {fileID: 8941736650439707026}
   itemGrabbed: {fileID: 0}
   ItemsInRangeForGrabbing: []
