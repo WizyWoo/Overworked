@@ -16,8 +16,6 @@ public class RelaxZone : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("playersInRelaxZone = " + playersInRelaxZone.Count);
-
         if (playersInRelaxZone.Count == 0)
         {
             particleSys.Stop();

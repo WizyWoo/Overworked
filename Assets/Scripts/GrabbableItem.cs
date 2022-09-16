@@ -64,8 +64,8 @@ public class GrabbableItem : MonoBehaviour
 
         if (player != null)
         {
-            //if (!GetComponent<CraftableItem>().Assembled)
-            player.AddItem(this);
+            if (!GetComponent<CraftableItem>().delivered)
+                player.AddItem(this);
         }
     }
 

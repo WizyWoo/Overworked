@@ -51,6 +51,7 @@ public class CraftableItem : GrabbableItem
     public SpriteRenderer ItemSprite;
     public Sprite AssembledItemSprite;
     [SerializeField] bool assembled;
+    public bool delivered;
     public bool Assembled
     {
         get
@@ -88,18 +89,13 @@ public class CraftableItem : GrabbableItem
     //Called when Progress is set to 100 or Assembled is set to true. Just puts on new sprite and removes indicator :))))
     public void ItemAssembled()
     {
-
         ItemSprite.sprite = AssembledItemSprite;
         ProgressIndicator.size = Vector2.zero;
         NeedsCrafting = false;
 
         if(recolorWhenDone)
         {
-
             ItemSprite.color = newColor;
-
         }
-
     }
-
 }

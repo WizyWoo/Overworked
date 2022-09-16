@@ -63,6 +63,8 @@ public class RobotBody : MonoBehaviour
             item.transform.SetParent(newSpot);
             StartCoroutine(MoveItemToAssembledSpot(item.transform, newSpot.transform, .5f));
 
+            item.GetComponent<CraftableItem>().delivered = true;
+
             item.enabled = false;
         }
     }

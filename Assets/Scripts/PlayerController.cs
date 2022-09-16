@@ -225,9 +225,9 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
-                // If there are any null references destroy them
+                //// If there are any null references destroy them
                 foreach (GrabbableItem item in ItemsInRangeForGrabbing)
-                    if (item == null) ItemsInRangeForGrabbing.Remove(item);
+                    if (item.GetComponent<CraftableItem>().delivered) ItemsInRangeForGrabbing.Remove(item);
 
                 if (ItemsInRangeForGrabbing.Count == 0) return;
 
@@ -239,6 +239,8 @@ public class PlayerController : MonoBehaviour
                 {
                     for (int i = 0; i < ItemsInRangeForGrabbing.Count; i++)
                     {
+                        if (ItemsInRangeForGrabbing[i] == null) continue;
+
                         float shortestDistance = Vector3.Distance(nearestItem.transform.position, transform.position);
 
                         float newDistance = Vector3.Distance(ItemsInRangeForGrabbing[i].transform.position, transform.position);
@@ -314,8 +316,9 @@ public class PlayerController : MonoBehaviour
         itemGrabbed = null;
     }
 
-    public void TryRemoveGrabbableItemFromList(GrabbableItem g)
+    public IEnumerator TryRemoveGrabbableItemFromList(GrabbableItem g)
     {
+        yield return new WaitForSeconds(.3f);
         RemoveItem(g);
     }
 
@@ -334,8 +337,6 @@ public class PlayerController : MonoBehaviour
             dir = new Vector2(Mathf.Sign(horInput), 0);
         else if (verInput != 0)
             dir = new Vector2(0, Mathf.Sign(verInput));
-
-        Debug.Log(dir);
 
         // If the character is in the process of grabbing an item
         // Dont let the player move
