@@ -3327,6 +3327,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}
+      propertyPath: initialScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: scaleGrowPerSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
       propertyPath: floorLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -4163,17 +4173,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcf893fcd4164d4bac0dc0567727f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 20
+  maxTime: 2
   timerText: {fileID: 2063368424}
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
   addMoneyImg: {fileID: 538108139}
   addColor: {r: 1, g: 1, b: 1, a: 1}
   subsColor: {r: 1, g: 0, b: 0, a: 1}
-  money: 0
+  money: 23
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
-  moneyToWin: 77
+  moneyToWin1Star: 33
+  moneyToWin2Star: 100
+  moneyToWin3Star: 150
   MoneyMultiplier: 0
   moneyWhenFall: -5
   strikes:
@@ -4441,7 +4453,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 4399654409153324573, guid: 198bd91e183cd2245bf2818270d428a9,
+  m_PlayerPrefab: {fileID: 7669628409523345686, guid: 8bc61d83ffdd2db439e0d823605ba159,
     type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
@@ -4707,6 +4719,11 @@ PrefabInstance:
     - target: {fileID: 7398927922860443291, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398927924070264976, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

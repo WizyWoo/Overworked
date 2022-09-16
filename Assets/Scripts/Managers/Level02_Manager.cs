@@ -54,7 +54,7 @@ public class Level02_Manager : LevelManager
 
     protected override bool WinCondition()
     {
-        return money >= moneyToWin;
+        return money >= moneyToWin1Star;
     }
 
     

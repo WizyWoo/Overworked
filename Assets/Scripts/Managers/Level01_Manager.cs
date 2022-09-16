@@ -10,12 +10,7 @@ public class Level01_Manager : LevelManager
 
     [SerializeField] Image[] strikes;
 
-   
-
-
     int correctRobots, incorrectRobots;
-
-    
 
     private void Start()
     {
@@ -57,11 +52,9 @@ public class Level01_Manager : LevelManager
     NoMore:;
     }
 
-
-
     protected override bool WinCondition()
     {
-        return money >= moneyToWin;
+        return money >= moneyToWin1Star;
     }
 
     
