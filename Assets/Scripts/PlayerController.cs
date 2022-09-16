@@ -330,6 +330,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
+        Debug.Log(horInput);
         // Update dir
         if (horInput != 0 && MathF.Abs(horInput) > deadZone)
             dir = new Vector2(Mathf.Sign(horInput), 0);
