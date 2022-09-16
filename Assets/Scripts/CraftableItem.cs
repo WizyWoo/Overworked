@@ -15,7 +15,7 @@ namespace CustomStuffPog
         {
             base.OnInspectorGUI();
 
-            CraftableItem _cI = (CraftableItem)target;
+            GUILayout.Label("Touch me :3");
 
             if(GUILayout.Button("Pog"))
             {
@@ -39,15 +39,18 @@ public class CraftableItem : GrabbableItem
 
     //Regular stuff
     public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery }
+
+    [Header("Change me if you want :)")]
     public TypeOfRepairableItem typeOfItem;
     public bool NeedsCrafting;
     [SerializeField, Tooltip("Recolours the item when it is assembled")]
     private bool recolorWhenDone;
     [SerializeField]
     private Color newColor;
-    public SpriteRenderer ProgressIndicator, ItemSprite;
+    [Space, Header("plz give reference")]
+    public SpriteRenderer ProgressIndicator;
+    public SpriteRenderer ItemSprite;
     public Sprite AssembledItemSprite;
-    [SerializeField]
     private bool assembled;
     public bool Assembled
     {
