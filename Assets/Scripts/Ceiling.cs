@@ -11,7 +11,7 @@ public class Ceiling : MonoBehaviour
 
     [SerializeField] float offset = 0.1f;
 
-    float initialScale = 0.2f, scaleGrowPerSec = 3f, finalScale = 1f, destroyTime = 2f;
+    [SerializeField] float initialScale = 0.2f, scaleGrowPerSec = 3f, finalScale = 1f, destroyTime = 2f;
 
     private void Update()
     {
@@ -58,7 +58,7 @@ public class Ceiling : MonoBehaviour
 
             //initialize position and scale
             go.transform.position = new Vector3(pos.x, raycastHit.transform.position.y + raycastHit.collider.bounds.extents.y + offset, pos.z);
-            go.transform.localScale = new Vector3(initialScale, 1f, initialScale);
+            go.transform.localScale = new Vector3(initialScale, initialScale, 1f);
 
             //set up shadow destruction
             Destroy(go, destroyTime);
@@ -66,7 +66,7 @@ public class Ceiling : MonoBehaviour
             //scale animation
             while (go.transform.localScale.x <= finalScale)
             {
-                go.transform.localScale += new Vector3(scaleGrowPerSec, 0f, scaleGrowPerSec) * Time.deltaTime;
+                go.transform.localScale += new Vector3(scaleGrowPerSec, scaleGrowPerSec, 0f) * Time.deltaTime;
                 yield return 0;
             }
         }

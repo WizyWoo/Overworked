@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     static public GameManager instance;
 
+    public int finishedMoneyLevel, amountOfStars;
+
     private void Awake()
     {
         // Singleton
