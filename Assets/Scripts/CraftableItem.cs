@@ -22,8 +22,6 @@ namespace CustomStuffPog
 
                 Debug.Log("Poggers :3");
 
-                _cI.NeedsCrafting = !_cI.NeedsCrafting;
-
             }
             
         }
