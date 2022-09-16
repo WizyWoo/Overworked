@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobotRail : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     [SerializeField] Vector2 direction;
     Rigidbody rb;
 

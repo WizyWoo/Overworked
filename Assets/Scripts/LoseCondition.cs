@@ -51,11 +51,12 @@ public class LoseCondition : MonoBehaviour
             }
         }
         Successful_Robots = WC.Current_RobotChain;
+
         // if Game_Over is true, sets timescale to 0.001   making the game slower     
         // turning on the LoserHud object containing the Game Over "hud"
         // as a result of this physics will be kinda slow until reset back to 1
         Timer -= Time.deltaTime;
-         seconds = Mathf.FloorToInt(Timer % 60);
+        seconds = Mathf.FloorToInt(Timer % 60);
         if (seconds <= 0)
         {
             seconds = 0;

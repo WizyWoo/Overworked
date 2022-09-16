@@ -25,16 +25,15 @@ public class ThrowableItems : MonoBehaviour
         {
             Collider[] col = Physics.OverlapSphere(transform.position, explosionRadius, playerLayer);
 
-            if (col.Length <= 0)
-                return;
-
-            for (int i = 0; i < col.Length; i++)
+            if (col.Length > 0)
             {
-                col[i].GetComponent<PlayerController>().HitOnStamina(staminaToRemove);
+                for (int i = 0; i < col.Length; i++)
+                {
+                    col[i].GetComponent<PlayerController>().HitOnStamina(staminaToRemove);
+                }
             }
+
         }
-
-
 
         Destroy(gameObject);
         Destroy(shadow);

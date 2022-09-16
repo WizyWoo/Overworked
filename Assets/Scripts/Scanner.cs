@@ -19,6 +19,8 @@ public class Scanner : MonoBehaviour
     [SerializeField] float timeBulbOn;
     [SerializeField] Renderer bulbRenderer;
     [SerializeField] Transform okayRobotPos;
+
+    int cont;
     private void Awake()
     {
         level01Manager = GetComponentInParent<Level01_Manager>();
@@ -28,6 +30,8 @@ public class Scanner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        cont++;
+        Debug.Log(cont);
 
         RobotBody robotDelivered;
         if (other.TryGetComponent<RobotBody>(out robotDelivered))
@@ -52,6 +56,8 @@ public class Scanner : MonoBehaviour
 
             else
             {
+                StartCoroutine(WrongRobot(robotDelivered));
+
                 //change color
                 glassMat.color = wrongCol;
                 glassMat.EnableKeyword("_EMISSION");
@@ -60,7 +66,6 @@ public class Scanner : MonoBehaviour
 
                 level01Manager.IncorrectRobot();
 
-                Instantiate(explosionParticleSystem, robotDelivered.transform.position, robotDelivered.transform.rotation);
                 if (robotDelivered.leftArmAssembled)
                 {
                     ceiling.ThrowItem(armToThrow);
@@ -76,9 +81,6 @@ public class Scanner : MonoBehaviour
                 }
 
                 IncrementLoseCon = true;
-
-                robotDelivered.GetComponentInParent<RobotRail>().RemoveRobotFromConveyor(robotDelivered);
-                Destroy(robotDelivered.gameObject);
             }
 
             Invoke("ReturnBulbToDefault", timeBulbOn);
@@ -92,6 +94,16 @@ public class Scanner : MonoBehaviour
         glassMat.SetColor("_EmissionColor", defaultCol);
         glassMat.DisableKeyword("_EMISSION");
         glassMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
+    }
+
+    IEnumerator WrongRobot(RobotBody rb)
+    {
+        rb.GetComponentInParent<RobotRail>().RemoveRobotFromConveyor(rb);
+
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(explosionParticleSystem, rb.transform.position, rb.transform.rotation);
+
+        Destroy(rb.gameObject);
     }
 
     //Parabolic movement

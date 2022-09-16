@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
         currentTime = maxTime;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         UpdateTimer();
     }
