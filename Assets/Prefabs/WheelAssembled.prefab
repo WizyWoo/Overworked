@@ -226,6 +226,7 @@ MonoBehaviour:
   ItemSprite: {fileID: 3670930036268102308}
   AssembledItemSprite: {fileID: 21300000, guid: 1464cba70dd48804cbc0621dfd0ae525,
     type: 3}
+  assembled: 1
 --- !u!54 &3670930037122264562
 Rigidbody:
   m_ObjectHideFlags: 0
