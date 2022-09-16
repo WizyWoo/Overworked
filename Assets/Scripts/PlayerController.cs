@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float weakThrowForce;
     [SerializeField] float strongThrowForce;
+    [SerializeField] float deadZone;
     float horInput, verInput;
     // The direction the character is facing
     Vector2 dir;
@@ -330,9 +331,9 @@ public class PlayerController : MonoBehaviour
     private void Movement()
     {
         // Update dir
-        if (horInput != 0)
+        if (horInput != 0 && MathF.Abs(horInput) > deadZone)
             dir = new Vector2(Mathf.Sign(horInput), 0);
-        else if (verInput != 0)
+        else if (verInput != 0 && MathF.Abs(verInput) > deadZone)
             dir = new Vector2(0, Mathf.Sign(verInput));
 
         Debug.Log(dir);
