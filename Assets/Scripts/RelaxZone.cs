@@ -7,10 +7,29 @@ public class RelaxZone : MonoBehaviour
     List<PlayerController> playersInRelaxZone = new List<PlayerController>();
     [SerializeField] float relaxSpeed;
 
-    private void FixedUpdate()
+    [SerializeField] ParticleSystem particleSys;
+
+    private void Awake()
     {
+
+    }
+
+    private void Update()
+    {
+        Debug.Log("playersInRelaxZone = " + playersInRelaxZone.Count);
+
+        if (playersInRelaxZone.Count == 0)
+        {
+            particleSys.Stop();
+            return;
+        }
         foreach (PlayerController player in playersInRelaxZone)
+        {
             player.Relaxing(relaxSpeed);
+
+            if (!particleSys.isPlaying)
+                particleSys.Play();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
