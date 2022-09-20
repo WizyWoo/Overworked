@@ -26,6 +26,9 @@ public class MovingPlatformChildren : MonoBehaviour
         if (playerController == null && craftableItem == null)
             return;
 
+        if (playerController.transform.parent != this.transform)
+            return;
+
         if (craftableItem == null)
             playerController.transform.parent = null;
         else
