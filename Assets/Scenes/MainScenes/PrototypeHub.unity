@@ -1263,7 +1263,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Bills n'' shit
+  m_Text: 'Bills n'' stuff
 
 
     Tax: 1000
@@ -1271,9 +1271,7 @@ MonoBehaviour:
     Money: 1
 
 
-    Debt: 999
-
-    :)'
+    Debt: 999'
 --- !u!222 &536084519
 CanvasRenderer:
   m_ObjectHideFlags: 0
