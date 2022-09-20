@@ -18,7 +18,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI moneyText, addMoneyText;
     [SerializeField] Image addMoneyImg;
     [SerializeField] Color addColor, subsColor;
-    [SerializeField] protected int money = 0, moneyCorrectRobot, moneyWrongRobot, moneyToWin1Star, moneyToWin2Star, moneyToWin3Star;
+    [SerializeField] protected int money = 0, moneyCorrectRobot, moneyWrongRobot;
+    protected int moneyToWin1Star, moneyToWin2Star, moneyToWin3Star;
     public int MoneyMultiplier;
     public int moneyWhenFall = 25;
 
@@ -31,7 +32,7 @@ public class LevelManager : MonoBehaviour
     protected virtual void Update()
     {
         UpdateTimer();
-        moneyText.text = money.ToString();
+        moneyText.text = money.ToString() + " / " + moneyToWin1Star.ToString();
     }
 
     void UpdateTimer()

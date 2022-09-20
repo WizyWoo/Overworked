@@ -154,7 +154,7 @@ Transform:
   - {fileID: 1236464840}
   - {fileID: 1184507634}
   m_Father: {fileID: 440095528}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &17310909
 GameObject:
@@ -202,8 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
     type: 3}
-  repeatRate: 10
-  initialOffset: 5
+  repeatRate: 16
+  initialOffset: 8
 --- !u!1001 &35699913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -693,12 +693,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232865862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.882, y: -0, z: 0.6858}
-  m_LocalScale: {x: 6.326408, y: 1, z: 6.6678066}
+  m_LocalPosition: {x: -0.0003, y: -0, z: 0.6858}
+  m_LocalScale: {x: 16.089891, y: 1, z: 6.6678066}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440095528}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &232865864
 BoxCollider:
@@ -1590,7 +1590,6 @@ Transform:
   - {fileID: 1411027946}
   - {fileID: 85378403}
   - {fileID: 564251952}
-  - {fileID: 1151282200}
   - {fileID: 232865863}
   - {fileID: 3259283}
   m_Father: {fileID: 0}
@@ -2435,7 +2434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
     type: 3}
-  repeatRate: 10
+  repeatRate: 16
   initialOffset: 0
 --- !u!114 &854230718 stripped
 MonoBehaviour:
@@ -2676,7 +2675,7 @@ PrefabInstance:
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
       propertyPath: speed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
@@ -2803,7 +2802,7 @@ PrefabInstance:
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
       propertyPath: speed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
@@ -2859,103 +2858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1151282199
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1151282200}
-  - component: {fileID: 1151282203}
-  - component: {fileID: 1151282202}
-  - component: {fileID: 1151282201}
-  m_Layer: 9
-  m_Name: Floor (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1151282200
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151282199}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.882, y: -0, z: 0.6858}
-  m_LocalScale: {x: 6.326408, y: 1, z: 6.6678066}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 440095528}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1151282201
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151282199}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1151282202
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151282199}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31d35cf611b29e44a88edf885935b4c9, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1151282203
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151282199}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1166689482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3071,8 +2973,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: 17eb99d3636ec7b4baea9e1de3ca414d,
     type: 3}
-  repeatRate: 5
-  initialOffset: 0
+  repeatRate: 6
+  initialOffset: 2
 --- !u!1001 &1184507633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3416,8 +3318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: 8046ef736ac597a4497296f5d16164e9,
     type: 3}
-  repeatRate: 10
-  initialOffset: 5
+  repeatRate: 16
+  initialOffset: 8
 --- !u!114 &1297629720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
@@ -3478,8 +3380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 6286823940320546486, guid: f02e5b1b8c2b09e499871b4bcf91a1ab,
     type: 3}
-  repeatRate: 10
-  initialOffset: 5
+  repeatRate: 16
+  initialOffset: 8
 --- !u!1 &1411027945
 GameObject:
   m_ObjectHideFlags: 0
@@ -4031,7 +3933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: ae766a90fae6ad5419c4a09ba67b6002,
     type: 3}
-  repeatRate: 5
+  repeatRate: 6
   initialOffset: 0
 --- !u!1 &1684884584
 GameObject:
@@ -4081,7 +3983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 6286823940320546486, guid: f02e5b1b8c2b09e499871b4bcf91a1ab,
     type: 3}
-  repeatRate: 10
+  repeatRate: 16
   initialOffset: 0
 --- !u!1 &1705422793
 GameObject:
@@ -4129,7 +4031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
     type: 3}
-  repeatRate: 10
+  repeatRate: 16
   initialOffset: 0
 --- !u!1 &1780669299
 GameObject:
@@ -4188,15 +4090,15 @@ MonoBehaviour:
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
-  moneyToWin1Star: 60
-  moneyToWin2Star: 75
-  moneyToWin3Star: 90
   MoneyMultiplier: 0
   moneyWhenFall: -5
   strikes:
   - {fileID: 841279898}
   - {fileID: 854230718}
   - {fileID: 134781575}
+  moneyToWin1Star1: 30
+  moneyToWin2Star1: 45
+  moneyToWin3Star1: 60
 --- !u!114 &1780669303
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,10 +12,17 @@ public class Level01_Manager : LevelManager
 
     int correctRobots, incorrectRobots;
 
+    [SerializeField] int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
+    
+
     private void Start()
     {
         foreach (Image strike in strikes)
             strike.enabled = false;
+
+        moneyToWin1Star = moneyToWin1Star1;
+        moneyToWin2Star = moneyToWin2Star1;
+        moneyToWin3Star = moneyToWin3Star1;
     }
 
     public void CorrectRobot()
@@ -25,9 +32,9 @@ public class Level01_Manager : LevelManager
         {
             goto JustResetOnce;
         }
-        if (MoneyMultiplier > 0)
+        if (MoneyMultiplier > 1)
         {
-            MoneyMultiplier = 0;
+            MoneyMultiplier = 1;
             MoneyMultiplier++;
             goto JustResetOnce;
         }
@@ -42,12 +49,12 @@ public class Level01_Manager : LevelManager
         {
             goto NoMore;
         }
-        if (MoneyMultiplier > 0)
+        if (MoneyMultiplier > 1)
         {
             MoneyMultiplier++;
             goto NoMore;
         }
-        MoneyMultiplier = 0;
+        MoneyMultiplier = 1;
         MoneyMultiplier++;
     NoMore:;
     }
