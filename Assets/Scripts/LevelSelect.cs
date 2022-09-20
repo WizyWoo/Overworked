@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour
 {
 
-    public void LoadLevel(string _lvlName) => SceneManager.LoadScene(_lvlName);
+    public void LoadLevel(int _lvlNum) => SceneManager.LoadScene(_lvlNum);
 
 }
