@@ -18,13 +18,6 @@ public class LevelSelectButton : MonoBehaviour
     }
     public void LoadLevel()
     {
-        if(LeveltoLoad == 1)
-        {
-            SceneManager.LoadScene(1);
-        }
-        if(LeveltoLoad == 2)
-        {
-            SceneManager.LoadScene(2);
-        }
+        SceneManager.LoadScene(LeveltoLoad);
     }
 }
