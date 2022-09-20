@@ -32,9 +32,9 @@ public class Level01_Manager : LevelManager
         {
             goto JustResetOnce;
         }
-        if (MoneyMultiplier > 0)
+        if (MoneyMultiplier > 1)
         {
-            MoneyMultiplier = 0;
+            MoneyMultiplier = 1;
             MoneyMultiplier++;
             goto JustResetOnce;
         }
@@ -49,12 +49,12 @@ public class Level01_Manager : LevelManager
         {
             goto NoMore;
         }
-        if (MoneyMultiplier > 0)
+        if (MoneyMultiplier > 1)
         {
             MoneyMultiplier++;
             goto NoMore;
         }
-        MoneyMultiplier = 0;
+        MoneyMultiplier = 1;
         MoneyMultiplier++;
     NoMore:;
     }
