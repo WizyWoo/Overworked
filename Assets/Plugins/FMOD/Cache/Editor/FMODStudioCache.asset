@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4512140384547693405
+--- !u!114 &-2653772972636133077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,35 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Desktop/Master.bank
   m_EditorClassIdentifier: 
-  Path: D:/Game Dev/FMOD/FMODProjects/Overworked_FMOD/Overworked/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 637994425221444902
-  FileSizes:
-  - Name: 
-    Value: 762
-  Exists: 1
---- !u!114 &-265835720536321624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: D:/Game Dev/FMOD/FMODProjects/Overworked_FMOD/Overworked/Build/Desktop/Master.bank
-  Name: Master
+  Path: ../../../FMOD/FMODProjects/Overworked_FMOD/Overworked/Build/Desktop/Master.bank
+  Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 637994425221424887
-  FileSizes:
-  - Name: 
-    Value: 2004
+  lastModified: 637994438529505391
+  FileSizes: []
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -53,16 +31,16 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -4512140384547693405}
-  - {fileID: -265835720536321624}
+  - {fileID: 6451252049160204182}
+  - {fileID: -2653772972636133077}
   EditorEvents:
   - {fileID: 5878903148449523057}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -265835720536321624}
+  - {fileID: -2653772972636133077}
   StringsBanks:
-  - {fileID: -4512140384547693405}
-  cacheTime: 637994425221444902
+  - {fileID: 6451252049160204182}
+  cacheTime: 637994438529525399
   cacheVersion: 131591
 --- !u!114 &5878903148449523057
 MonoBehaviour:
@@ -83,11 +61,31 @@ MonoBehaviour:
     Data3: -1319074404
     Data4: -1372284400
   Banks:
-  - {fileID: -265835720536321624}
-  IsStream: 0
+  - {fileID: -2653772972636133077}
+  IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 10755
+--- !u!114 &6451252049160204182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../FMOD/FMODProjects/Overworked_FMOD/Overworked/Build/Desktop/Master.strings.bank
+  Name: Desktop/Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637994438529525399
+  FileSizes:
+  - Name: 
+    Value: 762
+  Exists: 1
