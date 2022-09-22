@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2653772972636133077
+--- !u!114 &-751020535825979977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Master.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../../FMOD/FMODProjects/Overworked_FMOD/Overworked/Build/Desktop/Master.bank
-  Name: Desktop/Master
+  Path: Assets/FMOD Banks/Desktop/Master.bank
+  Name: Master
   StudioPath: bank:/Master
-  lastModified: 637994438529505391
+  lastModified: 637994440764973071
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -31,16 +31,16 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 6451252049160204182}
-  - {fileID: -2653772972636133077}
+  - {fileID: 7854632297444148663}
+  - {fileID: -751020535825979977}
   EditorEvents:
   - {fileID: 5878903148449523057}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2653772972636133077}
+  - {fileID: -751020535825979977}
   StringsBanks:
-  - {fileID: 6451252049160204182}
-  cacheTime: 637994438529525399
+  - {fileID: 7854632297444148663}
+  cacheTime: 637994440765133165
   cacheVersion: 131591
 --- !u!114 &5878903148449523057
 MonoBehaviour:
@@ -61,7 +61,7 @@ MonoBehaviour:
     Data3: -1319074404
     Data4: -1372284400
   Banks:
-  - {fileID: -2653772972636133077}
+  - {fileID: -751020535825979977}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10755
---- !u!114 &6451252049160204182
+--- !u!114 &7854632297444148663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,12 +79,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Master.strings.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../../../FMOD/FMODProjects/Overworked_FMOD/Overworked/Build/Desktop/Master.strings.bank
-  Name: Desktop/Master.strings
+  Path: Assets/FMOD Banks/Desktop/Master.strings.bank
+  Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637994438529525399
+  lastModified: 637994440765133165
   FileSizes:
   - Name: 
     Value: 762
