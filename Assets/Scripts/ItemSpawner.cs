@@ -19,7 +19,7 @@ public class ItemSpawner : MonoBehaviour
 
     void SpawnItem()
     {
-        Instantiate(spawnThisPrefab, transform);
+        Instantiate(spawnThisPrefab, transform.position, transform.rotation);
 
 
         if(generator != null)
