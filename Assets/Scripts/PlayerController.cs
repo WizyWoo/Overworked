@@ -323,7 +323,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator TryRemoveGrabbableItemFromList(GrabbableItem g)
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.0f);
         RemoveItem(g);
     }
 

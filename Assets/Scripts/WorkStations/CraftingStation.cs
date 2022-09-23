@@ -182,7 +182,7 @@ public class CraftingStation : WorkStation
 
         }
 
-        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+        //SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         return true;
 
