@@ -13,7 +13,7 @@ public class Level01_Manager : LevelManager
 
     int correctRobots, incorrectRobots;
 
-    [SerializeField] Image tickImage;
+    [SerializeField] SpriteRenderer tickImage;
     [SerializeField] int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
 
 
@@ -28,6 +28,8 @@ public class Level01_Manager : LevelManager
 
         // Save the tick image position
         initialTickPosition = tickImage.transform.position;
+
+        CorrectRobot();
     }
 
     public void CorrectRobot()
