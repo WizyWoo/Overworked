@@ -37,7 +37,6 @@ namespace SoundManagerCustomEditor
 
 #endif
 
-[ExecuteAlways]
 public class SoundManager : MonoBehaviour
 {
 
