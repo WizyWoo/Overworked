@@ -64,7 +64,7 @@ public class Level01_Manager : LevelManager
 
     void ShowGoodFeedback()
     {
-        tickImage.DOFade();
+        //tickImage.DOFade();
     }
 
     protected override bool WinCondition()
