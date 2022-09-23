@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image staminaUI_back;
     [SerializeField] ParticleSystem sweatParticleSystem;
 
-
     // Grabbing
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
@@ -58,6 +57,9 @@ public class PlayerController : MonoBehaviour
     float grabTime = .5f;
     // Returns true if this character is grabbing an item right now
     bool currentlyGrabbingAnItem;
+
+    bool inGenerator;
+    Generator generator;
 
 
     private void Awake()
@@ -102,17 +104,17 @@ public class PlayerController : MonoBehaviour
 
 
     // Intermittent colors for when the player runs out of stamina
-    float IntermittentTime = .5f;
+    float intermitentTime = .5f;
     void gfxRed()
     {
-        gfx.DOColor(Color.red, IntermittentTime);
-        Invoke("gfxNormal", IntermittentTime);
+        gfx.DOColor(Color.red, intermitentTime);
+        Invoke("gfxNormal", intermitentTime);
     }
 
     void gfxNormal()
     {
-        gfx.DOColor(Color.white, IntermittentTime);
-        Invoke("gfxRed", IntermittentTime);
+        gfx.DOColor(Color.white, intermitentTime);
+        Invoke("gfxRed", intermitentTime);
     }
 
     void StaminaSystem()
@@ -218,6 +220,8 @@ public class PlayerController : MonoBehaviour
     float time;
     public void PressGrab(InputAction.CallbackContext context)
     {
+        if (generator != null && inGenerator && !generator.working) generator.SwitchOn();
+
         if (exhausted) return;
 
         if (context.started)
@@ -374,30 +378,23 @@ public class PlayerController : MonoBehaviour
         float _dist = 100;
         for (int i = 0; i < _interactables.Length; i++)
         {
-
             float _new = Vector3.Distance(_interactables[i].transform.position, transform.position);
 
             if (_new < _dist)
             {
-
                 _dist = _new;
                 _closestInteractable = _interactables[i].GetComponent<IInteractable>();
-
             }
 
         }
 
         if (context.canceled)
         {
-
             _closestInteractable.Activate(null, false);
-
         }
         else
         {
-
             _closestInteractable.Activate(transform, true);
-
         }
 
     }
@@ -419,5 +416,22 @@ public class PlayerController : MonoBehaviour
         {
             goingRight = false;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        generator = other.GetComponent<Generator>();
+
+        if (generator == null) return;
+
+        inGenerator = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (generator == null) return;
+
+        inGenerator = false;
+        generator = null;
     }
 }
