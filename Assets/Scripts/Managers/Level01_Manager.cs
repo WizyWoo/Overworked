@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
 
@@ -11,6 +12,9 @@ public class Level01_Manager : LevelManager
     [SerializeField] Image[] strikes;
 
     int correctRobots, incorrectRobots;
+
+
+    [SerializeField] Image tickImage;
 
     private void Start()
     {
@@ -50,6 +54,12 @@ public class Level01_Manager : LevelManager
         MoneyMultiplier = 0;
         MoneyMultiplier++;
     NoMore:;
+    }
+
+
+    void ShowGoodFeedback()
+    {
+        tickImage.DOFade();
     }
 
     protected override bool WinCondition()
