@@ -25,6 +25,13 @@ public class PlatformMovement : MonoBehaviour
             transform.position = a.position;
             StartCoroutine(GoB());
         }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            Collider childCol = child.GetComponent<Collider>();
+            if (childCol != null && !childCol.isTrigger) transform.GetChild(i).gameObject.AddComponent<MovingPlatformChildren>();
+        }
     }
 
     IEnumerator GoA()
@@ -77,6 +84,9 @@ public class PlatformMovement : MonoBehaviour
         CraftableItem craftableItem = collision.transform.GetComponent<CraftableItem>();
 
         if (playerController == null && craftableItem == null)
+            return;
+
+        if (playerController.transform.parent != this.transform)
             return;
 
         if (craftableItem == null)
