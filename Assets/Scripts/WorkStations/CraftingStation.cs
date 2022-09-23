@@ -182,7 +182,7 @@ public class CraftingStation : WorkStation
 
         }
 
-        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+        //SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         return true;
 
@@ -227,10 +227,10 @@ public class CraftingStation : WorkStation
             UsedBy.DoingWork(WorkIntensity);
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
 
-            if(CraftingItem.Progress == 100)
-                SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+            //if(CraftingItem.Progress >= 100)
+                //SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
 
-            SoundManager.Instance.PlaySound(CraftingSoundEvent, SoundManager.SoundType.SFX);
+            //SoundManager.Instance.PlaySound(CraftingSoundEvent, SoundManager.SoundType.SFX);
 
         }
 

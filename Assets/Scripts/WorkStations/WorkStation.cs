@@ -107,8 +107,6 @@ public class WorkStation : MonoBehaviour , IInteractable
 
         }
 
-        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
-
         return true;
 
     }
