@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DeliverySpot
   - SoundEvent
+  - RepairStation
+  - Buttons
   layers:
   - Default
   - TransparentFX
