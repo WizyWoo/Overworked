@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class WorkStation : MonoBehaviour , IInteractable
 {
@@ -15,6 +16,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     [Tooltip("A multiplier for how much stamina you use at this station, 0 = no stamina used")]
     public float WorkIntensity;
     public bool AutoRepair;
+    public EventReference SoundEvent;
     [HideInInspector]
     public bool InUse, OutOfPower;
     [HideInInspector]

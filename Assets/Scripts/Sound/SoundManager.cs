@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 #if UNITY_EDITOR
 
@@ -39,8 +40,19 @@ namespace SoundManagerCustomEditor
 public class SoundManager : MonoBehaviour
 {
 
-    public static SoundManager Main;
+    public static SoundManager Instance;
+    public enum SoundType
+    {
+
+        Ambiance,
+        Music,
+        SFX,
+        UI
+
+    }
     public SoundEventController[] SoundEventsInScene;
+
+    public SoundEventController SEC_Ambiance;
 
     public void LocateSoundEvents()
     {
@@ -60,11 +72,26 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
 
-        if(!Main)
-            Main = this;
+        if(!Instance)
+            Instance = this;
         else
             Destroy(this);
 
+    }
+
+    public void PlaySound(EventReference _soundEvent, SoundType _type)
+    {
+
+        switch (_type)
+        {
+            
+            case SoundType.Ambiance:
+            SEC_Ambiance.EventReference = _soundEvent;
+            SEC_Ambiance.Play();
+            break;
+
+        }
+        
     }
 
 }
