@@ -204,6 +204,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 10
   initialOffset: 5
+  generator: {fileID: 0}
 --- !u!1001 &35699913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2513,6 +2514,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 10
   initialOffset: 0
+  generator: {fileID: 0}
 --- !u!114 &854230718 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7398927922960572381, guid: 51d5446e76f7c8141be11656ae7555a2,
@@ -3250,6 +3252,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 5
   initialOffset: 0
+  generator: {fileID: 0}
 --- !u!1001 &1184507633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3595,6 +3598,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 10
   initialOffset: 5
+  generator: {fileID: 0}
 --- !u!114 &1297629720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
@@ -3657,6 +3661,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 10
   initialOffset: 5
+  generator: {fileID: 0}
 --- !u!1 &1411027945
 GameObject:
   m_ObjectHideFlags: 0
@@ -4210,6 +4215,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 5
   initialOffset: 0
+  generator: {fileID: 0}
 --- !u!1 &1684884584
 GameObject:
   m_ObjectHideFlags: 0
@@ -4260,6 +4266,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 10
   initialOffset: 0
+  generator: {fileID: 0}
 --- !u!1 &1705422793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4308,6 +4315,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 10
   initialOffset: 0
+  generator: {fileID: 0}
 --- !u!1 &1780669299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,19 +4364,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcf893fcd4164d4bac0dc0567727f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 30
+  maxTime: 60
   timerText: {fileID: 2063368424}
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
   addMoneyImg: {fileID: 538108139}
   addColor: {r: 1, g: 1, b: 1, a: 1}
   subsColor: {r: 1, g: 0, b: 0, a: 1}
-  money: 23
+  money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
-  moneyToWin1Star: 33
-  moneyToWin2Star: 100
-  moneyToWin3Star: 150
   MoneyMultiplier: 0
   moneyWhenFall: -5
   strikes:
@@ -4376,6 +4381,9 @@ MonoBehaviour:
   - {fileID: 854230718}
   - {fileID: 134781575}
   tickImage: {fileID: 0}
+  moneyToWin1Star1: 30
+  moneyToWin2Star1: 40
+  moneyToWin3Star1: 50
 --- !u!114 &1780669303
 MonoBehaviour:
   m_ObjectHideFlags: 0
