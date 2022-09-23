@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 203547794}
   - component: {fileID: 203547793}
   m_Layer: 5
-  m_Name: Image
+  m_Name: FeedbackImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4380,10 +4380,17 @@ MonoBehaviour:
   - {fileID: 841279898}
   - {fileID: 854230718}
   - {fileID: 134781575}
+<<<<<<< Updated upstream
   tickImage: {fileID: 0}
   moneyToWin1Star1: 30
   moneyToWin2Star1: 40
   moneyToWin3Star1: 50
+=======
+  tickImage: {fileID: 203547793}
+  moneyToWin1Star1: 0
+  moneyToWin2Star1: 0
+  moneyToWin3Star1: 0
+>>>>>>> Stashed changes
 --- !u!114 &1780669303
 MonoBehaviour:
   m_ObjectHideFlags: 0

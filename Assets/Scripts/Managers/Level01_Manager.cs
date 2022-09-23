@@ -25,12 +25,17 @@ public class Level01_Manager : LevelManager
         moneyToWin1Star = moneyToWin1Star1;
         moneyToWin2Star = moneyToWin2Star1;
         moneyToWin3Star = moneyToWin3Star1;
+
+        // Save the tick image position
+        initialTickPosition = tickImage.transform.position;
     }
 
     public void CorrectRobot()
     {
         UpdateMoney(moneyCorrectRobot*MoneyMultiplier);
-        if(MoneyMultiplier >= 3)
+        StartCoroutine(ShowGoodFeedback());
+
+        if (MoneyMultiplier >= 3)
         {
             goto JustResetOnce;
         }
@@ -62,9 +67,21 @@ public class Level01_Manager : LevelManager
     }
 
 
-    void ShowGoodFeedback()
+    Vector3 initialTickPosition;
+    IEnumerator ShowGoodFeedback()
     {
-        //tickImage.DOFade();
+        float showDuration = 1;
+
+        tickImage.DOFade(1, showDuration);
+        tickImage.transform.position = new Vector3(initialTickPosition.x, initialTickPosition.y - 1, initialTickPosition.z);
+        tickImage.transform.DOMoveY(initialTickPosition.y, showDuration);
+        tickImage.transform.DORotate(new Vector3(75, 0, 360), showDuration, RotateMode.FastBeyond360);
+
+        yield return new WaitForSeconds(showDuration);
+
+        tickImage.transform.DOMoveY(initialTickPosition.y - 1, showDuration);
+        tickImage.DOFade(0, showDuration);
+        tickImage.transform.DORotate(new Vector3(75, 0, 360), showDuration, RotateMode.FastBeyond360);
     }
 
     protected override bool WinCondition()
