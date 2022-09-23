@@ -52,12 +52,14 @@ MonoBehaviour:
   OnWorkstation: {fileID: 0}
   typeOfItem: 2
   NeedsCrafting: 0
-  ID: 2
+  recolorWhenDone: 0
+  newColor: {r: 0, g: 0, b: 0, a: 0}
   ProgressIndicator: {fileID: 4432132867342593128}
   ItemSprite: {fileID: 4432132867869898244}
   AssembledItemSprite: {fileID: 21300000, guid: bbe8a272789587447be4db3ddecd191f,
     type: 3}
   assembled: 1
+  delivered: 0
 --- !u!54 &4432132866689624402
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -257,7 +259,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2663e3ae4cc8e242916dac15287a41b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef5db42c3d92682419113b29172b85d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
