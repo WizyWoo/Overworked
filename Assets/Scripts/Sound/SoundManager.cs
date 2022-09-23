@@ -21,6 +21,7 @@ namespace SoundManagerCustomEditor
 
             SoundManager _sM = (SoundManager)target;
 
+            GUILayout.Label("Use this to see if there are any SoundEventControllers in the scene");
             if(GUILayout.Button("Locate all SoundEvents"))
             {
 
@@ -51,8 +52,8 @@ public class SoundManager : MonoBehaviour
 
     }
     public SoundEventController[] SoundEventsInScene;
-
-    public SoundEventController SEC_Ambiance;
+    public SoundEventController SEC_Ambiance, SEC_Music, SEC_SFX, SEC_UI;
+    private SoundSettings settings;
 
     public void LocateSoundEvents()
     {
@@ -67,6 +68,20 @@ public class SoundManager : MonoBehaviour
 
         }
 
+        foreach (SoundEventController _sec in SoundEventsInScene)
+        {
+
+            if(_sec.gameObject.name.Contains("Ambiance"))
+                SEC_Ambiance = _sec;
+            else if(_sec.gameObject.name.Contains("Music"))
+                SEC_Music = _sec;
+            else if(_sec.gameObject.name.Contains("SFX"))
+                SEC_SFX = _sec;
+            else if(_sec.gameObject.name.Contains("UI"))
+                SEC_UI = _sec;
+            
+        }
+
     }
 
     private void Awake()
@@ -77,6 +92,19 @@ public class SoundManager : MonoBehaviour
         else
             Destroy(this);
 
+        DontDestroyOnLoad(this);
+
+        LocateSoundEvents();
+
+        settings = SoundSettingsManager.LoadVolumeSettings();
+
+    }
+
+    public void ApplyVolumeSettings()
+    {
+
+        
+
     }
 
     public void PlaySound(EventReference _soundEvent, SoundType _type)
@@ -86,8 +114,43 @@ public class SoundManager : MonoBehaviour
         {
             
             case SoundType.Ambiance:
-            SEC_Ambiance.EventReference = _soundEvent;
-            SEC_Ambiance.Play();
+            if(!_soundEvent.IsNull)
+            {
+                SEC_Ambiance.EventReference = _soundEvent;
+                SEC_Ambiance.Play();
+            }
+            else if(!SEC_Ambiance.EventReference.IsNull)
+                SEC_Ambiance.Play();
+            break;
+
+            case SoundType.Music:
+            if(!_soundEvent.IsNull)
+            {
+                SEC_Music.EventReference = _soundEvent;
+                SEC_Music.Play();
+            }
+            else if(!SEC_Music.EventReference.IsNull)
+                SEC_Music.Play();
+            break;
+
+            case SoundType.SFX:
+            if(!_soundEvent.IsNull)
+            {
+                SEC_SFX.EventReference = _soundEvent;
+                SEC_SFX.Play();
+            }
+            else if(!SEC_SFX.EventReference.IsNull)
+                SEC_SFX.Play();
+            break;
+
+            case SoundType.UI:
+            if(!_soundEvent.IsNull)
+            {
+                SEC_UI.EventReference = _soundEvent;
+                SEC_UI.Play();
+            }
+            else if(!SEC_UI.EventReference.IsNull)
+                SEC_UI.Play();
             break;
 
         }
