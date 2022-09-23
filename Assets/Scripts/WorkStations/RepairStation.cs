@@ -42,7 +42,7 @@ public class RepairStation : WorkStation
     private void Update()
     {
 
-        if(!UsedBy && !AutoRepair)
+        if(!UsedBy && !AutoRepair || OutOfPower)
             return;
         else if(UsedBy && !AutoRepair)
         {

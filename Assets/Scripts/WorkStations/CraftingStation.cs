@@ -207,7 +207,7 @@ public class CraftingStation : WorkStation
     private void Update()
     {
 
-        if(!UsedBy)
+        if(!UsedBy || OutOfPower)
             return;
 
         if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange)

@@ -16,7 +16,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public float WorkIntensity;
     public bool AutoRepair;
     [HideInInspector]
-    public bool InUse;
+    public bool InUse, OutOfPower;
     [HideInInspector]
     public GrabbableItem ItemOnStaion;
     [HideInInspector]
