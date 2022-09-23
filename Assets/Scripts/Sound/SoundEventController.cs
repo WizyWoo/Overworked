@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
+[ExecuteAlways]
 public class SoundEventController : StudioEventEmitter
 {
 
     private SoundManager soundManager;
 
-
-    private void pepp()
+    private void Awake()
     {
 
-        if(!soundManager)
-            soundManager = SoundManager.Main;
-        
-        soundManager.SoundEventsInScene.Add(this);
+        gameObject.tag = "SoundEvent";
 
     }
 
