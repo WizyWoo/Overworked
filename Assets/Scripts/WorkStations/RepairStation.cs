@@ -8,6 +8,7 @@ public class RepairStation : WorkStation
     [Header("Repairing")]
     [Tooltip("Specifies what items can be repaired at this Station")]
     [SerializeField] CraftableItem.TypeOfRepairableItem canRepairThisItem;
+    public FMODUnity.EventReference RepairSoundEvent;
 
     //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
@@ -33,6 +34,8 @@ public class RepairStation : WorkStation
             ItemOnStaion.OnWorkstation = this;
 
         }
+
+        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         return true;
 
@@ -66,9 +69,12 @@ public class RepairStation : WorkStation
                 if(CraftingItem.Progress >= 100)
                 {
 
+                    SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
                     RemoveItem(CraftingItem);
 
                 }
+
+                SoundManager.Instance.PlaySound(RepairSoundEvent, SoundManager.SoundType.SFX);
 
             }
 
@@ -83,9 +89,12 @@ public class RepairStation : WorkStation
                 if(CraftingItem.Progress >= 100)
                 {
 
+                    SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
                     RemoveItem(CraftingItem);
 
                 }
+
+                SoundManager.Instance.PlaySound(RepairSoundEvent, SoundManager.SoundType.SFX);
 
             }
 

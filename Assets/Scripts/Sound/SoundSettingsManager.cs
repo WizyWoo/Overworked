@@ -8,7 +8,7 @@ using UnityEngine;
 public class SoundSettingsManager
 {
 
-    public static void SaveVolumeSettings(SoundSettings _settings)
+    public static SoundSettings SaveVolumeSettings(SoundSettings _settings = null)
     {
 
         if(_settings == null)
@@ -25,6 +25,8 @@ public class SoundSettingsManager
 
         _formatter.Serialize(_stream, _settings);
         _stream.Close();
+
+        return _settings;
 
     }
 

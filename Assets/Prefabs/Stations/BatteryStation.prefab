@@ -80,16 +80,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0971536151574140bb28ca8109c672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisplayPoint: {fileID: 1299811073026984507}
   UseRange: 3
   CraftingSpeed: 50
   WorkIntensity: 0
   AutoRepair: 1
+  SoundEvent:
+    Guid:
+      Data1: -280209524
+      Data2: 1214218234
+      Data3: 44677300
+      Data4: -1726542069
+    Path: event:/SFX/SFX_Int/SFX_Int_RobPartAttched
+  CompletedSoundEvent:
+    Guid:
+      Data1: 1782460411
+      Data2: 1303193663
+      Data3: 603627161
+      Data4: -1574735499
+    Path: event:/SFX/SFX_Int/SFX_Int_Workbench_BuildComp
   InUse: 0
-  DisplayPoint: {fileID: 1299811073026984507}
+  OutOfPower: 0
   ItemOnStaion: {fileID: 0}
   CraftingItem: {fileID: 0}
   UsedBy: {fileID: 0}
   canRepairThisItem: 5
+  RepairSoundEvent:
+    Guid:
+      Data1: 1477977998
+      Data2: 1317304779
+      Data3: -856120662
+      Data4: -1439666006
+    Path: event:/SFX/SFX_Int/SFX_Int_Workbench_Building
 --- !u!33 &1299811073256918166
 MeshFilter:
   m_ObjectHideFlags: 0

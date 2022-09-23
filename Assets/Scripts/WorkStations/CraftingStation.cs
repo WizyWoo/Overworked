@@ -14,6 +14,7 @@ public class CraftingStation : WorkStation
     public GameObject Result;
     [Tooltip("Whether the result is finished by default or needs to be crafted")]
     public bool ResultIsAssembled;
+    public FMODUnity.EventReference CraftingSoundEvent;
     [Tooltip("The ItemType for what items can be used for crafting. Order doesn't matter :) Use this if you don't want to input RecipeItem 1 and 2"), SerializeField]
     private CraftableItem.TypeOfRepairableItem recipeID1, recipeID2;
 
@@ -181,6 +182,8 @@ public class CraftingStation : WorkStation
 
         }
 
+        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+
         return true;
 
     }
@@ -223,6 +226,11 @@ public class CraftingStation : WorkStation
 
             UsedBy.DoingWork(WorkIntensity);
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+
+            if(CraftingItem.Progress == 100)
+                SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+
+            SoundManager.Instance.PlaySound(CraftingSoundEvent, SoundManager.SoundType.SFX);
 
         }
 

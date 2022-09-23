@@ -16,7 +16,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     [Tooltip("A multiplier for how much stamina you use at this station, 0 = no stamina used")]
     public float WorkIntensity;
     public bool AutoRepair;
-    public EventReference SoundEvent;
+    public EventReference SoundEvent, CompletedSoundEvent;
     [HideInInspector]
     public bool InUse, OutOfPower;
     [HideInInspector]
@@ -106,6 +106,8 @@ public class WorkStation : MonoBehaviour , IInteractable
             ItemOnStaion.OnWorkstation = this;
 
         }
+
+        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         return true;
 

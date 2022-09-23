@@ -41,6 +41,8 @@ namespace SoundManagerCustomEditor
 public class SoundManager : MonoBehaviour
 {
 
+    //FMODUnity.RuntimeManager.GetVCA("vca:/Master")
+
     public static SoundManager Instance;
     public enum SoundType
     {
@@ -97,6 +99,8 @@ public class SoundManager : MonoBehaviour
         LocateSoundEvents();
 
         settings = SoundSettingsManager.LoadVolumeSettings();
+        if(settings == null)
+            settings = SoundSettingsManager.SaveVolumeSettings();
 
     }
 
