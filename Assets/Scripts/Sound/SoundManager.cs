@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 #if UNITY_EDITOR
 
@@ -53,7 +54,8 @@ public class SoundManager : MonoBehaviour
 
     }
     public SoundEventController[] SoundEventsInScene;
-    public SoundEventController SEC_Ambiance, SEC_Music, SEC_SFX, SEC_UI;
+    //public SoundEventController SEC_Ambiance, SEC_Music, SEC_SFX, SEC_UI;
+    private Dictionary<EventReference, EventInstance> eventInstances;
     private SoundSettings settings;
 
     public void LocateSoundEvents()
@@ -69,7 +71,7 @@ public class SoundManager : MonoBehaviour
 
         }
 
-        foreach (SoundEventController _sec in SoundEventsInScene)
+        /*foreach (SoundEventController _sec in SoundEventsInScene)
         {
 
             if(_sec.gameObject.name.Contains("Ambiance"))
@@ -81,7 +83,7 @@ public class SoundManager : MonoBehaviour
             else if(_sec.gameObject.name.Contains("UI"))
                 SEC_UI = _sec;
             
-        }
+        }*/
 
     }
 
@@ -97,6 +99,8 @@ public class SoundManager : MonoBehaviour
 
         LocateSoundEvents();
 
+        eventInstances = new Dictionary<EventReference, EventInstance>();
+
         settings = SoundSettingsManager.LoadVolumeSettings();
         if(settings == null)
             settings = SoundSettingsManager.SaveVolumeSettings();
@@ -110,10 +114,35 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    private void AllocateInstance(EventReference _soundEvent)
+    {
+
+
+
+    }
+
     public void PlaySound(EventReference _soundEvent, SoundType _type)
     {
 
-        switch (_type)
+        EventInstance _tempEvent;
+
+        if(eventInstances.ContainsKey(_soundEvent))
+        {
+
+            eventInstances[_soundEvent].start();
+
+        }
+        else
+        {
+
+            _tempEvent = RuntimeManager.CreateInstance(_soundEvent);
+
+            eventInstances.Add(_soundEvent, _tempEvent);
+            _tempEvent.start();
+
+        }
+
+        /*switch (_type)
         {
             
             case SoundType.Ambiance:
@@ -156,7 +185,7 @@ public class SoundManager : MonoBehaviour
                 SEC_UI.Play();
             break;
 
-        }
+        }*/
         
     }
 

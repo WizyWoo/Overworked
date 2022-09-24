@@ -35,7 +35,7 @@ public class RepairStation : WorkStation
 
         }
 
-        //SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         return true;
 
@@ -69,7 +69,7 @@ public class RepairStation : WorkStation
                 if(CraftingItem.Progress >= 100)
                 {
 
-                    //SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+                    SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
                     RemoveItem(CraftingItem);
 
                 }
@@ -89,7 +89,7 @@ public class RepairStation : WorkStation
                 if(CraftingItem.Progress >= 100)
                 {
 
-                    //SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+                    SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
                     RemoveItem(CraftingItem);
  
                 }
