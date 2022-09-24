@@ -32,10 +32,10 @@ public class RepairStation : WorkStation
             ItemOnStaion.transform.SetParent(null);
             ItemOnStaion.transform.position = DisplayPoint.position;
             ItemOnStaion.OnWorkstation = this;
+            SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         }
 
-        SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         return true;
 
