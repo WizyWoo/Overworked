@@ -46,6 +46,8 @@ public class CraftableItem : GrabbableItem
     private bool recolorWhenDone;
     [SerializeField]
     private Color newColor;
+    [SerializeField]
+    private float ProgressBarWidth = 10;
     [Space, Header("plz give reference")]
     public SpriteRenderer ProgressIndicator;
     public SpriteRenderer ItemSprite;
@@ -77,7 +79,7 @@ public class CraftableItem : GrabbableItem
         {
             //Don't worry about it :)
             progress = value;
-            ProgressIndicator.size = new Vector2(((progress / 100) * 20) / 2, ProgressIndicator.size.y);
+            ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
             if(progress >= 100)
             {
                 assembled = true;
