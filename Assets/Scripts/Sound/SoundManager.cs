@@ -114,13 +114,6 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    private void AllocateInstance(EventReference _soundEvent)
-    {
-
-
-
-    }
-
     public void PlaySound(EventReference _soundEvent, SoundType _type)
     {
 
