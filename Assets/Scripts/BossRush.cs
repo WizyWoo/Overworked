@@ -44,8 +44,8 @@ public class BossRush : MonoBehaviour
 
     IEnumerator StartSpeedingEverythingIEnumerator()
     {
-        
         SoundManager.Instance.PlaySound(bossRushSound, gameObject);
+
 
         StartCoroutine(ShowBossDialogue());
 
