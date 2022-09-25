@@ -11,6 +11,18 @@ public class RobotBody : MonoBehaviour
 
     public FMODUnity.EventReference assembleSound;
 
+
+    bool justSpawned = true;
+    private void Awake()
+    {
+        Invoke("TimePassed", 5);
+    }
+
+    void TimePassed()
+    {
+        justSpawned = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         CraftableItem item = other.GetComponent<CraftableItem>();
@@ -61,7 +73,8 @@ public class RobotBody : MonoBehaviour
                 //pl.RemoveItem(item);
             }
 
-            SoundManager.Instance.PlaySound(assembleSound, gameObject);
+            if (!justSpawned)
+                SoundManager.Instance.PlaySound(assembleSound, gameObject);
 
             item.GrabItem();
             item.transform.SetParent(newSpot);
