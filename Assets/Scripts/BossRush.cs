@@ -46,7 +46,6 @@ public class BossRush : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(bossRushSound, gameObject);
 
-
         StartCoroutine(ShowBossDialogue());
 
         // Red Screen Effect
