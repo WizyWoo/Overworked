@@ -10,7 +10,7 @@ namespace FMODUnity
     {
         public EventReference EventReference;
 
-        [Obsolete("Use the EventReference field instead"), HideInInspector]
+        [Obsolete("Use the EventReference field instead")]
         public string Event = "";
 
         public EmitterGameEvent PlayEvent = EmitterGameEvent.None;

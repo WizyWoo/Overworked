@@ -48,9 +48,9 @@ TagManager:
   - name: StaminaUI
     uniqueID: 962528619
     locked: 0
-  - name: Item
-    uniqueID: 535734423
-    locked: 0
   - name: Player
     uniqueID: 537346857
+    locked: 0
+  - name: Item
+    uniqueID: 535734423
     locked: 0
