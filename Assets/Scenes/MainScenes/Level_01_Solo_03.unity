@@ -4356,11 +4356,11 @@ MonoBehaviour:
   moneyWrongRobot: -3
   levelCompleted:
     Guid:
-      Data1: 468891763
-      Data2: 1281487623
-      Data3: -16154988
-      Data4: 42840532
-    Path: event:/UI/UI_LevelComplete
+      Data1: 2103139438
+      Data2: 1268086304
+      Data3: -2093164100
+      Data4: 1583118354
+    Path: event:/SFX/SFX_Notification_LevelComplete
   MoneyMultiplier: 0
   moneyWhenFall: -5
   strikes:
@@ -4408,6 +4408,13 @@ MonoBehaviour:
   dialoguePanel: {fileID: 942411643}
   bossFace: {fileID: 543636003}
   redScreenEffect: {fileID: 2093951473}
+  bossRushSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &1781557271
 PrefabInstance:
   m_ObjectHideFlags: 0
