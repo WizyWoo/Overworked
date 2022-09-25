@@ -5199,6 +5199,13 @@ MonoBehaviour:
       Data3: -1618333781
       Data4: 2093658032
     Path: event:/SFX/SFX_Player/SFX_Player_TakeHit
+  grabItemSound:
+    Guid:
+      Data1: -1143608849
+      Data2: 1170479653
+      Data3: -1521021558
+      Data4: 819208960
+    Path: event:/SFX/SFX_Int/SFX_Int_GrabPart
   ItemsInRangeForGrabbing: []
 --- !u!114 &8509748272355988883
 MonoBehaviour:
