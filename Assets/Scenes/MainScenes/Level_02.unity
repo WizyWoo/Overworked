@@ -3553,6 +3553,9 @@ MonoBehaviour:
   MoneyMultiplier: 0
   moneyWhenFall: -5
   strikes: []
+  moneyToWin1Star1: 30
+  moneyToWin2Star1: 45
+  moneyToWin3Star1: 60
 --- !u!114 &2146607769
 MonoBehaviour:
   m_ObjectHideFlags: 0
