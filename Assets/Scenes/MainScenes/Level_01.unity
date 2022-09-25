@@ -4230,6 +4230,13 @@ MonoBehaviour:
       Data3: -578153283
       Data4: 2069510922
     Path: event:/SFX/SFX_Scanner/SFX_Scanner_RobAccept
+  incorrectRobot:
+    Guid:
+      Data1: -391846077
+      Data2: 1196657759
+      Data3: 1379527613
+      Data4: -1924931734
+    Path: event:/SFX/SFX_Scanner/SFX_Scanner_RobReject
 --- !u!1001 &1566476763
 PrefabInstance:
   m_ObjectHideFlags: 0
