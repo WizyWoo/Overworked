@@ -57,6 +57,13 @@ MonoBehaviour:
   leftArmAssembled: 0
   rightArmAssembled: 0
   wheelAssembled: 0
+  assembleSound:
+    Guid:
+      Data1: -280209524
+      Data2: 1214218234
+      Data3: 44677300
+      Data4: -1726542069
+    Path: event:/SFX/SFX_Int/SFX_Int_RobPartAttched
   animationCurve:
     serializedVersion: 2
     m_Curve:

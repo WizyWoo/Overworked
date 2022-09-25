@@ -4652,6 +4652,13 @@ MonoBehaviour:
   dialoguePanel: {fileID: 942411643}
   bossFace: {fileID: 543636003}
   redScreenEffect: {fileID: 2093951473}
+  bossRushSound:
+    Guid:
+      Data1: -649488938
+      Data2: 1321259089
+      Data3: -1622379083
+      Data4: -566997830
+    Path: event:/SFX/SFX_Notification_RushHour
 --- !u!1001 &1781557271
 PrefabInstance:
   m_ObjectHideFlags: 0
