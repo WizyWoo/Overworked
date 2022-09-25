@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxStamina;
     float currentStamina;
     [SerializeField] float staminaCooldown;
+    [SerializeField] float regainStaminaWhenExhausted;
     [HideInInspector] public bool exhausted;
     [SerializeField] float regainStaminaSpeed;
     [SerializeField] Color zeroStamina;
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         if (exhausted)
         {
-            currentStamina += Time.deltaTime;
+            currentStamina += Time.deltaTime * regainStaminaWhenExhausted;
 
             if (currentStamina >= maxStamina)
             {

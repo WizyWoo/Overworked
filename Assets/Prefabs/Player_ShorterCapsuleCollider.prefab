@@ -5164,6 +5164,7 @@ MonoBehaviour:
   strongThrowForce: 8
   maxStamina: 10
   staminaCooldown: 2
+  regainStaminaWhenExhausted: 2
   exhausted: 0
   regainStaminaSpeed: 0
   zeroStamina: {r: 1, g: 0, b: 0, a: 1}
