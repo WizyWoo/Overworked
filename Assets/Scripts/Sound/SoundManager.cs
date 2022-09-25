@@ -54,6 +54,7 @@ public class SoundManager : MonoBehaviour
     public SoundEventController[] SoundEventsInScene;
     //public SoundEventController SEC_Ambiance, SEC_Music, SEC_SFX, SEC_UI;
     private Dictionary<(EventReference, GameObject), EventInstance> eventInstances;
+    private List<EventInstance> eventInstanceList;
     private SoundSettings settings;
 
     public void LocateSoundEvents()
@@ -88,16 +89,30 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
 
-        if(!Instance)
+        if(Instance != this && Instance == null)
             Instance = this;
         else
-            Destroy(this);
+        {
+
+            if(Instance.eventInstanceList.Count > 0)
+                for(int i = 0; i < Instance.eventInstanceList.Count; i++)
+                {
+
+                    Instance.eventInstanceList[i].stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    Instance.eventInstanceList[i].release();
+
+                }
+
+            Destroy(gameObject);
+
+        }
 
         DontDestroyOnLoad(this);
 
         LocateSoundEvents();
 
         eventInstances = new Dictionary<(EventReference, GameObject), EventInstance>();
+        eventInstanceList = new List<EventInstance>();
 
         settings = SoundSettingsManager.LoadVolumeSettings();
         if(settings == null)
@@ -158,6 +173,7 @@ public class SoundManager : MonoBehaviour
             _tempEvent = RuntimeManager.CreateInstance(_soundEvent);
 
             eventInstances.Add((_soundEvent, _gO), _tempEvent);
+            eventInstanceList.Add(_tempEvent);
 
         }
 
