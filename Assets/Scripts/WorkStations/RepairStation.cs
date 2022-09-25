@@ -32,7 +32,7 @@ public class RepairStation : WorkStation
             ItemOnStaion.transform.SetParent(null);
             ItemOnStaion.transform.position = DisplayPoint.position;
             ItemOnStaion.OnWorkstation = this;
-            //SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+            SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
 
         }
 
@@ -69,7 +69,7 @@ public class RepairStation : WorkStation
                 if(CraftingItem.Progress >= 100)
                 {
 
-                    //SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+                    SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
                     RemoveItem(CraftingItem);
 
                 }
