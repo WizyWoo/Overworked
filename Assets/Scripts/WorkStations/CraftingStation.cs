@@ -116,7 +116,7 @@ public class CraftingStation : WorkStation
             ItemOnStaion.OnWorkstation = this;
             _stopPlz = true;
 
-            SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+            SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
         }
         else
@@ -131,7 +131,7 @@ public class CraftingStation : WorkStation
                 ItemOnStaion.transform.position = DisplayPoint.position;
                 ItemOnStaion.OnWorkstation = this;
 
-                SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+                SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
             }
             else if(CraftingItem.typeOfItem == recipeID2 && !recipeItem2)
@@ -143,7 +143,7 @@ public class CraftingStation : WorkStation
                 ItemOnStaion.transform.position = DisplayPoint.position;
                 ItemOnStaion.OnWorkstation = this;
 
-                SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+                SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
             }
             else
@@ -215,7 +215,12 @@ public class CraftingStation : WorkStation
     {
 
         if(!UsedBy || OutOfPower)
+        {
+
+            SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
             return;
+
+        }
 
         if(Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange)
         {
@@ -232,9 +237,9 @@ public class CraftingStation : WorkStation
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
 
             if(CraftingItem.Progress >= 100)
-                SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+                SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
 
-            //SoundManager.Instance.PlaySound(CraftingSoundEvent, SoundManager.SoundType.SFX);
+            SoundManager.Instance.PlaySound(CraftingSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
         }
 

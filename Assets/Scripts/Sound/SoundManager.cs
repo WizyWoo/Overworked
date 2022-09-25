@@ -47,15 +47,13 @@ public class SoundManager : MonoBehaviour
     public enum SoundType
     {
 
-        Ambiance,
-        Music,
-        SFX,
-        UI
+        Loop,
+        NoLoop
 
     }
     public SoundEventController[] SoundEventsInScene;
     //public SoundEventController SEC_Ambiance, SEC_Music, SEC_SFX, SEC_UI;
-    private Dictionary<EventReference, EventInstance> eventInstances;
+    private Dictionary<(EventReference, GameObject), EventInstance> eventInstances;
     private SoundSettings settings;
 
     public void LocateSoundEvents()
@@ -99,7 +97,7 @@ public class SoundManager : MonoBehaviour
 
         LocateSoundEvents();
 
-        eventInstances = new Dictionary<EventReference, EventInstance>();
+        eventInstances = new Dictionary<(EventReference, GameObject), EventInstance>();
 
         settings = SoundSettingsManager.LoadVolumeSettings();
         if(settings == null)
@@ -114,15 +112,44 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void PlaySound(EventReference _soundEvent, SoundType _type)
+    /*public bool IsEventPlaying(EventReference _soundEvent)
+    {
+
+        if(eventInstances.ContainsKey(_soundEvent))
+            if(eventInstances[_soundEvent].getPlaybackState(out PLAYBACK_STATE _pbState))
+        else
+            return false;
+
+    }*/
+
+    public void StopSound(EventReference _soundEvent, GameObject _gO)
+    {
+
+        if(eventInstances.ContainsKey((_soundEvent, _gO)))
+        {
+
+            eventInstances[(_soundEvent, _gO)].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+        }
+        else
+        {
+
+            Debug.Log("This sound has never been played");
+
+        }
+
+    }
+
+    public void PlaySound(EventReference _soundEvent, GameObject _gO, SoundType _type = SoundType.NoLoop)
     {
 
         EventInstance _tempEvent;
+        PLAYBACK_STATE _pbState;
 
-        if(eventInstances.ContainsKey(_soundEvent))
+        if(eventInstances.ContainsKey((_soundEvent, _gO)))
         {
 
-            eventInstances[_soundEvent].start();
+            _tempEvent = eventInstances[(_soundEvent, _gO)];
 
         }
         else
@@ -130,7 +157,26 @@ public class SoundManager : MonoBehaviour
 
             _tempEvent = RuntimeManager.CreateInstance(_soundEvent);
 
-            eventInstances.Add(_soundEvent, _tempEvent);
+            eventInstances.Add((_soundEvent, _gO), _tempEvent);
+
+        }
+
+        _tempEvent.getPlaybackState(out _pbState);
+        
+        if(_type == SoundType.Loop)
+        {
+
+            if(_pbState != PLAYBACK_STATE.PLAYING)
+            {
+
+                _tempEvent.start();
+
+            }
+            
+        }
+        else
+        {
+
             _tempEvent.start();
 
         }

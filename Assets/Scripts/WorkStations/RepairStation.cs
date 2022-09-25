@@ -32,7 +32,7 @@ public class RepairStation : WorkStation
             ItemOnStaion.transform.SetParent(null);
             ItemOnStaion.transform.position = DisplayPoint.position;
             ItemOnStaion.OnWorkstation = this;
-            SoundManager.Instance.PlaySound(SoundEvent, SoundManager.SoundType.SFX);
+            SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
         }
 
@@ -46,7 +46,12 @@ public class RepairStation : WorkStation
     {
 
         if(!UsedBy && !AutoRepair || OutOfPower)
+        {
+
+            SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
             return;
+
+        }
         else if(UsedBy && !AutoRepair)
         {
 
@@ -54,12 +59,18 @@ public class RepairStation : WorkStation
             {
 
                 InUse = false;
+                SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
                 return;
 
             }
 
             if(UsedBy.exhausted)
+            {
+                
+                SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
                 return;
+
+            }
 
             if(InUse && CraftingItem.typeOfItem == canRepairThisItem && !AutoRepair)
             {
@@ -69,14 +80,16 @@ public class RepairStation : WorkStation
                 if(CraftingItem.Progress >= 100)
                 {
 
-                    SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+                    SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                     RemoveItem(CraftingItem);
 
                 }
-                //else
-                //    SoundManager.Instance.PlaySound(RepairSoundEvent, SoundManager.SoundType.SFX);
+                else
+                    SoundManager.Instance.PlaySound(RepairSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
             }
+            else
+                SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
 
         }
         else if(AutoRepair && CraftingItem)
@@ -89,14 +102,16 @@ public class RepairStation : WorkStation
                 if(CraftingItem.Progress >= 100)
                 {
 
-                    SoundManager.Instance.PlaySound(CompletedSoundEvent, SoundManager.SoundType.SFX);
+                    SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                     RemoveItem(CraftingItem);
  
                 }
-                //else
-                //    SoundManager.Instance.PlaySound(RepairSoundEvent, SoundManager.SoundType.SFX);
+                else
+                    SoundManager.Instance.PlaySound(RepairSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
             }
+            else
+                SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
 
         }
 
