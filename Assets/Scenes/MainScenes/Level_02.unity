@@ -3592,11 +3592,11 @@ MonoBehaviour:
   redScreenEffect: {fileID: 120414725}
   bossRushSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -649488938
+      Data2: 1321259089
+      Data3: -1622379083
+      Data4: -566997830
+    Path: event:/SFX/SFX_Notification_RushHour
 --- !u!4 &2146607770
 Transform:
   m_ObjectHideFlags: 0

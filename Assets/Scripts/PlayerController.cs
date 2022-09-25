@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     bool inGenerator;
     Generator generator;
-    public FMODUnity.EventReference exhaustedSound, playerHitted;
+    public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound;
 
     private void Awake()
     {
@@ -231,6 +231,9 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
+
+                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
+
                 //// If there are any null references destroy them
                 /// error needs checking
                 //foreach (GrabbableItem item in ItemsInRangeForGrabbing)
