@@ -4354,6 +4354,13 @@ MonoBehaviour:
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
+  levelCompleted:
+    Guid:
+      Data1: 468891763
+      Data2: 1281487623
+      Data3: -16154988
+      Data4: 42840532
+    Path: event:/UI/UI_LevelComplete
   MoneyMultiplier: 0
   moneyWhenFall: -5
   strikes:

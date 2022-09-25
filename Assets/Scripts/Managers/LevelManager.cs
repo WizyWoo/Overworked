@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Image addMoneyImg;
     [SerializeField] Color addColor, subsColor;
     [SerializeField] protected int money = 0, moneyCorrectRobot, moneyWrongRobot;
+    public FMODUnity.EventReference levelCompleted;
     protected int moneyToWin1Star, moneyToWin2Star, moneyToWin3Star;
     public int MoneyMultiplier;
     public int moneyWhenFall = 25;
@@ -85,6 +86,7 @@ public class LevelManager : MonoBehaviour
         if (money >= moneyToWin3Star) GameManager.instance.amountOfStars = 3;
         else if (money >= moneyToWin2Star) GameManager.instance.amountOfStars = 2;
         else GameManager.instance.amountOfStars = 1;
+        SoundManager.Instance.PlaySound(levelCompleted, gameObject);
 
         Debug.Log("WIN THIS");
         GameManager.instance.LoadResultsScene(true, GetLevel());
