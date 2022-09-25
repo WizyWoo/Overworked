@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
     [SerializeField] ParticleSystem sweatParticleSystem;
-
     // Grabbing
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
@@ -60,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     bool inGenerator;
     Generator generator;
-
+    public FMODUnity.EventReference exhaustedSound, playerHitted;
 
     private void Awake()
     {
@@ -176,6 +175,7 @@ public class PlayerController : MonoBehaviour
         if (currentStamina <= 0)
         {
             movementAnimator.SetBool("IsExhausted", true);
+            SoundManager.Instance.PlaySound(exhaustedSound, gameObject);
             exhausted = true;
             gfxRed();
 
@@ -194,6 +194,7 @@ public class PlayerController : MonoBehaviour
 
     public void HitOnStamina(float amount)
     {
+        SoundManager.Instance.PlaySound(playerHitted, gameObject);
         currentStamina -= amount;
     }
 

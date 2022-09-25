@@ -5184,6 +5184,20 @@ MonoBehaviour:
   staminaUI_back: {fileID: 4340042681524869928}
   sweatParticleSystem: {fileID: 3131732524401587865}
   itemGrabbed: {fileID: 0}
+  exhaustedSound:
+    Guid:
+      Data1: 1110962797
+      Data2: 1342070129
+      Data3: -275737206
+      Data4: -1045217669
+    Path: event:/SFX/SFX_Player/SFX_Player_OutOfStamina
+  playerHitted:
+    Guid:
+      Data1: -1677996533
+      Data2: 1226965574
+      Data3: -1618333781
+      Data4: 2093658032
+    Path: event:/SFX/SFX_Player/SFX_Player_TakeHit
   ItemsInRangeForGrabbing: []
 --- !u!114 &8509748272355988883
 MonoBehaviour:

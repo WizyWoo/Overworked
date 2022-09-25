@@ -328,7 +328,6 @@ MonoBehaviour:
   speed: 8
   weakThrowForce: 3
   strongThrowForce: 8
-  deadZone: 0.1
   maxStamina: 4
   staminaCooldown: 2
   exhausted: 0
@@ -351,6 +350,20 @@ MonoBehaviour:
   staminaUI_back: {fileID: 7735959217342800931}
   sweatParticleSystem: {fileID: 8941736650439707026}
   itemGrabbed: {fileID: 0}
+  exhaustedSound:
+    Guid:
+      Data1: 1110962797
+      Data2: 1342070129
+      Data3: -275737206
+      Data4: -1045217669
+    Path: event:/SFX/SFX_Player/SFX_Player_OutOfStamina
+  playerHitted:
+    Guid:
+      Data1: -1677996533
+      Data2: 1226965574
+      Data3: -1618333781
+      Data4: 2093658032
+    Path: event:/SFX/SFX_Player/SFX_Player_TakeHit
   ItemsInRangeForGrabbing: []
 --- !u!114 &2412234843627154072
 MonoBehaviour:
