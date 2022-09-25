@@ -27,6 +27,7 @@ public class BossRush : MonoBehaviour
     [SerializeField] Transform bossFace;
     [SerializeField] Image redScreenEffect;
 
+    public FMODUnity.EventReference bossRushSound;
 
     void Awake()
     {
@@ -43,6 +44,8 @@ public class BossRush : MonoBehaviour
 
     IEnumerator StartSpeedingEverythingIEnumerator()
     {
+        SoundManager.Instance.PlaySound(bossRushSound, gameObject);
+
         StartCoroutine(ShowBossDialogue());
 
         // Red Screen Effect

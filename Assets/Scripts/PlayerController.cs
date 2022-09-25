@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxStamina;
     float currentStamina;
     [SerializeField] float staminaCooldown;
+    [SerializeField] float regainStaminaWhenExhausted;
     [HideInInspector] public bool exhausted;
     [SerializeField] float regainStaminaSpeed;
     [SerializeField] Color zeroStamina;
@@ -47,7 +48,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
     [SerializeField] ParticleSystem sweatParticleSystem;
-
     // Grabbing
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     bool inGenerator;
     Generator generator;
-
+    public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound;
 
     private void Awake()
     {
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         if (exhausted)
         {
-            currentStamina += Time.deltaTime;
+            currentStamina += Time.deltaTime * regainStaminaWhenExhausted;
 
             if (currentStamina >= maxStamina)
             {
@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
         if (currentStamina <= 0)
         {
             movementAnimator.SetBool("IsExhausted", true);
+            SoundManager.Instance.PlaySound(exhaustedSound, gameObject);
             exhausted = true;
             gfxRed();
 
@@ -194,6 +195,7 @@ public class PlayerController : MonoBehaviour
 
     public void HitOnStamina(float amount)
     {
+        SoundManager.Instance.PlaySound(playerHitted, gameObject);
         currentStamina -= amount;
     }
 
@@ -229,6 +231,9 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
+
+                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
+
                 //// If there are any null references destroy them
                 /// error needs checking
                 //foreach (GrabbableItem item in ItemsInRangeForGrabbing)

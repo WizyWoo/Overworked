@@ -9,6 +9,8 @@ public class RobotBody : MonoBehaviour
 
     [HideInInspector] public bool leftArmAssembled, rightArmAssembled, wheelAssembled;
 
+    public FMODUnity.EventReference assembleSound;
+
     private void OnTriggerEnter(Collider other)
     {
         CraftableItem item = other.GetComponent<CraftableItem>();
@@ -58,6 +60,8 @@ public class RobotBody : MonoBehaviour
                 pl.itemGrabbed = null;
                 //pl.RemoveItem(item);
             }
+
+            SoundManager.Instance.PlaySound(assembleSound, gameObject);
 
             item.GrabItem();
             item.transform.SetParent(newSpot);

@@ -19,6 +19,7 @@ public class Scanner : MonoBehaviour
     [SerializeField] float timeBulbOn;
     [SerializeField] Renderer bulbRenderer;
     [SerializeField] Transform okayRobotPos;
+    public FMODUnity.EventReference correctRobot, incorrectRobot;
 
     int cont;
     private void Awake()
@@ -51,6 +52,8 @@ public class Scanner : MonoBehaviour
                 other.transform.SetParent(null);
                 other.transform.position = okayRobotPos.position;
 
+                SoundManager.Instance.PlaySound(correctRobot, gameObject);
+
                 level01Manager.CorrectRobot();
             }
 
@@ -64,6 +67,7 @@ public class Scanner : MonoBehaviour
                 glassMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
                 glassMat.SetColor("_EmissionColor", new Color(wrongCol.r, wrongCol.g, wrongCol.b));
 
+                SoundManager.Instance.PlaySound(incorrectRobot, gameObject);
                 level01Manager.IncorrectRobot();
 
                 if (robotDelivered.leftArmAssembled)

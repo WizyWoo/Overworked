@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.038386233, g: 0.056487, b: 0.10104654, a: 1}
+  m_IndirectSpecularColor: {r: 0.03838623, g: 0.056486964, b: 0.10104646, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3543,6 +3543,13 @@ MonoBehaviour:
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
+  levelCompleted:
+    Guid:
+      Data1: 2103139438
+      Data2: 1268086304
+      Data3: -2093164100
+      Data4: 1583118354
+    Path: event:/SFX/SFX_Notification_LevelComplete
   MoneyMultiplier: 0
   moneyWhenFall: -5
   strikes: []
@@ -3583,6 +3590,13 @@ MonoBehaviour:
   dialoguePanel: {fileID: 120414731}
   bossFace: {fileID: 120414730}
   redScreenEffect: {fileID: 120414725}
+  bossRushSound:
+    Guid:
+      Data1: -649488938
+      Data2: 1321259089
+      Data3: -1622379083
+      Data4: -566997830
+    Path: event:/SFX/SFX_Notification_RushHour
 --- !u!4 &2146607770
 Transform:
   m_ObjectHideFlags: 0
