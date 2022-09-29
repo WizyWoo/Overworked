@@ -54,3 +54,6 @@ TagManager:
   - name: Item
     uniqueID: 535734423
     locked: 0
+  - name: TutorialElements
+    uniqueID: 2252620387
+    locked: 0
