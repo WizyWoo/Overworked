@@ -9,23 +9,24 @@ public class TutorialManager : MonoBehaviour
     // Si esta a true, haces el tutorial
     [HideInInspector] public bool doTutorial;
 
+    [HideInInspector] public bool duringTutorial;
+
     static TutorialManager instance;
     public static TutorialManager GetInstance()
     { return instance; }
 
-    // Fases del tutorial
-    public enum tutorialPhases
+    // Tutorial phases
+    public enum tutorialPhase
     {
         grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, craftArm, grabArmFromCraftingTable, 
         throwArm_p2, grabArmFromFloor_p1, assembleArm
     }
 
     // The currentPhase variable, show what the player must do
-    tutorialPhases currentPhase = (tutorialPhases)0;
+    tutorialPhase currentPhase = (tutorialPhase)0;
 
-
-    // This is where all the information of each tutorial speech is going to be stored
-    [SerializeField] TutorialItem[] tutorialElements;
+    // Tutorial elements are gameobjects that store tutorial info for each phase
+    [SerializeField] TutorialItem[] tutorialItems;
 
 
     private void Awake()
@@ -35,17 +36,42 @@ public class TutorialManager : MonoBehaviour
 
         InizializeTutorialElements();
 
-        //HideEverything();
 
-        //StartCoroutine(DoTutorial());
+        if (doTutorial)
+        {
+            StartTutorial();
+        }
+        else
+        {
+
+        }
+
     }
 
     void InizializeTutorialElements()
     {
-        foreach (TutorialItem tutorialElement in tutorialElements)
+        foreach (TutorialItem tutorialElement in tutorialItems)
         {
             tutorialElement.AssignReferences();
-            tutorialElement.HideEverything();
+            tutorialElement.HideAllElements();
         }
+    }
+
+
+    void StartTutorial()
+    {
+        duringTutorial = true;
+    }
+
+    void ShowTutorialItems(tutorialPhase phase)
+    {
+        // Find the adecuate tutorial element for the phase
+        TutorialItem tutorialItem = Array.Find(tutorialItems, tutorialItem => tutorialItem.phase == phase);
+        tutorialItem.
+    }
+
+    void EndTutorial()
+    {
+        duringTutorial = false;
     }
 }
