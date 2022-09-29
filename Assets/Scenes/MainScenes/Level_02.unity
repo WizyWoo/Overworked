@@ -374,6 +374,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7398927924070264976, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
 --- !u!114 &120414725 stripped
@@ -932,6 +937,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374386666172676021, guid: 07882416cd00f0d4eaa6179b07233a33,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374386666172676021, guid: 07882416cd00f0d4eaa6179b07233a33,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8374386666461269313, guid: 07882416cd00f0d4eaa6179b07233a33,
         type: 3}
@@ -3533,7 +3548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 120
+  maxTime: 90
   timerText: {fileID: 120414729}
   moneyText: {fileID: 120414732}
   addMoneyText: {fileID: 120414727}
@@ -3569,7 +3584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUpMultiplier: 2
-  startSpeedingThingsIn: 50
+  startSpeedingThingsIn: 100
   duration: 10
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:

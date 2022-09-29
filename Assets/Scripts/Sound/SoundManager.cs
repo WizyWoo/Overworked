@@ -52,7 +52,6 @@ public class SoundManager : MonoBehaviour
 
     }
     public SoundEventController[] SoundEventsInScene;
-    //public SoundEventController SEC_Ambiance, SEC_Music, SEC_SFX, SEC_UI;
     private Dictionary<(EventReference, GameObject), EventInstance> eventInstances;
     private List<EventInstance> eventInstanceList;
     private SoundSettings settings;
@@ -70,44 +69,12 @@ public class SoundManager : MonoBehaviour
 
         }
 
-        /*foreach (SoundEventController _sec in SoundEventsInScene)
-        {
-
-            if(_sec.gameObject.name.Contains("Ambiance"))
-                SEC_Ambiance = _sec;
-            else if(_sec.gameObject.name.Contains("Music"))
-                SEC_Music = _sec;
-            else if(_sec.gameObject.name.Contains("SFX"))
-                SEC_SFX = _sec;
-            else if(_sec.gameObject.name.Contains("UI"))
-                SEC_UI = _sec;
-            
-        }*/
-
     }
 
     private void Awake()
     {
 
-        if(Instance != this && Instance == null)
-            Instance = this;
-        else
-        {
-
-            if(Instance.eventInstanceList.Count > 0)
-                for(int i = 0; i < Instance.eventInstanceList.Count; i++)
-                {
-
-                    Instance.eventInstanceList[i].stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                    Instance.eventInstanceList[i].release();
-
-                }
-
-            Destroy(gameObject);
-
-        }
-
-        DontDestroyOnLoad(this);
+        Instance = this;
 
         LocateSoundEvents();
 
@@ -127,6 +94,19 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+
+        foreach (EventInstance _ei in eventInstanceList)
+        {
+
+            _ei.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            _ei.release();
+            
+        }
+
+    }
+
     /*public bool IsEventPlaying(EventReference _soundEvent)
     {
 
@@ -137,13 +117,13 @@ public class SoundManager : MonoBehaviour
 
     }*/
 
-    public void StopSound(EventReference _soundEvent, GameObject _gO)
+    public void StopSound(EventReference _soundEvent, GameObject _go)
     {
 
-        if(eventInstances.ContainsKey((_soundEvent, _gO)))
+        if(eventInstances.ContainsKey((_soundEvent, _go)))
         {
 
-            eventInstances[(_soundEvent, _gO)].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            eventInstances[(_soundEvent, _go)].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         }
         else
@@ -155,16 +135,16 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void PlaySound(EventReference _soundEvent, GameObject _gO, SoundType _type = SoundType.NoLoop)
+    public void PlaySound(EventReference _soundEvent, GameObject _go, SoundType _type = SoundType.NoLoop)
     {
 
         EventInstance _tempEvent;
         PLAYBACK_STATE _pbState;
 
-        if(eventInstances.ContainsKey((_soundEvent, _gO)))
+        if(eventInstances.ContainsKey((_soundEvent, _go)))
         {
 
-            _tempEvent = eventInstances[(_soundEvent, _gO)];
+            _tempEvent = eventInstances[(_soundEvent, _go)];
 
         }
         else
@@ -172,7 +152,7 @@ public class SoundManager : MonoBehaviour
 
             _tempEvent = RuntimeManager.CreateInstance(_soundEvent);
 
-            eventInstances.Add((_soundEvent, _gO), _tempEvent);
+            eventInstances.Add((_soundEvent, _go), _tempEvent);
             eventInstanceList.Add(_tempEvent);
 
         }
