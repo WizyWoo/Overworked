@@ -5,6 +5,6 @@ Assets/Scripts/K3VO.meta
 Assets/Scripts/K3VO
 !ProjectSettings
 !ProjectSettings/*
-!.gitignore
+.gitignore
 !Packages/
 !Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
