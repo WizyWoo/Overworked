@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6f97ccd2e55184c9c68f81bf1d94b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundEventsInScene:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  sfx_BusPath: bus:/G_SFX
+  ambx_BusPath: bus:/G_AMBX
+  mus_BusPath: bus:/G_MUS
+  vo_BusPath: bus:/G_VO
+  master_BusPath: bus:/

@@ -52,12 +52,26 @@ public class SoundManager : MonoBehaviour
     private Dictionary<(EventReference, GameObject), EventInstance> eventInstances;
     private List<EventInstance> eventInstanceList;
     private SoundSettings settings;
-    private VCA SFX_VCA, Ambiance_VCA, UI_VCA, MUSIC_VCA, Master_VCA;
+    [SerializeField]
+    private string sfx_BusPath, ambx_BusPath, mus_BusPath, vo_BusPath, master_BusPath;
+    private Bus sfx_Bus, ambx_Bus, mus_Bus, vo_Bus, master_Bus;
 
     private void Awake()
     {
 
         Instance = this;
+
+        settings = SoundSettingsManager.LoadVolumeSettings();
+        if(settings == null)
+            settings = SoundSettingsManager.SaveVolumeSettings();
+
+        ambx_Bus = RuntimeManager.GetBus(ambx_BusPath);
+        sfx_Bus = RuntimeManager.GetBus(sfx_BusPath);
+        mus_Bus = RuntimeManager.GetBus(mus_BusPath);
+        vo_Bus = RuntimeManager.GetBus(vo_BusPath);
+        master_Bus = RuntimeManager.GetBus(master_BusPath);
+
+        ApplyVolumeSettings();
 
     }
 
@@ -66,10 +80,6 @@ public class SoundManager : MonoBehaviour
 
         eventInstances = new Dictionary<(EventReference, GameObject), EventInstance>();
         eventInstanceList = new List<EventInstance>();
-
-        settings = SoundSettingsManager.LoadVolumeSettings();
-        if(settings == null)
-            settings = SoundSettingsManager.SaveVolumeSettings();
 
     }
 
@@ -83,6 +93,36 @@ public class SoundManager : MonoBehaviour
             _ei.release();
             
         }
+
+    }
+
+    public void SaveVolumeSettings()
+    {
+
+        float _vol;
+        ambx_Bus.getVolume(out _vol);
+        settings.AmbianceVolume = _vol;
+        sfx_Bus.getVolume(out _vol);
+        settings.SFXVolume = _vol;
+        mus_Bus.getVolume(out _vol);
+        settings.MusicVolume = _vol;
+        vo_Bus.getVolume(out _vol);
+        settings.UIVolume = _vol;
+        master_Bus.getVolume(out _vol);
+        settings.MasterVolume = _vol;
+
+        SoundSettingsManager.SaveVolumeSettings(settings);
+
+    }
+
+    public void ApplyVolumeSettings()
+    {
+
+        ambx_Bus.setVolume(settings.AmbianceVolume);
+        sfx_Bus.setVolume(settings.SFXVolume);
+        mus_Bus.setVolume(settings.MusicVolume);
+        vo_Bus.setVolume(settings.UIVolume);
+        master_Bus.setVolume(settings.MasterVolume);
 
     }
 

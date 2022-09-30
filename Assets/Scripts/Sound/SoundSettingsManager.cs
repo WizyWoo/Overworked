@@ -14,7 +14,7 @@ public class SoundSettingsManager
         if(_settings == null)
         {
 
-            _settings = new SoundSettings(100, 100, 100, 100, false);
+            _settings = new SoundSettings(1, 1, 1, 1, 1, false);
 
         }
 

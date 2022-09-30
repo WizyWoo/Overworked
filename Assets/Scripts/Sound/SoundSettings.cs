@@ -2,16 +2,17 @@
 public class SoundSettings
 {
 
-    float AmbianceVolume, MusicVolume, SFXVolume, UIVolume;
-    bool Mute;
+    public float AmbianceVolume, MusicVolume, SFXVolume, UIVolume, MasterVolume;
+    public bool Mute;
 
-    public SoundSettings(float _ambiance, float _music, float _sFX , float _uI, bool _mute)
+    public SoundSettings(float _ambiance, float _music, float _sFX , float _uI, float _master, bool _mute)
     {
 
         AmbianceVolume = _ambiance;
         MusicVolume = _music;
         SFXVolume = _sFX;
         UIVolume = _uI;
+        MasterVolume = _master;
 
     }
 
