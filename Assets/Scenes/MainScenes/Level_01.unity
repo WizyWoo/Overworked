@@ -5212,7 +5212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcf893fcd4164d4bac0dc0567727f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 60
+  maxTime: 300
   timerText: {fileID: 2063368424}
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
@@ -5248,7 +5248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUpMultiplier: 2
-  startSpeedingThingsIn: 50
+  startSpeedingThingsIn: 2000
   duration: 10
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:
