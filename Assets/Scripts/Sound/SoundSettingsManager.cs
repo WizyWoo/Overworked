@@ -26,6 +26,8 @@ public class SoundSettingsManager
         _formatter.Serialize(_stream, _settings);
         _stream.Close();
 
+        Debug.Log("Successfully saved");
+
         return _settings;
 
     }
@@ -57,5 +59,55 @@ public class SoundSettingsManager
         }
 
     }
+    
+    public static SettingsVer SaveSettingsVersion(int _ver)
+    {
+
+        string _savePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SettingsVer.poggers");
+
+        SettingsVer _settingsVer = new SettingsVer(_ver);
+
+        BinaryFormatter _formatter = new BinaryFormatter();
+        FileStream _stream = new FileStream(_savePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+
+        _formatter.Serialize(_stream, _settingsVer);
+        _stream.Close();
+
+        Debug.Log("Updated version num");
+
+        return _settingsVer;
+
+    }
+
+    public static SettingsVer LoadSettingsVersion(int _ver)
+    {
+
+        string _loadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SettingsVer.poggers");
+
+        if(File.Exists(_loadPath))
+        {
+
+            BinaryFormatter _formatter = new BinaryFormatter();
+            FileStream _stream = new FileStream(_loadPath, FileMode.Open, FileAccess.Read);
+
+            SettingsVer _settingsVer = _formatter.Deserialize(_stream) as SettingsVer;
+
+            _stream.Close();
+
+            return _settingsVer;
+
+        }
+        else
+        {
+
+            Debug.Log("No version file found at " + _loadPath + " making a new one...");
+            SettingsVer _settingsVer = SaveSettingsVersion(_ver);
+            SaveVolumeSettings();
+            return _settingsVer;
+
+        }
+
+    }
+
 
 }

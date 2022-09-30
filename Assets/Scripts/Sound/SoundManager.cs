@@ -56,10 +56,22 @@ public class SoundManager : MonoBehaviour
     private string sfx_BusPath, ambx_BusPath, mus_BusPath, vo_BusPath, master_BusPath;
     private Bus sfx_Bus, ambx_Bus, mus_Bus, vo_Bus, master_Bus;
 
+    private int settingsVer = 0;
+
     private void Awake()
     {
 
         Instance = this;
+
+        SettingsVer _settingsVer = SoundSettingsManager.LoadSettingsVersion(settingsVer);
+        if(_settingsVer.Version != settingsVer)
+        {
+
+            SoundSettingsManager.SaveSettingsVersion(settingsVer);
+            SoundSettingsManager.SaveVolumeSettings();
+
+        }
+
 
         settings = SoundSettingsManager.LoadVolumeSettings();
         if(settings == null)
