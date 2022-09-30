@@ -120,7 +120,7 @@ public class SoundManager : MonoBehaviour
     public void StopSound(EventReference _soundEvent, GameObject _go)
     {
 
-        if(eventInstances.ContainsKey((_soundEvent, _go)))
+        /*if(eventInstances.ContainsKey((_soundEvent, _go)))
         {
 
             eventInstances[(_soundEvent, _go)].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -131,14 +131,14 @@ public class SoundManager : MonoBehaviour
 
             Debug.Log("This sound has never been played");
 
-        }
+        }*/
 
     }
 
     public void PlaySound(EventReference _soundEvent, GameObject _go, SoundType _type = SoundType.NoLoop)
     {
 
-        EventInstance _tempEvent;
+        /*EventInstance _tempEvent;
         PLAYBACK_STATE _pbState;
 
         if(eventInstances.ContainsKey((_soundEvent, _go)))
@@ -177,7 +177,7 @@ public class SoundManager : MonoBehaviour
 
         }
 
-        /*switch (_type)
+        switch (_type)
         {
             
             case SoundType.Ambiance:
