@@ -55,6 +55,7 @@ public class SoundManager : MonoBehaviour
     private Dictionary<(EventReference, GameObject), EventInstance> eventInstances;
     private List<EventInstance> eventInstanceList;
     private SoundSettings settings;
+    private VCA SFX_VCA, Ambiance_VCA, UI_VCA, VO_VCA;
 
     public void LocateSoundEvents()
     {
@@ -76,7 +77,10 @@ public class SoundManager : MonoBehaviour
 
         Instance = this;
 
-        LocateSoundEvents();
+    }
+
+    private void start()
+    {
 
         eventInstances = new Dictionary<(EventReference, GameObject), EventInstance>();
         eventInstanceList = new List<EventInstance>();
@@ -85,12 +89,7 @@ public class SoundManager : MonoBehaviour
         if(settings == null)
             settings = SoundSettingsManager.SaveVolumeSettings();
 
-    }
-
-    public void ApplyVolumeSettings()
-    {
-
-        
+        //SFX_VCA = RuntimeManager.GetBu
 
     }
 
