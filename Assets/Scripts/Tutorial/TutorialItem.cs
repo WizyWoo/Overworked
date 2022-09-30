@@ -52,7 +52,7 @@ public class TutorialItem
             infoText.DOFade(1, info_showTime);
     }
 
-    public void Hide()
+    public IEnumerator Hide()
     {
         float panel_hideTime = .5f;
         float info_hideTime = .5f;

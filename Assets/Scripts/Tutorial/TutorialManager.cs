@@ -67,7 +67,7 @@ public class TutorialManager : MonoBehaviour
     {
         // Find the adecuate tutorial element for the phase
         TutorialItem tutorialItem = Array.Find(tutorialItems, tutorialItem => tutorialItem.phase == phase);
-        tutorialItem.
+        //tutorialItem.
     }
 
     void EndTutorial()
