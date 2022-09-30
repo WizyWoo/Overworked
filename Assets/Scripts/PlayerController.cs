@@ -262,8 +262,13 @@ public class PlayerController : MonoBehaviour
                 itemGrabbed = nearestItem;
                 StartCoroutine("GrabItem");
 
+                // Inform the tutorial manager
                 TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromConveyor);
-                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p1);
+                if (playerIndex % 2 == 0)
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p1);
+                else
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p2);
+
             }
 
             // Ungrab item
@@ -283,7 +288,14 @@ public class PlayerController : MonoBehaviour
 
         if (context.started)
             if (itemGrabbed != null)
+            {
                 DropItem(strongThrowForce);
+
+                if (playerIndex % 2 == 0)
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p1);
+                else
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p2);
+            }
     }
 
     IEnumerator GrabItem()
