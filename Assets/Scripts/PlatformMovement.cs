@@ -8,8 +8,9 @@ public class PlatformMovement : MonoBehaviour
 
     [SerializeField] bool goAAtStart;
 
-    [SerializeField] float velocity;
+    [SerializeField] float minVelocity, maxVelocity;
 
+    private float velocity;
     [SerializeField] AnimationCurve animationCurve;
 
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class PlatformMovement : MonoBehaviour
 
     IEnumerator GoA()
     {
+        velocity = Random.Range(minVelocity, maxVelocity);
         float c = 0; 
         while (Vector3.Distance(transform.position, a.position) > 0.01f)
         {
@@ -51,6 +53,7 @@ public class PlatformMovement : MonoBehaviour
 
     IEnumerator GoB()
     {
+        velocity = Random.Range(minVelocity, maxVelocity);
         float c = 0;
         while (Vector3.Distance(transform.position, b.position) > 0.1f)
         {
