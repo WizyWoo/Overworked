@@ -13,7 +13,6 @@ public class RepairStation : WorkStation
     //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
     {
-
         if(ItemOnStaion || _item.OnWorkstation)
             return false;
 

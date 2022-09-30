@@ -38,6 +38,9 @@ public class RobotBody : MonoBehaviour
 
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
             {
+                // Inform tutorial manager
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.assembleArm);
+
                 if (!leftArmAssembled)
                 {
                     newSpot = leftArm_Spot;

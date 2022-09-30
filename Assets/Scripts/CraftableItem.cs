@@ -82,6 +82,7 @@ public class CraftableItem : GrabbableItem
             ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
             if(progress >= 100)
             {
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
                 assembled = true;
                 ItemAssembled();
             }

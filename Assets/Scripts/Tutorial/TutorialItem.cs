@@ -38,10 +38,12 @@ public class TutorialItem
         // Position
         Vector3 panelPosition = panel.transform.position;
         panel.transform.position =
-            new Vector3(panelPosition.x, panelPosition.y - 1);
+            new Vector3(panelPosition.x, panelPosition.y - 1, panelPosition.z);
         panel.transform.DOMoveY(panelPosition.y, panel_showTime);
 
         yield return new WaitForSeconds(panel_showTime);
+
+        if (TutorialManager.GetInstance().changingPhase) yield break;
 
         // INFO IN THE PANEL
         foreach (SpriteRenderer infoImage in infoImages)

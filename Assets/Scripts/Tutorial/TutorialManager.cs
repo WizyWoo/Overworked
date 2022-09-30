@@ -7,9 +7,20 @@ using TMPro;
 public class TutorialManager : MonoBehaviour
 {
     // Si esta a true, haces el tutorial
-    [HideInInspector] public bool doTutorial = true;
+    [SerializeField] bool doTutorial = true;
 
     [HideInInspector] public bool duringTutorial;
+
+    // Returns true when the tutorial of a panel is hiding 
+    [HideInInspector] public bool changingPhase;
+
+
+    [SerializeField] Transform tutorialRobotSpawn_Left;
+
+    [SerializeField] GameObject bodyRobotPrefab;
+    [SerializeField] GameObject repairedArmPrefab;
+    [SerializeField] GameObject repairedWheelPrefab;
+
 
     static TutorialManager instance;
     public static TutorialManager GetInstance()
@@ -18,8 +29,8 @@ public class TutorialManager : MonoBehaviour
     // Tutorial phases
     public enum tutorialPhase
     {
-        grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, craftArm, grabArmFromCraftingTable, 
-        throwArm_p2, grabArmFromFloor_p1, assembleArm
+        grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, repairArm, grabArmFromRepairTable, 
+        throwArm_p2, grabArmFromFloor_p1, assembleArm, robotFinished
     }
 
     // The currentPhase variable, show what the player must do
@@ -42,7 +53,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-
+            EndTutorial();
         }
 
     }
@@ -62,9 +73,51 @@ public class TutorialManager : MonoBehaviour
 
         // Show first phase
         ShowTutorialItem((tutorialPhase)0);
+    }
 
+    public void TryToChangePhase(tutorialPhase phaseDone)
+    {
+        if (duringTutorial)
+            StartCoroutine(TryToChangePhase_IEnumerator(phaseDone));
+    }
 
+    IEnumerator TryToChangePhase_IEnumerator(tutorialPhase phaseDone)
+    {
+        // Wait until the previous panel has already
+        yield return new WaitUntil(() => !changingPhase);
 
+        // If the player just perform the action that he was supposed to do right now according to the tutorial
+        if (currentPhase == phaseDone)
+        {
+            // Hide the previous tutorial item
+            HideTutorialItem(currentPhase);
+
+            // Spawn robot body when neccesary
+            if (currentPhase == tutorialPhase.assembleArm-1)
+            {
+                yield return new WaitForSeconds(.3f);
+                Debug.Log("Instantiate robot");
+                Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+            }
+            currentPhase++;
+
+            changingPhase = true;
+            yield return new WaitForSeconds(1);
+            changingPhase = false;
+
+            // Finish the tutorial
+            if (currentPhase == tutorialPhase.robotFinished)
+            {
+                duringTutorial = false;
+                EndTutorial();
+                yield break;
+            }
+
+            // Show the next tutorial element
+            ShowTutorialItem(currentPhase);
+        }
     }
 
     void ShowTutorialItem(tutorialPhase phase)

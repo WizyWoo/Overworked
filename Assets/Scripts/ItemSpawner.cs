@@ -10,6 +10,8 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] public float repeatRate;
     [SerializeField] int initialOffset;
 
+    [SerializeField] bool functionalDuringTutorial;
+
     public Generator generator;
 
     private void Awake()
@@ -19,12 +21,12 @@ public class ItemSpawner : MonoBehaviour
 
     void SpawnItem()
     {
-        Instantiate(spawnThisPrefab, transform.position, Quaternion.identity);
+        if (functionalDuringTutorial || !TutorialManager.GetInstance().duringTutorial)
+            Instantiate(spawnThisPrefab, transform.position, Quaternion.identity);
 
-
-        if(generator != null)
+        if (generator != null)
         {
-            if(generator.working) Invoke("SpawnItem", repeatRate);
+            if (generator.working) Invoke("SpawnItem", repeatRate);
         }
         else Invoke("SpawnItem", repeatRate);
     }
