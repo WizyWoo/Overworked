@@ -7,9 +7,12 @@ using TMPro;
 public class TutorialManager : MonoBehaviour
 {
     // Si esta a true, haces el tutorial
-    [HideInInspector] public bool doTutorial = true;
+    [HideInInspector] bool doTutorial = true;
 
     [HideInInspector] public bool duringTutorial;
+    
+    // Returns true when the tutorial of a panel is hiding 
+    bool changingPhase;
 
     static TutorialManager instance;
     public static TutorialManager GetInstance()
@@ -19,7 +22,7 @@ public class TutorialManager : MonoBehaviour
     public enum tutorialPhase
     {
         grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, craftArm, grabArmFromCraftingTable, 
-        throwArm_p2, grabArmFromFloor_p1, assembleArm
+        throwArm_p2, grabArmFromFloor_p1, assembleArm, robotFinished
     }
 
     // The currentPhase variable, show what the player must do
@@ -65,6 +68,44 @@ public class TutorialManager : MonoBehaviour
 
 
 
+    }
+
+    public void TryToChangePhase(tutorialPhase phaseDone)
+    {
+        if (duringTutorial)
+            StartCoroutine(TryToChangePhase_IEnumerator(phaseDone));
+    }
+
+    IEnumerator TryToChangePhase_IEnumerator(tutorialPhase phaseDone)
+    {
+        // Wait until the previous panel has already
+        yield return new WaitUntil(() => !changingPhase);
+
+        // If the player just perform the action that he was supposed to do right now according to the tutorial
+        if (currentPhase == phaseDone)
+        {
+            // Hide the previous tutorial item
+            HideTutorialItem(currentPhase);
+
+            currentPhase++;
+
+            changingPhase = true;
+            yield return new WaitForSeconds(1);
+            changingPhase = false;
+
+
+            // Finish the tutorial
+            if (currentPhase == tutorialPhase.robotFinished)
+            {
+                duringTutorial = false;
+                EndTutorial();
+                yield break;
+            }
+
+
+            // Show the next tutorial element
+            ShowTutorialItem(currentPhase);
+        }
     }
 
     void ShowTutorialItem(tutorialPhase phase)

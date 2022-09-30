@@ -231,8 +231,7 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
-
-                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
+                //SoundManager.Instance.PlaySound(grabItemSound, gameObject);
 
                 //// If there are any null references destroy them
                 /// error needs checking
@@ -262,6 +261,9 @@ public class PlayerController : MonoBehaviour
 
                 itemGrabbed = nearestItem;
                 StartCoroutine("GrabItem");
+
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromConveyor);
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p1);
             }
 
             // Ungrab item
