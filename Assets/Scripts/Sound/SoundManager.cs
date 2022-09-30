@@ -22,11 +22,11 @@ namespace SoundManagerCustomEditor
 
             SoundManager _sM = (SoundManager)target;
 
-            GUILayout.Label("Use this to see if there are any SoundEventControllers in the scene");
-            if(GUILayout.Button("Locate all SoundEvents"))
+            GUILayout.Label("Click me :)");
+            if(GUILayout.Button("Press plz"))
             {
 
-                _sM.LocateSoundEvents();
+                Debug.Log("why you press me :(");
 
             }
 
@@ -41,8 +41,6 @@ namespace SoundManagerCustomEditor
 public class SoundManager : MonoBehaviour
 {
 
-    //FMODUnity.RuntimeManager.GetVCA("vca:/Master")
-
     public static SoundManager Instance;
     public enum SoundType
     {
@@ -51,26 +49,10 @@ public class SoundManager : MonoBehaviour
         NoLoop
 
     }
-    public SoundEventController[] SoundEventsInScene;
     private Dictionary<(EventReference, GameObject), EventInstance> eventInstances;
     private List<EventInstance> eventInstanceList;
     private SoundSettings settings;
-    private VCA SFX_VCA, Ambiance_VCA, UI_VCA, VO_VCA;
-
-    public void LocateSoundEvents()
-    {
-
-        GameObject[] _found = GameObject.FindGameObjectsWithTag("SoundEvent");
-        SoundEventsInScene = new SoundEventController[_found.Length];
-
-        for(int i = 0; i < _found.Length; i++)
-        {
-
-            SoundEventsInScene[i] = _found[i].GetComponent<SoundEventController>();
-
-        }
-
-    }
+    private VCA SFX_VCA, Ambiance_VCA, UI_VCA, MUSIC_VCA, Master_VCA;
 
     private void Awake()
     {
@@ -79,7 +61,7 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    private void start()
+    private void Start()
     {
 
         eventInstances = new Dictionary<(EventReference, GameObject), EventInstance>();
@@ -88,8 +70,6 @@ public class SoundManager : MonoBehaviour
         settings = SoundSettingsManager.LoadVolumeSettings();
         if(settings == null)
             settings = SoundSettingsManager.SaveVolumeSettings();
-
-        //SFX_VCA = RuntimeManager.GetBus("")
 
     }
 
@@ -119,25 +99,19 @@ public class SoundManager : MonoBehaviour
     public void StopSound(EventReference _soundEvent, GameObject _go)
     {
 
-        /*if(eventInstances.ContainsKey((_soundEvent, _go)))
+        if(eventInstances.ContainsKey((_soundEvent, _go)))
         {
 
             eventInstances[(_soundEvent, _go)].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         }
-        else
-        {
-
-            Debug.Log("This sound has never been played");
-
-        }*/
 
     }
 
     public void PlaySound(EventReference _soundEvent, GameObject _go, SoundType _type = SoundType.NoLoop)
     {
 
-        /*EventInstance _tempEvent;
+        EventInstance _tempEvent;
         PLAYBACK_STATE _pbState;
 
         if(eventInstances.ContainsKey((_soundEvent, _go)))
@@ -175,51 +149,6 @@ public class SoundManager : MonoBehaviour
             _tempEvent.start();
 
         }
-
-        switch (_type)
-        {
-            
-            case SoundType.Ambiance:
-            if(!_soundEvent.IsNull)
-            {
-                SEC_Ambiance.EventReference = _soundEvent;
-                SEC_Ambiance.Play();
-            }
-            else if(!SEC_Ambiance.EventReference.IsNull)
-                SEC_Ambiance.Play();
-            break;
-
-            case SoundType.Music:
-            if(!_soundEvent.IsNull)
-            {
-                SEC_Music.EventReference = _soundEvent;
-                SEC_Music.Play();
-            }
-            else if(!SEC_Music.EventReference.IsNull)
-                SEC_Music.Play();
-            break;
-
-            case SoundType.SFX:
-            if(!_soundEvent.IsNull)
-            {
-                SEC_SFX.EventReference = _soundEvent;
-                SEC_SFX.Play();
-            }
-            else if(!SEC_SFX.EventReference.IsNull)
-                SEC_SFX.Play();
-            break;
-
-            case SoundType.UI:
-            if(!_soundEvent.IsNull)
-            {
-                SEC_UI.EventReference = _soundEvent;
-                SEC_UI.Play();
-            }
-            else if(!SEC_UI.EventReference.IsNull)
-                SEC_UI.Play();
-            break;
-
-        }*/
         
     }
 
