@@ -7,7 +7,7 @@ using TMPro;
 public class TutorialManager : MonoBehaviour
 {
     // Si esta a true, haces el tutorial
-    [HideInInspector] public bool doTutorial;
+    [HideInInspector] public bool doTutorial = true;
 
     [HideInInspector] public bool duringTutorial;
 
@@ -36,7 +36,6 @@ public class TutorialManager : MonoBehaviour
 
         InizializeTutorialElements();
 
-
         if (doTutorial)
         {
             StartTutorial();
@@ -57,17 +56,29 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-
     void StartTutorial()
     {
         duringTutorial = true;
+
+        // Show first phase
+        ShowTutorialItem((tutorialPhase)0);
+
+
+
     }
 
-    void ShowTutorialItems(tutorialPhase phase)
+    void ShowTutorialItem(tutorialPhase phase)
     {
         // Find the adecuate tutorial element for the phase
         TutorialItem tutorialItem = Array.Find(tutorialItems, tutorialItem => tutorialItem.phase == phase);
-        //tutorialItem.
+        StartCoroutine(tutorialItem.Show());
+    }
+
+    void HideTutorialItem(tutorialPhase phase)
+    {
+        // Find the adecuate tutorial element for the phase
+        TutorialItem tutorialItem = Array.Find(tutorialItems, tutorialItem => tutorialItem.phase == phase);
+        StartCoroutine(tutorialItem.Hide());
     }
 
     void EndTutorial()
