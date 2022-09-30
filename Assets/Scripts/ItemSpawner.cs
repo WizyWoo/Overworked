@@ -12,6 +12,8 @@ public class ItemSpawner : MonoBehaviour
 
     [SerializeField] bool functionalDuringTutorial;
 
+    [HideInInspector] public bool functional;
+
     public Generator generator;
 
     private void Awake()
@@ -21,7 +23,7 @@ public class ItemSpawner : MonoBehaviour
 
     void SpawnItem()
     {
-        if (functionalDuringTutorial || !TutorialManager.GetInstance().duringTutorial)
+        if (functional)
             Instantiate(spawnThisPrefab, transform.position, Quaternion.identity);
 
         if (generator != null)
