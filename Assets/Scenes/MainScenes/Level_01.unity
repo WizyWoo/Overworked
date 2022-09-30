@@ -205,6 +205,7 @@ MonoBehaviour:
   repeatRate: 10
   initialOffset: 5
   functionalDuringTutorial: 0
+  functional: 0
   generator: {fileID: 0}
 --- !u!1001 &22571206
 PrefabInstance:
@@ -395,6 +396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
+      propertyPath: functional
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
+        type: 3}
       propertyPath: direction.y
       value: -1
       objectReference: {fileID: 0}
@@ -520,6 +526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
+      propertyPath: functional
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
+        type: 3}
       propertyPath: direction.x
       value: 0
       objectReference: {fileID: 0}
@@ -631,18 +642,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 108380243}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &134781575 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7398927922782438372, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7398927922647669091}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &147968893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -950,7 +949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224582157}
   m_Layer: 0
-  m_Name: InitialRobotSpawn
+  m_Name: InitialRobotSpawnLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,6 +1501,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 297061823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &298784574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5477226370292661382, guid: 25ee0c56e64a67043be697dc146fbd84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1190243389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &312540557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1707,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
+      propertyPath: functional
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
+        type: 3}
       propertyPath: direction.y
       value: -1
       objectReference: {fileID: 0}
@@ -1878,6 +1888,37 @@ Transform:
   - {fileID: 297061824}
   m_Father: {fileID: 440095528}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &576878619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 576878620}
+  m_Layer: 0
+  m_Name: InitialRobotSpawnRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &576878620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576878619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.25, y: 11, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1462944036}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &581889614
 GameObject:
@@ -2823,18 +2864,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 740609379}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &841279898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7398927922947879161, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7398927922647669091}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &852431083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,19 +2913,8 @@ MonoBehaviour:
   repeatRate: 10
   initialOffset: 0
   functionalDuringTutorial: 0
+  functional: 0
   generator: {fileID: 0}
---- !u!114 &854230718 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7398927922960572381, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7398927922647669091}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &885383312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,6 +3230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
+      propertyPath: functional
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
+        type: 3}
       propertyPath: direction.x
       value: -1
       objectReference: {fileID: 0}
@@ -3336,6 +3359,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
+        type: 3}
+      propertyPath: functional
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
@@ -3707,6 +3735,7 @@ MonoBehaviour:
   repeatRate: 5
   initialOffset: 0
   functionalDuringTutorial: 1
+  functional: 0
   generator: {fileID: 0}
 --- !u!1001 &1184507633
 PrefabInstance:
@@ -3803,6 +3832,98 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1184507633}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1190243389
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1204160116}
+    m_Modifications:
+    - target: {fileID: 5477226369417589081, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661382, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_Name
+      value: NowAssembleOtherRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370913441646, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226371280239575, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_text
+      value: 'Now assemble this robot
+
+        (Wheel missing)'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25ee0c56e64a67043be697dc146fbd84, type: 3}
+--- !u!4 &1190243390 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1190243389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1204160115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,6 +3959,7 @@ Transform:
   - {fileID: 740609380}
   - {fileID: 1875902707}
   - {fileID: 1892247785}
+  - {fileID: 1190243390}
   m_Father: {fileID: 1462944036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3917,6 +4039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
+        type: 3}
+      propertyPath: functional
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
@@ -4102,6 +4229,7 @@ MonoBehaviour:
   repeatRate: 10
   initialOffset: 5
   functionalDuringTutorial: 0
+  functional: 0
   generator: {fileID: 0}
 --- !u!114 &1297629720 stripped
 MonoBehaviour:
@@ -4166,6 +4294,7 @@ MonoBehaviour:
   repeatRate: 10
   initialOffset: 5
   functionalDuringTutorial: 0
+  functional: 0
   generator: {fileID: 0}
 --- !u!1 &1411027945
 GameObject:
@@ -4281,6 +4410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
+      propertyPath: functional
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
+        type: 3}
       propertyPath: direction.x
       value: -1
       objectReference: {fileID: 0}
@@ -4326,9 +4460,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a176998c8286d843966e6d909717948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doTutorial: 0
   duringTutorial: 0
   changingPhase: 0
   tutorialRobotSpawn_Left: {fileID: 224582157}
+  tutorialRobotSpawn_Right: {fileID: 576878620}
   bodyRobotPrefab: {fileID: 6286823940320546486, guid: f02e5b1b8c2b09e499871b4bcf91a1ab,
     type: 3}
   repairedArmPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
@@ -4376,6 +4512,23 @@ MonoBehaviour:
     panel: {fileID: 0}
     infoImages: []
     infoTexts: []
+  - phase: 8
+    gameObject: {fileID: 298784574}
+    panel: {fileID: 0}
+    infoImages: []
+    infoTexts: []
+  leftRobotRail: {fileID: 1996696331}
+  rightRobotRail: {fileID: 1297629720}
+  armSpawner: {fileID: 1174088878}
+  wheelSpawner: {fileID: 1602229224}
+  leftRobotSpawner:
+  - {fileID: 1367346100}
+  - {fileID: 17310911}
+  - {fileID: 1258962305}
+  rightRobotSpawner:
+  - {fileID: 1684884586}
+  - {fileID: 1705422795}
+  - {fileID: 852431085}
 --- !u!4 &1462944036
 Transform:
   m_ObjectHideFlags: 0
@@ -4390,6 +4543,7 @@ Transform:
   m_Children:
   - {fileID: 1204160116}
   - {fileID: 224582157}
+  - {fileID: 576878620}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4831,6 +4985,7 @@ MonoBehaviour:
   repeatRate: 5
   initialOffset: 0
   functionalDuringTutorial: 0
+  functional: 0
   generator: {fileID: 0}
 --- !u!1001 &1618618712
 PrefabInstance:
@@ -4952,6 +5107,7 @@ MonoBehaviour:
   repeatRate: 10
   initialOffset: 0
   functionalDuringTutorial: 0
+  functional: 0
   generator: {fileID: 0}
 --- !u!1 &1705422793
 GameObject:
@@ -5002,6 +5158,7 @@ MonoBehaviour:
   repeatRate: 10
   initialOffset: 0
   functionalDuringTutorial: 0
+  functional: 0
   generator: {fileID: 0}
 --- !u!1 &1780669299
 GameObject:
@@ -5070,10 +5227,6 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   MoneyMultiplier: 0
   moneyWhenFall: -5
-  strikes:
-  - {fileID: 841279898}
-  - {fileID: 854230718}
-  - {fileID: 134781575}
   tickImage: {fileID: 885383314}
   moneyToWin1Star1: 0
   moneyToWin2Star1: 0

@@ -29,8 +29,8 @@ public class TutorialItem
     // Smooth transitions for showing or hiding this tutorial item
     public IEnumerator Show()
     {
-        float panel_showTime = .5f;
-        float info_showTime = .5f;
+        float panel_showTime = .2f;
+        float info_showTime = .2f;
 
         // PANEL
         // Show panel
@@ -54,8 +54,8 @@ public class TutorialItem
 
     public IEnumerator Hide()
     {
-        float panel_hideTime = .5f;
-        float info_hideTime = .5f;
+        float panel_hideTime = .2f;
+        float info_hideTime = .2f;
 
 
         // INFO IN THE PANEL

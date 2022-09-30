@@ -32,7 +32,6 @@ public class RobotBody : MonoBehaviour
             //// Comprobar si esta crafteado
             if (!item.Assembled) return;
 
-
             // Compobar en que lado se implementa
             Transform newSpot = null;
 
@@ -57,6 +56,8 @@ public class RobotBody : MonoBehaviour
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
             {
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.assembleOtherRobot);
+
                 if (!wheelAssembled)
                 {
                     newSpot = wheel_Spot;

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
-using TMPro;
+using System.Collections;
+using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -16,6 +14,7 @@ public class TutorialManager : MonoBehaviour
 
 
     [SerializeField] Transform tutorialRobotSpawn_Left;
+    [SerializeField] Transform tutorialRobotSpawn_Right;
 
     [SerializeField] GameObject bodyRobotPrefab;
     [SerializeField] GameObject repairedArmPrefab;
@@ -30,7 +29,7 @@ public class TutorialManager : MonoBehaviour
     public enum tutorialPhase
     {
         grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, repairArm, grabArmFromRepairTable, 
-        throwArm_p2, grabArmFromFloor_p1, assembleArm, robotFinished
+        throwArm_p2, grabArmFromFloor_p1, assembleArm, assembleOtherRobot, tutorialDone
     }
 
     // The currentPhase variable, show what the player must do
@@ -39,6 +38,13 @@ public class TutorialManager : MonoBehaviour
     // Tutorial elements are gameobjects that store tutorial info for each phase
     [SerializeField] TutorialItem[] tutorialItems;
 
+
+    [SerializeField] RobotRail leftRobotRail;
+    [SerializeField] RobotRail rightRobotRail;
+    [SerializeField] ItemSpawner armSpawner;
+    [SerializeField] ItemSpawner wheelSpawner;
+    [SerializeField] ItemSpawner[] leftRobotSpawner;
+    [SerializeField] ItemSpawner[] rightRobotSpawner;
 
     private void Awake()
     {
@@ -73,6 +79,18 @@ public class TutorialManager : MonoBehaviour
 
         // Show first phase
         ShowTutorialItem((tutorialPhase)0);
+
+        leftRobotRail.functional = false;
+        rightRobotRail.functional = false;
+        armSpawner.functional = true;
+        wheelSpawner.functional = false;
+
+
+        foreach (var spawner in leftRobotSpawner)
+            spawner.functional = false;
+
+        foreach (var spawner in rightRobotSpawner)
+            spawner.functional = false;
     }
 
     public void TryToChangePhase(tutorialPhase phaseDone)
@@ -92,23 +110,35 @@ public class TutorialManager : MonoBehaviour
             // Hide the previous tutorial item
             HideTutorialItem(currentPhase);
 
+            currentPhase++;
+
+            changingPhase = true;
+            yield return new WaitForSeconds(.5f);
+            changingPhase = false;
+
+
             // Spawn robot body when neccesary
-            if (currentPhase == tutorialPhase.assembleArm-1)
+            if (currentPhase == tutorialPhase.assembleArm - 1)
             {
-                yield return new WaitForSeconds(.3f);
-                Debug.Log("Instantiate robot");
                 Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                 Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                 Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
             }
-            currentPhase++;
 
-            changingPhase = true;
-            yield return new WaitForSeconds(1);
-            changingPhase = false;
+            else if (currentPhase == tutorialPhase.assembleOtherRobot)
+            {
+                leftRobotRail.functional = true;
+                wheelSpawner.functional = true;
+                armSpawner.functional = false;
+
+
+                Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+            }
 
             // Finish the tutorial
-            if (currentPhase == tutorialPhase.robotFinished)
+            else if (currentPhase == tutorialPhase.tutorialDone)
             {
                 duringTutorial = false;
                 EndTutorial();
@@ -137,5 +167,16 @@ public class TutorialManager : MonoBehaviour
     void EndTutorial()
     {
         duringTutorial = false;
+
+        leftRobotRail.functional = true;
+        rightRobotRail.functional = true;
+        armSpawner.functional = true;
+        wheelSpawner.functional = true;
+
+        foreach (var spawner in leftRobotSpawner)
+            spawner.functional = true;
+
+        foreach (var spawner in rightRobotSpawner)
+            spawner.functional = true;
     }
 }

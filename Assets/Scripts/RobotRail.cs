@@ -6,6 +6,7 @@ public class RobotRail : MonoBehaviour
 {
     [SerializeField] public float speed;
     [SerializeField] Vector2 direction;
+    public bool functional = true;
     Rigidbody rb;
 
     List<RobotBody> itemsInConveyor = new List<RobotBody>();
@@ -17,6 +18,8 @@ public class RobotRail : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!functional) return;
+
         if (itemsInConveyor.Count != 0)
             foreach (RobotBody robot in itemsInConveyor)
             {
