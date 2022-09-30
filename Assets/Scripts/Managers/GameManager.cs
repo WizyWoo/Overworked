@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     static public GameManager instance;
 
-    public int finishedMoneyLevel, amountOfStars, minimumMoney;
+    public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;
 
     private void Awake()
     {

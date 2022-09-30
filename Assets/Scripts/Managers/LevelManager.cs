@@ -46,6 +46,7 @@ public class LevelManager : MonoBehaviour
             currentTime = 0;
 
             GameManager.instance.finishedMoneyLevel = money;
+            GameManager.instance.TotalMoney += money;
             GameManager.instance.minimumMoney = moneyToWin1Star;
 
             if (WinCondition())
