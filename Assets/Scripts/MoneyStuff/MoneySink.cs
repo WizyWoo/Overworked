@@ -23,7 +23,7 @@ public class MoneySink : MonoBehaviour
         //then if it is exactly zero, we get a new debt, unlikely to happen during normal play but it is possible.
         if (GameManager.instance.TotalDebt == 0 )
         {
-            Debt =  Random.Range(5000, 50000);
+            Debt =  Random.Range(100, 1000);
             
             GameManager.instance.TotalDebt = ((int)Debt);
             
