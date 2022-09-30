@@ -10,6 +10,7 @@ public class RobotReceiver : MonoBehaviour
 
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
+    [SerializeField] Level02_Manager level02_Manager;
 
     CraftableItem currentItem;
 
@@ -26,7 +27,7 @@ public class RobotReceiver : MonoBehaviour
                 //pl.RemoveItem(item);
                 pl.itemGrabbed = null;
             }
-
+            level02_Manager.CorrectRobot();
             item.GrabItem();
             item.transform.SetParent(robotSpot);
             item.transform.DOMove(robotSpot.position, .5f).OnComplete(TakeAwayRobot);
@@ -42,6 +43,7 @@ public class RobotReceiver : MonoBehaviour
 
     void TakeAwayRobot()
     {
+        
         platform.transform.DOMove(pointB.position, 1).OnComplete(PreparePlatfomrForNextRobot);
     }
 

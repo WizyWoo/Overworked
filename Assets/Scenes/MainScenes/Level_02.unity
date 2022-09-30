@@ -524,6 +524,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7398927923185514888, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398927923185514890, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398927923657544488, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7398927924070264976, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -568,7 +583,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 120414724}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3822,7 +3837,7 @@ GameObject:
   - component: {fileID: 1854151312}
   - component: {fileID: 1854151311}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: RobotReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3923,6 +3938,7 @@ MonoBehaviour:
   robotSpot: {fileID: 1735461802}
   pointA: {fileID: 2115219514}
   pointB: {fileID: 1195299837}
+  level02_Manager: {fileID: 2146607768}
 --- !u!4 &1854151316
 Transform:
   m_ObjectHideFlags: 0
@@ -4333,7 +4349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 90
+  maxTime: 30
   timerText: {fileID: 120414729}
   moneyText: {fileID: 120414732}
   addMoneyText: {fileID: 120414727}
@@ -4350,9 +4366,9 @@ MonoBehaviour:
       Data3: -2093164100
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
-  MoneyMultiplier: 0
+  MoneyMultiplier: 1
   moneyWhenFall: -5
-  moneyToWin1Star1: 30
+  moneyToWin1Star1: 0
   moneyToWin2Star1: 45
   moneyToWin3Star1: 60
 --- !u!114 &2146607769
