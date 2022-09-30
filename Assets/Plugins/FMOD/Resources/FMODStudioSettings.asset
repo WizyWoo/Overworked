@@ -601,7 +601,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     DSPBufferLength:
-      Value: 1
+      Value: 0
       HasValue: 0
     DSPBufferCount:
       Value: 0
