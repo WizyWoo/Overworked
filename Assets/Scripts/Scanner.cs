@@ -72,16 +72,19 @@ public class Scanner : MonoBehaviour
 
                 if (robotDelivered.leftArmAssembled)
                 {
-                    ceiling.ThrowItem(armToThrow);
+                    if (throwItemsIfIncorrectRobot)
+                        ceiling.ThrowItem(armToThrow);
                 }
                 if (robotDelivered.rightArmAssembled)
                 {
-                    ceiling.ThrowItem(armToThrow);
+                    if (throwItemsIfIncorrectRobot)
+                        ceiling.ThrowItem(armToThrow);
                     // ThrowItem(arm);
                 }
                 if (robotDelivered.wheelAssembled)
                 {
-                    ceiling.ThrowItem(wheelToThrow);
+                    if (throwItemsIfIncorrectRobot)
+                        ceiling.ThrowItem(wheelToThrow);
                 }
 
                 IncrementLoseCon = true;
@@ -90,6 +93,8 @@ public class Scanner : MonoBehaviour
             Invoke("ReturnBulbToDefault", timeBulbOn);
         }
     }
+
+    [SerializeField] bool throwItemsIfIncorrectRobot;
 
 
     void ReturnBulbToDefault()

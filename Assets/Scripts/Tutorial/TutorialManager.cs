@@ -5,7 +5,7 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     // Si esta a true, haces el tutorial
-    [SerializeField] bool doTutorial;
+    [SerializeField] public bool doTutorial;
 
     [HideInInspector] public bool duringTutorial;
 

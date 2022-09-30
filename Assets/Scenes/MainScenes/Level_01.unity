@@ -202,9 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
     type: 3}
-  repeatRate: 10
-  initialOffset: 5
-  functionalDuringTutorial: 0
+  repeatRate: 20
+  initialOffset: 10
   functional: 0
   generator: {fileID: 0}
 --- !u!1001 &22571206
@@ -2814,7 +2813,7 @@ PrefabInstance:
     - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
@@ -2921,9 +2920,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
     type: 3}
-  repeatRate: 10
+  repeatRate: 20
   initialOffset: 0
-  functionalDuringTutorial: 0
   functional: 0
   generator: {fileID: 0}
 --- !u!1 &885383312
@@ -3745,7 +3743,6 @@ MonoBehaviour:
     type: 3}
   repeatRate: 5
   initialOffset: 0
-  functionalDuringTutorial: 1
   functional: 0
   generator: {fileID: 0}
 --- !u!1001 &1184507633
@@ -4237,9 +4234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: 8046ef736ac597a4497296f5d16164e9,
     type: 3}
-  repeatRate: 10
-  initialOffset: 5
-  functionalDuringTutorial: 0
+  repeatRate: 20
+  initialOffset: 10
   functional: 0
   generator: {fileID: 0}
 --- !u!114 &1297629720 stripped
@@ -4302,9 +4298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 6286823940320546486, guid: f02e5b1b8c2b09e499871b4bcf91a1ab,
     type: 3}
-  repeatRate: 10
-  initialOffset: 5
-  functionalDuringTutorial: 0
+  repeatRate: 20
+  initialOffset: 10
   functional: 0
   generator: {fileID: 0}
 --- !u!1 &1411027945
@@ -4862,6 +4857,7 @@ MonoBehaviour:
       Data3: 1379527613
       Data4: -1924931734
     Path: event:/SFX/SFX_Scanner/SFX_Scanner_RobReject
+  throwItemsIfIncorrectRobot: 0
 --- !u!1001 &1566476763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4995,7 +4991,6 @@ MonoBehaviour:
     type: 3}
   repeatRate: 5
   initialOffset: 0
-  functionalDuringTutorial: 0
   functional: 0
   generator: {fileID: 0}
 --- !u!1001 &1618618712
@@ -5115,9 +5110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 6286823940320546486, guid: f02e5b1b8c2b09e499871b4bcf91a1ab,
     type: 3}
-  repeatRate: 10
+  repeatRate: 20
   initialOffset: 0
-  functionalDuringTutorial: 0
   functional: 0
   generator: {fileID: 0}
 --- !u!1 &1705422793
@@ -5166,9 +5160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnThisPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
     type: 3}
-  repeatRate: 10
+  repeatRate: 20
   initialOffset: 0
-  functionalDuringTutorial: 0
   functional: 0
   generator: {fileID: 0}
 --- !u!1 &1780669299
@@ -5219,7 +5212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcf893fcd4164d4bac0dc0567727f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 60
+  maxTime: 300
   timerText: {fileID: 2063368424}
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
@@ -5255,7 +5248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUpMultiplier: 2
-  startSpeedingThingsIn: 50
+  startSpeedingThingsIn: 2000
   duration: 10
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:
@@ -5847,7 +5840,7 @@ PrefabInstance:
     - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}

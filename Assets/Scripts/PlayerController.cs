@@ -137,9 +137,10 @@ public class PlayerController : MonoBehaviour
         {
             // Lose stamina if moving
             if (horInput != 0 || verInput != 0)
-                currentStamina -= Time.deltaTime;
-            else
-                currentStamina += Time.deltaTime * regainStaminaSpeed;
+                if (!TutorialManager.GetInstance().doTutorial)
+                    currentStamina -= Time.deltaTime;
+                else
+                    currentStamina += Time.deltaTime * regainStaminaSpeed;
         }
 
         // Clamp min and max values

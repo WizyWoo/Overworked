@@ -10,9 +10,7 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] public float repeatRate;
     [SerializeField] int initialOffset;
 
-    [SerializeField] bool functionalDuringTutorial;
-
-    [HideInInspector] public bool functional;
+    [HideInInspector] public bool functional = true;
 
     public Generator generator;
 
