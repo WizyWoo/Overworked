@@ -18,7 +18,7 @@ public class Level02_Manager : LevelManager
 
     public void CorrectRobot()
     {
-        UpdateMoney(moneyCorrectRobot*MoneyMultiplier);
+        UpdateMoney(moneyCorrectRobot * MoneyMultiplier);
         if(MoneyMultiplier >= 3)
         {
             goto JustResetOnce;
