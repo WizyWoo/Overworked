@@ -13,24 +13,24 @@ public class RepairStation : WorkStation
     //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
     {
-        if(ItemOnStaion || _item.OnWorkstation)
+        if(ItemOnStation || _item.OnWorkstation)
             return false;
 
-        ItemOnStaion = _item;
+        ItemOnStation = _item;
 
-        if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
-            RemoveItem(ItemOnStaion);
+        if(!ItemOnStation.TryGetComponent<CraftableItem>(out CraftingItem))
+            RemoveItem(ItemOnStation);
         else if(CraftingItem.Assembled)
-            RemoveItem(ItemOnStaion);
+            RemoveItem(ItemOnStation);
         else if(CraftingItem.typeOfItem != canRepairThisItem)
-            RemoveItem(ItemOnStaion);
+            RemoveItem(ItemOnStation);
         else
         {
 
-            ItemOnStaion.UngrabItem();
-            ItemOnStaion.transform.SetParent(null);
-            ItemOnStaion.transform.position = DisplayPoint.position;
-            ItemOnStaion.OnWorkstation = this;
+            ItemOnStation.UngrabItem();
+            ItemOnStation.transform.SetParent(null);
+            ItemOnStation.transform.position = DisplayPoint.position;
+            ItemOnStation.OnWorkstation = this;
             SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
         }
