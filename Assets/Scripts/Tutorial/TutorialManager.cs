@@ -7,7 +7,7 @@ using TMPro;
 public class TutorialManager : MonoBehaviour
 {
     // Si esta a true, haces el tutorial
-    [SerializeField] bool doTutorial = true;
+    [SerializeField] bool doTutorial;
 
     [HideInInspector] public bool duringTutorial;
 
