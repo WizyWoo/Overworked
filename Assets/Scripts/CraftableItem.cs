@@ -81,8 +81,7 @@ public class CraftableItem : GrabbableItem
             progress = value;
             ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
             if(progress >= 100)
-            {
-                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
+            {//I moved the tutorial thingy
                 assembled = true;
                 ItemAssembled();
             }
@@ -100,5 +99,8 @@ public class CraftableItem : GrabbableItem
         {
             ItemSprite.color = newColor;
         }
+
+        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
+        
     }
 }

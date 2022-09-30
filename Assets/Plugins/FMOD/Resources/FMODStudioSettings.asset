@@ -418,7 +418,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: 
-  sourceBankPath: Assets/FMOD Banks/Desktop
+  sourceBankPath: C:/Unity/Projects/GitHub/Overworked/Assets/FMOD Banks/Desktop
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -441,13 +441,13 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Desktop/Master
+  - Master
   Banks:
-  - Desktop/BANK_AMBX
-  - Desktop/BANK_MUS
-  - Desktop/BANK_SFX
-  - Desktop/BANK_UI
-  - Desktop/BANK_VO
+  - BANK_AMBX
+  - BANK_MUS
+  - BANK_SFX
+  - BANK_UI
+  - BANK_VO
   BanksToLoad:
   - BANK_AMBX
   - BANK_MUS
