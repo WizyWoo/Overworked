@@ -637,7 +637,6 @@ RectTransform:
   - {fileID: 1406968669}
   - {fileID: 296916560}
   - {fileID: 1058510692}
-  - {fileID: 1236413907}
   m_Father: {fileID: 1518989159}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2072,6 +2071,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: TotalDebt
+      value: 500000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: TotalMoney
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8482794919417174579, guid: 76edd319476361e4eab620a03f5ffb2e,
         type: 3}
       propertyPath: m_Name
@@ -2691,18 +2700,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236413906}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_LocalScale: {x: 2.3000002, y: 2.3000002, z: 2.3000002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 35338363}
-  m_Father: {fileID: 177421924}
-  m_RootOrder: 6
+  m_Father: {fileID: 1265468835}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1069, y: -87}
+  m_AnchoredPosition: {x: 8.38, y: -204.06}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236413908
@@ -2828,7 +2837,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1236413907}
   m_Father: {fileID: 1518989159}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3401,6 +3411,7 @@ MonoBehaviour:
   Debt: 0
   Rent: 0
   LeftoverMoney: 0
+  bonusDebt: 0
   PayPal: 0
 --- !u!4 &1558965376
 Transform:
