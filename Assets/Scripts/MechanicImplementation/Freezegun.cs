@@ -15,4 +15,11 @@ public class Freezegun : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            other.GetComponent<FreezePlayer>().Frozen = true;
+        }
+    }
 }

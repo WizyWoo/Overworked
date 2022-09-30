@@ -1598,8 +1598,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598760592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.375, z: -0.16666667}
-  m_LocalScale: {x: 0.54109484, y: 0.5916083, z: 0.54109484}
+  m_LocalPosition: {x: 0, y: -0.187, z: -0.16666667}
+  m_LocalScale: {x: 0.54109484, y: 0.6756166, z: 0.54109484}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1735461802}
@@ -2142,6 +2142,7 @@ MonoBehaviour:
   duringTutorial: 0
   changingPhase: 0
   tutorialRobotSpawn_Left: {fileID: 510994271}
+  tutorialRobotSpawn_Right: {fileID: 0}
   bodyRobotPrefab: {fileID: 6286823940320546486, guid: f02e5b1b8c2b09e499871b4bcf91a1ab,
     type: 3}
   repairedArmPrefab: {fileID: 3670930037122264567, guid: a48470cd8bc101642a7ec85f8c249074,
@@ -2189,6 +2190,12 @@ MonoBehaviour:
     panel: {fileID: 0}
     infoImages: []
     infoTexts: []
+  leftRobotRail: {fileID: 0}
+  rightRobotRail: {fileID: 0}
+  armSpawner: {fileID: 0}
+  wheelSpawner: {fileID: 0}
+  leftRobotSpawner: []
+  rightRobotSpawner: []
 --- !u!4 &817705275
 Transform:
   m_ObjectHideFlags: 0
@@ -3147,7 +3154,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 3
   initialOffset: 0
-  functionalDuringTutorial: 0
+  functional: 1
   generator: {fileID: 0}
 --- !u!1 &1195299836
 GameObject:
@@ -3681,7 +3688,7 @@ MonoBehaviour:
     type: 3}
   repeatRate: 3
   initialOffset: 0
-  functionalDuringTutorial: 0
+  functional: 1
   generator: {fileID: 0}
 --- !u!4 &1709338603 stripped
 Transform:
@@ -4059,7 +4066,6 @@ MonoBehaviour:
   pointA: {fileID: 2115219514}
   pointB: {fileID: 1195299837}
   level02_Manager: {fileID: 2146607768}
-  playerController: {fileID: 0}
 --- !u!4 &1854151316
 Transform:
   m_ObjectHideFlags: 0
@@ -4290,6 +4296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a7f5e3494de24418b4ca8fcc6f9d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allPlayers: []
   fallDistanceBeforeRespawning: -10
   playerContainer: {fileID: 982020855}
   spawnpoints:

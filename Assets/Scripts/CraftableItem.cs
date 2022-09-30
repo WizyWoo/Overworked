@@ -37,24 +37,24 @@ public class CraftableItem : GrabbableItem
 
 
     //Regular stuff
-    public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery }
+    public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery, bucket }
 
     [Header("Change me if you want :)")]
     public TypeOfRepairableItem typeOfItem;
     public bool NeedsCrafting;
     [SerializeField, Tooltip("Recolours the item when it is assembled")]
-    private bool recolorWhenDone;
+    protected bool recolorWhenDone;
     [SerializeField]
-    private Color newColor;
+    protected Color newColor;
     [SerializeField]
-    private float ProgressBarWidth = 10;
+    protected float ProgressBarWidth = 10;
     [Space, Header("plz give reference")]
     public SpriteRenderer ProgressIndicator;
     public SpriteRenderer ItemSprite;
     public Sprite AssembledItemSprite;
-    [SerializeField] bool assembled;
+    [SerializeField] protected bool assembled;
     public bool delivered;
-    public bool Assembled
+    virtual public bool Assembled
     {
         get
         {
@@ -64,12 +64,12 @@ public class CraftableItem : GrabbableItem
         {
             //It's all good ;)
             assembled = value;
-            if(value)
-                ItemAssembled();
+            if(value) ItemAssembled();
         }
     }
-    private float progress;
-    public float Progress
+
+    protected float progress;
+    virtual public float Progress
     {
         get
         {
@@ -81,9 +81,15 @@ public class CraftableItem : GrabbableItem
             progress = value;
             ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
             if(progress >= 100)
+<<<<<<< Updated upstream
             {//I moved the tutorial thingy
                 assembled = true;
                 ItemAssembled();
+=======
+            {
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
+                assembled = true; ItemAssembled();
+>>>>>>> Stashed changes
             }
         }
     }
@@ -102,5 +108,19 @@ public class CraftableItem : GrabbableItem
 
         TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
         
+    }
+
+    public void ItemAssembled(Sprite finalSprite = null)
+    {
+        if(finalSprite == null) ItemSprite.sprite = AssembledItemSprite;
+        else ItemSprite.sprite = finalSprite;
+
+        ProgressIndicator.size = Vector2.zero;
+        NeedsCrafting = false;
+
+        if (recolorWhenDone)
+        {
+            ItemSprite.color = newColor;
+        }
     }
 }

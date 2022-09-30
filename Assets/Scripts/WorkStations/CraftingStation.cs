@@ -20,7 +20,6 @@ public class CraftingStation : WorkStation
 
     private void Start()
     {
-
         if(recipeItem1 || recipeItem2)
         {
 
@@ -28,9 +27,7 @@ public class CraftingStation : WorkStation
             recipeID2 = recipeItem2.typeOfItem;
             recipeItem1 = null;
             recipeItem2 = null;
-
         }
-
     }
 
     //This shite happens when the player interacts with the station
@@ -46,7 +43,7 @@ public class CraftingStation : WorkStation
 
         }
 
-        if(ItemOnStaion)
+        if(ItemOnStation)
         {
 
             if(CraftingItem)
@@ -88,32 +85,32 @@ public class CraftingStation : WorkStation
 
         bool _stopPlz = false;
 
-        if(_item.OnWorkstation || ItemOnStaion && !recipeItem1 && !recipeItem2)
+        if(_item.OnWorkstation || ItemOnStation && !recipeItem1 && !recipeItem2)
             return false;
 
-        ItemOnStaion = _item;
+        ItemOnStation = _item;
 
-        if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
+        if(!ItemOnStation.TryGetComponent<CraftableItem>(out CraftingItem))
         {
 
-            RemoveItem(ItemOnStaion);
+            RemoveItem(ItemOnStation);
             return false;
 
         }
         else if(!CraftingItem.Assembled && !CraftingItem.NeedsCrafting)
         {
 
-            RemoveItem(ItemOnStaion);
+            RemoveItem(ItemOnStation);
             return false;
 
         }
         else if(CraftingItem.NeedsCrafting && !recipeItem1 && !recipeItem2)
         {
 
-            ItemOnStaion.UngrabItem();
-            ItemOnStaion.transform.SetParent(null);
-            ItemOnStaion.transform.position = DisplayPoint.position;
-            ItemOnStaion.OnWorkstation = this;
+            ItemOnStation.UngrabItem();
+            ItemOnStation.transform.SetParent(null);
+            ItemOnStation.transform.position = DisplayPoint.position;
+            ItemOnStation.OnWorkstation = this;
             _stopPlz = true;
 
             SoundManager.Instance.PlaySound(SoundEvent, gameObject);
@@ -126,10 +123,10 @@ public class CraftingStation : WorkStation
             {
 
                 recipeItem1 = CraftingItem;
-                ItemOnStaion.UngrabItem();
-                ItemOnStaion.transform.SetParent(null);
-                ItemOnStaion.transform.position = DisplayPoint.position;
-                ItemOnStaion.OnWorkstation = this;
+                ItemOnStation.UngrabItem();
+                ItemOnStation.transform.SetParent(null);
+                ItemOnStation.transform.position = DisplayPoint.position;
+                ItemOnStation.OnWorkstation = this;
 
                 SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
@@ -138,10 +135,10 @@ public class CraftingStation : WorkStation
             {
 
                 recipeItem2 = CraftingItem;
-                ItemOnStaion.UngrabItem();
-                ItemOnStaion.transform.SetParent(null);
-                ItemOnStaion.transform.position = DisplayPoint.position;
-                ItemOnStaion.OnWorkstation = this;
+                ItemOnStation.UngrabItem();
+                ItemOnStation.transform.SetParent(null);
+                ItemOnStation.transform.position = DisplayPoint.position;
+                ItemOnStation.OnWorkstation = this;
 
                 SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
@@ -149,7 +146,7 @@ public class CraftingStation : WorkStation
             else
             {
 
-                RemoveItem(ItemOnStaion);
+                RemoveItem(ItemOnStation);
                 return false;
 
             }
@@ -168,7 +165,7 @@ public class CraftingStation : WorkStation
             GameObject _tempGO = Instantiate(Result, DisplayPoint.position, Quaternion.identity);
             GrabbableItem _tempGI = _tempGO.GetComponent<GrabbableItem>();
             _tempGI.OnWorkstation = this;
-            ItemOnStaion = _tempGI;
+            ItemOnStation = _tempGI;
             CraftingItem = _tempGO.GetComponent<CraftableItem>();
 
             if(ResultIsAssembled)

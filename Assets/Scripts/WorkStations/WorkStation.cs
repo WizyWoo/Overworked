@@ -20,7 +20,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     [HideInInspector]
     public bool InUse, OutOfPower;
     [HideInInspector]
-    public GrabbableItem ItemOnStaion;
+    public GrabbableItem ItemOnStation;
     [HideInInspector]
     public CraftableItem CraftingItem;
     [HideInInspector]
@@ -39,34 +39,28 @@ public class WorkStation : MonoBehaviour , IInteractable
 
         }
 
-        if(ItemOnStaion)
+        if(ItemOnStation)
         {
-
             if(CraftingItem)
             {
-
                 InUse = _buttonDown;
                 UsedBy = _player.GetComponent<PlayerController>();
 
             }
             else
-            {
-                
+            {             
                 InUse = false;
                 UsedBy = null;
-
             }
 
         }
         else if(_player.GetComponent<PlayerController>().itemGrabbed)
         {
-
             PlayerController _pC = _player.GetComponent<PlayerController>();
             PlaceItem(_pC.itemGrabbed);
 
-            if(ItemOnStaion == _pC.itemGrabbed)
-                _pC.itemGrabbed = null;
-            
+            if(ItemOnStation == _pC.itemGrabbed)
+                _pC.itemGrabbed = null;            
         }
 
     }
@@ -74,12 +68,9 @@ public class WorkStation : MonoBehaviour , IInteractable
     //Places item on station if it hits the trigger :)
     private void OnTriggerEnter(Collider _col)
     {
-
         if(_col.TryGetComponent<GrabbableItem>(out GrabbableItem _item))
         {
-
             PlaceItem(_item);
-
         }
 
     }
@@ -87,28 +78,23 @@ public class WorkStation : MonoBehaviour , IInteractable
     //Checks if the input item is allowed on this station. If not, it will be removed :)))
     public virtual bool PlaceItem(GrabbableItem _item)
     {
-
-        if(ItemOnStaion || _item.OnWorkstation)
+        if(ItemOnStation || _item.OnWorkstation)
             return false;
 
-        ItemOnStaion = _item;
+        ItemOnStation = _item;
 
-        if(!ItemOnStaion.TryGetComponent<CraftableItem>(out CraftingItem))
-            RemoveItem(ItemOnStaion);
+        if(!ItemOnStation.TryGetComponent<CraftableItem>(out CraftingItem))
+            RemoveItem(ItemOnStation);
         else if(CraftingItem.Assembled)
-            RemoveItem(ItemOnStaion);
+            RemoveItem(ItemOnStation);
         else
         {
-
-            ItemOnStaion.UngrabItem();
-            ItemOnStaion.transform.SetParent(null);
-            ItemOnStaion.transform.position = DisplayPoint.position;
-            ItemOnStaion.OnWorkstation = this;
-
+            ItemOnStation.UngrabItem();
+            ItemOnStation.transform.SetParent(null);
+            ItemOnStation.transform.position = DisplayPoint.position;
+            ItemOnStation.OnWorkstation = this;
         }
-
         return true;
-
     }
 
     ///<Summary>
@@ -119,16 +105,12 @@ public class WorkStation : MonoBehaviour , IInteractable
     public virtual void RemoveItem(GrabbableItem _item)
     {
         _item.OnWorkstation = null;
-        if(_item = ItemOnStaion)
+        if(_item = ItemOnStation)
         {
-
-            ItemOnStaion = null;
-            CraftingItem = null;
-        
+            ItemOnStation = null;
+            CraftingItem = null;      
         }
         UsedBy = null;
-        InUse = false;
-        
+        InUse = false;       
     }
-
 }
