@@ -7,7 +7,7 @@ using TMPro;
 public class TutorialManager : MonoBehaviour
 {
     // Si esta a true, haces el tutorial
-    [HideInInspector] bool doTutorial = true;
+    [SerializeField] bool doTutorial = true;
 
     [HideInInspector] public bool duringTutorial;
 
@@ -93,9 +93,10 @@ public class TutorialManager : MonoBehaviour
             HideTutorialItem(currentPhase);
 
             // Spawn robot body when neccesary
-            if (currentPhase == tutorialPhase.assembleArm)
+            if (currentPhase == tutorialPhase.assembleArm-1)
             {
                 yield return new WaitForSeconds(.3f);
+                Debug.Log("Instantiate robot");
                 Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                 Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                 Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
