@@ -649,6 +649,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1204160116}
     m_Modifications:
+    - target: {fileID: 5477226369417589087, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_text
+      value: J
+      objectReference: {fileID: 0}
     - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_RootOrder
@@ -709,6 +714,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThrowArm_p1
       objectReference: {fileID: 0}
+    - target: {fileID: 5477226370913441644, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e11702686ebd88147a84684976865c67,
+        type: 3}
     - target: {fileID: 5477226371280239575, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_text
@@ -2044,8 +2055,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608255953}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.01, y: 0, z: 0.6858}
-  m_LocalScale: {x: 9.805932, y: 1, z: 6.6678066}
+  m_LocalPosition: {x: -4.636, y: 0, z: 0.6858}
+  m_LocalScale: {x: 6.554285, y: 1, z: 6.6678066}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440095528}
@@ -4460,7 +4471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a176998c8286d843966e6d909717948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doTutorial: 0
+  doTutorial: 1
   duringTutorial: 0
   changingPhase: 0
   tutorialRobotSpawn_Left: {fileID: 224582157}
@@ -5813,6 +5824,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1204160116}
     m_Modifications:
+    - target: {fileID: 5477226369417589087, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_text
+      value: L
+      objectReference: {fileID: 0}
     - target: {fileID: 5477226370292661381, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_RootOrder
@@ -5873,6 +5889,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: RepairArm
       objectReference: {fileID: 0}
+    - target: {fileID: 5477226370292661382, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226370913441644, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5d55660669f39d34e95194dafa3a8bd3,
+        type: 3}
     - target: {fileID: 5477226371280239575, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_text

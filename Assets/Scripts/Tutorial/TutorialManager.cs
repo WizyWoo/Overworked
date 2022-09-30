@@ -66,6 +66,8 @@ public class TutorialManager : MonoBehaviour
 
     void InizializeTutorialElements()
     {
+        transform.GetChild(0).gameObject.SetActive(true);
+
         foreach (TutorialItem tutorialElement in tutorialItems)
         {
             tutorialElement.AssignReferences();
