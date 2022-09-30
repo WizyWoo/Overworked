@@ -10,9 +10,17 @@ public class TutorialManager : MonoBehaviour
     [HideInInspector] bool doTutorial = true;
 
     [HideInInspector] public bool duringTutorial;
-    
+
     // Returns true when the tutorial of a panel is hiding 
-    bool changingPhase;
+    [HideInInspector] public bool changingPhase;
+
+
+    [SerializeField] Transform tutorialRobotSpawn_Left;
+
+    [SerializeField] GameObject bodyRobotPrefab;
+    [SerializeField] GameObject repairedArmPrefab;
+    [SerializeField] GameObject repairedWheelPrefab;
+
 
     static TutorialManager instance;
     public static TutorialManager GetInstance()
@@ -21,7 +29,7 @@ public class TutorialManager : MonoBehaviour
     // Tutorial phases
     public enum tutorialPhase
     {
-        grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, craftArm, grabArmFromCraftingTable, 
+        grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, repairArm, grabArmFromRepairTable, 
         throwArm_p2, grabArmFromFloor_p1, assembleArm, robotFinished
     }
 
@@ -45,7 +53,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-
+            EndTutorial();
         }
 
     }
@@ -65,9 +73,6 @@ public class TutorialManager : MonoBehaviour
 
         // Show first phase
         ShowTutorialItem((tutorialPhase)0);
-
-
-
     }
 
     public void TryToChangePhase(tutorialPhase phaseDone)
@@ -95,13 +100,20 @@ public class TutorialManager : MonoBehaviour
 
 
             // Finish the tutorial
-            if (currentPhase == tutorialPhase.robotFinished)
+            if (currentPhase == tutorialPhase.assembleArm-1)
+            {
+                Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+            }
+
+            // Finish the tutorial
+            else if (currentPhase == tutorialPhase.robotFinished)
             {
                 duringTutorial = false;
                 EndTutorial();
                 yield break;
             }
-
 
             // Show the next tutorial element
             ShowTutorialItem(currentPhase);

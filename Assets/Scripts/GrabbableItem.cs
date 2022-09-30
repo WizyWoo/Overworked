@@ -40,6 +40,14 @@ public class GrabbableItem : MonoBehaviour
 
         if (OnWorkstation)
             OnWorkstation.RemoveItem(this);
+
+
+        CraftableItem craftableItem = GetComponent<CraftableItem>();
+        if (craftableItem != null && craftableItem.Assembled)
+        {
+            Debug.Log("REMOVE ITEM");
+            TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromRepairTable);
+        }
     }
 
 

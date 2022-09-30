@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
-                //SoundManager.Instance.PlaySound(grabItemSound, gameObject);
+                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
 
                 //// If there are any null references destroy them
                 /// error needs checking
@@ -314,6 +314,7 @@ public class PlayerController : MonoBehaviour
         {
             cb.RemoveItemFromConveyor(itemGrabbed);
         }
+
 
         itemGrabbed.transform.SetParent(grabSpot);
         itemGrabbed.transform.DOMove(grabSpot.position, grabTime);

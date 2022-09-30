@@ -118,7 +118,6 @@ public class WorkStation : MonoBehaviour , IInteractable
     //Removes the item properly :))))))))))))))
     public virtual void RemoveItem(GrabbableItem _item)
     {
-
         _item.OnWorkstation = null;
         if(_item = ItemOnStaion)
         {

@@ -43,6 +43,8 @@ public class TutorialItem
 
         yield return new WaitForSeconds(panel_showTime);
 
+        if (TutorialManager.GetInstance().changingPhase) yield break;
+
         // INFO IN THE PANEL
         foreach (SpriteRenderer infoImage in infoImages)
             infoImage.DOFade(1, info_showTime);
