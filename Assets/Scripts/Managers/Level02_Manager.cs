@@ -8,13 +8,9 @@ public class Level02_Manager : LevelManager
 {
     [Header("This Level Variables")]
 
-    [SerializeField] Image[] strikes;
     [SerializeField] int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
-    int correctRobots, incorrectRobots;
     private void Start()
     {
-        foreach (Image strike in strikes)
-            strike.enabled = false;
         moneyToWin1Star = moneyToWin1Star1;
         moneyToWin2Star = moneyToWin2Star1;
         moneyToWin3Star = moneyToWin3Star1;
