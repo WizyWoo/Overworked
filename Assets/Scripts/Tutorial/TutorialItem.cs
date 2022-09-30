@@ -32,7 +32,6 @@ public class TutorialItem
         float panel_showTime = .5f;
         float info_showTime = .5f;
 
-
         // PANEL
         // Show panel
         panel.DOFade(1, panel_showTime);
@@ -43,7 +42,6 @@ public class TutorialItem
         panel.transform.DOMoveY(panelPosition.y, panel_showTime);
 
         yield return new WaitForSeconds(panel_showTime);
-
 
         // INFO IN THE PANEL
         foreach (SpriteRenderer infoImage in infoImages)
