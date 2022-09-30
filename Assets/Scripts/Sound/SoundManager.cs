@@ -89,7 +89,7 @@ public class SoundManager : MonoBehaviour
         if(settings == null)
             settings = SoundSettingsManager.SaveVolumeSettings();
 
-        //SFX_VCA = RuntimeManager.GetBu
+        //SFX_VCA = RuntimeManager.GetBus("")
 
     }
 
