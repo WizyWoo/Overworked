@@ -92,23 +92,22 @@ public class TutorialManager : MonoBehaviour
             // Hide the previous tutorial item
             HideTutorialItem(currentPhase);
 
+            // Spawn robot body when neccesary
+            if (currentPhase == tutorialPhase.assembleArm)
+            {
+                yield return new WaitForSeconds(.3f);
+                Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+            }
             currentPhase++;
 
             changingPhase = true;
             yield return new WaitForSeconds(1);
             changingPhase = false;
 
-
             // Finish the tutorial
-            if (currentPhase == tutorialPhase.assembleArm-1)
-            {
-                Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-            }
-
-            // Finish the tutorial
-            else if (currentPhase == tutorialPhase.robotFinished)
+            if (currentPhase == tutorialPhase.robotFinished)
             {
                 duringTutorial = false;
                 EndTutorial();
