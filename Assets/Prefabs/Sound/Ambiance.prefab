@@ -109,4 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Emitter: {fileID: 2195353477995076380}
-  LevelLenght: 60
+  LevelLenght: 120
