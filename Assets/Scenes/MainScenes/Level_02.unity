@@ -1157,7 +1157,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440095528}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &365931418
 BoxCollider:
@@ -1330,10 +1330,10 @@ Transform:
   - {fileID: 1411027946}
   - {fileID: 85378403}
   - {fileID: 564251952}
-  - {fileID: 1709338603}
   - {fileID: 2025241170}
   - {fileID: 851330719}
   - {fileID: 365931417}
+  - {fileID: 1709338603}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1479,7 +1479,7 @@ PrefabInstance:
     - target: {fileID: 3785572362713744789, guid: 37b3a092dc9da524f8175ef592c262d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.27
+      value: 1.9370626
       objectReference: {fileID: 0}
     - target: {fileID: 3785572362851961959, guid: 37b3a092dc9da524f8175ef592c262d8,
         type: 3}
@@ -1529,7 +1529,7 @@ PrefabInstance:
     - target: {fileID: 3785572362976464661, guid: 37b3a092dc9da524f8175ef592c262d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.27
+      value: 1.9370625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b3a092dc9da524f8175ef592c262d8, type: 3}
@@ -2331,7 +2331,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440095528}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &851330720
 BoxCollider:
@@ -4133,7 +4133,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440095528}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2025241171
 BoxCollider:
@@ -4449,7 +4449,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   maxTime: 15
+=======
+  maxTime: 200
+>>>>>>> Stashed changes
   timerText: {fileID: 120414729}
   moneyText: {fileID: 120414732}
   addMoneyText: {fileID: 120414727}
@@ -4485,7 +4489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedUpMultiplier: 2
   startSpeedingThingsIn: 100
-  duration: 10
+  duration: 20
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:
   - {fileID: 0}
