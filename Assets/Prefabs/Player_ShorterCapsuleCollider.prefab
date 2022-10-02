@@ -5162,7 +5162,7 @@ MonoBehaviour:
   speed: 8
   weakThrowForce: 3
   strongThrowForce: 8
-  maxStamina: 10
+  maxStamina: 18
   staminaCooldown: 2
   regainStaminaWhenExhausted: 2
   exhausted: 0
