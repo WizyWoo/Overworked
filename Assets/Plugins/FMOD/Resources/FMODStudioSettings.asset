@@ -441,13 +441,13 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Desktop/Master
+  - Master
   Banks:
-  - Desktop/BANK_AMBX
-  - Desktop/BANK_MUS
-  - Desktop/BANK_SFX
-  - Desktop/BANK_UI
-  - Desktop/BANK_VO
+  - BANK_AMBX
+  - BANK_MUS
+  - BANK_SFX
+  - BANK_UI
+  - BANK_VO
   BanksToLoad:
   - BANK_AMBX
   - BANK_MUS
