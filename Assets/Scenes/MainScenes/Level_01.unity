@@ -4160,6 +4160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}
+      propertyPath: ejectSound.Path
+      value: event:/SFX/SFX_Scanner/SFX_Scanner_EjectRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
       propertyPath: scaleGrowPerSec
       value: 1
       objectReference: {fileID: 0}
@@ -4167,6 +4172,26 @@ PrefabInstance:
         type: 3}
       propertyPath: floorLayer.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data1
+      value: 390208449
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data2
+      value: 1140877704
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data3
+      value: 780993185
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data4
+      value: -476751844
       objectReference: {fileID: 0}
     - target: {fileID: 7171517823020974524, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}

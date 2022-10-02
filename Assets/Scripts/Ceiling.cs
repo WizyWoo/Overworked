@@ -12,7 +12,7 @@ public class Ceiling : MonoBehaviour
     [SerializeField] float offset = 0.1f;
 
     [SerializeField] float initialScale = 0.2f, scaleGrowPerSec = 3f, finalScale = 1f, destroyTime = 2f;
-    //public FMODUnity.EventReference ejectSound;
+    public FMODUnity.EventReference ejectSound;
     private void Update()
     {
 
@@ -20,7 +20,7 @@ public class Ceiling : MonoBehaviour
 
     public void ThrowItem(GameObject item)
     {
-        //SoundManager.Instance.PlaySound(ejectSound, gameObject);
+        SoundManager.Instance.PlaySound(ejectSound, gameObject);
         float time = Random.Range(delay.x, delay.y);
         StartCoroutine(ActualThrow(item, time));
     }
