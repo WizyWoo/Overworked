@@ -86,4 +86,9 @@ public class GrabbableItem : MonoBehaviour
             player.RemoveItem(this);
         }
     }
+
+    private void OnDestroy()
+    {
+        
+    }
 }

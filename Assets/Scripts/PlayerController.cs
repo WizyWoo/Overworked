@@ -333,7 +333,7 @@ public class PlayerController : MonoBehaviour
     {
         // RemoveItem(itemGrabbed);
 
-        itemGrabbed.transform.SetParent(null);
+        //itemGrabbed.transform.SetParent(null);
         itemGrabbed.UngrabItem();
 
         itemGrabbed.GetComponent<Rigidbody>().velocity =
@@ -344,7 +344,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator TryRemoveGrabbableItemFromList(GrabbableItem g)
     {
-        yield return new WaitForSeconds(.0f);
+        yield return new WaitForSeconds(0f);
         RemoveItem(g);
     }
 
