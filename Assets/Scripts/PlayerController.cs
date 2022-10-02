@@ -265,9 +265,9 @@ public class PlayerController : MonoBehaviour
 
                 // Inform the tutorial manager
                 TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromConveyor);
-                if (playerIndex % 2 == 0)
+                //if (playerIndex % 2 == 0)
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p1);
-                else
+                //else
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p2);
 
             }
@@ -292,9 +292,9 @@ public class PlayerController : MonoBehaviour
             {
                 DropItem(strongThrowForce);
 
-                if (playerIndex % 2 == 0)
+                //if (playerIndex % 2 == 0)
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p1);
-                else
+                //else
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p2);
             }
     }
