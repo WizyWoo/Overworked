@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03838623, g: 0.056486964, b: 0.10104646, a: 1}
+  m_IndirectSpecularColor: {r: 0.038386233, g: 0.056487, b: 0.10104654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4160,6 +4160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}
+      propertyPath: ejectSound.Path
+      value: event:/SFX/SFX_Scanner/SFX_Scanner_EjectRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
       propertyPath: scaleGrowPerSec
       value: 1
       objectReference: {fileID: 0}
@@ -4167,6 +4172,26 @@ PrefabInstance:
         type: 3}
       propertyPath: floorLayer.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data1
+      value: 390208449
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data2
+      value: 1140877704
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data3
+      value: 780993185
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
+        type: 3}
+      propertyPath: ejectSound.Guid.Data4
+      value: -476751844
       objectReference: {fileID: 0}
     - target: {fileID: 7171517823020974524, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}
@@ -5069,6 +5094,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233600403256964121, guid: 425eaea56406c9941953afed2505a562,
+        type: 3}
+      propertyPath: LevelLenght
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 425eaea56406c9941953afed2505a562, type: 3}
