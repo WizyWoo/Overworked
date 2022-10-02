@@ -1490,6 +1490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
+      propertyPath: WorkIntensity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
       propertyPath: canRepairThisItem
       value: 1
       objectReference: {fileID: 0}
@@ -4136,12 +4141,12 @@ PrefabInstance:
     - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}
       propertyPath: force.x
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}
       propertyPath: force.y
-      value: 4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7171517823020974523, guid: ddfdc02291a7e444aadbd48421dfb4af,
         type: 3}
@@ -4627,6 +4632,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: WorkIntensity
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918167, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4857,7 +4867,7 @@ MonoBehaviour:
       Data3: 1379527613
       Data4: -1924931734
     Path: event:/SFX/SFX_Scanner/SFX_Scanner_RobReject
-  throwItemsIfIncorrectRobot: 0
+  throwItemsIfIncorrectRobot: 1
 --- !u!1001 &1566476763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5247,9 +5257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082c8a6ab30de1540a43a81af0c94f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpMultiplier: 2
-  startSpeedingThingsIn: 2000
-  duration: 10
+  speedUpMultiplier: 1.5
+  startSpeedingThingsIn: 220
+  duration: 15
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:
   - {fileID: 1806520483}
