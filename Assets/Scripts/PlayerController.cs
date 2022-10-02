@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
         {
             // Lose stamina if moving
             if (horInput != 0 || verInput != 0)
-                if (!TutorialManager.GetInstance().doTutorial)
+                //if (!TutorialManager.GetInstance().doTutorial)
                     currentStamina -= Time.deltaTime;
                 else
                     currentStamina += Time.deltaTime * regainStaminaSpeed;
