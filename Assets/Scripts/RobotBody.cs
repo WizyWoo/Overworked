@@ -74,7 +74,7 @@ public class RobotBody : MonoBehaviour
             if (pl != null)
             {
                 pl.itemGrabbed = null;
-                //pl.RemoveItem(item);
+                pl.RemoveItem(item);
             }
 
             if (!justSpawned)
