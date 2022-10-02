@@ -24,7 +24,7 @@ public class RobotReceiver : MonoBehaviour
             if (pl != null)
             {
                 StartCoroutine(pl.TryRemoveGrabbableItemFromList(item));
-                //pl.RemoveItem(item);
+                pl.RemoveItem(item);
                 pl.itemGrabbed = null;
             }
             level02_Manager.CorrectRobot();
