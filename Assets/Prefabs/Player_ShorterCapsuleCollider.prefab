@@ -5183,7 +5183,7 @@ MonoBehaviour:
   goingRight: 0
   staminaUI: {fileID: 525579167426050083}
   staminaUI_back: {fileID: 4340042681524869928}
-  sweatParticleSystem: {fileID: 0}
+  sweatParticleSystem: {fileID: 8957812738161191568}
   itemGrabbed: {fileID: 0}
   exhaustedSound:
     Guid:
