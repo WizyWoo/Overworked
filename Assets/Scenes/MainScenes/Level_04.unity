@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.038386233, g: 0.056487, b: 0.10104654, a: 1}
+  m_IndirectSpecularColor: {r: 0.03838623, g: 0.056486964, b: 0.10104646, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4858,7 +4858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a176998c8286d843966e6d909717948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doTutorial: 0
+  doTutorial: 1
   duringTutorial: 0
   changingPhase: 0
   tutorialRobotSpawn_Left: {fileID: 1285151526}
