@@ -4538,7 +4538,7 @@ MonoBehaviour:
       Data3: 1379527613
       Data4: -1924931734
     Path: event:/SFX/SFX_Scanner/SFX_Scanner_RobReject
-  throwItemsIfIncorrectRobot: 0
+  throwItemsIfIncorrectRobot: 1
 --- !u!1001 &1565036227
 PrefabInstance:
   m_ObjectHideFlags: 0

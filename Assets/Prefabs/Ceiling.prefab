@@ -47,10 +47,19 @@ MonoBehaviour:
   size: {x: 7, y: 4}
   force: {x: 2, y: 5}
   delay: {x: 0.5, y: 2}
-  layer:
+  floorLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   shadow: {fileID: 3776217254486130114, guid: 1a30a3c2b24583b4c8ad1224040dc60c, type: 3}
   offset: 0.1
-  arm: {fileID: 3670930037122264567, guid: a466926a9b31791408394480c68d713a, type: 3}
-  wheel: {fileID: 3670930037122264567, guid: 5a81a80a1115e5e4a8deffc22337b2ff, type: 3}
+  initialScale: 0.2
+  scaleGrowPerSec: 3
+  finalScale: 1
+  destroyTime: 2
+  ejectSound:
+    Guid:
+      Data1: 390208449
+      Data2: 1140877704
+      Data3: 780993185
+      Data4: -476751844
+    Path: event:/SFX/SFX_Scanner/SFX_Scanner_EjectRobot
