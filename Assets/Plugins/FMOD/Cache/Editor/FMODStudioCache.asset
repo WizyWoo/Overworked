@@ -469,6 +469,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1740
+--- !u!114 &-4773878965928532175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Player/SFX_Player_Frozen
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_Player/SFX_Player_Frozen
+  Guid:
+    Data1: 843789456
+    Data2: 1131525797
+    Data3: -1910422376
+    Data4: -1412950802
+  Banks:
+  - {fileID: -1015403574556488141}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2400
 --- !u!114 &-4743930989280958153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,10 +538,10 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638006620838862209
+  lastModified: 638006659977248945
   FileSizes:
   - Name: 
-    Value: 2334
+    Value: 2460
   Exists: 1
 --- !u!114 &-3325732318951339943
 MonoBehaviour:
@@ -738,7 +765,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638006620838822107
+  lastModified: 638006659977238930
   FileSizes: []
   Exists: 1
 --- !u!114 &-401839481399518994
@@ -810,12 +837,15 @@ MonoBehaviour:
   - {fileID: -1680017862043117538}
   - {fileID: 6722839451364209893}
   - {fileID: -7087420677147565646}
+  - {fileID: 590554717665047110}
+  - {fileID: -4773878965928532175}
+  - {fileID: 6038432744208914970}
   EditorParameters: []
   MasterBanks:
   - {fileID: -9066960957600646423}
   StringsBanks:
   - {fileID: -4361182246956425996}
-  cacheTime: 638006620838862209
+  cacheTime: 638006659977248945
   cacheVersion: 131592
 --- !u!114 &212534380639251618
 MonoBehaviour:
@@ -872,6 +902,33 @@ MonoBehaviour:
   - Turn Off
   - On
   Exists: 1
+--- !u!114 &590554717665047110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMBX/AMBX_LavaLevel
+  m_EditorClassIdentifier: 
+  Path: event:/AMBX/AMBX_LavaLevel
+  Guid:
+    Data1: 1396471351
+    Data2: 1234419268
+    Data3: -685876816
+    Data4: -830219367
+  Banks:
+  - {fileID: 792721455922367161}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 74837
 --- !u!114 &716610634168950959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,7 +962,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638006620838731912
+  lastModified: 638006659977138762
   FileSizes: []
   Exists: 1
 --- !u!114 &912780903505641543
@@ -1457,6 +1514,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6038432744208914970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_IceBreaks
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_IceBreaks
+  Guid:
+    Data1: 1696790768
+    Data2: 1305853184
+    Data3: 592738958
+    Data4: 36721191
+  Banks:
+  - {fileID: -1015403574556488141}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &6316151038957063885
 MonoBehaviour:
   m_ObjectHideFlags: 0

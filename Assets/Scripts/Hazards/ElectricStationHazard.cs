@@ -5,6 +5,7 @@ using UnityEngine;
 public class ElectricStationHazard : MonoBehaviour
 {
     public GameObject ElectricityFX;
+    public Collider HazardArea;
     [SerializeField, Tooltip("The minimum and maximum time before wires electrify")]
     private float minTime, maxTime;
     [SerializeField, Tooltip("How long wires electrify for")]
@@ -21,6 +22,7 @@ public class ElectricStationHazard : MonoBehaviour
     {
 
         ElectricityFX.SetActive(true);
+        HazardArea.enabled = true;
 
         Invoke(nameof(ShortCircuit), electrifyTime);
 
@@ -30,8 +32,24 @@ public class ElectricStationHazard : MonoBehaviour
     {
 
         ElectricityFX.SetActive(false);
+        HazardArea.enabled = false;
 
         Invoke(nameof(Electrify), Random.Range(minTime, maxTime));
+
+    }
+
+    private void OnTriggerEnter(Collider _col)
+    {
+
+        if(_col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+
+            Debug.Log("Electrified");
+            CancelInvoke();
+
+            ShortCircuit();
+
+        }
 
     }
 
