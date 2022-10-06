@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ElectricStationHazard : MonoBehaviour
 {
+    public GameObject ElectricityFX;
     [SerializeField, Tooltip("The minimum and maximum time before wires electrify")]
     private float minTime, maxTime;
     [SerializeField, Tooltip("How long wires electrify for")]
@@ -19,7 +20,18 @@ public class ElectricStationHazard : MonoBehaviour
     private void Electrify()
     {
 
+        ElectricityFX.SetActive(true);
 
+        Invoke(nameof(ShortCircuit), electrifyTime);
+
+    }
+
+    private void ShortCircuit()
+    {
+
+        ElectricityFX.SetActive(false);
+
+        Invoke(nameof(Electrify), Random.Range(minTime, maxTime));
 
     }
 
