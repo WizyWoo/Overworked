@@ -14,6 +14,12 @@ public class FreezingStation : WorkStation
 
     [SerializeField] bool freezing;
 
+    private void Start()
+    {
+        freezeRay.transform.position = new Vector3((transform.position.x - DisplayPoint.localPosition.x / 2), transform.position.y, transform.position.z);
+        freezeRay.transform.localScale = new Vector3((freezeRay.transform.position.x - transform.position.x), freezeRay.transform.localScale.y, freezeRay.transform.localScale.z);
+    }
+
     //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
     {
@@ -72,6 +78,7 @@ public class FreezingStation : WorkStation
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
                 if (CraftingItem.Progress >= 100)
                 {
+                    freezing = false;
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                     RemoveItem(CraftingItem);
                 }
@@ -87,6 +94,7 @@ public class FreezingStation : WorkStation
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
                 if (CraftingItem.Progress >= 100)
                 {
+                    freezing = false;
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                     RemoveItem(CraftingItem);
                 }
