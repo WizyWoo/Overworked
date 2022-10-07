@@ -46,7 +46,11 @@ public class GrabbableItem : MonoBehaviour
         if (craftableItem != null && craftableItem.Assembled)
         {
             Debug.Log("REMOVE ITEM");
-            TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromRepairTable);
+
+            if (GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromRepairTable);
+            else if (GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
+                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromRepairTable);
         }
     }
 
@@ -89,6 +93,6 @@ public class GrabbableItem : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+
     }
 }
