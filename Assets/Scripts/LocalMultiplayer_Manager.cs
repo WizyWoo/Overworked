@@ -91,7 +91,8 @@ public class LocalMultiplayer_Manager : MonoBehaviour
                 if (player.enabled && player.transform.position.y < fallDistanceBeforeRespawning) 
                 {
                     LevelManager level01_Manager = FindObjectOfType<LevelManager>();
-                    level01_Manager.UpdateMoney(level01_Manager.moneyWhenFall);
+                    if(level01_Manager != null) level01_Manager.UpdateMoney(level01_Manager.moneyWhenFall);
+
                     player.enabled = false;
                     StartCoroutine(TeleportPlayerToSpawnPointInXsec(player.transform, player.playerIndex, 5));
                 }
