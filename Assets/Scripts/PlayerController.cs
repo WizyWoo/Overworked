@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     bool inGenerator;
     Generator generator;
-    public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound;
+    public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound, throwItemSound;
 
     private void Awake()
     {
@@ -234,7 +234,7 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
-                //SoundManager.Instance.PlaySound(grabItemSound, gameObject);
+                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
 
                 //// If there are any null references destroy them
                 /// error needs checking
@@ -318,9 +318,9 @@ public class PlayerController : MonoBehaviour
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p1);
                     //else
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p2);
-                }
-
+                }           
                 DropItem(strongThrowForce);
+                SoundManager.Instance.PlaySound(throwItemSound, gameObject);
             }
     }
 
