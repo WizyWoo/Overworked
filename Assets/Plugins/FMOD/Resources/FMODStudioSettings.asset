@@ -418,7 +418,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: 
-  sourceBankPath: C:/Unity/Projects/GitHub/Overworked/Assets/FMOD Banks/Desktop
+  sourceBankPath: Assets/FMOD Banks/Desktop
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
