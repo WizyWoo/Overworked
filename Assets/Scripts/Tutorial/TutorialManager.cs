@@ -161,39 +161,27 @@ public class TutorialManager : MonoBehaviour
             if (!GameManager.instance.onlyOnePlayer)
             {
                 if (currentPhase == tutorialPhase.assembleArm - 1)
-                {
-                    Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                    Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                    Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                    Instantiate(outlineArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                }
+                    SpawnFirstRobot();
             }
             else
             {
                 if (currentPhase == tutorialPhase.repairArm)
-                {
-                    Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                    Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                    Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                    Instantiate(outlineArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                }
+                    SpawnFirstRobot();
             }
 
-            if (currentPhase == tutorialPhase.grabWheelFromConveyor)
+            if (!GameManager.instance.onlyOnePlayer)
             {
-                leftRobotRail.functional = true;
-                wheelSpawner.functional = true;
-                armSpawner.functional = false;
-
-
-                Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
-                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
-                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
-                Instantiate(outlineWheelPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+                if (currentPhase == tutorialPhase.grabWheelFromConveyor)
+                    SpawnSecondRobot();
+            }
+            else
+            {
+                if (currentPhase == tutorialPhase.assembleOtherRobot)
+                    SpawnSecondRobot();
             }
 
             // Finish the tutorial
-            else if (currentPhase == tutorialPhase.tutorialDone)
+            if (currentPhase == tutorialPhase.tutorialDone)
             {
                 duringTutorial = false;
                 EndTutorial();
@@ -204,6 +192,29 @@ public class TutorialManager : MonoBehaviour
             ShowTutorialItem(currentPhase);
         }
     }
+
+
+    void SpawnFirstRobot()
+    {
+        Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+        Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+        Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+        Instantiate(outlineArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+    }
+
+    void SpawnSecondRobot()
+    {
+        leftRobotRail.functional = true;
+        wheelSpawner.functional = true;
+        armSpawner.functional = false;
+
+
+        Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+        Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+        Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+        Instantiate(outlineWheelPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+    }
+
 
     void ShowTutorialItem(tutorialPhase phase)
     {
