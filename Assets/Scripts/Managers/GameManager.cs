@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     static public GameManager instance;
 
     // Simulates if there is only one player, for tutorial reasons
-    [SerializeField] public bool onlyOnePlayer;
+    [HideInInspector] public bool onlyOnePlayer;
 
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;
 
