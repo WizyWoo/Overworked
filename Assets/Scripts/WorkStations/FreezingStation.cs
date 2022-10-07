@@ -9,7 +9,10 @@ public class FreezingStation : WorkStation
     [Tooltip("Specifies what items can be repaired at this Station")]
     [SerializeField] CraftableItem.TypeOfRepairableItem itemToFreeze;
     [SerializeField] Sprite itemItCreates;
+    [SerializeField] GameObject freezeRay;
     public FMODUnity.EventReference FreezeSoundEvent;
+
+    [SerializeField] bool freezing;
 
     //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
@@ -39,8 +42,11 @@ public class FreezingStation : WorkStation
     //repair :)
     private void Update()
     {
+        freezeRay.SetActive(freezing);
+
         if (!UsedBy && !AutoRepair || OutOfPower)
         {
+            freezing = false;
             SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
             return;
         }
@@ -49,16 +55,19 @@ public class FreezingStation : WorkStation
             if (Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange && !AutoRepair)
             {
                 InUse = false;
+                freezing = false;
                 SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
                 return;
             }
             if (UsedBy.exhausted)
             {
+                freezing = false;
                 SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
                 return;
             }
             if (InUse && CraftingItem.typeOfItem == itemToFreeze && !AutoRepair)
             {
+                freezing = true;
                 UsedBy.DoingWork(WorkIntensity);
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
                 if (CraftingItem.Progress >= 100)
@@ -68,12 +77,13 @@ public class FreezingStation : WorkStation
                 }
                 else SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
             }
-            else SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
+            else { SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject); freezing = false; }
         }
         else if (AutoRepair && CraftingItem)
         {
             if (AutoRepair && CraftingItem.typeOfItem == itemToFreeze)
             {
+                freezing = true;
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
                 if (CraftingItem.Progress >= 100)
                 {
@@ -82,7 +92,8 @@ public class FreezingStation : WorkStation
                 }
                 else SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
             }
-            else SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
+            else { SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject); freezing = false; }
         }
+
     }
 }

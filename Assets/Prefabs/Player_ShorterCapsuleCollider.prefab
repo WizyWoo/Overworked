@@ -5200,6 +5200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7669628409523345673}
   - component: {fileID: 4590323515378906990}
+  - component: {fileID: 714510363349931985}
   - component: {fileID: 8509748272355988883}
   - component: {fileID: 7669628409523345674}
   - component: {fileID: 7669628409523345675}
@@ -5293,6 +5294,21 @@ MonoBehaviour:
       Data4: 819208960
     Path: event:/SFX/SFX_Int/SFX_Int_GrabPart
   ItemsInRangeForGrabbing: []
+--- !u!114 &714510363349931985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669628409523345686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392cfbe3e8926954898ffb044f17689e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Frozen: 0
+  IceCubePNG: {fileID: 6463047351559344924, guid: 7184d349c961b5044b5b0947e621a640,
+    type: 3}
 --- !u!114 &8509748272355988883
 MonoBehaviour:
   m_ObjectHideFlags: 0
