@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638006620838862209
+  lastModified: 638006564730908427
   FileSizes: []
   Exists: 1
 --- !u!114 &-8934520471630846537
@@ -538,10 +538,10 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638006659977248945
+  lastModified: 638007359806811517
   FileSizes:
   - Name: 
-    Value: 2460
+    Value: 2510
   Exists: 1
 --- !u!114 &-3325732318951339943
 MonoBehaviour:
@@ -696,7 +696,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_MUS.bank
   Name: BANK_MUS
   StudioPath: bank:/BANK_MUS
-  lastModified: 638006620838731912
+  lastModified: 638006564730708952
   FileSizes: []
   Exists: 1
 --- !u!114 &-1680017862043117538
@@ -765,7 +765,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638006659977238930
+  lastModified: 638007359806752019
   FileSizes: []
   Exists: 1
 --- !u!114 &-401839481399518994
@@ -840,12 +840,13 @@ MonoBehaviour:
   - {fileID: 590554717665047110}
   - {fileID: -4773878965928532175}
   - {fileID: 6038432744208914970}
+  - {fileID: 1895084504489503105}
   EditorParameters: []
   MasterBanks:
   - {fileID: -9066960957600646423}
   StringsBanks:
   - {fileID: -4361182246956425996}
-  cacheTime: 638006659977248945
+  cacheTime: 638007359806811517
   cacheVersion: 131592
 --- !u!114 &212534380639251618
 MonoBehaviour:
@@ -944,7 +945,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_VO.bank
   Name: BANK_VO
   StudioPath: bank:/BANK_VO
-  lastModified: 638006620838852199
+  lastModified: 638006564730898443
   FileSizes: []
   Exists: 1
 --- !u!114 &792721455922367161
@@ -962,7 +963,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638006659977138762
+  lastModified: 638007312222702894
   FileSizes: []
   Exists: 1
 --- !u!114 &912780903505641543
@@ -1012,6 +1013,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 631
+--- !u!114 &1895084504489503105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_ElectricFaultyWire
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_ElectricFaultyWire
+  Guid:
+    Data1: -1914699722
+    Data2: 1243237155
+    Data3: -770771315
+    Data4: -907728139
+  Banks:
+  - {fileID: -1015403574556488141}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6850
 --- !u!114 &2479752844535758551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,7 +1362,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_UI.bank
   Name: BANK_UI
   StudioPath: bank:/BANK_UI
-  lastModified: 638006620838842190
+  lastModified: 638006564730888459
   FileSizes: []
   Exists: 1
 --- !u!114 &4950877431653408661
