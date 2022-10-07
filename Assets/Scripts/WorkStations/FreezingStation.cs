@@ -96,6 +96,7 @@ public class FreezingStation : WorkStation
                 {
                     freezing = false;
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
+                    SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
                     RemoveItem(CraftingItem);
                 }
                 else SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
