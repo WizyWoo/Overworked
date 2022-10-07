@@ -37,7 +37,7 @@ public class CraftableItem : GrabbableItem
 
 
     //Regular stuff
-    public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery, bucket }
+    public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery, bucket, armOutline, wheelOutline }
 
     [Header("Change me if you want :)")]
     public TypeOfRepairableItem typeOfItem;

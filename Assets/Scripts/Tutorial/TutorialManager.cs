@@ -145,14 +145,27 @@ public class TutorialManager : MonoBehaviour
 
 
             // Spawn robot body when neccesary
-            if (currentPhase == tutorialPhase.assembleArm - 1)
+
+            if (!GameManager.instance.onlyOnePlayer)
             {
-                Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
-                Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                if (currentPhase == tutorialPhase.assembleArm - 1)
+                {
+                    Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                    Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                    Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                }
+            }
+            else
+            {
+                if (currentPhase == tutorialPhase.repairArm)
+                {
+                    Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                    Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                    Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                }
             }
 
-            else if (currentPhase == tutorialPhase.assembleOtherRobot)
+            if (currentPhase == tutorialPhase.assembleOtherRobot)
             {
                 leftRobotRail.functional = true;
                 wheelSpawner.functional = true;
