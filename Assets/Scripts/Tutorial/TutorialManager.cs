@@ -20,6 +20,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] GameObject repairedArmPrefab;
     [SerializeField] GameObject repairedWheelPrefab;
 
+    [SerializeField] GameObject outlineArmPrefab;
+    [SerializeField] GameObject outlineWheelPrefab;
+
 
     static TutorialManager instance;
     public static TutorialManager GetInstance()
@@ -29,14 +32,23 @@ public class TutorialManager : MonoBehaviour
     public enum tutorialPhase
     {
         grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, repairArm, grabArmFromRepairTable,
-        throwArm_p2, grabArmFromFloor_p1, assembleArm, assembleOtherRobot, tutorialDone
+        throwArm_p2, grabArmFromFloor_p1, assembleArm,
+        grabWheelFromConveyor, throwWheel_p1, grabWheelFromFloor_p2, repairWheel, grabWheelFromRepairTable,
+        throwWheel_p2, grabWheelFromFloor_p1, assembleOtherRobot, tutorialDone
     }
 
     tutorialPhase[] tutPhasesMultiplayer =
     {
-        tutorialPhase.grabArmFromConveyor, tutorialPhase.throwArm_p1, tutorialPhase.grabArmFromFloor_p2, tutorialPhase.repairArm,
-        tutorialPhase.grabArmFromRepairTable, tutorialPhase.throwArm_p2, tutorialPhase.grabArmFromFloor_p1, tutorialPhase.assembleArm,
-        tutorialPhase.assembleOtherRobot, tutorialPhase.tutorialDone
+        //tutorialPhase.grabArmFromConveyor, tutorialPhase.throwArm_p1, tutorialPhase.grabArmFromFloor_p2, tutorialPhase.repairArm,
+        //tutorialPhase.grabArmFromRepairTable, tutorialPhase.throwArm_p2, tutorialPhase.grabArmFromFloor_p1, tutorialPhase.assembleArm,
+
+        //tutorialPhase.grabWheelFromConveyor,
+        //tutorialPhase.assembleOtherRobot, tutorialPhase.tutorialDone
+
+                tutorialPhase.grabArmFromConveyor, tutorialPhase.throwArm_p1, tutorialPhase.grabArmFromFloor_p2, tutorialPhase.repairArm, tutorialPhase.grabArmFromRepairTable,
+        tutorialPhase.throwArm_p2, tutorialPhase.grabArmFromFloor_p1, tutorialPhase.assembleArm,
+        tutorialPhase.grabWheelFromConveyor, tutorialPhase.throwWheel_p1, tutorialPhase.grabWheelFromFloor_p2, tutorialPhase.repairWheel, tutorialPhase.grabWheelFromRepairTable,
+        tutorialPhase.throwWheel_p2, tutorialPhase.grabWheelFromFloor_p1, tutorialPhase.assembleOtherRobot, tutorialPhase.tutorialDone
     };
 
     tutorialPhase[] tutPhasesOneplayer =
@@ -153,6 +165,7 @@ public class TutorialManager : MonoBehaviour
                     Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                     Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                     Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                    Instantiate(outlineArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                 }
             }
             else
@@ -162,10 +175,11 @@ public class TutorialManager : MonoBehaviour
                     Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                     Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                     Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+                    Instantiate(outlineArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                 }
             }
 
-            if (currentPhase == tutorialPhase.assembleOtherRobot)
+            if (currentPhase == tutorialPhase.grabWheelFromConveyor)
             {
                 leftRobotRail.functional = true;
                 wheelSpawner.functional = true;
@@ -175,6 +189,7 @@ public class TutorialManager : MonoBehaviour
                 Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
                 Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
                 Instantiate(repairedArmPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
+                Instantiate(outlineWheelPrefab, tutorialRobotSpawn_Right.position, Quaternion.identity);
             }
 
             // Finish the tutorial

@@ -307,7 +307,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c407c072862785b4f8d8d19bbafc0baa, type: 3}
-  m_Color: {r: 0.12606835, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.6638103, g: 0.754717, b: 0.6507654, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -530,6 +530,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 0b713b60ddcf3b54ab98a679afaec383, type: 2}
   - {fileID: 22100000, guid: 766bf584096048d4dbf925c852e9c283, type: 2}
   flipAnimator: {fileID: 3240056448944229999}
+  Dazed: 0
   goingRight: 0
   staminaUI: {fileID: 5776556255383701288}
   staminaUI_back: {fileID: 7735959217342800931}
@@ -557,6 +558,13 @@ MonoBehaviour:
       Data3: -1521021558
       Data4: 819208960
     Path: event:/SFX/SFX_Int/SFX_Int_GrabPart
+  throwItemSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   ItemsInRangeForGrabbing: []
 --- !u!114 &2412234843627154072
 MonoBehaviour:
