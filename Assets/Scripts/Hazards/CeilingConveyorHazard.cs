@@ -5,8 +5,6 @@ using UnityEngine;
 public class CeilingConveyorHazard : MonoBehaviour
 {
 
-    [Tooltip("How hard the player will be knocked away when hit by the arm")]
-    public float KnockPower;
     public float SpawnTime, ConveyorSpeed, DistFromPoint;
     public GameObject ConveyorArmPrefab;
     public Transform[] RailPoints;
