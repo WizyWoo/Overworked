@@ -140,6 +140,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &-7336943420250354593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Envior/SFX_Envior_PlatformClick
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_Envior/SFX_Envior_PlatformClick
+  Guid:
+    Data1: -754521166
+    Data2: 1124610670
+    Data3: 1137193371
+    Data4: 1356646378
+  Banks:
+  - {fileID: -7088978546596261425}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 398
 --- !u!114 &-7088978546596261425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,10 +182,10 @@ MonoBehaviour:
   Path: C:/Unity/Projects/GitHub/Overworked/Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638007523278208028
+  lastModified: 638007545061919765
   FileSizes:
   - Name: 
-    Value: 1851520
+    Value: 2255680
   Exists: 1
 --- !u!114 &-5897498147039330392
 MonoBehaviour:
@@ -382,6 +409,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1740
+--- !u!114 &-1396839857165994249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Envior/SFX_Envior_PlatformMoving
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_Envior/SFX_Envior_PlatformMoving
+  Guid:
+    Data1: -327000831
+    Data2: 1282756334
+    Data3: 2109056944
+    Data4: -181099050
+  Banks:
+  - {fileID: -7088978546596261425}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6000
 --- !u!114 &-563799947246929673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,13 +539,15 @@ MonoBehaviour:
   - {fileID: 3956418867743373328}
   - {fileID: -480565452797059603}
   - {fileID: 7806416336141091357}
+  - {fileID: -1396839857165994249}
+  - {fileID: -7336943420250354593}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8805924153827023806}
   StringsBanks:
   - {fileID: 4228513068789154243}
   - {fileID: 6981886054679867108}
-  cacheTime: 638007523278227964
+  cacheTime: 638007545061939713
   cacheVersion: 131592
 --- !u!114 &54609554852013489
 MonoBehaviour:
@@ -857,10 +913,10 @@ MonoBehaviour:
   Path: C:/Unity/Projects/GitHub/Overworked/Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638007523278227964
+  lastModified: 638007545061939713
   FileSizes:
   - Name: 
-    Value: 2666
+    Value: 2770
   Exists: 1
 --- !u!114 &7246244108640117893
 MonoBehaviour:
