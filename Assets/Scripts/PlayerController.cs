@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Sprite[] playerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
     [SerializeField] Animator flipAnimator;
+    [SerializeField] bool Dazed;
     [SerializeField] bool goingRight;
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
@@ -264,12 +265,25 @@ public class PlayerController : MonoBehaviour
                 itemGrabbed = nearestItem;
                 StartCoroutine("GrabItem");
 
-                // Inform the tutorial manager
-                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromConveyor);
-                //if (playerIndex % 2 == 0)
+                if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+                {
+                    // Inform the tutorial manager
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromConveyor);
+                    //if (playerIndex % 2 == 0)
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p1);
-                //else
+                    //else
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p2);
+                }
+
+                else if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
+                {
+                    // Inform the tutorial manager
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromConveyor);
+                    //if (playerIndex % 2 == 0)
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromFloor_p1);
+                    //else
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromFloor_p2);
+                }
 
             }
 
@@ -291,12 +305,22 @@ public class PlayerController : MonoBehaviour
         if (context.started)
             if (itemGrabbed != null)
             {
-                DropItem(strongThrowForce);
-
-                //if (playerIndex % 2 == 0)
+                if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+                {
+                    //if (playerIndex % 2 == 0)
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p1);
-                //else
+                    //else
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p2);
+                }
+                else if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
+                {
+                    //if (playerIndex % 2 == 0)
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p1);
+                    //else
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p2);
+                }
+
+                DropItem(strongThrowForce);
             }
     }
 
@@ -384,6 +408,12 @@ public class PlayerController : MonoBehaviour
     // INPUT
     public void GetMoveInput(InputAction.CallbackContext context)
     {
+        if (Dazed == true)
+        {
+            horInput = -context.ReadValue<Vector2>().x;
+            verInput = -context.ReadValue<Vector2>().y;
+            return;
+        }
         horInput = context.ReadValue<Vector2>().x;
         verInput = context.ReadValue<Vector2>().y;
     }
@@ -428,7 +458,7 @@ public class PlayerController : MonoBehaviour
         {
             flipAnimator.SetTrigger("Flip");
         }
-
+       
         if (rb.velocity.x > 0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, arrow.transform.rotation.z);
@@ -447,6 +477,7 @@ public class PlayerController : MonoBehaviour
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, -90.0f);
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)

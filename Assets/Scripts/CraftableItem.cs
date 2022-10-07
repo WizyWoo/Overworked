@@ -16,17 +16,17 @@ namespace CustomStuffPog
 
             GUILayout.Label("Touch me :3");
 
-            if(GUILayout.Button("Pog"))
+            if (GUILayout.Button("Pog"))
             {
 
                 Debug.LogError("You got pogged :)");
 
             }
-            
+
         }
 
     }
-    
+
 }
 #endif
 
@@ -37,7 +37,7 @@ public class CraftableItem : GrabbableItem
 
 
     //Regular stuff
-    public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery, bucket }
+    public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery, bucket, armOutline, wheelOutline }
 
     [Header("Change me if you want :)")]
     public TypeOfRepairableItem typeOfItem;
@@ -64,7 +64,7 @@ public class CraftableItem : GrabbableItem
         {
             //It's all good ;)
             assembled = value;
-            if(value) ItemAssembled();
+            if (value) ItemAssembled();
         }
     }
 
@@ -80,7 +80,7 @@ public class CraftableItem : GrabbableItem
             //Don't worry about it :)
             progress = value;
             ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
-            if(progress >= 100)
+            if (progress >= 100)
             {//I moved the tutorial thingy
                 assembled = true;
                 ItemAssembled();
@@ -95,15 +95,18 @@ public class CraftableItem : GrabbableItem
         ProgressIndicator.size = Vector2.zero;
         NeedsCrafting = false;
 
-        if(recolorWhenDone)
+        if (recolorWhenDone)
             ItemSprite.color = newColor;
 
-        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
+        if (typeOfItem == TypeOfRepairableItem.arm)
+            TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
+        else if (typeOfItem == TypeOfRepairableItem.wheel)
+            TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairWheel);
     }
 
     public void ItemAssembled(Sprite finalSprite = null)
     {
-        if(finalSprite == null) ItemSprite.sprite = AssembledItemSprite;
+        if (finalSprite == null) ItemSprite.sprite = AssembledItemSprite;
         else ItemSprite.sprite = finalSprite;
 
         ProgressIndicator.size = Vector2.zero;

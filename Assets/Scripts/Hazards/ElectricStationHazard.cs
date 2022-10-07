@@ -9,7 +9,8 @@ public class ElectricStationHazard : MonoBehaviour
     public EventReference ElectrifySound, PlayerElectrocutedSound;
     [Tooltip("How much stamina the player loses")]
     public float StaminaHit;
-    public GameObject ElectricityFX;
+    public float ElectrocutionTime;
+    public GameObject ElectricityFX, PlayerElectrocutionFX;
     public Collider HazardArea;
     [SerializeField, Tooltip("The minimum and maximum time before wires electrify")]
     private float minTime, maxTime;
@@ -71,8 +72,21 @@ public class ElectricStationHazard : MonoBehaviour
     private void ElectrocutedPlayer(GameObject _player)
     {
 
-        //_player.GetComponent<PlayerController>().HitOnStamina(StaminaHit);
+        _player.GetComponent<PlayerController>().HitOnStamina(StaminaHit);
+        _player.GetComponent<Rigidbody>().isKinematic = true;
         SoundManager.Instance.PlaySound(PlayerElectrocutedSound, gameObject);
+        Instantiate(PlayerElectrocutionFX, _player.transform).GetComponent<DestroyAfter>().DestroyTimer = ElectrocutionTime;
+
+        StartCoroutine(nameof(DebuffOff), _player);
+
+    }
+
+    private IEnumerator DebuffOff(GameObject _player)
+    {
+
+        yield return new WaitForSeconds(ElectrocutionTime);
+
+        _player.GetComponent<Rigidbody>().isKinematic = false;
 
     }
 
