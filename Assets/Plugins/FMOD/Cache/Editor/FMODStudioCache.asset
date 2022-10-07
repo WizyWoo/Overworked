@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638006620838862209
+  lastModified: 638007313741350698
   FileSizes: []
   Exists: 1
 --- !u!114 &-8934520471630846537
@@ -538,7 +538,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638006659977248945
+  lastModified: 638007313741370715
   FileSizes:
   - Name: 
     Value: 2460
@@ -696,7 +696,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_MUS.bank
   Name: BANK_MUS
   StudioPath: bank:/BANK_MUS
-  lastModified: 638006620838731912
+  lastModified: 638007313732059113
   FileSizes: []
   Exists: 1
 --- !u!114 &-1680017862043117538
@@ -765,7 +765,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638006659977238930
+  lastModified: 638007313740881142
   FileSizes: []
   Exists: 1
 --- !u!114 &-401839481399518994
@@ -845,7 +845,7 @@ MonoBehaviour:
   - {fileID: -9066960957600646423}
   StringsBanks:
   - {fileID: -4361182246956425996}
-  cacheTime: 638006659977248945
+  cacheTime: 638007313741370715
   cacheVersion: 131592
 --- !u!114 &212534380639251618
 MonoBehaviour:
@@ -944,7 +944,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_VO.bank
   Name: BANK_VO
   StudioPath: bank:/BANK_VO
-  lastModified: 638006620838852199
+  lastModified: 638007313741340682
   FileSizes: []
   Exists: 1
 --- !u!114 &792721455922367161
@@ -962,7 +962,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638006659977138762
+  lastModified: 638007313732049105
   FileSizes: []
   Exists: 1
 --- !u!114 &912780903505641543
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   - {fileID: 5425243745076948686}
   MinDistance: 1
   MaxDistance: 20
-  Length: 96000
+  Length: 194096
 --- !u!114 &3245153376872516890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,7 +1334,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_UI.bank
   Name: BANK_UI
   StudioPath: bank:/BANK_UI
-  lastModified: 638006620838842190
+  lastModified: 638007313741320663
   FileSizes: []
   Exists: 1
 --- !u!114 &4950877431653408661
