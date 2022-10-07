@@ -8,14 +8,16 @@ public class AmbianceRampup : MonoBehaviour
 {
 
     public StudioEventEmitter Emitter;
+    public string ParamName;
     public float LevelLenght;
+    [SerializeField]
     private float timer;
 
     private void Update()
     {
 
         timer += Time.deltaTime;
-        Emitter.SetParameter("Intensity", timer / LevelLenght);
+        Emitter.SetParameter(ParamName, timer / LevelLenght);
 
     }
 

@@ -109,4 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Emitter: {fileID: 2195353477995076380}
+  ParamName: Intensity
   LevelLenght: 200
+  timer: 0
