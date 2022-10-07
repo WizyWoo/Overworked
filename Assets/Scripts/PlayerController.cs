@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Sprite[] playerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
     [SerializeField] Animator flipAnimator;
+    [SerializeField] bool Dazed;
     [SerializeField] bool goingRight;
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
@@ -384,6 +385,12 @@ public class PlayerController : MonoBehaviour
     // INPUT
     public void GetMoveInput(InputAction.CallbackContext context)
     {
+        if (Dazed == true)
+        {
+            horInput = -context.ReadValue<Vector2>().x;
+            verInput = -context.ReadValue<Vector2>().y;
+            return;
+        }
         horInput = context.ReadValue<Vector2>().x;
         verInput = context.ReadValue<Vector2>().y;
     }
@@ -428,7 +435,7 @@ public class PlayerController : MonoBehaviour
         {
             flipAnimator.SetTrigger("Flip");
         }
-
+       
         if (rb.velocity.x > 0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, arrow.transform.rotation.z);
@@ -447,6 +454,7 @@ public class PlayerController : MonoBehaviour
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, -90.0f);
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)
