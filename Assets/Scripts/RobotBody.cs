@@ -11,6 +11,7 @@ public class RobotBody : MonoBehaviour
 
     public FMODUnity.EventReference assembleSound;
 
+    private GameObject wheelOutlineObject, rightArmOutlineObject;
 
     bool justSpawned = true;
     private void Awake()
@@ -48,10 +49,12 @@ public class RobotBody : MonoBehaviour
                 //For the moment it just spawns and assemble in the right part,
                 //if we need uncomment de code of this if
                 newSpot = rightArm_Spot;
+                rightArmOutlineObject = item.gameObject;
                 //}
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheelOutline)
             {
+                wheelOutlineObject = item.gameObject;
                 newSpot = wheel_Spot;
             }
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
@@ -67,13 +70,15 @@ public class RobotBody : MonoBehaviour
                 {
                     newSpot = leftArm_Spot;
                     item.transform.GetComponentInChildren<SpriteRenderer>().flipX = true;
-
                     leftArmAssembled = true;
+
                 }
                 else if (!rightArmAssembled)
                 {
                     newSpot = rightArm_Spot;
                     rightArmAssembled = true;
+
+                    if (rightArmOutlineObject) rightArmOutlineObject.SetActive(false);
                 }
                 else return;
             }
@@ -85,6 +90,8 @@ public class RobotBody : MonoBehaviour
                 {
                     newSpot = wheel_Spot;
                     wheelAssembled = true;
+
+                    if (wheelOutlineObject) wheelOutlineObject.SetActive(false);
                 }
                 else return;
             }
