@@ -211,16 +211,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ambiance (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
-        type: 3}
-      propertyPath: Params.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
-        type: 3}
-      propertyPath: Params.Array.data[0].Value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2195353477995076382, guid: 425eaea56406c9941953afed2505a562,
         type: 3}
       propertyPath: m_RootOrder
@@ -275,11 +265,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233600403256964121, guid: 425eaea56406c9941953afed2505a562,
-        type: 3}
-      propertyPath: ParamName
-      value: Intensity
       objectReference: {fileID: 0}
     - target: {fileID: 7233600403256964121, guid: 425eaea56406c9941953afed2505a562,
         type: 3}
@@ -1806,18 +1791,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852738262079184913, guid: f4bf3d1e0e917ec488a015f5372e78f7,
         type: 3}
-      propertyPath: SpawnTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852738262079184913, guid: f4bf3d1e0e917ec488a015f5372e78f7,
-        type: 3}
       propertyPath: KnockPower
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852738262079184913, guid: f4bf3d1e0e917ec488a015f5372e78f7,
-        type: 3}
-      propertyPath: ConveyorSpeed
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4852738262079184918, guid: f4bf3d1e0e917ec488a015f5372e78f7,
         type: 3}
