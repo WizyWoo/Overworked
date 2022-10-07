@@ -443,6 +443,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2e2ce94f5a5644eb7df4811df88413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElectrifySound:
+    Guid:
+      Data1: -1914699722
+      Data2: 1243237155
+      Data3: -770771315
+      Data4: -907728139
+    Path: event:/SFX/SFX_ElectricFaultyWire
+  PlayerElectrocutedSound:
+    Guid:
+      Data1: -1410582522
+      Data2: 1262992581
+      Data3: 125032893
+      Data4: -1006895135
+    Path: event:/SFX/SFX_Player/SFX_Player_Electrified
+  StaminaHit: 25
   ElectricityFX: {fileID: 6093884450086444815}
   HazardArea: {fileID: 6093884449816104499}
   minTime: 6

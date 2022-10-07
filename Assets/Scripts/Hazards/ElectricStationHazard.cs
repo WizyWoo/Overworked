@@ -19,17 +19,21 @@ public class ElectricStationHazard : MonoBehaviour
     private void Start()
     {
 
-        Invoke(nameof(Electrify), Random.Range(minTime, maxTime));
+        StartCoroutine(nameof(Electrify));
 
     }
 
-    private void Electrify()
+    private IEnumerator Electrify()
     {
+
+        yield return new WaitForSeconds(Random.Range(minTime, maxTime));
+
+        SoundManager.Instance.PlaySound(ElectrifySound, gameObject, SoundManager.SoundType.Loop);
+
+        yield return new WaitForSeconds(1);
 
         ElectricityFX.SetActive(true);
         HazardArea.enabled = true;
-
-        SoundManager.Instance.PlaySound(ElectrifySound, gameObject, SoundManager.SoundType.Loop);
 
         Invoke(nameof(ShortCircuit), electrifyTime);
 
@@ -43,7 +47,7 @@ public class ElectricStationHazard : MonoBehaviour
 
         SoundManager.Instance.StopSound(ElectrifySound, gameObject);
 
-        Invoke(nameof(Electrify), Random.Range(minTime, maxTime));
+        StartCoroutine(nameof(Electrify));
 
     }
 
@@ -55,6 +59,7 @@ public class ElectricStationHazard : MonoBehaviour
 
             Debug.Log("Electrified");
             CancelInvoke();
+            StopAllCoroutines();
 
             ElectrocutedPlayer(_col.gameObject);
             ShortCircuit();
@@ -66,7 +71,7 @@ public class ElectricStationHazard : MonoBehaviour
     private void ElectrocutedPlayer(GameObject _player)
     {
 
-        _player.GetComponent<PlayerController>().HitOnStamina(StaminaHit);
+        //_player.GetComponent<PlayerController>().HitOnStamina(StaminaHit);
         SoundManager.Instance.PlaySound(PlayerElectrocutedSound, gameObject);
 
     }
