@@ -13,6 +13,11 @@ public class Level01_Manager : LevelManager
     [SerializeField] int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
 
 
+    [SerializeField] GameObject middleFloor;
+
+    [SerializeField] GameObject relaxingZone_1Players;
+    [SerializeField] GameObject[] relaxingZones_2Players;
+
     private void Start()
     {
         moneyToWin1Star = moneyToWin1Star1;
@@ -23,6 +28,24 @@ public class Level01_Manager : LevelManager
         initialTickPosition = tickImage.transform.position;
 
         CorrectRobot();
+
+        // Setup level for 1 or 2 players
+        if (GameManager.instance.onlyOnePlayer)
+        {
+            middleFloor.SetActive(true);
+
+            relaxingZone_1Players.SetActive(true);
+            foreach (GameObject relaxZone in relaxingZones_2Players)
+                relaxZone.SetActive(false);
+        }
+        else
+        {
+            middleFloor.SetActive(false);
+
+            relaxingZone_1Players.SetActive(false);
+            foreach (GameObject relaxZone in relaxingZones_2Players)
+                relaxZone.SetActive(true);
+        }
     }
 
     public void CorrectRobot()
