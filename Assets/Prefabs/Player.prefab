@@ -565,6 +565,13 @@ MonoBehaviour:
       Data3: 903110539
       Data4: -846226277
     Path: event:/SFX/SFX_Int/SFX_Int_Throw
+  dropItemSound:
+    Guid:
+      Data1: -1387399686
+      Data2: 1231642407
+      Data3: -1683912272
+      Data4: 752033139
+    Path: event:/SFX/SFX_Int/SFX_Int_DropOnFloor
   ItemsInRangeForGrabbing: []
 --- !u!114 &2412234843627154072
 MonoBehaviour:
