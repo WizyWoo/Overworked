@@ -33,7 +33,7 @@ public class TutorialManager : MonoBehaviour
     }
 
     // The currentPhase variable, show what the player must do
-    tutorialPhase currentPhase = (tutorialPhase)0;
+    public tutorialPhase currentPhase = (tutorialPhase)0;
 
     // Tutorial elements are gameobjects that store tutorial info for each phase
     [SerializeField] TutorialItem[] tutorialItems;
