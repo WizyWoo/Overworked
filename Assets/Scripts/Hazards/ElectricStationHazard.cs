@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class ElectricStationHazard : MonoBehaviour
 {
+
+    public EventReference ElectrifySound, PlayerElectrocutedSound;
+    [Tooltip("How much stamina the player loses")]
+    public float StaminaHit;
     public GameObject ElectricityFX;
     public Collider HazardArea;
     [SerializeField, Tooltip("The minimum and maximum time before wires electrify")]
@@ -24,6 +29,8 @@ public class ElectricStationHazard : MonoBehaviour
         ElectricityFX.SetActive(true);
         HazardArea.enabled = true;
 
+        SoundManager.Instance.PlaySound(ElectrifySound, gameObject, SoundManager.SoundType.Loop);
+
         Invoke(nameof(ShortCircuit), electrifyTime);
 
     }
@@ -33,6 +40,8 @@ public class ElectricStationHazard : MonoBehaviour
 
         ElectricityFX.SetActive(false);
         HazardArea.enabled = false;
+
+        SoundManager.Instance.StopSound(ElectrifySound, gameObject);
 
         Invoke(nameof(Electrify), Random.Range(minTime, maxTime));
 
@@ -47,9 +56,18 @@ public class ElectricStationHazard : MonoBehaviour
             Debug.Log("Electrified");
             CancelInvoke();
 
+            ElectrocutedPlayer(_col.gameObject);
             ShortCircuit();
 
         }
+
+    }
+
+    private void ElectrocutedPlayer(GameObject _player)
+    {
+
+        _player.GetComponent<PlayerController>().HitOnStamina(StaminaHit);
+        SoundManager.Instance.PlaySound(PlayerElectrocutedSound, gameObject);
 
     }
 

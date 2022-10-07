@@ -5,6 +5,8 @@ using UnityEngine;
 public class CeilingConveyorHazard : MonoBehaviour
 {
 
+    [Tooltip("How hard the player will be knocked away when hit by the arm")]
+    public float KnockPower;
     public float SpawnTime, ConveyorSpeed, DistFromPoint;
     public GameObject ConveyorArmPrefab;
     public Transform[] RailPoints;
@@ -82,7 +84,10 @@ public class CeilingConveyorHazard : MonoBehaviour
     private void SpawnArm()
     {
 
-        Arms.Add(Instantiate(ConveyorArmPrefab, RailPoints[0].position, Quaternion.identity).transform);
+        GameObject _tempGO = Instantiate(ConveyorArmPrefab, RailPoints[0].position, Quaternion.identity);
+        _tempGO.GetComponent<ConveyorArm>().MovePower = ConveyorSpeed;
+
+        Arms.Add(_tempGO.transform);
         CurPoint.Add(1);
         ArmTravelTimer.Add(0);
         CurDist.Add(Vector3.Distance(RailPoints[0].position, RailPoints[1].position));
