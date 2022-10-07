@@ -157,7 +157,7 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                if (currentPhase == tutorialPhase.grabArmFromRepairTable)
+                if (currentPhase == tutorialPhase.repairArm)
                 {
                     Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
                     Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
