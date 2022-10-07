@@ -37,6 +37,10 @@ public class RobotBody : MonoBehaviour
 
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
             {
+                //if (item.GetComponentInParent<PlayerController>() != null
+                //    && TutorialManager.GetInstance().currentPhase != TutorialManager.tutorialPhase.assembleArm)
+                //    return;
+
                 // Inform tutorial manager
                 TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.assembleArm);
 

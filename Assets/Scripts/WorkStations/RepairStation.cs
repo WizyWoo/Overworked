@@ -35,6 +35,7 @@ public class RepairStation : WorkStation
 
         }
 
+        //TutorialManager.
 
         return true;
 
@@ -47,7 +48,7 @@ public class RepairStation : WorkStation
         if(!UsedBy && !AutoRepair || OutOfPower)
         {
 
-            SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
+            //SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
             return;
 
         }
