@@ -21,5 +21,9 @@ public class Freezegun : MonoBehaviour
         {
             other.GetComponent<FreezePlayer>().Frozen = true;
         }
+        if(other.GetComponent<FreezableObject>() != null)
+        {
+            other.GetComponent<FreezableObject>().Frozen = true;
+        }
     }
 }

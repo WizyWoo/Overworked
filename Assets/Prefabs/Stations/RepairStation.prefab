@@ -101,7 +101,7 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Int/SFX_Int_Workbench_BuildComp
   InUse: 0
   OutOfPower: 0
-  ItemOnStaion: {fileID: 0}
+  ItemOnStation: {fileID: 0}
   CraftingItem: {fileID: 0}
   UsedBy: {fileID: 0}
   canRepairThisItem: 0
@@ -140,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 972a69c934cca9d4bb2384b8471581f0, type: 2}
+  - {fileID: 2100000, guid: 001dfa57c955ee4448f718e507879a73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
