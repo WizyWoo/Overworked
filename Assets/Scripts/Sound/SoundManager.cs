@@ -150,6 +150,7 @@ public class SoundManager : MonoBehaviour
 
     public void StopSound(EventReference _soundEvent, GameObject _go)
     {
+        
         if (eventInstances.ContainsKey((_soundEvent, _go)))
         {
             eventInstances[(_soundEvent, _go)].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -159,6 +160,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(EventReference _soundEvent, GameObject _go, SoundType _type = SoundType.NoLoop)
     {
+
         EventInstance _tempEvent;
         PLAYBACK_STATE _pbState;
 
@@ -197,6 +199,8 @@ public class SoundManager : MonoBehaviour
             _tempEvent.start();
 
         }
+
+        _tempEvent.set3DAttributes(RuntimeUtils.To3DAttributes(_go));
         
     }
 

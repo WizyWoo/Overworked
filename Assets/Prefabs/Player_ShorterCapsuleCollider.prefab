@@ -5266,6 +5266,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 0b713b60ddcf3b54ab98a679afaec383, type: 2}
   - {fileID: 22100000, guid: 766bf584096048d4dbf925c852e9c283, type: 2}
   flipAnimator: {fileID: 8905786987973865828}
+  Dazed: 0
   goingRight: 0
   staminaUI: {fileID: 525579167426050083}
   staminaUI_back: {fileID: 4340042681524869928}
@@ -5293,6 +5294,13 @@ MonoBehaviour:
       Data3: -1521021558
       Data4: 819208960
     Path: event:/SFX/SFX_Int/SFX_Int_GrabPart
+  throwItemSound:
+    Guid:
+      Data1: -605172908
+      Data2: 1199225068
+      Data3: 903110539
+      Data4: -846226277
+    Path: event:/SFX/SFX_Int/SFX_Int_Throw
   ItemsInRangeForGrabbing: []
 --- !u!114 &714510363349931985
 MonoBehaviour:

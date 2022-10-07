@@ -14,8 +14,6 @@ public class TutorialItem
     [HideInInspector] public SpriteRenderer[] infoImages;
     [HideInInspector] public TMP_Text[] infoTexts;
 
-
-
     // Assign references to all the variables
     public void AssignReferences()
     {
@@ -25,6 +23,7 @@ public class TutorialItem
         infoTexts = gameObject.transform.GetChild(2).GetComponentsInChildren<TMP_Text>();
     }
 
+    float fade = .4f;
 
     // Smooth transitions for showing or hiding this tutorial item
     public IEnumerator Show()
@@ -34,7 +33,7 @@ public class TutorialItem
 
         // PANEL
         // Show panel
-        panel.DOFade(1, panel_showTime);
+        panel.DOFade(fade, panel_showTime);
         // Position
         Vector3 panelPosition = panel.transform.position;
         panel.transform.position =
