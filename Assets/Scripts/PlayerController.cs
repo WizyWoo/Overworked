@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
     [SerializeField] ParticleSystem sweatParticleSystem;
+    [SerializeField] GameObject arrow;
     // Grabbing
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
         // Update stamina variables and stamina gfx
         StaminaSystem();
 
-        FlipAnim();
+        FlipAnimAndRotateArrow();
 
         // Quick bug fix, need to change in the future
         if (rb.velocity.y > 0)
@@ -421,8 +422,7 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-
-    private void FlipAnim()
+    private void FlipAnimAndRotateArrow()
     {
         if ((goingRight && rb.velocity.x < -.01f) || (!goingRight && rb.velocity.x > .01f))
         {
@@ -431,11 +431,21 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.x > 0.1f)
         {
+            arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, arrow.transform.rotation.z);
             goingRight = true;
         }
         else if (rb.velocity.x < -0.1f)
         {
+            arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 180.0f, arrow.transform.rotation.z);
             goingRight = false;
+        }
+        else if (rb.velocity.z > 0.1f)
+        {
+            arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, 90.0f);
+        }
+        else if (rb.velocity.z < -0.1f)
+        {
+            arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, -90.0f);
         }
     }
 
