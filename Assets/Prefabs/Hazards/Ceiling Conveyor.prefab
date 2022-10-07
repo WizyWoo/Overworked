@@ -49,7 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86146d0313c107a408779b6175a17806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnTime: 4
+  SpawnTimeMin: 2
+  SpawnTimeMax: 5
   ConveyorSpeed: 10
   DistFromPoint: 0.1
   ConveyorArmPrefab: {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425,

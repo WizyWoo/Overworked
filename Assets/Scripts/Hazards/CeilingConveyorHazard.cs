@@ -5,7 +5,7 @@ using UnityEngine;
 public class CeilingConveyorHazard : MonoBehaviour
 {
 
-    public float SpawnTime, ConveyorSpeed, DistFromPoint;
+    public float SpawnTimeMin, SpawnTimeMax, ConveyorSpeed, DistFromPoint;
     public GameObject ConveyorArmPrefab;
     public Transform[] RailPoints;
     public List<Transform> Arms;
@@ -21,7 +21,7 @@ public class CeilingConveyorHazard : MonoBehaviour
         CurPoint = new List<int>();
         ArmTravelTimer = new List<float>();
         CurDist = new List<float>();
-        Invoke(nameof(SpawnArm), SpawnTime);
+        Invoke(nameof(SpawnArm), 1);
 
     }
 
@@ -89,7 +89,7 @@ public class CeilingConveyorHazard : MonoBehaviour
         CurPoint.Add(1);
         ArmTravelTimer.Add(0);
         CurDist.Add(Vector3.Distance(RailPoints[0].position, RailPoints[1].position));
-        Invoke(nameof(SpawnArm), SpawnTime);
+        Invoke(nameof(SpawnArm), Random.Range(SpawnTimeMin, SpawnTimeMax));
 
     }
 
