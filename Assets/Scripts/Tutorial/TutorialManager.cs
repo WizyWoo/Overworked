@@ -28,12 +28,31 @@ public class TutorialManager : MonoBehaviour
     // Tutorial phases
     public enum tutorialPhase
     {
-        grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, repairArm, grabArmFromRepairTable, 
+        grabArmFromConveyor, throwArm_p1, grabArmFromFloor_p2, repairArm, grabArmFromRepairTable,
         throwArm_p2, grabArmFromFloor_p1, assembleArm, assembleOtherRobot, tutorialDone
     }
 
+    tutorialPhase[] tutPhasesMultiplayer =
+    {
+        tutorialPhase.grabArmFromConveyor, tutorialPhase.throwArm_p1, tutorialPhase.grabArmFromFloor_p2, tutorialPhase.repairArm,
+        tutorialPhase.grabArmFromRepairTable, tutorialPhase.throwArm_p2, tutorialPhase.grabArmFromFloor_p1, tutorialPhase.assembleArm,
+        tutorialPhase.assembleOtherRobot, tutorialPhase.tutorialDone
+    };
+
+    tutorialPhase[] tutPhasesOneplayer =
+    {
+        tutorialPhase.grabArmFromConveyor, tutorialPhase.repairArm,
+        tutorialPhase.grabArmFromRepairTable, tutorialPhase.assembleArm,
+        tutorialPhase.assembleOtherRobot, tutorialPhase.tutorialDone
+    };
+
+
+    tutorialPhase[] usingThisTutorialPhases;
+
     // The currentPhase variable, show what the player must do
-    public tutorialPhase currentPhase = (tutorialPhase)0;
+    public tutorialPhase currentPhase;
+
+    int currentPhaseIndex = 0;
 
     // Tutorial elements are gameobjects that store tutorial info for each phase
     [SerializeField] TutorialItem[] tutorialItems;
@@ -61,7 +80,6 @@ public class TutorialManager : MonoBehaviour
         {
             EndTutorial();
         }
-
     }
 
     void InizializeTutorialElements()
@@ -79,8 +97,14 @@ public class TutorialManager : MonoBehaviour
     {
         duringTutorial = true;
 
+        if (GameManager.instance.onlyOnePlayer)
+            usingThisTutorialPhases = tutPhasesOneplayer;
+        else
+            usingThisTutorialPhases = tutPhasesMultiplayer;
+
+        currentPhase = usingThisTutorialPhases[0];
         // Show first phase
-        ShowTutorialItem((tutorialPhase)0);
+        ShowTutorialItem(currentPhase);
 
         leftRobotRail.functional = false;
         rightRobotRail.functional = false;
@@ -112,7 +136,8 @@ public class TutorialManager : MonoBehaviour
             // Hide the previous tutorial item
             HideTutorialItem(currentPhase);
 
-            currentPhase++;
+            currentPhaseIndex++;
+            currentPhase = usingThisTutorialPhases[currentPhaseIndex];
 
             changingPhase = true;
             yield return new WaitForSeconds(.5f);

@@ -96,12 +96,9 @@ public class CraftableItem : GrabbableItem
         NeedsCrafting = false;
 
         if(recolorWhenDone)
-        {
             ItemSprite.color = newColor;
-        }
 
         TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
-        
     }
 
     public void ItemAssembled(Sprite finalSprite = null)
