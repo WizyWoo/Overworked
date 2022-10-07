@@ -35,6 +35,25 @@ public class RobotBody : MonoBehaviour
             // Compobar en que lado se implementa
             Transform newSpot = null;
 
+            if(item.typeOfItem == CraftableItem.TypeOfRepairableItem.armOutline)
+            {
+                //if (!leftArmAssembled)
+                //{
+                //    newSpot = leftArm_Spot;
+                //    item.transform.GetComponentInChildren<SpriteRenderer>().flipX = true;
+                //}
+                //else if (!rightArmAssembled)
+                //{
+
+                //For the moment it just spawns and assemble in the right part,
+                //if we need uncomment de code of this if
+                newSpot = rightArm_Spot;
+                //}
+            }
+            else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheelOutline)
+            {
+                newSpot = wheel_Spot;
+            }
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
             {
                 //if (item.GetComponentInParent<PlayerController>() != null
