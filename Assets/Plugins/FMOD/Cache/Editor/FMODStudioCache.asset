@@ -846,7 +846,7 @@ MonoBehaviour:
   - {fileID: -9066960957600646423}
   StringsBanks:
   - {fileID: -4361182246956425996}
-  cacheTime: 638007359806811517
+  cacheTime: 638007360369542569
   cacheVersion: 131592
 --- !u!114 &212534380639251618
 MonoBehaviour:
@@ -963,7 +963,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638007312222702894
+  lastModified: 638007360369542569
   FileSizes: []
   Exists: 1
 --- !u!114 &912780903505641543
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   - {fileID: 5425243745076948686}
   MinDistance: 1
   MaxDistance: 20
-  Length: 96000
+  Length: 194096
 --- !u!114 &3245153376872516890
 MonoBehaviour:
   m_ObjectHideFlags: 0
