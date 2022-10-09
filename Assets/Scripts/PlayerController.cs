@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     bool inGenerator;
     Generator generator;
-    public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound, throwItemSound;
+    public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound, throwItemSound, dropItemSound;
 
     private void Awake()
     {
@@ -291,6 +291,7 @@ public class PlayerController : MonoBehaviour
             else if (itemGrabbed != null)
             {
                 DropItem(weakThrowForce);
+                SoundManager.Instance.PlaySound(dropItemSound, gameObject);
 
                 // take into account this object for grabbing
                 //AddItem(itemGrabbed);

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f83a65ab7ee92748a4641dd908632aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onlyOnePlayer: 1
   finishedMoneyLevel: 0
   amountOfStars: 0
   minimumMoney: 0
