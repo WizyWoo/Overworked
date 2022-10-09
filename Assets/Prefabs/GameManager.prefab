@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8482794919417174577}
   - component: {fileID: 8482794919417174578}
-  - component: {fileID: 1527386017}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,20 +50,3 @@ MonoBehaviour:
   minimumMoney: 0
   TotalMoney: 100
   TotalDebt: 500000
---- !u!114 &1527386017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8482794919417174579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e54d930498b528f4595ccfc7e5b616ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenuPrefab: {fileID: 0}
-  PauseMenuKey: 27
-  SettingsUI: {fileID: 0}
-  PauseMenuUI: {fileID: 0}
-  TutorialUI: {fileID: 0}
