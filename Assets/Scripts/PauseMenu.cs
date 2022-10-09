@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-     bool Pause;
-    public GameObject PauseHud;
-    // Start is called before the first frame update
+    public static bool isPaused;
+    bool ShowSettings, ShowTutorial;
+    public GameObject PauseMenuPrefab;
+    public KeyCode PauseMenuKey;
+
+    //  Gameobject containers for each menu part, 
+    //  which is enabled / disabled while "browsing" the menu
+    public GameObject SettingsUI, PauseMenuUI, TutorialUI;
+
     void Start()
     {
         
@@ -15,23 +22,54 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(PauseMenuKey))
         {
-            Pause = !Pause;
+            isPaused = !isPaused;
         }
-        if (Pause == true)
+        if (isPaused == true)
         {
-            Time.timeScale = 0.001f;
-            
-                PauseHud.SetActive(true);
+            Time.timeScale = 0f;
+
+                PauseMenuPrefab.SetActive(true);
             
         }
-        if (Pause == false)
+        if (isPaused == false)
         {
             Time.timeScale = 1;
-           
-                PauseHud.SetActive(false);
+
+                PauseMenuPrefab.SetActive(false);
             
         }
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("PrototypeHub");
+    }
+
+    public void GoToSetting()
+    {
+        if (!ShowSettings)
+        {
+            SettingsUI.SetActive(true);
+            PauseMenuUI.SetActive(false);
+            Debug.Log("Settings menu");
+            ShowSettings = true;
+        }
+
+        else
+        {
+            SettingsUI.SetActive(false);
+            PauseMenuUI.SetActive(true);
+            Debug.Log("Settings menu");
+            ShowSettings = false;
+        }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quited the game");
     }
 }
