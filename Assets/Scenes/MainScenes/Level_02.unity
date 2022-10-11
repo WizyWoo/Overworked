@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2622,6 +2622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CraftingStation
       objectReference: {fileID: 0}
+    - target: {fileID: 5595768151472524674, guid: 995e229fcb7994e48a9f2c79659474cf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1848ab1a23670f848a64cc2d8911ea8b, type: 2}
     - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: Result
