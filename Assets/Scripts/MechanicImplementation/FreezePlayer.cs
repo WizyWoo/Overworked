@@ -11,7 +11,7 @@ public class FreezePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        IceCubePNG.SetActive(false);
     }
 
     // Update is called once per frame
