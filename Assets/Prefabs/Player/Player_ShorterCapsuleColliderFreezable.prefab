@@ -5304,7 +5304,7 @@ GameObject:
   - component: {fileID: 7669628409523345684}
   - component: {fileID: 7669628409523345672}
   m_Layer: 7
-  m_Name: Player_ShorterCapsuleCollider
+  m_Name: Player_ShorterCapsuleColliderFreezable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

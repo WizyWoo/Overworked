@@ -202,6 +202,12 @@ public class PlayerController : MonoBehaviour
         currentStamina -= amount;
     }
 
+    public void Electrocuted(float amount)
+    {
+
+        currentStamina -= amount;
+
+    }
 
     #region GrabbingSystem
 
