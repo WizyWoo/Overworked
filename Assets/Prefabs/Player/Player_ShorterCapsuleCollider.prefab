@@ -5204,8 +5204,7 @@ GameObject:
   - component: {fileID: 7669628409523345674}
   - component: {fileID: 7669628409523345675}
   - component: {fileID: 7669628409523345672}
-  - component: {fileID: -8023649275964160300}
-  - component: {fileID: 6499266407495227481}
+  - component: {fileID: 4599691771296287726}
   m_Layer: 7
   m_Name: Player_ShorterCapsuleCollider
   m_TagString: Untagged
@@ -5517,8 +5516,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &-8023649275964160300
-BoxCollider:
+--- !u!136 &4599691771296287726
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5527,22 +5526,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.45, z: 0}
---- !u!135 &6499266407495227481
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7669628409523345686}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: -0.15, z: 0}
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7669628409591314816
 GameObject:
   m_ObjectHideFlags: 0
