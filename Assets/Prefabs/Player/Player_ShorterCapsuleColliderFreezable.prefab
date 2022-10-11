@@ -5429,6 +5429,20 @@ MonoBehaviour:
   Frozen: 0
   doOnce: 0
   IceCubePNG: {fileID: 2796692025181037609}
+  FreezingSound:
+    Guid:
+      Data1: 843789456
+      Data2: 1131525797
+      Data3: -1910422376
+      Data4: -1412950802
+    Path: event:/SFX/SFX_Player/SFX_Player_Frozen
+  UnfreezingSound:
+    Guid:
+      Data1: 1696790768
+      Data2: 1305853184
+      Data3: 592738958
+      Data4: 36721191
+    Path: event:/SFX/SFX_IceBreaks
 --- !u!114 &8509748272355988883
 MonoBehaviour:
   m_ObjectHideFlags: 0
