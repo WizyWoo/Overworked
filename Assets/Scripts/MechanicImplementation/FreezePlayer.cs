@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FreezePlayer : MonoBehaviour
 {
-    public bool Frozen doOnce;
+    public bool Frozen, doOnce;
     public GameObject IceCubePNG;
     private float Timer;
     // Start is called before the first frame update
