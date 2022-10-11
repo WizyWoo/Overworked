@@ -466,9 +466,9 @@ GameObject:
   - component: {fileID: 2412234843627154072}
   - component: {fileID: 4399654409153324545}
   - component: {fileID: 4399654409153324544}
-  - component: {fileID: 4399654409153324575}
   - component: {fileID: 4399654409153324547}
   - component: {fileID: 4698202925202419692}
+  - component: {fileID: 1939287577627041965}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -765,20 +765,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4399654409153324575
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4399654409153324573}
-  m_Material: {fileID: 13400000, guid: 0fce656a23dff874991cc1f613df86e5, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4399654409153324547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -810,6 +796,33 @@ MonoBehaviour:
   Frozen: 0
   doOnce: 0
   IceCubePNG: {fileID: 2352199067774629656}
+  FreezingSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UnfreezingSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!65 &1939287577627041965
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399654409153324573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.1, z: 1}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1 &5510818267795906499
 GameObject:
   m_ObjectHideFlags: 0
