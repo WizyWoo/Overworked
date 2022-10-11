@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
+  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2598,6 +2598,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 873335012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &873335018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3569856404873890756, guid: 280af432d75fd4b4cacaf36fab8450de,
+    type: 3}
+  m_PrefabInstance: {fileID: 873335012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7cc723db3763f468113131635f1b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &873844871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3711,6 +3723,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 572693683}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1500480542 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3569856404873890756, guid: 280af432d75fd4b4cacaf36fab8450de,
+    type: 3}
+  m_PrefabInstance: {fileID: 981294652}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7cc723db3763f468113131635f1b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1520449983
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,6 +4183,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1781557271}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1781557277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3569856404873890756, guid: 280af432d75fd4b4cacaf36fab8450de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1781557271}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7cc723db3763f468113131635f1b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1841700671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4269,6 +4305,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1841700671}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1841700677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3569856404873890756, guid: 280af432d75fd4b4cacaf36fab8450de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1841700671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7cc723db3763f468113131635f1b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1854151310
 GameObject:
   m_ObjectHideFlags: 0
@@ -4803,22 +4851,14 @@ MonoBehaviour:
   duration: 20
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1781557277}
+  - {fileID: 1500480542}
+  - {fileID: 873335018}
+  - {fileID: 1841700677}
   FasterSpawners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  fasterRobotRail:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1174088878}
+  - {fileID: 1602229224}
+  fasterRobotRail: []
   bossText: {fileID: 120414732}
   dialoguePanel: {fileID: 120414731}
   bossFace: {fileID: 120414730}

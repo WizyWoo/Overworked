@@ -1895,7 +1895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082c8a6ab30de1540a43a81af0c94f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpMultiplier: 2
+  speedUpMultiplier: 5
   startSpeedingThingsIn: 100
   duration: 20
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
@@ -1903,8 +1903,7 @@ MonoBehaviour:
   - {fileID: 1841700673}
   FasterSpawners:
   - {fileID: 1046046366}
-  fasterRobotRail:
-  - {fileID: 0}
+  fasterRobotRail: []
   bossText: {fileID: 1278097472}
   dialoguePanel: {fileID: 250908094}
   bossFace: {fileID: 760515625}
