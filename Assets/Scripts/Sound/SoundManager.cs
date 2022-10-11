@@ -158,6 +158,8 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    public void PlayOneShot(EventReference _soundEvent, GameObject _go) => RuntimeManager.PlayOneShot(_soundEvent, _go.transform.position);
+
     public void PlaySound(EventReference _soundEvent, GameObject _go, SoundType _type = SoundType.NoLoop)
     {
 
