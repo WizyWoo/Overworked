@@ -5370,6 +5370,13 @@ MonoBehaviour:
   staminaUI_back: {fileID: 4340042681524869928}
   sweatParticleSystem: {fileID: 8957812738161191568}
   arrow: {fileID: 4836250771972433829}
+  FallingSound:
+    Guid:
+      Data1: 141652590
+      Data2: 1088768506
+      Data3: 186855594
+      Data4: -1483855703
+    Path: event:/SFX/SFX_Player/SFX_Player_FallingOfMap
   itemGrabbed: {fileID: 0}
   exhaustedSound:
     Guid:
@@ -5420,6 +5427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Frozen: 0
+  doOnce: 0
   IceCubePNG: {fileID: 2796692025181037609}
 --- !u!114 &8509748272355988883
 MonoBehaviour:

@@ -7,6 +7,7 @@ using DG.Tweening;
 using System.Linq;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class PlayerController : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image staminaUI_back;
     [SerializeField] ParticleSystem sweatParticleSystem;
     [SerializeField] GameObject arrow;
+    
+    [SerializeField] EventReference FallingSound;
     // Grabbing
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
     // The time it takes the character to grab an item before he can moves
     float grabTime = .5f;
     // Returns true if this character is grabbing an item right now
-    bool currentlyGrabbingAnItem;
+    bool currentlyGrabbingAnItem, falling;
 
     bool inGenerator;
     Generator generator;
@@ -386,7 +389,14 @@ public class PlayerController : MonoBehaviour
     #region Movement
 
     private void FixedUpdate()
-    { Movement(); }
+    { Movement(); if(transform.position.y < -1 && !falling)
+                {
+                    falling = true;
+                    SoundManager.Instance.PlaySound(FallingSound, gameObject);
+                }else if(transform.position.y > -1)
+                {
+                    falling = false;
+                }}
 
     private void Movement()
     {
