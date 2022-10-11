@@ -19006,7 +19006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayPoint: {fileID: 883162412}
   UseRange: 3
-  CraftingSpeed: 50
+  CraftingSpeed: 30
   WorkIntensity: 2
   AutoRepair: 0
   SoundEvent:
