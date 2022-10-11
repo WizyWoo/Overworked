@@ -5232,7 +5232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUpMultiplier: 3
-  startSpeedingThingsIn: 5
+  startSpeedingThingsIn: 100
   duration: 20
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
   fasterConveyorBelts:
