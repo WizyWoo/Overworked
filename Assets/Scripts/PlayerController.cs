@@ -471,7 +471,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnDisable() => workingOnStation.Activate(null, false);
+    private void OnDisable()
+    {
+        if(workingOnStation != null)
+            workingOnStation.Activate(null, false);
+    }
 
     #endregion
     private void FlipAnimAndRotateArrow()
