@@ -13,6 +13,7 @@ public class FreezingStation : WorkStation
     public FMODUnity.EventReference FreezeSoundEvent;
 
     [SerializeField] bool freezing;
+    [SerializeField] ParticleSystem[] particles;
 
     private void Start()
     {
@@ -49,6 +50,15 @@ public class FreezingStation : WorkStation
     private void Update()
     {
         freezeRay.SetActive(freezing);
+        foreach (ParticleSystem p in particles)
+        {
+
+            if(!p.isPlaying && freezing)
+                p.Play();
+            else if(!freezing)
+                p.Stop();
+            
+        }
 
         if (!UsedBy && !AutoRepair || OutOfPower)
         {

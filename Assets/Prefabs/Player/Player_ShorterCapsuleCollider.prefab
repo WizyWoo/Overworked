@@ -5203,8 +5203,8 @@ GameObject:
   - component: {fileID: 8509748272355988883}
   - component: {fileID: 7669628409523345674}
   - component: {fileID: 7669628409523345675}
-  - component: {fileID: 7669628409523345684}
   - component: {fileID: 7669628409523345672}
+  - component: {fileID: 4599691771296287726}
   m_Layer: 7
   m_Name: Player_ShorterCapsuleCollider
   m_TagString: Untagged
@@ -5271,6 +5271,13 @@ MonoBehaviour:
   staminaUI_back: {fileID: 4340042681524869928}
   sweatParticleSystem: {fileID: 8957812738161191568}
   arrow: {fileID: 4836250771972433829}
+  FallingSound:
+    Guid:
+      Data1: 141652590
+      Data2: 1088768506
+      Data3: 186855594
+      Data4: -1483855703
+    Path: event:/SFX/SFX_Player/SFX_Player_FallingOfMap
   itemGrabbed: {fileID: 0}
   exhaustedSound:
     Guid:
@@ -5493,20 +5500,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7669628409523345684
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7669628409523345686}
-  m_Material: {fileID: 13400000, guid: 0fce656a23dff874991cc1f613df86e5, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7669628409523345672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5523,6 +5516,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &4599691771296287726
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669628409523345686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7669628409591314816
 GameObject:
   m_ObjectHideFlags: 0

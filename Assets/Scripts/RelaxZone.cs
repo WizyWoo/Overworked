@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class RelaxZone : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RelaxZone : MonoBehaviour
     [SerializeField] float relaxSpeed;
 
     [SerializeField] ParticleSystem particleSys;
+    [SerializeField] EventReference HealingSound;
 
     private void Awake()
     {
@@ -26,7 +28,10 @@ public class RelaxZone : MonoBehaviour
             player.Relaxing(relaxSpeed);
 
             if (!particleSys.isPlaying)
+            {
                 particleSys.Play();
+                SoundManager.Instance.PlaySound(HealingSound, gameObject);
+            }
         }
     }
 

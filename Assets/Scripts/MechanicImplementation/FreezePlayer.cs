@@ -7,10 +7,11 @@ public class FreezePlayer : MonoBehaviour
     public bool Frozen, doOnce;
     public GameObject IceCubePNG;
     private float Timer;
+    public FMODUnity.EventReference FreezingSound, UnfreezingSound;
     // Start is called before the first frame update
     void Start()
     {
-        
+        IceCubePNG.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class FreezePlayer : MonoBehaviour
             gameObject.GetComponent<PlayerController>().enabled = true;
             doOnce = true;
             Timer = 2;
+            SoundManager.Instance.PlaySound(UnfreezingSound,gameObject);
         }
         if (Frozen == true)
         {
@@ -34,6 +36,7 @@ public class FreezePlayer : MonoBehaviour
             gameObject.GetComponent<PlayerController>().enabled = false;
             Timer -= Time.deltaTime;
             doOnce = false;
+            SoundManager.Instance.PlaySound(FreezingSound, gameObject);
         }
     }
 }

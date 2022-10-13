@@ -466,9 +466,9 @@ GameObject:
   - component: {fileID: 2412234843627154072}
   - component: {fileID: 4399654409153324545}
   - component: {fileID: 4399654409153324544}
-  - component: {fileID: 4399654409153324575}
   - component: {fileID: 4399654409153324547}
   - component: {fileID: 4698202925202419692}
+  - component: {fileID: -6442578356461856820}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -536,6 +536,13 @@ MonoBehaviour:
   staminaUI_back: {fileID: 7735959217342800931}
   sweatParticleSystem: {fileID: 8941736650439707026}
   arrow: {fileID: 4228482623492325101}
+  FallingSound:
+    Guid:
+      Data1: 141652590
+      Data2: 1088768506
+      Data3: 186855594
+      Data4: -1483855703
+    Path: event:/SFX/SFX_Player/SFX_Player_FallingOfMap
   itemGrabbed: {fileID: 0}
   exhaustedSound:
     Guid:
@@ -758,20 +765,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4399654409153324575
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4399654409153324573}
-  m_Material: {fileID: 13400000, guid: 0fce656a23dff874991cc1f613df86e5, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4399654409153324547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -801,7 +794,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Frozen: 0
+  doOnce: 0
   IceCubePNG: {fileID: 2352199067774629656}
+  FreezingSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  UnfreezingSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!136 &-6442578356461856820
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399654409153324573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5510818267795906499
 GameObject:
   m_ObjectHideFlags: 0

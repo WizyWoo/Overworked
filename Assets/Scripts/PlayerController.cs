@@ -7,6 +7,7 @@ using DG.Tweening;
 using System.Linq;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class PlayerController : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image staminaUI_back;
     [SerializeField] ParticleSystem sweatParticleSystem;
     [SerializeField] GameObject arrow;
+    
+    [SerializeField] EventReference FallingSound;
     // Grabbing
     // The current item that the player is grabbing,
     // If it is null, the player is not grabbing anything
@@ -58,8 +61,8 @@ public class PlayerController : MonoBehaviour
     // The time it takes the character to grab an item before he can moves
     float grabTime = .5f;
     // Returns true if this character is grabbing an item right now
-    bool currentlyGrabbingAnItem;
-
+    bool currentlyGrabbingAnItem, falling;
+    IInteractable workingOnStation;
     bool inGenerator;
     Generator generator;
     public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound, throwItemSound, dropItemSound;
@@ -386,7 +389,14 @@ public class PlayerController : MonoBehaviour
     #region Movement
 
     private void FixedUpdate()
-    { Movement(); }
+    { Movement(); if(transform.position.y < -1 && !falling)
+                {
+                    falling = true;
+                    SoundManager.Instance.PlaySound(FallingSound, gameObject);
+                }else if(transform.position.y > -1)
+                {
+                    falling = false;
+                }}
 
     private void Movement()
     {
@@ -428,6 +438,7 @@ public class PlayerController : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
+
         Collider[] _interactables = Physics.OverlapSphere(transform.position, 3, 1 << LayerMask.NameToLayer("Interactable"));
 
         if (_interactables.Length == 0)
@@ -450,12 +461,20 @@ public class PlayerController : MonoBehaviour
         if (context.canceled)
         {
             _closestInteractable.Activate(null, false);
+            workingOnStation = null;
         }
         else
         {
             _closestInteractable.Activate(transform, true);
+            workingOnStation = _closestInteractable;
         }
 
+    }
+
+    private void OnDisable()
+    {
+        if(workingOnStation != null)
+            workingOnStation.Activate(null, false);
     }
 
     #endregion

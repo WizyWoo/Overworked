@@ -21,6 +21,7 @@ public class PartReceiver : MonoBehaviour
 
         if (item != null && item.typeOfItem == CraftableItem.TypeOfRepairableItem.bucket && currentItem == null && item.Assembled)
         {
+            Debug.Log(item.Assembled);
             PlayerController pl = item.transform.GetComponentInParent<PlayerController>();
             if (pl != null)
             {
