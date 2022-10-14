@@ -439,6 +439,9 @@ public class PlayerController : MonoBehaviour
     public void Interact(InputAction.CallbackContext context)
     {
 
+        if(!this.enabled)
+            return;
+
         Collider[] _interactables = Physics.OverlapSphere(transform.position, 3, 1 << LayerMask.NameToLayer("Interactable"));
 
         if (_interactables.Length == 0)
