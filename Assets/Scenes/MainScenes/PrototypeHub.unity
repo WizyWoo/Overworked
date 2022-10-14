@@ -2956,13 +2956,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
         type: 3}
-      propertyPath: TotalDebt
-      value: 500000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
-        type: 3}
       propertyPath: TotalMoney
-      value: 100
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8482794919417174579, guid: 76edd319476361e4eab620a03f5ffb2e,
         type: 3}
@@ -6672,6 +6667,7 @@ GameObject:
   - component: {fileID: 1732803411}
   - component: {fileID: 1732803413}
   - component: {fileID: 1732803412}
+  - component: {fileID: 1732803414}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6796,6 +6792,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732803410}
   m_CullTransparentMesh: 1
+--- !u!114 &1732803414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732803410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d03ab2fb006b4b4ab3cee6494025200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 0}
 --- !u!1 &1735667038
 GameObject:
   m_ObjectHideFlags: 0

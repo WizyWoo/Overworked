@@ -29,6 +29,11 @@ public class MoneySink : MonoBehaviour
             
         }
 
+        if(GameManager.instance.FirstTimeRent == false)
+        {
+            Rent = Money * 1.69f; //Nice
+            GameManager.instance.FirstTimeRent = true;
+        }
         //we then take 1% of the debt and add it to the total, and further make it crazy huge
         Debt = GameManager.instance.TotalDebt;
         bonusDebt = Debt * 0.01f;
@@ -37,32 +42,38 @@ public class MoneySink : MonoBehaviour
         Debt += bonusDebt;
         //we then update the text here and get numbers for tax, adjust them as needed for balance and to rub it in.
         MoneyText.text = "Money: " + Money;
-        Tax = Money * 0.1f;
+        Tax = 20;
         TaxText.text = "Tax: " + Tax;
+        Debt -= LeftoverMoney;
         DebtText.text = "Debt: " + Debt;
-        
+        LeftoverMoneyText.text = " ";
         Rent = Money * 0.69f; //Nice
         RentText.text = "Rent: " + Rent;
-        LeftoverMoney = Money - (Tax + Rent);
-        LeftoverMoneyText.text = "After Fees: " + LeftoverMoney;
-        GameManager.instance.TotalMoney -= ((int)Rent + (int)Tax);
+       
+        GameManager.instance.TotalMoney -= ((int)Rent + (int)Tax + (int)LeftoverMoney);
     }
 
     // Update is called once per frame
     void Update()
     {
        
-       
+       if(GameManager.instance.TotalMoney < 0)
+        {
+            GameManager.instance.Overtime = true;
+        }
         
     }
     //we pay off rent here using PayPal, jokes aside it just checks if you have paid the landlord "today"
     //and if not it doesnt remove what's left of your money
-    public void PaidDebt()
+  
+    
+    //Currently unused main leftover money bit moved to main function and done automatically
+    /*  public void PaidDebt()
     {
-        Debt -= LeftoverMoney;
+        
         PayPal = true;
         LeftoverMoney = 0;
         GameManager.instance.TotalMoney = 0;
         
-    }
+    }*/
 }

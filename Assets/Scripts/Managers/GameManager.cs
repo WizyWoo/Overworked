@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool onlyOnePlayer;
 
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;
-
+    public bool FirstTimeRent, Overtime;
     private void Awake()
     {
         // Singleton
