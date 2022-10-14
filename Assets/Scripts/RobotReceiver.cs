@@ -18,7 +18,7 @@ public class RobotReceiver : MonoBehaviour
     {
         CraftableItem item = other.GetComponent<CraftableItem>();
 
-        if (item != null && item.typeOfItem == CraftableItem.TypeOfRepairableItem.robot && currentItem == null)
+        if (item != null && item.typeOfItem == CraftableItem.TypeOfRepairableItem.robot && currentItem == null && item.Assembled)
         {
             PlayerController pl = item.transform.GetComponentInParent<PlayerController>();
             if (pl != null)

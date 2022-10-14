@@ -4961,6 +4961,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relaxSpeed: 10
   particleSys: {fileID: 3271728028963637303}
+  HealingSound:
+    Guid:
+      Data1: 1675461795
+      Data2: 1315655565
+      Data3: -1023359356
+      Data4: -202928073
+    Path: event:/SFX/SFX_Machine/SFX_M_Healing
 --- !u!65 &8374386666172676021
 BoxCollider:
   m_ObjectHideFlags: 0

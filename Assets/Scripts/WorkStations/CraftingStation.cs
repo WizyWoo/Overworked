@@ -173,6 +173,7 @@ public class CraftingStation : WorkStation
 
                 CraftingItem.Assembled = true;
                 CraftingItem.NeedsCrafting = false;
+                SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
 
             }
             else

@@ -228,6 +228,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovePower: 0
+  ConveyorHitSound:
+    Guid:
+      Data1: 1976106917
+      Data2: 1195894226
+      Data3: 1115953287
+      Data4: -1255177485
+    Path: event:/SFX/SFX_Player/SFX_Player_HitByConv
 --- !u!54 &-8936760753991050509
 Rigidbody:
   m_ObjectHideFlags: 0
