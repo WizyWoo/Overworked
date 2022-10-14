@@ -4,6 +4,7 @@ Shader "Poggers/LavaShader"
     {
         _MainTex ("Texture", 2D) = "white" {}
         Multiplier ("Multiplier for lava pos", Float) = 0
+        Repo ("Reposition amount", Float) = 0
     }
     SubShader
     {
@@ -35,11 +36,12 @@ Shader "Poggers/LavaShader"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            Float Repo;
 
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.vertex = UnityObjectToClipPos(v.vertex + float4(Repo, Repo, Repo, 0));
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
@@ -50,7 +52,7 @@ Shader "Poggers/LavaShader"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, float2(i.uv.x * Multiplier, i.uv.y * Multiplier));
+                fixed4 col = tex2D(_MainTex, float2(abs(sin(i.uv.x * Multiplier + _Time[1])), abs(sin(i.uv.y * Multiplier + _Time[1]))));
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
