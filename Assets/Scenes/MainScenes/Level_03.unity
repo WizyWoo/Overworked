@@ -958,7 +958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402569221}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: FreezeRayParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1939,7 +1939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 883162412}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RDP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2396,7 +2396,7 @@ GameObject:
   - component: {fileID: 1129109726}
   - component: {fileID: 1129109725}
   - component: {fileID: 1129109724}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GunParts (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4891,6 +4891,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 6001992408297006589, guid: 1445e34ca102a4f4da5bb0c10b13f889,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001992408446856301, guid: 1445e34ca102a4f4da5bb0c10b13f889,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1445e34ca102a4f4da5bb0c10b13f889, type: 3}
 --- !u!114 &6481454893680025338
@@ -4916,7 +4926,7 @@ GameObject:
   - component: {fileID: 6481454893680025342}
   - component: {fileID: 6481454893680025343}
   - component: {fileID: 6481454893680025338}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: FreezeRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5013,7 +5023,7 @@ GameObject:
   - component: {fileID: 6481454894101981093}
   - component: {fileID: 6481454894101981092}
   - component: {fileID: 6481454894101981115}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GunParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5227,7 +5237,7 @@ GameObject:
   - component: {fileID: 6481454894724448090}
   - component: {fileID: 6481454894724448089}
   - component: {fileID: 6481454894724448088}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GunParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}

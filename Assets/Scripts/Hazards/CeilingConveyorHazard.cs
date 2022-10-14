@@ -12,8 +12,6 @@ public class CeilingConveyorHazard : MonoBehaviour
     public List<int> curPoint;
     private List<float> armTravelTimer, curDist;
 
-    //spawn arm, make it follow rail, test if knock off player
-
     private void Start()
     {
 

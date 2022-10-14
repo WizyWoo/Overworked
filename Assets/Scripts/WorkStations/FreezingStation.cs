@@ -60,6 +60,9 @@ public class FreezingStation : WorkStation
             
         }
 
+        if(UsedBy)
+            freezing = true;
+
         if (!UsedBy && !AutoRepair || OutOfPower)
         {
             freezing = false;
@@ -68,7 +71,7 @@ public class FreezingStation : WorkStation
         }
         else if (UsedBy && !AutoRepair)
         {
-            if (Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange && !AutoRepair)
+            if (Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange)
             {
                 InUse = false;
                 freezing = false;
@@ -88,13 +91,13 @@ public class FreezingStation : WorkStation
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
                 if (CraftingItem.Progress >= 100)
                 {
-                    freezing = false;
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                     RemoveItem(CraftingItem);
                 }
                 else SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
             }
-            else { SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject); freezing = false; }
+            else 
+                SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
         }
         else if (AutoRepair && CraftingItem)
         {
@@ -104,14 +107,14 @@ public class FreezingStation : WorkStation
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
                 if (CraftingItem.Progress >= 100)
                 {
-                    freezing = false;
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                     SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
                     RemoveItem(CraftingItem);
                 }
                 else SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
             }
-            else { SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject); freezing = false; }
+            else
+                SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
         }
 
     }
