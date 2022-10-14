@@ -21,6 +21,36 @@ public class FreezingStation : WorkStation
         //freezeRay.transform.localScale = new Vector3((freezeRay.transform.position.x - transform.position.x), freezeRay.transform.localScale.y, freezeRay.transform.localScale.z);
     }
 
+    public override void Activate(Transform _player = null, bool _buttonDown = true)
+    {
+
+        if(!_player)
+        {
+
+            InUse = false;
+            UsedBy = null;
+            return;
+
+        }
+        else
+        {
+
+            InUse = _buttonDown;
+            UsedBy = _player.GetComponent<PlayerController>();
+
+        }
+
+        if(!ItemOnStation && _player.GetComponent<PlayerController>().itemGrabbed)
+        {
+            PlayerController _pC = _player.GetComponent<PlayerController>();
+            PlaceItem(_pC.itemGrabbed);
+
+            if(ItemOnStation == _pC.itemGrabbed)
+                _pC.itemGrabbed = null;            
+        }
+
+    }
+
     //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
     {
@@ -69,7 +99,7 @@ public class FreezingStation : WorkStation
             SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
             return;
         }
-        else if (UsedBy && !AutoRepair)
+        else if (UsedBy && !AutoRepair && CraftingItem)
         {
             if (Vector3.Distance(UsedBy.transform.position, transform.position) > UseRange)
             {
@@ -86,7 +116,6 @@ public class FreezingStation : WorkStation
             }
             if (InUse && CraftingItem.typeOfItem == itemToFreeze && !AutoRepair)
             {
-                freezing = true;
                 UsedBy.DoingWork(WorkIntensity);
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
                 if (CraftingItem.Progress >= 100)

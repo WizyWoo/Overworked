@@ -23,7 +23,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public GrabbableItem ItemOnStation;
     [HideInInspector]
     public CraftableItem CraftingItem;
-    [HideInInspector]
+    //[HideInInspector]
     public PlayerController UsedBy;
 
     //This shite happens when the player interacts with the station
