@@ -48,5 +48,5 @@ MonoBehaviour:
   finishedMoneyLevel: 0
   amountOfStars: 0
   minimumMoney: 0
-  TotalMoney: 100
-  TotalDebt: 500000
+  TotalMoney: 0
+  TotalDebt: 0
