@@ -23,7 +23,7 @@ public class MoneySink : MonoBehaviour
         //then if it is exactly zero, we get a new debt, unlikely to happen during normal play but it is possible.
         if (GameManager.instance.TotalDebt == 0 )
         {
-            Debt =  Random.Range(100, 1000);
+            Debt =  Random.Range(10, 100);
             
             GameManager.instance.TotalDebt = ((int)Debt);
             
@@ -31,9 +31,13 @@ public class MoneySink : MonoBehaviour
 
         if(GameManager.instance.FirstTimeRent == false)
         {
-            Rent = Money * 1.69f; //Nice
+            Rent = Money *1.01f; 
             GameManager.instance.FirstTimeRent = true;
+            goto FirstRent;
         }
+
+        Rent += Money * 0.69f; //Nice
+    FirstRent:;
         //we then take 1% of the debt and add it to the total, and further make it crazy huge
         Debt = GameManager.instance.TotalDebt;
         bonusDebt = Debt * 0.01f;
@@ -44,13 +48,13 @@ public class MoneySink : MonoBehaviour
         MoneyText.text = "Money: " + Money;
         Tax = 20;
         TaxText.text = "Tax: " + Tax;
-        Debt -= LeftoverMoney;
+        
         DebtText.text = "Debt: " + Debt;
         LeftoverMoneyText.text = " ";
-        Rent = Money * 0.69f; //Nice
+        
         RentText.text = "Rent: " + Rent;
        
-        GameManager.instance.TotalMoney -= ((int)Rent + (int)Tax + (int)LeftoverMoney);
+        GameManager.instance.TotalMoney -= ((int)Rent + (int)Tax);
     }
 
     // Update is called once per frame
