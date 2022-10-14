@@ -8,19 +8,19 @@ public class CeilingConveyorHazard : MonoBehaviour
     public float SpawnTimeMin, SpawnTimeMax, ConveyorSpeed, DistFromPoint;
     public GameObject ConveyorArmPrefab;
     public Transform[] RailPoints;
-    public List<Transform> Arms;
-    public List<int> CurPoint;
-    public List<float> ArmTravelTimer, CurDist;
+    public List<Transform> arms;
+    public List<int> curPoint;
+    private List<float> armTravelTimer, curDist;
 
     //spawn arm, make it follow rail, test if knock off player
 
     private void Start()
     {
 
-        Arms = new List<Transform>();
-        CurPoint = new List<int>();
-        ArmTravelTimer = new List<float>();
-        CurDist = new List<float>();
+        arms = new List<Transform>();
+        curPoint = new List<int>();
+        armTravelTimer = new List<float>();
+        curDist = new List<float>();
         Invoke(nameof(SpawnArm), 1);
 
     }
@@ -28,19 +28,19 @@ public class CeilingConveyorHazard : MonoBehaviour
     private void Update()
     {
 
-        if(Arms.Count > 0)
+        if(arms.Count > 0)
         {
 
-            for(int i = 0; i < Arms.Count; i++)
+            for(int i = 0; i < arms.Count; i++)
             {
 
-                ArmTravelTimer[i] += Time.deltaTime * ConveyorSpeed;
+                armTravelTimer[i] += Time.deltaTime * ConveyorSpeed;
 
-                if(Vector3.Distance(Arms[i].position, RailPoints[CurPoint[i]].position) < DistFromPoint)
+                if(Vector3.Distance(arms[i].position, RailPoints[curPoint[i]].position) < DistFromPoint)
                 {
 
-                    CurPoint[i]++;
-                    if(CurPoint[i] == RailPoints.Length)
+                    curPoint[i]++;
+                    if(curPoint[i] == RailPoints.Length)
                     {
 
                         RemoveArm(i);
@@ -49,8 +49,8 @@ public class CeilingConveyorHazard : MonoBehaviour
                     else
                     {
 
-                        CurDist[i] = Vector3.Distance(RailPoints[CurPoint[i] - 1].position, RailPoints[CurPoint[i]].position);
-                        ArmTravelTimer[i] = 0;
+                        curDist[i] = Vector3.Distance(RailPoints[curPoint[i] - 1].position, RailPoints[curPoint[i]].position);
+                        armTravelTimer[i] = 0;
 
                     }
 
@@ -58,7 +58,7 @@ public class CeilingConveyorHazard : MonoBehaviour
                 else
                 {
 
-                    Arms[i].position = Vector3.Lerp(RailPoints[CurPoint[i]-1].position, RailPoints[CurPoint[i]].position, ArmTravelTimer[i] / CurDist[i]);
+                    arms[i].position = Vector3.Lerp(RailPoints[curPoint[i]-1].position, RailPoints[curPoint[i]].position, armTravelTimer[i] / curDist[i]);
 
                 }
 
@@ -71,11 +71,11 @@ public class CeilingConveyorHazard : MonoBehaviour
     private void RemoveArm(int _index)
     {
 
-        Destroy(Arms[_index].gameObject);
-        Arms.RemoveAt(_index);
-        CurPoint.RemoveAt(_index);
-        ArmTravelTimer.RemoveAt(_index);
-        CurDist.RemoveAt(_index);
+        Destroy(arms[_index].gameObject);
+        arms.RemoveAt(_index);
+        curPoint.RemoveAt(_index);
+        armTravelTimer.RemoveAt(_index);
+        curDist.RemoveAt(_index);
 
     }
 
@@ -85,10 +85,10 @@ public class CeilingConveyorHazard : MonoBehaviour
         GameObject _tempGO = Instantiate(ConveyorArmPrefab, RailPoints[0].position, Quaternion.identity);
         _tempGO.GetComponent<ConveyorArm>().MovePower = ConveyorSpeed;
 
-        Arms.Add(_tempGO.transform);
-        CurPoint.Add(1);
-        ArmTravelTimer.Add(0);
-        CurDist.Add(Vector3.Distance(RailPoints[0].position, RailPoints[1].position));
+        arms.Add(_tempGO.transform);
+        curPoint.Add(1);
+        armTravelTimer.Add(0);
+        curDist.Add(Vector3.Distance(RailPoints[0].position, RailPoints[1].position));
         Invoke(nameof(SpawnArm), Random.Range(SpawnTimeMin, SpawnTimeMax));
 
     }

@@ -58,7 +58,6 @@ public class ElectricStationHazard : MonoBehaviour
         if(_col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
 
-            Debug.Log("Electrified");
             CancelInvoke();
             StopAllCoroutines();
 

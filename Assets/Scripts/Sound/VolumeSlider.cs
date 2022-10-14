@@ -5,6 +5,40 @@ using UnityEngine.UI;
 using FMOD.Studio;
 using FMODUnity;
 
+#if UNITY_EDITOR
+
+namespace VolumeSliderCustomEditor
+{
+
+    using UnityEditor;
+
+    [CustomEditor(typeof(VolumeSlider))]
+    public class SoundManagerEditor : Editor
+    {
+
+        public override void OnInspectorGUI()
+        {
+
+            DrawDefaultInspector();
+
+            SoundManager _sM = (SoundManager)target;
+
+            GUILayout.Label("Click me :)");
+            if(GUILayout.Button("Press plz"))
+            {
+
+                Debug.Log("I am D pressed");
+
+            }
+
+        }
+
+    }
+    
+}
+
+#endif
+
 public class VolumeSlider : MonoBehaviour
 {
 
