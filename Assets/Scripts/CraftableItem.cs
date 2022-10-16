@@ -12,6 +12,7 @@ namespace CustomStuffPog
     {
         public override void OnInspectorGUI()
         {
+
             base.OnInspectorGUI();
 
             GUILayout.Label("Touch me :3");
@@ -32,10 +33,6 @@ namespace CustomStuffPog
 
 public class CraftableItem : GrabbableItem
 {
-
-    //Custom editor values
-
-
     //Regular stuff
     public enum TypeOfRepairableItem { arm, wheel, head, body, robot, battery, bucket, armOutline, wheelOutline }
 
@@ -44,6 +41,9 @@ public class CraftableItem : GrabbableItem
     public bool NeedsCrafting;
     [SerializeField, Tooltip("Recolours the item when it is assembled")]
     protected bool recolorWhenDone;
+    public bool ResizeWhenDone;
+    public Vector2 NewSize;
+    public GameObject TurnOffWhenDone;
     [SerializeField]
     protected Color newColor;
     [SerializeField]
@@ -95,8 +95,12 @@ public class CraftableItem : GrabbableItem
         ProgressIndicator.size = Vector2.zero;
         NeedsCrafting = false;
 
-        if (recolorWhenDone)
+        if(recolorWhenDone)
             ItemSprite.color = newColor;
+        if(TurnOffWhenDone)
+            TurnOffWhenDone.SetActive(false);
+        if(ResizeWhenDone)
+            ItemSprite.transform.localScale = NewSize;
 
         if (typeOfItem == TypeOfRepairableItem.arm)
             TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
