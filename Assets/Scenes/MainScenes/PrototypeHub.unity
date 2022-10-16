@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2957,7 +2957,7 @@ PrefabInstance:
     - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
         type: 3}
       propertyPath: TotalMoney
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8482794919417174579, guid: 76edd319476361e4eab620a03f5ffb2e,
         type: 3}
@@ -6127,7 +6127,6 @@ MonoBehaviour:
   Rent: 0
   LeftoverMoney: 0
   bonusDebt: 0
-  PayPal: 0
 --- !u!4 &1558965376
 Transform:
   m_ObjectHideFlags: 0

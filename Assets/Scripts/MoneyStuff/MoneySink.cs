@@ -6,7 +6,7 @@ public class MoneySink : MonoBehaviour
 {
     public float Money, Tax, Debt, Rent, LeftoverMoney, bonusDebt;
     private Text MoneyText, TaxText, DebtText, RentText, LeftoverMoneyText;
-    public bool PayPal;
+    
     
     // Start is called before the first frame update
     void Start()
