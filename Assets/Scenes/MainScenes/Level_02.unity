@@ -5236,7 +5236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082c8a6ab30de1540a43a81af0c94f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpMultiplier: 3
+  speedUpMultiplier: 1
   startSpeedingThingsIn: 100
   duration: 20
   sentence: WORK FASTEEEEEER YOU IDIOT!!!
