@@ -399,6 +399,36 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
+        type: 3}
+      propertyPath: Params.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/AMBX/AMBX_LavaLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1396471351
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1234419268
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -685876816
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195353477995076380, guid: 425eaea56406c9941953afed2505a562,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -830219367
+      objectReference: {fileID: 0}
     - target: {fileID: 2195353477995076382, guid: 425eaea56406c9941953afed2505a562,
         type: 3}
       propertyPath: m_RootOrder
@@ -459,7 +489,8 @@ PrefabInstance:
       propertyPath: LevelLenght
       value: 150
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7233600403256964121, guid: 425eaea56406c9941953afed2505a562, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 425eaea56406c9941953afed2505a562, type: 3}
 --- !u!1001 &153999507
 PrefabInstance:
