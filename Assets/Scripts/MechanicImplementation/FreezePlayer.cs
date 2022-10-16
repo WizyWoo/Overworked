@@ -5,6 +5,7 @@ using UnityEngine;
 public class FreezePlayer : MonoBehaviour
 {
     public bool Frozen, doOnce;
+    public float FreezeTime;
     public GameObject IceCubePNG;
     private float Timer;
     public FMODUnity.EventReference FreezingSound, UnfreezingSound;
@@ -13,7 +14,7 @@ public class FreezePlayer : MonoBehaviour
     {
         IceCubePNG.SetActive(false);
         doOnce = true;
-        Timer = 2;
+        Timer = FreezeTime;
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class FreezePlayer : MonoBehaviour
             IceCubePNG.SetActive(false);
             gameObject.GetComponent<PlayerController>().enabled = true;
             doOnce = true;
-            Timer = 2;
+            Timer = FreezeTime;
             SoundManager.Instance.PlayOneShot(UnfreezingSound,gameObject);
         }
        
