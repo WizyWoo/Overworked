@@ -12,6 +12,7 @@ public class FreezePlayer : MonoBehaviour
     void Start()
     {
         IceCubePNG.SetActive(false);
+        doOnce = true;
     }
 
     // Update is called once per frame
