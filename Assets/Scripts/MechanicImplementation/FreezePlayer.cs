@@ -17,10 +17,22 @@ public class FreezePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Timer <= 0 )
+        if (Timer < 0 )
         {
             Frozen = false;
 
+        }
+        if (Frozen == true)
+        {
+            IceCubePNG.SetActive(true);
+            gameObject.GetComponent<PlayerController>().enabled = false;
+            Timer -= Time.deltaTime;
+            if (doOnce == true)
+            {
+                doOnce = false;
+                SoundManager.Instance.PlayOneShot(FreezingSound, gameObject);
+            }
+            
         }
         if (Frozen == false && doOnce == false)
         {
@@ -28,15 +40,8 @@ public class FreezePlayer : MonoBehaviour
             gameObject.GetComponent<PlayerController>().enabled = true;
             doOnce = true;
             Timer = 2;
-            SoundManager.Instance.PlaySound(UnfreezingSound,gameObject);
+            SoundManager.Instance.PlayOneShot(UnfreezingSound,gameObject);
         }
-        if (Frozen == true)
-        {
-            IceCubePNG.SetActive(true);
-            gameObject.GetComponent<PlayerController>().enabled = false;
-            Timer -= Time.deltaTime;
-            doOnce = false;
-            SoundManager.Instance.PlaySound(FreezingSound, gameObject);
-        }
+       
     }
 }
