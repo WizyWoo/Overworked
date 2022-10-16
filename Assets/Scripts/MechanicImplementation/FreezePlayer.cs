@@ -13,6 +13,7 @@ public class FreezePlayer : MonoBehaviour
     {
         IceCubePNG.SetActive(false);
         doOnce = true;
+        Timer = 2;
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class FreezePlayer : MonoBehaviour
             Frozen = false;
 
         }
+        
         if (Frozen == true)
         {
             IceCubePNG.SetActive(true);
