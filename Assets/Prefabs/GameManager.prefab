@@ -48,5 +48,7 @@ MonoBehaviour:
   finishedMoneyLevel: 0
   amountOfStars: 0
   minimumMoney: 0
-  TotalMoney: 0
+  TotalMoney: 100
   TotalDebt: 0
+  FirstTimeRent: 1
+  Overtime: 0
