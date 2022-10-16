@@ -5461,6 +5461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Frozen: 0
   doOnce: 0
+  FreezeTime: 3
   IceCubePNG: {fileID: 3851001002053487052}
   FreezingSound:
     Guid:
