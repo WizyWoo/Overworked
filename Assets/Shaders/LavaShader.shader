@@ -3,12 +3,13 @@ Shader "Poggers/LavaShader"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        AlphaMapTex ("Alpha map texture", 2D) = "white" {}
         Multiplier ("Multiplier for lava pos", Float) = 0
-        Repo ("Reposition amount", Float) = 0
+        TimeMult ("Time Reposition Multiplier", Float) = 0
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         LOD 100
 
         Pass
@@ -35,13 +36,14 @@ Shader "Poggers/LavaShader"
             };
 
             sampler2D _MainTex;
+            sampler2D AlphaMapTex;
             float4 _MainTex_ST;
-            Float Repo;
+            Float TimeMult;
 
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex + float4(Repo, Repo, Repo, 0));
+                o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
@@ -52,7 +54,12 @@ Shader "Poggers/LavaShader"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, float2(abs(sin(i.uv.x * Multiplier + _Time[1])), abs(sin(i.uv.y * Multiplier + _Time[1]))));
+                float2 pos = float2(abs(sin(i.uv.x + (Multiplier * _Time[1]))), abs(sin(i.uv.y + (Multiplier * _Time[1]))));
+                fixed4 col = tex2D(_MainTex, pos);
+                col.r = abs(sin(_Time[1] + col.r));
+                col.g = abs(sin(_Time[1] + 1 + col.g));
+                col.b = abs(sin(_Time[1] + 2 + col.b));
+                col.a = tex2D(AlphaMapTex, pos).a;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
