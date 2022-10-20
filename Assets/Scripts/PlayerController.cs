@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     float currentStamina;
     [SerializeField] float staminaCooldown;
     [SerializeField] float regainStaminaWhenExhausted;
+    [SerializeField] float staminaReducedWhenExhausted;
     [HideInInspector] public bool exhausted;
     [SerializeField] float regainStaminaSpeed;
     [SerializeField] Color zeroStamina;
@@ -183,6 +184,7 @@ public class PlayerController : MonoBehaviour
         {
             movementAnimator.SetBool("IsExhausted", true);
             SoundManager.Instance.PlaySound(exhaustedSound, gameObject);
+            maxStamina -= staminaReducedWhenExhausted;
             exhausted = true;
             gfxRed();
 
