@@ -186,12 +186,13 @@ public class PlayerController : MonoBehaviour
         // Exhausted ?
         if (currentStamina <= 0)
         {
+            maxStamina -= staminaReducedWhenExhausted;
             currentWorkCapacity--;
             workCapacitySlider.value = currentWorkCapacity;
 
             movementAnimator.SetBool("IsExhausted", true);
             SoundManager.Instance.PlaySound(exhaustedSound, gameObject);
-            maxStamina -= staminaReducedWhenExhausted;
+     
             exhausted = true;
             gfxRed();
 
