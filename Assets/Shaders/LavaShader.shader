@@ -42,7 +42,7 @@ Shader "Poggers/LavaShader"
             float2 pos;
             Float Multiplier;
 
-            v2f vert (appdata _inn)
+            v2f vert (appdata v)
             {
                 v2f o;
                 pos = float2(abs(sin(v.uv.x + (Multiplier * _Time[1]))), abs(sin(v.uv.y + (Multiplier * _Time[1]))));
