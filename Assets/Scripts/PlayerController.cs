@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     Vector2 dir;
 
     // Stamina
-
     [Header("Stamina")]
     [SerializeField] float maxStamina;
     float currentStamina;
@@ -35,6 +34,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Color zeroStamina;
     [SerializeField] Color midStamina;
     [SerializeField] Color fullStamina;
+    [SerializeField] float maxWorkCapacity;
+    [SerializeField] Slider workCapacitySlider;
+    float currentWorkCapacity;
 
     // References
     Rigidbody rb;
@@ -78,7 +80,9 @@ public class PlayerController : MonoBehaviour
 
         // Starting stamina
         currentStamina = maxStamina;
-
+        currentWorkCapacity = maxWorkCapacity;
+        workCapacitySlider.maxValue = maxWorkCapacity;
+        workCapacitySlider.value = maxWorkCapacity;
 
         sweatParticleSystem.Stop();
     }
@@ -182,6 +186,9 @@ public class PlayerController : MonoBehaviour
         // Exhausted ?
         if (currentStamina <= 0)
         {
+            currentWorkCapacity--;
+            workCapacitySlider.value = currentWorkCapacity;
+
             movementAnimator.SetBool("IsExhausted", true);
             SoundManager.Instance.PlaySound(exhaustedSound, gameObject);
             maxStamina -= staminaReducedWhenExhausted;
