@@ -9,12 +9,12 @@ Shader "Poggers/LavaShader"
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" }
+        Tags { "RenderType"="Transparent" "RenderPipeline" = "UniversalPipeline"}
         LOD 100
 
         Pass
         {
-            CGPROGRAM
+            HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
             // make fog work
@@ -39,32 +39,31 @@ Shader "Poggers/LavaShader"
             sampler2D AlphaMapTex;
             float4 _MainTex_ST;
             Float TimeMult;
+            float2 pos;
+            Float Multiplier;
 
-            v2f vert (appdata v)
+            v2f vert (appdata _inn)
             {
                 v2f o;
+                pos = float2(abs(sin(v.uv.x + (Multiplier * _Time[1]))), abs(sin(v.uv.y + (Multiplier * _Time[1]))));
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
-            Float Multiplier;
-
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                float2 pos = float2(abs(sin(i.uv.x + (Multiplier * _Time[1]))), abs(sin(i.uv.y + (Multiplier * _Time[1]))));
                 fixed4 col = tex2D(_MainTex, pos);
                 col.r = abs(sin(_Time[1] + col.r));
                 col.g = abs(sin(_Time[1] + 1 + col.g));
                 col.b = abs(sin(_Time[1] + 2 + col.b));
-                col.a = tex2D(AlphaMapTex, pos).a;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
             }
-            ENDCG
+            ENDHLSL
         }
     }
 }
