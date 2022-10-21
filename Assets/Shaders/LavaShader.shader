@@ -1,5 +1,8 @@
 Shader "Poggers/LavaShader"
 {
+    //float = high precision
+    //half = medium precision useful for positions / high dynamic range colors and short vectors, accurate down to 3 decimals
+    //fixed = low precision, useful for colors and simple operations, 1/256
     Properties
     {
         
@@ -19,10 +22,10 @@ Shader "Poggers/LavaShader"
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
-            struct Attributes
+
+            struct appdata
             {
 
                 float4 positionOS   : POSITION;
@@ -30,7 +33,7 @@ Shader "Poggers/LavaShader"
                 
             };
 
-            struct Varyings
+            struct v2f
             {
 
                 float4 positionHCS  : SV_POSITION;
@@ -47,20 +50,20 @@ Shader "Poggers/LavaShader"
 
             CBUFFER_END
 
-            Varyings vert(Attributes IN)
+            v2f vert(appdata i)
             {
 
-                Varyings OUT;
-                OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                OUT.uv = TRANSFORM_TEX(IN.uv, _Texture);
-                return OUT;
+                v2f o;
+                o.positionHCS = TransformObjectToHClip(i.positionOS.xyz);
+                o.uv = float2(i.uv.x + o.positionHCS.x, i.uv.y + o.positionHCS.z);
+                return o;
 
             }
             
             float _FlowDirX;
             float _FlowDirY;
 
-            half4 frag(Varyings IN) : SV_Target
+            half4 frag(v2f IN) : SV_Target
             {
 
                 half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(IN.uv.x + (_Time[1] * _FlowDirX), IN.uv.y + (_Time[1] * _FlowDirY)));
