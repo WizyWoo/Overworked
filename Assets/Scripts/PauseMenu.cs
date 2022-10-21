@@ -42,9 +42,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void ResumeGame() => isPaused = false;
+
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
+        isPaused = false;
         SceneManager.LoadScene("PrototypeHub");
     }
 
@@ -66,6 +69,8 @@ public class PauseMenu : MonoBehaviour
             ShowSettings = false;
         }
     }
+
+    public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     public void QuitGame()
     {
