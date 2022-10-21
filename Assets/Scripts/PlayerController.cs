@@ -379,8 +379,9 @@ public class PlayerController : MonoBehaviour
     }
     void DropItem(float throwForce)
     {
+        Debug.Log("DropItem");
         grabDelay = true;
-        Invoke("GrabDelayFinished", .5f);
+        Invoke("GrabDelayFinished", .8f);
 
         // RemoveItem(itemGrabbed);
 
