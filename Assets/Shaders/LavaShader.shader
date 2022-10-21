@@ -68,8 +68,8 @@ Shader "Poggers/LavaShader"
             half4 frag(v2f IN) : SV_Target
             {
 
-                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2((IN.uv.x / _TexSize) + IN.wPos.x + (_Time[1] * _FlowDirX), 
-                (IN.uv.y / _TexSize) + IN.wPos.z + (_Time[1] * _FlowDirY)));
+                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2((IN.uv.x * _TexSize) + IN.wPos.x + (_Time[1] * _FlowDirX), 
+                (IN.uv.y * _TexSize) + IN.wPos.z + (_Time[1] * _FlowDirY)));
                 return color;
 
             }
