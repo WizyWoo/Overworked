@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
     
 
     // It is called when the players loses
-    protected void Lose()
+    public void Lose()
     {
         Debug.Log("LOSE THIS");
 
