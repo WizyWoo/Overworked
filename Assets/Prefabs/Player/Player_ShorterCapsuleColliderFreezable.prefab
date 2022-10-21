@@ -5591,7 +5591,7 @@ MonoBehaviour:
   zeroStamina: {r: 1, g: 0, b: 0, a: 1}
   midStamina: {r: 1, g: 0.6890694, b: 0, a: 1}
   fullStamina: {r: 0.98823524, g: 1, b: 0, a: 1}
-  maxWorkCapacity: 0
+  maxWorkCapacity: 3
   workCapacitySlider: {fileID: 992505996814982716}
   gfx: {fileID: 6696611985985380317}
   movementAnimator: {fileID: 2160775817087319051}
