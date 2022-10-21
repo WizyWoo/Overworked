@@ -186,6 +186,7 @@ public class CraftingStation : WorkStation
 
         }
 
+        ItemOnStation.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         return true;
 
     }

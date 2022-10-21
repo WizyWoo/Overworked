@@ -92,6 +92,7 @@ public class WorkStation : MonoBehaviour , IInteractable
             ItemOnStation.UngrabItem();
             ItemOnStation.transform.SetParent(null);
             ItemOnStation.transform.position = DisplayPoint.position;
+            ItemOnStation.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             ItemOnStation.OnWorkstation = this;
         }
         return true;
@@ -105,6 +106,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public virtual void RemoveItem(GrabbableItem _item)
     {
         _item.OnWorkstation = null;
+        _item.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         if(_item = ItemOnStation)
         {
             ItemOnStation = null;

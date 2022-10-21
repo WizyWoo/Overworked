@@ -31,6 +31,7 @@ public class RepairStation : WorkStation
             ItemOnStation.transform.SetParent(null);
             ItemOnStation.transform.position = DisplayPoint.position;
             ItemOnStation.OnWorkstation = this;
+            ItemOnStation.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             SoundManager.Instance.PlaySound(SoundEvent, gameObject);
 
         }
