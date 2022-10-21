@@ -208,7 +208,15 @@ MonoBehaviour:
   playerNumber: {fileID: 1167416651442387772}
   panelLightColor: {fileID: 1167416651546903575}
   panelDarkColor: {fileID: 1167416650082116020}
-  ready: {fileID: 0}
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a87b3d6d-9ede-40a8-9bfe-a8f13831bc24
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &8975187506875086542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 01b6eae45e4de7f43968ff64cb771983,
+  m_Actions: {fileID: -944628639613478452, guid: 442333b4b43335c429c6a92a97f0509c,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -236,93 +244,77 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerCard, Assembly-CSharp
-        m_MethodName: GetMoveInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 0f2926ff-1bd1-421b-a48f-16847b69aa30
-    m_ActionName: Player/MovePoiner[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerCard, Assembly-CSharp
-        m_MethodName: Select_Input
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 8ce08cf5-3b6f-4f29-863e-08c72e2e0d26
-    m_ActionName: Player/Jump[/Keyboard/k,/Keyboard/space,/DualShock4GamepadHID/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerCard, Assembly-CSharp
-        m_MethodName: Unselect_Input
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 2b3f568b-c697-4d1c-b9c7-7d678ef49c87
-    m_ActionName: Player/Unselect[/DualShock4GamepadHID/buttonEast,/Keyboard/l,/Keyboard/backspace]
-  - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 46083452-fcd7-4016-b851-e85abdba8809
+    m_ActionId: 9012240e-ccb5-4ed9-92fb-6afaf2570b61
     m_ActionName: UI/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/rightStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/rightStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/rightStick/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/rightStick/right,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: fef06c30-b1d4-40bb-98a3-8e51ceae6b2f
+    m_ActionId: 101678b1-a24c-4157-ab4d-e9129d23d8f8
     m_ActionName: UI/Submit[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2bc94041-a0f1-4b20-b3e5-8e289f37488b
+    m_ActionId: 5440f32f-4713-4ae0-9cf1-568825605a58
     m_ActionName: UI/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: bc3b3ece-c4df-4dc3-9058-b039d7ece841
+    m_ActionId: 35dd577f-fff4-4189-a0ed-76864cf1e7b2
     m_ActionName: UI/Point[/Mouse/position,/Pen/position]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 9c4cf43b-9c65-4ab1-a863-838d093c961f
+    m_ActionId: 894180a5-4428-45c6-8849-4bf3601d4003
     m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 8c14c300-d6e5-443e-9aa0-a1cb6cca31fc
+    m_ActionId: 89a034c6-5ac1-4389-b6cb-c140f25e9d1f
     m_ActionName: UI/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 4f7c5554-01d1-493d-8ffd-2371313291c9
+    m_ActionId: 36c843f0-452f-46e0-b823-a405e86a45bc
     m_ActionName: UI/MiddleClick[/Mouse/middleButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: b17bf05c-6db9-4311-82be-6719f3ff0e1f
+    m_ActionId: efe15912-ef3c-49a3-a747-08089335f9bf
     m_ActionName: UI/RightClick[/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: b415f989-51c7-406a-8e9d-3b2092070214
+    m_ActionId: fd1566a0-6f76-4a39-b85e-ed7bea3bd31a
     m_ActionName: UI/TrackedDevicePosition
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 067de375-9aaa-42ba-94e2-5e32fddab94f
+    m_ActionId: f9ab9977-8b0f-4551-bc8d-086e0a685549
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8975187506875086543}
+        m_TargetAssemblyTypeName: PlayerCard, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bd60e7d9-5899-481f-b59b-6fec9b88fc2a
+    m_ActionName: Player/Exit[/Keyboard/l,/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8975187506875086543}
+        m_TargetAssemblyTypeName: PlayerCard, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bcc2eef5-a47e-48cb-a085-df395aa47a61
+    m_ActionName: Player/StartGame[/DualShock4GamepadHID/buttonSouth,/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
