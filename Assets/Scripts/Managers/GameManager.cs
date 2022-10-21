@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     // Simulates if there is only one player, for tutorial reasons
     [HideInInspector] public bool onlyOnePlayer;
 
+    // Turns true if the players were overworked, and they lost because of this
+    public bool overworked;
+
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;
     public bool FirstTimeRent, Overtime;
     private void Awake()

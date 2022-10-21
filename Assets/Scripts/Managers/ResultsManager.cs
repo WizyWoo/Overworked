@@ -8,6 +8,7 @@ public class ResultsManager : MonoBehaviour
 {
     [SerializeField] Transform winScreen;
     [SerializeField] Transform loseScreen;
+    [SerializeField] TMP_Text loseText;
 
     [SerializeField] Button nextLevel_Bt;
     [SerializeField] Button retry_Bt;
@@ -22,10 +23,6 @@ public class ResultsManager : MonoBehaviour
     // Returns the level just completed or just failed
     public int levelFinished;
 
-    private void Awake()
-    {
-    }
-
     private void Start()
     {
         stars.SetActive(false);
@@ -39,9 +36,11 @@ public class ResultsManager : MonoBehaviour
         moneyText.text = GameManager.instance.finishedMoneyLevel.ToString();
         minimumMoneyText.text = GameManager.instance.minimumMoney.ToString();
 
+        GameManager.instance.overworked = false;
+
         if (playersWon)
             SetupWinState();
-        else SetupLoseState();
+        else SetupLoseState(GameManager.instance.overworked);
     }
 
 
@@ -58,14 +57,16 @@ public class ResultsManager : MonoBehaviour
         //set up stars
         stars.SetActive(true);
         for (int i = 0; i < GameManager.instance.amountOfStars; i++)
-        {
             stars.transform.GetChild(i).GetComponent<Image>().enabled = true;
-        }
     }
 
     // It prepares the scene with all the lose elements, hiding the win elements
-    void SetupLoseState()
+    // There are two ways of losing, being overworked or not making enough money at the end of the level
+    void SetupLoseState(bool overworked)
     {
+        if (overworked)
+            loseText.text = "YOU HAVE BEEN OVERWORKED";
+
         winScreen.gameObject.SetActive(false);
         loseScreen.gameObject.SetActive(true);
 
@@ -75,6 +76,8 @@ public class ResultsManager : MonoBehaviour
 
         neededMoney.gameObject.SetActive(true);
         minimumMoneyText.gameObject.SetActive(true);
+
+        GameManager.instance.overworked = false;
     }
 
 
