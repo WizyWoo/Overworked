@@ -217,15 +217,18 @@ public class PlayerController : MonoBehaviour
 
     public void Electrocuted(float amount)
     {
-
         currentStamina -= amount;
-
     }
 
     #region GrabbingSystem
 
     // All the grabbable items near this player are in this list
     public List<GrabbableItem> ItemsInRangeForGrabbing;
+
+    // If it is true, the player cannot grab
+    // Turns true when player throw something, turns false after a second, so
+    // the player cannot grab the same item before it falls into the floor
+    bool grabDelay;
 
     // All items in range
     public void AddItem(GrabbableItem g)
@@ -246,7 +249,7 @@ public class PlayerController : MonoBehaviour
     {
         if (generator != null && inGenerator && !generator.working) generator.SwitchOn();
 
-        if (exhausted) return;
+        if (exhausted || grabDelay) return;
 
         if (context.started)
         {
@@ -376,6 +379,9 @@ public class PlayerController : MonoBehaviour
     }
     void DropItem(float throwForce)
     {
+        grabDelay = true;
+        Invoke("GrabDelayFinished", .5f);
+
         // RemoveItem(itemGrabbed);
 
         //itemGrabbed.transform.SetParent(null);
@@ -385,6 +391,11 @@ public class PlayerController : MonoBehaviour
             new Vector3(dir.x * throwForce, throwForce, dir.y * throwForce);
 
         itemGrabbed = null;
+    }
+
+    void GrabDelayFinished()
+    {
+        grabDelay = false;
     }
 
     public IEnumerator TryRemoveGrabbableItemFromList(GrabbableItem g)
