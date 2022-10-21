@@ -8,6 +8,7 @@ TagManager:
   - SoundEvent
   - RepairStation
   - Buttons
+  - Lava
   layers:
   - Default
   - TransparentFX

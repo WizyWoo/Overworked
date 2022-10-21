@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Linq;
@@ -16,8 +17,10 @@ public class PlayerController : MonoBehaviour
     // Movement
     [Header("DESIGNER VARIABLES")]
     [SerializeField] float speed;
+    [SerializeField] float burningSpeed;
     [SerializeField] float weakThrowForce;
     [SerializeField] float strongThrowForce;
+    [SerializeField] float timeBurning;
     float horInput, verInput;
     // The direction the character is facing
     Vector2 dir;
@@ -70,10 +73,19 @@ public class PlayerController : MonoBehaviour
     Generator generator;
     public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound, throwItemSound, dropItemSound;
 
+    bool burned, movingToTarget;
+    NavMeshAgent agent;
+    Vector3 target;
+    [SerializeField] float timeTochange;
+    float timer;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        agent = GetComponent<NavMeshAgent>();
+
+        agent.enabled = false;
 
         // PLAYER INDEX SETUP
         movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex % 2];
@@ -85,6 +97,11 @@ public class PlayerController : MonoBehaviour
         workCapacitySlider.value = maxWorkCapacity;
 
         sweatParticleSystem.Stop();
+
+        burned = false;
+        movingToTarget = false;
+
+        timer = timeTochange;
     }
 
     private void Start()
@@ -413,14 +430,19 @@ public class PlayerController : MonoBehaviour
     #region Movement
 
     private void FixedUpdate()
-    { Movement(); if(transform.position.y < -1 && !falling)
-                {
-                    falling = true;
-                    SoundManager.Instance.PlaySound(FallingSound, gameObject);
-                }else if(transform.position.y > -1)
-                {
-                    falling = false;
-                }}
+    {
+        if (!burned) Movement();
+        else BurntMovement();
+        if (transform.position.y < -1 && !falling)
+        {
+            falling = true;
+            SoundManager.Instance.PlaySound(FallingSound, gameObject);
+        }
+        else if (transform.position.y > -1)
+        {
+            falling = false;
+        }
+    }
 
     private void Movement()
     {
@@ -444,6 +466,67 @@ public class PlayerController : MonoBehaviour
             rb.velocity *= 0;
         else
             rb.velocity *= Mathf.Lerp(.5f, 1, currentStamina / maxStamina);
+    }
+
+    private void BurntMovement()
+    {
+        agent.speed = burningSpeed;
+
+        timer += Time.deltaTime;
+        if(timer >= timeBurning)
+        {
+            int x = UnityEngine.Random.Range(0, 4);
+            Vector2 direction = Vector2.zero;
+            switch (x)
+            {
+                case 0:
+                    direction = new Vector2(0, -1);
+                    break;
+                case 1:
+                    direction = new Vector2(0, 1);
+                    break;
+                case 2:
+                    direction = new Vector2(1, 0);
+                    break;
+                case 3:
+                    direction = new Vector2(-1, 0);
+                    break;
+            }
+
+            rb.velocity = new Vector3(direction.x, 0, direction.y) * burningSpeed;
+
+            timer = 0;
+        }
+
+        //if (!movingToTarget)
+        //{
+        //    Vector3 point;
+        //    if (RandomPoint(Vector3.zero, 7, out point))
+        //    {
+        //        target = point;
+        //        agent.SetDestination(point);
+        //        movingToTarget = true;
+        //    }
+        //}
+        //else
+        //{
+        //    if (Vector3.Distance(transform.position, target) <= 2f) movingToTarget = false;
+        //}
+    }
+    bool RandomPoint(Vector3 center, float range, out Vector3 result)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = center + UnityEngine.Random.insideUnitSphere * range;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return true;
+            }
+        }
+        result = Vector3.zero;
+        return false;
     }
 
     // INPUT
@@ -529,12 +612,25 @@ public class PlayerController : MonoBehaviour
         else if (rb.velocity.z < -0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, -90.0f);
-        }
-       
+        }      
+    }
+
+    private void Unburn()
+    {
+        burned = false;
+        agent.enabled = false;
+        movingToTarget = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Lava"))
+        {
+            burned = true;
+            agent.enabled = true;
+            Invoke("Unburn", timeBurning);
+        }
+
         generator = other.GetComponent<Generator>();
 
         if (generator == null) return;
