@@ -53,12 +53,35 @@ public class Level01_Manager : LevelManager
         UpdateMoney(moneyCorrectRobot*MoneyMultiplier);
         StartCoroutine(ShowGoodFeedback());
 
+        if (MoneyMultiplier >= 3)
+        {
+            goto JustResetOnce;
+        }
+        if (MoneyMultiplier > 1)
+        {
+            MoneyMultiplier = 1;
+            MoneyMultiplier++;
+            goto JustResetOnce;
+        }
         MoneyMultiplier++;
+    JustResetOnce:;
     }
 
     public void IncorrectRobot()
     {
         UpdateMoney(moneyWrongRobot * MoneyMultiplier);
+        if(MoneyMultiplier >= 3)
+        {
+            goto NoMore;
+        }
+        if (MoneyMultiplier > 1)
+        {
+            MoneyMultiplier++;
+            goto NoMore;
+        }
+        MoneyMultiplier = 1;
+        MoneyMultiplier++;
+    NoMore:;
     }
 
 
