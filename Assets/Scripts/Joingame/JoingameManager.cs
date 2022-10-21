@@ -41,4 +41,23 @@ public class JoingameManager : MonoBehaviour
 
         allPlayers.Add(newplayer);
     }
+
+    public void PlayerExit(Transform playerTransform)
+    {
+        PlayerInput playerInput = playerTransform.GetComponent<PlayerInput>();
+        PlayerCard playerCard = playerTransform.GetComponent<PlayerCard>();
+
+        allPlayers.Remove(playerInput);
+
+        Destroy(playerTransform.gameObject);
+
+        // Change the rest of player indexes and UI gfx
+        for (int i = 0; i < allPlayers.Count; i++)
+        {
+            PlayerCard thisPlayerCard = allPlayers[i].GetComponent<PlayerCard>();
+
+            thisPlayerCard.playerIndex = i;
+            thisPlayerCard.UpdateUI();
+        }
+    }
 }
