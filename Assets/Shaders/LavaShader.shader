@@ -1,11 +1,15 @@
 Shader "Poggers/LavaShader"
 {
+    //float = high precision
+    //half = medium precision useful for positions / high dynamic range colors and short vectors, accurate down to 3 decimals
+    //fixed = low precision, useful for colors and simple operations, 1/256
     Properties
     {
         
-        [MainTexture] _Texture("Texture", 2D) = "white"
+        [NoScaleOffset] _Texture("Texture", 2D) = "white"
         _FlowDirX("Flow direction", float) = 0
         _FlowDirY("Flow direction", float) = 0
+        _TexSize("Tiling scale", float) = 1
 
     }
 
@@ -19,10 +23,10 @@ Shader "Poggers/LavaShader"
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
-            struct Attributes
+
+            struct appdata
             {
 
                 float4 positionOS   : POSITION;
@@ -30,11 +34,12 @@ Shader "Poggers/LavaShader"
                 
             };
 
-            struct Varyings
+            struct v2f
             {
 
                 float4 positionHCS  : SV_POSITION;
                 float2 uv           : TEXCOORD0;
+                float3 wPos         : TEXCOORD1;
 
             };
 
@@ -47,23 +52,24 @@ Shader "Poggers/LavaShader"
 
             CBUFFER_END
 
-            Varyings vert(Attributes IN)
+            v2f vert(appdata i)
             {
 
-                Varyings OUT;
-                OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                OUT.uv = TRANSFORM_TEX(IN.uv, _Texture);
-                return OUT;
+                v2f o;
+                o.positionHCS = TransformObjectToHClip(i.positionOS.xyz);
+                o.uv = i.uv;
+                o.wPos = mul(GetObjectToWorldMatrix(), float4(i.positionOS.xyz, 1.0)).xyz;
+                return o;
 
             }
             
-            float _FlowDirX;
-            float _FlowDirY;
+            float _FlowDirX, _FlowDirY, _TexSize;
 
-            half4 frag(Varyings IN) : SV_Target
+            half4 frag(v2f IN) : SV_Target
             {
 
-                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(IN.uv.x + (_Time[1] * _FlowDirX), IN.uv.y + (_Time[1] * _FlowDirY)));
+                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2((IN.uv.x * _TexSize) + IN.wPos.x + (_Time[1] * _FlowDirX), 
+                (IN.uv.y * _TexSize) + IN.wPos.z + (_Time[1] * _FlowDirY)));
                 return color;
 
             }
