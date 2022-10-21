@@ -6,7 +6,7 @@ Shader "Poggers/LavaShader"
     Properties
     {
         
-        [MainTexture] _Texture("Texture", 2D) = "white"
+        [NoScaleOffset] _Texture("Texture", 2D) = "white"
         _FlowDirX("Flow direction", float) = 0
         _FlowDirY("Flow direction", float) = 0
 
@@ -38,6 +38,7 @@ Shader "Poggers/LavaShader"
 
                 float4 positionHCS  : SV_POSITION;
                 float2 uv           : TEXCOORD0;
+                float3 wPos         : TEXCOORD1;
 
             };
 
@@ -55,7 +56,8 @@ Shader "Poggers/LavaShader"
 
                 v2f o;
                 o.positionHCS = TransformObjectToHClip(i.positionOS.xyz);
-                o.uv = float2(i.uv.x + o.positionHCS.x, i.uv.y + o.positionHCS.z);
+                o.uv = float2(i.uv.x + o.positionHCS.z, i.uv.y + o.positionHCS.y);
+                o.wPos = mul(_Object2World, v.vertex).xyz;
                 return o;
 
             }
