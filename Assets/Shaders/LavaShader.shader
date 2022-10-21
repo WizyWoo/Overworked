@@ -9,6 +9,7 @@ Shader "Poggers/LavaShader"
         [NoScaleOffset] _Texture("Texture", 2D) = "white"
         _FlowDirX("Flow direction", float) = 0
         _FlowDirY("Flow direction", float) = 0
+        _TexSize("Tiling scale", float) = 1
 
     }
 
@@ -56,19 +57,19 @@ Shader "Poggers/LavaShader"
 
                 v2f o;
                 o.positionHCS = TransformObjectToHClip(i.positionOS.xyz);
-                o.uv = float2(i.uv.x + o.positionHCS.z, i.uv.y + o.positionHCS.y);
-                o.wPos = mul(_Object2World, v.vertex).xyz;
+                o.uv = i.uv;
+                o.wPos = mul(GetObjectToWorldMatrix(), float4(i.positionOS.xyz, 1.0)).xyz;
                 return o;
 
             }
             
-            float _FlowDirX;
-            float _FlowDirY;
+            float _FlowDirX, _FlowDirY, _TexSize;
 
             half4 frag(v2f IN) : SV_Target
             {
 
-                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(IN.uv.x + (_Time[1] * _FlowDirX), IN.uv.y + (_Time[1] * _FlowDirY)));
+                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2((IN.uv.x / _TexSize) + IN.wPos.x + (_Time[1] * _FlowDirX), 
+                (IN.uv.y / _TexSize) + IN.wPos.z + (_Time[1] * _FlowDirY)));
                 return color;
 
             }
