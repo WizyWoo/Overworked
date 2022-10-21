@@ -45,14 +45,14 @@ public class MoneySink : MonoBehaviour
         GameManager.instance.TotalDebt += ((int)bonusDebt);
         Debt += bonusDebt;
         //we then update the text here and get numbers for tax, adjust them as needed for balance and to rub it in.
-        MoneyText.text = "Money: " + Money;
+        
         Tax = 20;
-        TaxText.text = "Tax: " + Tax;
         
-        DebtText.text = "Debt: " + Debt;
-        LeftoverMoneyText.text = " ";
         
-        RentText.text = "Rent: " + Rent;
+        
+       
+        
+       
        
         GameManager.instance.TotalMoney -= ((int)Rent + (int)Tax);
     }
@@ -60,8 +60,17 @@ public class MoneySink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-       if(GameManager.instance.TotalMoney < 0)
+        MoneyText = GameObject.Find("Money.txt").GetComponent<Text>();
+        TaxText = GameObject.Find("Tax").GetComponent<Text>();
+        DebtText = GameObject.Find("Debt").GetComponent<Text>();
+        RentText = GameObject.Find("Rent").GetComponent<Text>();
+        LeftoverMoneyText = GameObject.Find("LeftoverMoney").GetComponent<Text>();
+        MoneyText.text = "Money: " + Money;
+        TaxText.text = "Tax: " + Tax;
+        DebtText.text = "Debt: " + Debt;
+        LeftoverMoneyText.text = " ";
+        RentText.text = "Rent: " + Rent;
+        if (GameManager.instance.TotalMoney < 0)
         {
             GameManager.instance.Overtime = true;
         }
