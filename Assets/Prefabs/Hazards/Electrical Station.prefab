@@ -108,7 +108,7 @@ MonoBehaviour:
   StaminaHit: 5
   ElectrocutionTime: 2
   ElectricityFX: {fileID: 71543435479517717}
-  PlayerElectrocutionFX: {fileID: 251913954743183271, guid: 97f63a62b83cebf43b90247434ef8383,
+  PlayerElectrocutionFX: {fileID: 7729024564482203475, guid: f3e7b9032c8f50b43a1d2aa217c112da,
     type: 3}
   HazardArea: {fileID: 6093884449816104499}
   minTime: 6
