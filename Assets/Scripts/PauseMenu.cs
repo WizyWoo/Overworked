@@ -70,7 +70,13 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void RestartLevel()
+    {
+
+        isPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
 
     public void QuitGame()
     {
