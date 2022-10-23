@@ -413,14 +413,18 @@ public class PlayerController : MonoBehaviour
     #region Movement
 
     private void FixedUpdate()
-    { Movement(); if(transform.position.y < -1 && !falling)
-                {
-                    falling = true;
-                    SoundManager.Instance.PlaySound(FallingSound, gameObject);
-                }else if(transform.position.y > -1)
-                {
-                    falling = false;
-                }}
+    { 
+        Movement(); 
+        if(transform.position.y < -1 && !falling)
+        {
+            falling = true;
+            SoundManager.Instance.PlaySound(FallingSound, gameObject);
+        }
+        else if(transform.position.y > -1)
+        {
+            falling = false;
+        }
+    }
 
     private void Movement()
     {
