@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     float currentStamina;
     [SerializeField] float staminaCooldown;
     [SerializeField] float regainStaminaWhenExhausted;
-    [SerializeField] float staminaReducedWhenExhausted;
     [HideInInspector] public bool exhausted;
     [SerializeField] float regainStaminaSpeed;
     [SerializeField] Color zeroStamina;
@@ -186,7 +185,7 @@ public class PlayerController : MonoBehaviour
         // Exhausted ?
         if (currentStamina <= 0)
         {
-            maxStamina -= staminaReducedWhenExhausted;
+            maxStamina -= Mathf.RoundToInt(maxStamina * 0.25f);
             currentWorkCapacity--;
             workCapacitySlider.value = currentWorkCapacity;
 
