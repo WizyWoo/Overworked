@@ -23,6 +23,8 @@ public class ResultsManager : MonoBehaviour
     // Returns the level just completed or just failed
     public int levelFinished;
 
+    public bool exhausted;
+
     private void Start()
     {
         stars.SetActive(false);
@@ -67,15 +69,23 @@ public class ResultsManager : MonoBehaviour
         if (overworked)
             loseText.text = "YOU HAVE BEEN OVERWORKED";
 
+        if(exhausted)
+        {
+            loseText.text = "YOU HAVE BEEN OVERWORKED";
+        }
+        else
+        {
+            loseText.text = "NOT PROFITABLE ENOUGH FOR THE COMPANY";
+            neededMoney.gameObject.SetActive(true);
+            minimumMoneyText.gameObject.SetActive(true);
+        }
+
         winScreen.gameObject.SetActive(false);
         loseScreen.gameObject.SetActive(true);
 
         nextLevel_Bt.gameObject.SetActive(false);
         retry_Bt.gameObject.SetActive(true);
-        mainMenu_Bt.gameObject.SetActive(true);
-
-        neededMoney.gameObject.SetActive(true);
-        minimumMoneyText.gameObject.SetActive(true);
+        mainMenu_Bt.gameObject.SetActive(true);    
 
         GameManager.instance.overworked = false;
     }

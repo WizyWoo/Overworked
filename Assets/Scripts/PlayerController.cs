@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             currentWorkCapacity--;
             workCapacitySlider.value = currentWorkCapacity;
 
-            if (currentWorkCapacity <= 0) FindObjectOfType<LevelManager>().Lose();
+            if (currentWorkCapacity <= 0) FindObjectOfType<LevelManager>().LoseExhausted();
 
             movementAnimator.SetBool("IsExhausted", true);
             SoundManager.Instance.PlaySound(exhaustedSound, gameObject);

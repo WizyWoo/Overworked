@@ -74,11 +74,18 @@ public class LevelManager : MonoBehaviour
     
 
     // It is called when the players loses
-    public void Lose()
+    private void Lose()
     {
         Debug.Log("LOSE THIS");
 
-        GameManager.instance.LoadResultsScene(false, GetLevel());
+        GameManager.instance.LoadResultsScene(false, GetLevel(), false);
+    }
+
+    public void LoseExhausted()
+    {
+        Debug.Log("LOSE THIS");
+
+        GameManager.instance.LoadResultsScene(false, GetLevel(), true);
     }
 
     // It is called when the players wins
@@ -90,7 +97,7 @@ public class LevelManager : MonoBehaviour
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);
 
         Debug.Log("WIN THIS");
-        GameManager.instance.LoadResultsScene(true, GetLevel());
+        GameManager.instance.LoadResultsScene(true, GetLevel(), false);
     }
 
     int GetLevel()
