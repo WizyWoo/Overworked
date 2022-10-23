@@ -258,8 +258,6 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
-                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
-
                 //// If there are any null references destroy them
                 /// error needs checking
                 //foreach (GrabbableItem item in ItemsInRangeForGrabbing)
@@ -285,6 +283,8 @@ public class PlayerController : MonoBehaviour
                             nearestItem = ItemsInRangeForGrabbing[i];
                     }
                 }
+
+                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
 
                 itemGrabbed = nearestItem;
                 StartCoroutine("GrabItem");
