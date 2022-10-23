@@ -84,12 +84,15 @@ public class GameManager : MonoBehaviour
     // It is called when all the players have joined and they decide to start playing
     public void AllPlayersSelected(InputDevice[] currentPlayerDevices_)
     {
-        currentPlayerDevices = currentPlayerDevices_;
-
-        for (int i = 0; i < currentPlayerDevices.Length; i++)
+        if (currentPlayerDevices_ != null)
         {
-            if (currentPlayerDevices[i] != null)
-                Debug.Log("currentPlayerDevices_" + i + " = " + currentPlayerDevices[i].name);
+            currentPlayerDevices = currentPlayerDevices_;
+
+            for (int i = 0; i < currentPlayerDevices.Length; i++)
+            {
+                if (currentPlayerDevices[i] != null)
+                    Debug.Log("currentPlayerDevices_" + i + " = " + currentPlayerDevices[i].name);
+            }
         }
 
         LoadScene("Gameplay_Scene");
