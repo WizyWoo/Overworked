@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerCard : MonoBehaviour
 {
@@ -32,22 +33,22 @@ public class PlayerCard : MonoBehaviour
     }
 
 
+    public bool pressingStart;
     public void StartGame(InputAction.CallbackContext context)
     {
-        Debug.Log("StartGame");
+        if (context.started)
+            pressingStart = true;
+        else if (context.canceled)
+            pressingStart = false;
     }
 
     public void Exit(InputAction.CallbackContext context)
     {
         joingameManager.PlayerExit(transform);
-
-        Debug.Log("LeaveAction");
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        
+        transform.DOKill();
     }
-
-    [SerializeField] InputAction action;
 }

@@ -208,15 +208,7 @@ MonoBehaviour:
   playerNumber: {fileID: 1167416651442387772}
   panelLightColor: {fileID: 1167416651546903575}
   panelDarkColor: {fileID: 1167416650082116020}
-  action:
-    m_Name: Action
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a87b3d6d-9ede-40a8-9bfe-a8f13831bc24
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  pressingStart: 0
 --- !u!114 &8975187506875086542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +548,7 @@ RectTransform:
   m_GameObject: {fileID: 2724312046849232653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.51387, y: 0.51387, z: 0.51387}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1167416650082116021}
