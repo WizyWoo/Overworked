@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
 
 
     // At the end of a level this is called by the level manager for loading the results scene
-    public void LoadResultsScene(bool win, int level)
+    public void LoadResultsScene(bool win, int level, bool exhausted)
     {
-        StartCoroutine(LoadResultsScene_IEnum(win, level));
+        StartCoroutine(LoadResultsScene_IEnum(win, level, exhausted));
     }
 
-    IEnumerator LoadResultsScene_IEnum(bool win, int level)
+    IEnumerator LoadResultsScene_IEnum(bool win, int level, bool exhausted)
     {
         LoadScene("ResultsScreen");
 
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         ResultsManager resultManager = FindObjectOfType<ResultsManager>();
         resultManager.levelFinished = level;
         resultManager.playersWon = win;
+        resultManager.exhausted = exhausted;
         resultManager.Setup();
     }
 
