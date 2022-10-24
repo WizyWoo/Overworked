@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
-        else Destroy(this.gameObject);
+        else Destroy(gameObject);
     }
 
 
@@ -57,10 +57,10 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int levelNumber)
     {
         // Save player count
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        /*if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             FindObjectOfType<JoingameManager>().SelectPlayers();
-        }
+        }*/
 
 
         string levelNumberString = levelNumber.ToString();
