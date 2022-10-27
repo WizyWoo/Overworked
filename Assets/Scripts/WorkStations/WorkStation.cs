@@ -41,26 +41,32 @@ public class WorkStation : MonoBehaviour , IInteractable
 
         if(ItemOnStation)
         {
+            
             if(CraftingItem)
             {
+
                 InUse = _buttonDown;
                 UsedBy = _player.GetComponent<PlayerController>();
 
             }
             else
-            {             
+            {
+
                 InUse = false;
                 UsedBy = null;
+                
             }
 
         }
         else if(_player.GetComponent<PlayerController>().itemGrabbed)
         {
+
             PlayerController _pC = _player.GetComponent<PlayerController>();
             PlaceItem(_pC.itemGrabbed);
 
             if(ItemOnStation == _pC.itemGrabbed)
-                _pC.itemGrabbed = null;            
+                _pC.itemGrabbed = null;
+
         }
 
     }
@@ -68,9 +74,12 @@ public class WorkStation : MonoBehaviour , IInteractable
     //Places item on station if it hits the trigger :)
     private void OnTriggerEnter(Collider _col)
     {
+
         if(_col.TryGetComponent<GrabbableItem>(out GrabbableItem _item))
         {
+
             PlaceItem(_item);
+
         }
 
     }
@@ -78,6 +87,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     //Checks if the input item is allowed on this station. If not, it will be removed :)))
     public virtual bool PlaceItem(GrabbableItem _item)
     {
+
         if(ItemOnStation || _item.OnWorkstation)
             return false;
 
@@ -89,13 +99,17 @@ public class WorkStation : MonoBehaviour , IInteractable
             RemoveItem(ItemOnStation);
         else
         {
+
             ItemOnStation.UngrabItem();
             ItemOnStation.transform.SetParent(null);
             ItemOnStation.transform.position = DisplayPoint.position;
             ItemOnStation.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             ItemOnStation.OnWorkstation = this;
+
         }
+        
         return true;
+
     }
 
     ///<Summary>
@@ -105,14 +119,20 @@ public class WorkStation : MonoBehaviour , IInteractable
     //Removes the item properly :))))))))))))))
     public virtual void RemoveItem(GrabbableItem _item)
     {
+
         _item.OnWorkstation = null;
         _item.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
         if(_item = ItemOnStation)
         {
+
             ItemOnStation = null;
-            CraftingItem = null;      
+            CraftingItem = null;
+            
         }
+
         UsedBy = null;
-        InUse = false;       
+        InUse = false;
+
     }
 }

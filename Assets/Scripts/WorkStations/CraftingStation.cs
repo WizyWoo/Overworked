@@ -20,6 +20,7 @@ public class CraftingStation : WorkStation
 
     private void Start()
     {
+
         if(recipeItem1 || recipeItem2)
         {
 
@@ -27,7 +28,9 @@ public class CraftingStation : WorkStation
             recipeID2 = recipeItem2.typeOfItem;
             recipeItem1 = null;
             recipeItem2 = null;
+
         }
+        
     }
 
     //This shite happens when the player interacts with the station
