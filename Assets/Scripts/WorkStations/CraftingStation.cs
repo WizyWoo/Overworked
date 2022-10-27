@@ -213,7 +213,7 @@ public class CraftingStation : WorkStation
     private void Update()
     {
 
-        if(!UsedBy || OutOfPower)
+        if(!UsedBy || OutOfPower || UsedBy.exhausted || CraftingItem.Assembled)
         {
 
             SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
@@ -229,14 +229,19 @@ public class CraftingStation : WorkStation
 
         }
 
-        if(InUse && CraftingItem.NeedsCrafting && !UsedBy.exhausted)
+        if(InUse && CraftingItem.NeedsCrafting)
         {
 
             UsedBy.DoingWork(WorkIntensity);
             CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
 
             if(CraftingItem.Progress >= 100)
+            {
+                
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
+                SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
+
+            }
 
             SoundManager.Instance.PlaySound(CraftingSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
