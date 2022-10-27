@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
     float currentStamina;
     [SerializeField] float staminaCooldown;
     [SerializeField] float regainStaminaWhenExhausted;
-    [SerializeField] float staminaReducedWhenExhausted;
     [HideInInspector] public bool exhausted;
     [SerializeField] float regainStaminaSpeed;
     [SerializeField] Color zeroStamina;
@@ -203,11 +202,11 @@ public class PlayerController : MonoBehaviour
         // Exhausted ?
         if (currentStamina <= 0)
         {
-            maxStamina -= staminaReducedWhenExhausted;
+            maxStamina -= Mathf.RoundToInt(maxStamina * 0.25f);
             currentWorkCapacity--;
             workCapacitySlider.value = currentWorkCapacity;
 
-            if (currentWorkCapacity <= 0) FindObjectOfType<LevelManager>().Lose();
+            if (currentWorkCapacity <= 0) FindObjectOfType<LevelManager>().LoseExhausted();
 
             movementAnimator.SetBool("IsExhausted", true);
             SoundManager.Instance.PlaySound(exhaustedSound, gameObject);
@@ -275,8 +274,6 @@ public class PlayerController : MonoBehaviour
             // Try grab item
             if (itemGrabbed == null)
             {
-                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
-
                 //// If there are any null references destroy them
                 /// error needs checking
                 //foreach (GrabbableItem item in ItemsInRangeForGrabbing)
@@ -302,6 +299,8 @@ public class PlayerController : MonoBehaviour
                             nearestItem = ItemsInRangeForGrabbing[i];
                     }
                 }
+
+                SoundManager.Instance.PlaySound(grabItemSound, gameObject);
 
                 itemGrabbed = nearestItem;
                 StartCoroutine("GrabItem");

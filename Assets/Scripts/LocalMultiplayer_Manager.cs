@@ -95,6 +95,10 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
                     player.enabled = false;
                     StartCoroutine(TeleportPlayerToSpawnPointInXsec(player.transform, player.playerIndex, 5));
+                    if(player.itemGrabbed) 
+                        player.itemGrabbed.UngrabItem();
+                    if(player.ItemsInRangeForGrabbing.Count > 0) 
+                        player.ItemsInRangeForGrabbing.Clear();
                 }
             }
         // Update spawnerItem

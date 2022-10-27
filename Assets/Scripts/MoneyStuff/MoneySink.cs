@@ -5,19 +5,13 @@ using UnityEngine.UI;
 public class MoneySink : MonoBehaviour
 {
     public float Money, Tax, Debt, Rent, LeftoverMoney, bonusDebt;
+    [SerializeField]
     private Text MoneyText, TaxText, DebtText, RentText, LeftoverMoneyText;
     
     
     // Start is called before the first frame update
     void Start()
     {
-
-        //we find the text, for each number we want
-       MoneyText = GameObject.Find("Money.txt").GetComponent<Text>();
-        TaxText = GameObject.Find("Tax").GetComponent<Text>(); 
-        DebtText = GameObject.Find("Debt").GetComponent<Text>();    
-        RentText = GameObject.Find("Rent").GetComponent<Text>();
-        LeftoverMoneyText = GameObject.Find("LeftoverMoney").GetComponent<Text>();
         //we then say money is the same as the total money from the game manager
         Money = GameManager.instance.TotalMoney;
         //then if it is exactly zero, we get a new debt, unlikely to happen during normal play but it is possible.
@@ -60,11 +54,6 @@ public class MoneySink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoneyText = GameObject.Find("Money.txt").GetComponent<Text>();
-        TaxText = GameObject.Find("Tax").GetComponent<Text>();
-        DebtText = GameObject.Find("Debt").GetComponent<Text>();
-        RentText = GameObject.Find("Rent").GetComponent<Text>();
-        LeftoverMoneyText = GameObject.Find("LeftoverMoney").GetComponent<Text>();
         MoneyText.text = "Money: " + Money;
         TaxText.text = "Tax: " + Tax;
         DebtText.text = "Debt: " + Debt;

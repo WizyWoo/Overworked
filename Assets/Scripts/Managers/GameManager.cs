@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
     // Turns true if the players were overworked, and they lost because of this
     public bool overworked;
 
+    InputDevice[] currentPlayerDevices;
+
+
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;
     public bool FirstTimeRent, Overtime;
     private void Awake()
@@ -22,20 +26,20 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
-        else Destroy(this.gameObject);
+        else Destroy(gameObject);
     }
 
 
 
     // At the end of a level this is called by the level manager for loading the results scene
-    public void LoadResultsScene(bool win, int level)
+    public void LoadResultsScene(bool win, int level, bool exhausted)
     {
-        StartCoroutine(LoadResultsScene_IEnum(win, level));
+        StartCoroutine(LoadResultsScene_IEnum(win, level, exhausted));
     }
 
-    IEnumerator LoadResultsScene_IEnum(bool win, int level)
+    IEnumerator LoadResultsScene_IEnum(bool win, int level, bool exhausted)
     {
         LoadScene("ResultsScreen");
 
@@ -46,11 +50,19 @@ public class GameManager : MonoBehaviour
         ResultsManager resultManager = FindObjectOfType<ResultsManager>();
         resultManager.levelFinished = level;
         resultManager.playersWon = win;
+        resultManager.exhausted = exhausted;
         resultManager.Setup();
     }
 
     public void LoadLevel(int levelNumber)
     {
+        // Save player count
+        /*if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            FindObjectOfType<JoingameManager>().SelectPlayers();
+        }*/
+
+
         string levelNumberString = levelNumber.ToString();
         if (levelNumber <= 9) levelNumberString = "0" + levelNumberString;
 
@@ -66,4 +78,23 @@ public class GameManager : MonoBehaviour
     //{
     //    yield return new WaitForSeconds(1);
     //}
+
+
+    // Se llama cuando se han elegido todos los jugadores y se cambia de escena
+    // It is called when all the players have joined and they decide to start playing
+    public void AllPlayersSelected(InputDevice[] currentPlayerDevices_)
+    {
+        if (currentPlayerDevices_ != null)
+        {
+            currentPlayerDevices = currentPlayerDevices_;
+
+            for (int i = 0; i < currentPlayerDevices.Length; i++)
+            {
+                if (currentPlayerDevices[i] != null)
+                    Debug.Log("currentPlayerDevices_" + i + " = " + currentPlayerDevices[i].name);
+            }
+        }
+
+        LoadScene("Gameplay_Scene");
+    }
 }
