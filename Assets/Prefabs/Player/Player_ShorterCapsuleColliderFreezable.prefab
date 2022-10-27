@@ -5563,6 +5563,7 @@ Transform:
   - {fileID: 8891018050099397055}
   - {fileID: 5145654857116894419}
   - {fileID: 7420676706715193926}
+  - {fileID: 8402812086934574849}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5580,12 +5581,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 0
   speed: 8
+  burningSpeed: 0
   weakThrowForce: 3
   strongThrowForce: 8
+  timeBurning: 0
   maxStamina: 14
   staminaCooldown: 2
   regainStaminaWhenExhausted: 2
-  staminaReducedWhenExhausted: 2
   exhausted: 0
   regainStaminaSpeed: 0
   zeroStamina: {r: 1, g: 0, b: 0, a: 1}
@@ -5652,6 +5654,7 @@ MonoBehaviour:
       Data3: -1683912272
       Data4: 752033139
     Path: event:/SFX/SFX_Int/SFX_Int_DropOnFloor
+  timeTochange: 0
   ItemsInRangeForGrabbing: []
 --- !u!114 &714510363349931985
 MonoBehaviour:
@@ -6297,3 +6300,83 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &5874320379594573268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7669628409523345673}
+    m_Modifications:
+    - target: {fileID: 1368667001189742594, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_Name
+      value: OnFire_ParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368667001189742594, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7518add5779c3a64089cd459d00d15dd, type: 3}
+--- !u!4 &8402812086934574849 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2673183597938774741, guid: 7518add5779c3a64089cd459d00d15dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5874320379594573268}
+  m_PrefabAsset: {fileID: 0}
