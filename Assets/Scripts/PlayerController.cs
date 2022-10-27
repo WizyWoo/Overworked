@@ -72,19 +72,17 @@ public class PlayerController : MonoBehaviour
     Generator generator;
     public FMODUnity.EventReference exhaustedSound, playerHitted, grabItemSound, throwItemSound, dropItemSound;
 
+    //Variables for burning movement
+    [SerializeField] LayerMask limits;
     bool burned, movingToTarget;
-    NavMeshAgent agent;
+    int lastDir;
     Vector3 target;
-    [SerializeField] float timeTochange;
-    float timer;
+    float timeTochangeDir, timerChangeDir, timerUnburn;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         sr = GetComponentInChildren<SpriteRenderer>();
-        agent = GetComponent<NavMeshAgent>();
-
-        agent.enabled = false;
 
         // PLAYER INDEX SETUP
         movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex % 2];
@@ -100,7 +98,10 @@ public class PlayerController : MonoBehaviour
         burned = false;
         movingToTarget = false;
 
-        timer = timeTochange;
+        timeTochangeDir = UnityEngine.Random.Range(0.3f, 0.5f);
+        timerChangeDir = 0f;
+        timerUnburn = 0f;
+        lastDir = -1;
     }
 
     private void Start()
@@ -432,6 +433,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!burned) Movement();
         else BurntMovement();
+
         if (transform.position.y < -1 && !falling)
         {
             falling = true;
@@ -469,23 +471,42 @@ public class PlayerController : MonoBehaviour
 
     private void BurntMovement()
     {
-        agent.speed = burningSpeed;
-
-        timer += Time.deltaTime;
-        if(timer >= timeBurning)
+        timerUnburn += Time.deltaTime;
+        if (timerUnburn >= timeBurning)
         {
-            int x = UnityEngine.Random.Range(0, 4);
+            timerUnburn = 0;
+            Unburn();
+            return;
+        }
+
+        timerChangeDir += Time.deltaTime;
+        if(timerChangeDir >= 0.015f &&
+            (Physics.Raycast(transform.position, -transform.forward, 2f, limits) || Physics.Raycast(transform.position, transform.forward, 2f, limits) || 
+            Physics.Raycast(transform.position, -transform.right, 2f, limits) || Physics.Raycast(transform.position, transform.right, 2f, limits)))
+        {
+            timerChangeDir = timeTochangeDir;
+            if (lastDir > 1) lastDir -= 2;
+            else lastDir += 2;
+        }
+        if(timerChangeDir >= timeTochangeDir)
+        {
+            int x = lastDir;
+            while (lastDir == x)
+            {
+               x = UnityEngine.Random.Range(0, 4);
+            }
+            lastDir = x;
             Vector2 direction = Vector2.zero;
-            switch (x)
+            switch (lastDir)
             {
                 case 0:
                     direction = new Vector2(0, -1);
                     break;
                 case 1:
-                    direction = new Vector2(0, 1);
+                    direction = new Vector2(1, 0);
                     break;
                 case 2:
-                    direction = new Vector2(1, 0);
+                    direction = new Vector2(0, 1);
                     break;
                 case 3:
                     direction = new Vector2(-1, 0);
@@ -493,39 +514,9 @@ public class PlayerController : MonoBehaviour
             }
 
             rb.velocity = new Vector3(direction.x, 0, direction.y) * burningSpeed;
-
-            timer = 0;
+            timeTochangeDir = UnityEngine.Random.Range(0.5f, 0.75f);
+            timerChangeDir = 0;
         }
-
-        //if (!movingToTarget)
-        //{
-        //    Vector3 point;
-        //    if (RandomPoint(Vector3.zero, 7, out point))
-        //    {
-        //        target = point;
-        //        agent.SetDestination(point);
-        //        movingToTarget = true;
-        //    }
-        //}
-        //else
-        //{
-        //    if (Vector3.Distance(transform.position, target) <= 2f) movingToTarget = false;
-        //}
-    }
-    bool RandomPoint(Vector3 center, float range, out Vector3 result)
-    {
-        for (int i = 0; i < 30; i++)
-        {
-            Vector3 randomPoint = center + UnityEngine.Random.insideUnitSphere * range;
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
-            {
-                result = hit.position;
-                return true;
-            }
-        }
-        result = Vector3.zero;
-        return false;
     }
 
     // INPUT
@@ -616,8 +607,8 @@ public class PlayerController : MonoBehaviour
 
     private void Unburn()
     {
+        rb.velocity = Vector2.zero;
         burned = false;
-        agent.enabled = false;
         movingToTarget = false;
     }
 
@@ -625,9 +616,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Lava"))
         {
+            timerUnburn = 0;
             burned = true;
-            agent.enabled = true;
-            Invoke("Unburn", timeBurning);
+            if (currentlyGrabbingAnItem) DropItem(weakThrowForce);
         }
 
         generator = other.GetComponent<Generator>();
