@@ -404,7 +404,7 @@ public class PlayerController : MonoBehaviour
 
         // RemoveItem(itemGrabbed);
 
-        //itemGrabbed.transform.SetParent(null);
+        itemGrabbed.transform.SetParent(null);
         itemGrabbed.UngrabItem();
 
         itemGrabbed.GetComponent<Rigidbody>().velocity =
