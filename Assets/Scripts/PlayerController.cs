@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
 
         // PLAYER INDEX SETUP
-        movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex % 2];
+        movementAnimator.runtimeAnimatorController = animatorControllers[playerIndex];
 
         // Starting stamina
         currentStamina = maxStamina;
