@@ -12,6 +12,7 @@ public class PartReceiver : MonoBehaviour
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
     [SerializeField] Level02_Manager level02_Manager;
+    [SerializeField] private CraftableItem.TypeOfRepairableItem deliveryItemType;
 
     CraftableItem currentItem;
 
@@ -19,7 +20,7 @@ public class PartReceiver : MonoBehaviour
     {
         CraftableItem item = other.GetComponent<CraftableItem>();
 
-        if (item != null && item.typeOfItem == CraftableItem.TypeOfRepairableItem.bucket && currentItem == null && item.Assembled)
+        if (item != null && item.typeOfItem == deliveryItemType && currentItem == null && item.Assembled)
         {
             Debug.Log(item.Assembled);
             PlayerController pl = item.transform.GetComponentInParent<PlayerController>();

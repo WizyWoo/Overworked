@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
-        SceneManager.LoadScene("PrototypeHub");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GoToSetting()
