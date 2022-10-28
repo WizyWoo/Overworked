@@ -119,6 +119,11 @@ public class JoingameManager : MonoBehaviour
 
     public void SelectPlayers()
     {
+        // Store all the current being used devices and passing the variable to the gameManager
+        InputDevice[] devices = new InputDevice[4];
+        for (int i = 0; i < allPlayers.Count; i++)
+            devices[i] = allPlayers[i].inputDevice;
+
         GameManager.instance.AllPlayersSelected(currentPlayerDevices);
     }
 

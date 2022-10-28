@@ -56,11 +56,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelNumber)
     {
-        // Save player count
-        /*if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
+        // Save the devices that are going to be used in the game.
+        if (SceneManager.GetActiveScene().buildIndex == 0)
             FindObjectOfType<JoingameManager>().SelectPlayers();
-        }*/
 
 
         string levelNumberString = levelNumber.ToString();
@@ -80,8 +78,8 @@ public class GameManager : MonoBehaviour
     //}
 
 
-    // Se llama cuando se han elegido todos los jugadores y se cambia de escena
     // It is called when all the players have joined and they decide to start playing
+    // This method just store the current devices information.
     public void AllPlayersSelected(InputDevice[] currentPlayerDevices_)
     {
         if (currentPlayerDevices_ != null)
