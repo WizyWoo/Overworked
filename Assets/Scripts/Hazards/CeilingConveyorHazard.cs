@@ -6,12 +6,12 @@ public class CeilingConveyorHazard : MonoBehaviour
 {
 
     public float SpawnTimeMin, SpawnTimeMax, ConveyorSpeed, DistFromPoint;
-    public GameObject ConveyorArmPrefab;
+    public GameObject ConveyorArmPrefab, warningFX;
     public Transform[] RailPoints;
     public List<Transform> arms;
     public List<int> curPoint;
     private List<float> armTravelTimer, curDist;
-
+    public float RolledTime, WarningTime;
     private void Start()
     {
 
@@ -25,7 +25,11 @@ public class CeilingConveyorHazard : MonoBehaviour
 
     private void Update()
     {
-
+        WarningTime -= Time.deltaTime;
+        if(WarningTime < 0)
+        {
+            warningFX.SetActive(true);
+        }
         if(arms.Count > 0)
         {
 
@@ -87,8 +91,11 @@ public class CeilingConveyorHazard : MonoBehaviour
         curPoint.Add(1);
         armTravelTimer.Add(0);
         curDist.Add(Vector3.Distance(RailPoints[0].position, RailPoints[1].position));
-        Invoke(nameof(SpawnArm), Random.Range(SpawnTimeMin, SpawnTimeMax));
-
+        RolledTime = Random.Range(SpawnTimeMin, SpawnTimeMax);
+        WarningTime = RolledTime- 1;
+        warningFX.SetActive(false);
+        Invoke(nameof(SpawnArm), RolledTime);
+        
     }
 
 }
