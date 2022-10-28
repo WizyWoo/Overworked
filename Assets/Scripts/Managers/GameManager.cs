@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int levelNumber)
     {
         // Save the devices that are going to be used in the game.
-        //if (SceneManager.GetActiveScene().buildIndex == 0)
-        //    FindObjectOfType<JoingameManager>().SelectPlayers();
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            JoingameManager.GetInstance().SelectPlayers();
 
 
         string levelNumberString = levelNumber.ToString();
@@ -92,7 +92,5 @@ public class GameManager : MonoBehaviour
                     Debug.Log("currentPlayerDevices_" + i + " = " + currentPlayerDevices[i].name);
             }
         }
-
-        LoadScene("Gameplay_Scene");
     }
 }
