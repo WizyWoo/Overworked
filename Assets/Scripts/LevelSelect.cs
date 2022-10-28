@@ -20,7 +20,7 @@ public class LevelSelect : MonoBehaviour
     public void LoadLevel_1()
     {
         GameManager.instance.onlyOnePlayer = false;
-        GameManager.instance.LoadLevel(1);
+        GameManager.instance.LoadLevel(4);
     }
 
     public void LoadLevel_1_Solo()
