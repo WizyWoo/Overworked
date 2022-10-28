@@ -19,13 +19,13 @@ public class ConfusionCreator : MonoBehaviour
        
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision _col)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (_col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            other.GetComponent<PlayerController>().Dazed = true;
-            other.GetComponent<PlayerController>().DazedOnce = true;
-            other.GetComponent<PlayerController>().DazedTimer = 5;
+            _col.gameObject.GetComponent<PlayerController>().Dazed = true;
+            _col.gameObject.GetComponent<PlayerController>().DazedOnce = true;
+            _col.gameObject.GetComponent<PlayerController>().DazedTimer = 5;
         }
     }
 }
