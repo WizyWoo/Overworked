@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.Rendering;
 
-public class PPFXURP : ScriptableRenderPass
+public class PPFXURP : MonoBehaviour
 {
 
-    public Material ScreenEffect;
-    CommandBuffer cmdBuffer;
+    public int ColorBlindnessType;
+    [SerializeField]
+    private Material overlayMat;
 
-    public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+    private void FixedUpdate()
     {
 
-        Blit(cmdBuffer, ref renderingData, ScreenEffect);
+        UpdateAccesabilitySetting();
+
+    }
+
+    private void UpdateAccesabilitySetting()
+    {
+
+        overlayMat.SetInt("type", ColorBlindnessType);
 
     }
 
