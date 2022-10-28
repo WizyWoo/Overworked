@@ -10,13 +10,13 @@ public class ElectricStationHazard : MonoBehaviour
     [Tooltip("How much stamina the player loses")]
     public float StaminaHit;
     public float ElectrocutionTime;
-    public GameObject ElectricityFX, PlayerElectrocutionFX;
+    public GameObject ElectricityFX, PlayerElectrocutionFX, warningFX;
     public Collider HazardArea;
     [SerializeField, Tooltip("The minimum and maximum time before wires electrify")]
     private float minTime, maxTime;
     [SerializeField, Tooltip("How long wires electrify for")]
     private float electrifyTime;
-
+    public float RolledTime, warningTime;
     private void Start()
     {
 
@@ -26,9 +26,12 @@ public class ElectricStationHazard : MonoBehaviour
 
     private IEnumerator Electrify()
     {
-
-        yield return new WaitForSeconds(Random.Range(minTime, maxTime));
-
+        RolledTime = Random.Range(minTime, maxTime);
+        warningTime = RolledTime - 1;
+        yield return new WaitForSeconds(warningTime);
+        warningFX.SetActive(true);
+        yield return new WaitForSeconds(1);
+        
         SoundManager.Instance.PlaySound(ElectrifySound, gameObject, SoundManager.SoundType.Loop);
 
         yield return new WaitForSeconds(1);
@@ -44,6 +47,7 @@ public class ElectricStationHazard : MonoBehaviour
     {
 
         ElectricityFX.SetActive(false);
+        warningFX.SetActive(false);
         HazardArea.enabled = false;
 
         SoundManager.Instance.StopSound(ElectrifySound, gameObject);
