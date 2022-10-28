@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ConveyorBelt 3
-  m_Shader: {fileID: 4800000, guid: f251fb3bba309b948a0cd0a3dda28cde, type: 3}
+  m_Shader: {fileID: 4800000, guid: 078e22aebc72e3c46ab5027c3d091849, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -121,7 +121,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TexSize: 0
+    - _TexSize: 0.6
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

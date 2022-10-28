@@ -1,4 +1,4 @@
-Shader "Poggers/LavaShader"
+Shader "Poggers/MovingSurface"
 {
     //float = high precision
     //half = medium precision useful for positions / high dynamic range colors and short vectors, accurate down to 3 decimals
@@ -68,8 +68,8 @@ Shader "Poggers/LavaShader"
             half4 frag(v2f IN) : SV_Target
             {
 
-                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(((IN.wPos.x + IN.wPos.y / 2) * _TexSize) + (_Time[1] * _FlowDirX), 
-                ((IN.wPos.z + IN.wPos.y / 2) * _TexSize) + (_Time[1] * _FlowDirY)));
+                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(((IN.wPos.x + IN.wPos.y / 2) * _TexSize) + (_Time[1] * _FlowDirX * _TexSize), 
+                ((IN.wPos.z + IN.wPos.y / 2) * _TexSize) + (_Time[1] * _FlowDirY * _TexSize)));
                 return color;
 
             }

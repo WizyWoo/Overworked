@@ -19,7 +19,7 @@ namespace Wilberforce
         // private Parameters
 		public Shader colorblindShader;
         private bool isSupported;
-        private Material ColorblindMaterial;
+        public Material ColorblindMaterial;
 
 		// method for logging if something goes wrong
         private void ReportError(string error)
@@ -30,6 +30,8 @@ namespace Wilberforce
 		// initialization method
         void Start()
         {
+
+            ColorblindMaterial.SetInt ("type", Type);
 			// if shader is not set, try to find it first
             if (colorblindShader == null) colorblindShader = Shader.Find("Hidden/Wilberforce/Colorblind");
 
@@ -54,7 +56,7 @@ namespace Wilberforce
             }
 
 			// initialize the material responsible for this image effect
-            EnsureMaterials();
+            //EnsureMaterials();
 
 			// check if the material was set properly
             if (!ColorblindMaterial || ColorblindMaterial.passCount != 1)
@@ -112,7 +114,7 @@ namespace Wilberforce
 
             // Shader pass
 			// bind the 'Type' attribute to 'type' variable in shader program
-			ColorblindMaterial.SetInt ("type", Type);
+			
 			// run the shader
 			Graphics.Blit (
 				source, // input texture
@@ -124,7 +126,7 @@ namespace Wilberforce
     }
 
 	// ensure unity editor is present - so it doesn't crash when running built project
-	#if UNITY_EDITOR 
+	/*#if UNITY_EDITOR 
 
 	// custom gui for inspector
 	[CustomEditor(typeof(Colorblind))]
@@ -160,5 +162,5 @@ namespace Wilberforce
 			}
 		}
 	}
-	#endif
+	#endif*/
 }
