@@ -438,6 +438,7 @@ public class PlayerController : MonoBehaviour
         {
             falling = true;
             SoundManager.Instance.PlaySound(FallingSound, gameObject);
+            if (itemGrabbed) DropItem(weakThrowForce);
         }
         else if (transform.position.y > -1)
         {
