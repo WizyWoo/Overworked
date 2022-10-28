@@ -110,10 +110,13 @@ MonoBehaviour:
   ElectricityFX: {fileID: 71543435479517717}
   PlayerElectrocutionFX: {fileID: 7729024564482203475, guid: f3e7b9032c8f50b43a1d2aa217c112da,
     type: 3}
+  warningFX: {fileID: 6093884450086444815}
   HazardArea: {fileID: 6093884449816104499}
   minTime: 6
   maxTime: 12
   electrifyTime: 3
+  RolledTime: 0
+  warningTime: 0
 --- !u!1 &6093884450302885047
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +274,12 @@ PrefabInstance:
 --- !u!4 &6093884450086444814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7769273141251101962, guid: eb1852a9f9852304fb5f84c5c5a15100,
+    type: 3}
+  m_PrefabInstance: {fileID: 4558719643928005124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6093884450086444815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7769273141251101963, guid: eb1852a9f9852304fb5f84c5c5a15100,
     type: 3}
   m_PrefabInstance: {fileID: 4558719643928005124}
   m_PrefabAsset: {fileID: 0}
