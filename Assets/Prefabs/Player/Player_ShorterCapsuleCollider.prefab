@@ -5546,8 +5546,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7122fd2c7ae3c8e48b7ab365c593ff1e, type: 3}
   - {fileID: 21300000, guid: d0fcff918d82f43468121a06b9a69cc0, type: 3}
   animatorControllers:
-  - {fileID: 9100000, guid: 0b713b60ddcf3b54ab98a679afaec383, type: 2}
-  - {fileID: 22100000, guid: 766bf584096048d4dbf925c852e9c283, type: 2}
+  - {fileID: 9100000, guid: 7e1072670970c644280af1460dc630e3, type: 2}
+  - {fileID: 9100000, guid: 58e5d64b57117a54db96f29b999db471, type: 2}
+  - {fileID: 9100000, guid: df71a2f579e8f7341986dd8b81f46f6c, type: 2}
+  - {fileID: 9100000, guid: f7fdab20118afd5449f0c155cd46e257, type: 2}
   flipAnimator: {fileID: 8905786987973865828}
   goingRight: 0
   staminaUI: {fileID: 525579167426050083}
@@ -5877,9 +5879,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7669628410667424828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.3, y: 0.3, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.09, y: 0.13, z: 0}
+  m_LocalScale: {x: -0.17, y: 0.17, z: 1.1333333}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5407826443222523977}
   m_RootOrder: 0
@@ -5925,7 +5927,7 @@ SpriteRenderer:
   m_SortingLayerID: 537346857
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0fcff918d82f43468121a06b9a69cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4193250afd5704343abff23f955e7ffa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5946,7 +5948,7 @@ Animator:
   m_GameObject: {fileID: 7669628410667424828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b713b60ddcf3b54ab98a679afaec383, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7e1072670970c644280af1460dc630e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
