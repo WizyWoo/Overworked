@@ -41,4 +41,10 @@ public class LevelSelect : MonoBehaviour
         GameManager.instance.LoadLevel(3);
     }
 
+    public void LoadLevel_5()
+    {
+        GameManager.instance.onlyOnePlayer = false;
+        GameManager.instance.LoadLevel(5);
+    }
+
 }

@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScenes/Level_04.unity
     guid: 2a55420b00c42694d9353b243d1ea4af
   - enabled: 1
+    path: Assets/Scenes/Prototype Scenes/Level_05.unity
+    guid: a37c141dc5d8ea546ae71e706acc4416
+  - enabled: 1
     path: Assets/Scenes/MainScenes/ResultsScreen.unity
     guid: a56048e140110e146aa6da5b5a525297
   m_configObjects:

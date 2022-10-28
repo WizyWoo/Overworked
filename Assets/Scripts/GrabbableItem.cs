@@ -36,11 +36,11 @@ public class GrabbableItem : MonoBehaviour
             col.enabled = false;
 
         beingGrabbed = true;
-        rb.isKinematic = true;
 
         if (OnWorkstation)
             OnWorkstation.RemoveItem(this);
 
+        rb.isKinematic = true;
 
         CraftableItem craftableItem = GetComponent<CraftableItem>();
         if (craftableItem != null && craftableItem.Assembled)
