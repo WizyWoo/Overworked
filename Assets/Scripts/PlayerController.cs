@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [Header("DESIGNER VARIABLES")]
     [SerializeField] float speed;
     [SerializeField] float burningSpeed;
-    [SerializeField] float weakThrowForce;
+    [SerializeField] public float weakThrowForce;
     [SerializeField] float strongThrowForce;
     [SerializeField] float timeBurning;
     float horInput, verInput;
@@ -416,7 +416,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(grabTime);
         currentlyGrabbingAnItem = false;
     }
-    void DropItem(float throwForce)
+   public void DropItem(float throwForce)
     {
         Debug.Log("DropItem");
         grabDelay = true;
