@@ -14,6 +14,7 @@ public class Conversation_s : MonoBehaviour
     [SerializeField]
     private Sentence[] speeches;
     public PlayerInput convo;
+    public Animator Black_screen;   
     public int day;
     public int i;
 
@@ -27,7 +28,9 @@ public class Conversation_s : MonoBehaviour
     private void Start()
     {
         wait_after_load();
+        Black_screen.Play("fade_in");
         day = PlayerPrefs.GetInt("Day");
+
     }
 
 
@@ -46,17 +49,22 @@ public class Conversation_s : MonoBehaviour
     {
         if (context.started)
         {
+            
             if (i < speeches[day].Conversation.Length)
                 Speech_text.text = speeches[day].Conversation[i];
                 increase();
 
-            if (i >= speeches[day].Conversation.Length)
-                StartCoroutine( Load_level());
+            if (i > speeches[day].Conversation.Length)
+            {
+                Black_screen.Play("fade_out");
+                StartCoroutine(Load_level());
+            }
         }
     }
     
     IEnumerator Load_level()
     {
+        
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(3);  
     }
