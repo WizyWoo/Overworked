@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     static public GameManager instance;
 
     // Simulates if there is only one player, for tutorial reasons
@@ -39,6 +38,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadResultsScene_IEnum(win, level, exhausted));
     }
 
+    public void OnlyOnePlayerState(bool playingAlone)
+    {
+        onlyOnePlayer = playingAlone;
+        //This is changeable but as I am using the prefab I need it
+        //GameManager.instance.OnlyOnePlayerState(playingAlone);
+    }
+
     IEnumerator LoadResultsScene_IEnum(bool win, int level, bool exhausted)
     {
         LoadScene("ResultsScreen");
@@ -56,12 +62,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelNumber)
     {
-        // Save player count
-        /*if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            FindObjectOfType<JoingameManager>().SelectPlayers();
-        }*/
-
+        // Save the devices that are going to be used in the game.
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            JoingameManager.GetInstance().SelectPlayers();
 
         string levelNumberString = levelNumber.ToString();
         if (levelNumber <= 9) levelNumberString = "0" + levelNumberString;
@@ -73,15 +76,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
+    
     //IEnumerator LoadScene_IEnum()
     //{
     //    yield return new WaitForSeconds(1);
     //}
 
 
-    // Se llama cuando se han elegido todos los jugadores y se cambia de escena
     // It is called when all the players have joined and they decide to start playing
+    // This method just store the current devices information.
     public void AllPlayersSelected(InputDevice[] currentPlayerDevices_)
     {
         if (currentPlayerDevices_ != null)
@@ -94,7 +97,5 @@ public class GameManager : MonoBehaviour
                     Debug.Log("currentPlayerDevices_" + i + " = " + currentPlayerDevices[i].name);
             }
         }
-
-        LoadScene("Gameplay_Scene");
     }
 }

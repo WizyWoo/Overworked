@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
         moneyText.text = money.ToString() + " / " + moneyToWin1Star.ToString();
     }
 
+
     void UpdateTimer()
     {
         currentTime -= Time.deltaTime;

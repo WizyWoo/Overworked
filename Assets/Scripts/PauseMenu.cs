@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        
+        isPaused = false;
     }
 
     // Update is called once per frame
@@ -29,40 +29,27 @@ public class PauseMenu : MonoBehaviour
         if (isPaused == true)
         {
             Time.timeScale = 0f;
-
-                PauseMenuPrefab.SetActive(true);
-            
+            PauseMenuPrefab.SetActive(true);
         }
         if (isPaused == false)
         {
             Time.timeScale = 1;
-
-                PauseMenuPrefab.SetActive(false);
-            
+            PauseMenuPrefab.SetActive(false);  
         }
     }
 
     public void ResumeGame() => isPaused = false;
 
-    public void GoToMainMenu()
-    {
-        Time.timeScale = 1f;
-        isPaused = false;
-        SceneManager.LoadScene("MainMenu");
-    }
-
     public void GoToSetting()
     {
-        if (!ShowSettings)
-        {
+        if (!ShowSettings){
             SettingsUI.SetActive(true);
             PauseMenuUI.SetActive(false);
             Debug.Log("Settings menu");
             ShowSettings = true;
         }
 
-        else
-        {
+        else{      
             SettingsUI.SetActive(false);
             PauseMenuUI.SetActive(true);
             Debug.Log("Settings menu");
@@ -70,16 +57,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
-    {
-
-        isPaused = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-    }
-
-    public void QuitGame()
-    {
+    public void QuitGame() {
         Application.Quit();
         Debug.Log("Quited the game");
     }

@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Sprite[] playerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
     [SerializeField] Animator flipAnimator;
-    [SerializeField] bool Dazed;
+    
     [SerializeField] bool goingRight;
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
@@ -79,6 +79,10 @@ public class PlayerController : MonoBehaviour
     Vector3 target;
     float timeTochangeDir, timerChangeDir, timerUnburn;
 
+
+    //Boolean for reversing movement and float to turn it off
+   public bool Dazed, DazedOnce;
+    public float DazedTimer;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -110,7 +114,16 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {if(DazedOnce == true)
+        {
+            DazedTimer -= Time.deltaTime;
+        }
+        
+        if (DazedTimer < 0)
+        {
+            Dazed = false;
+            DazedOnce = false;
+        }
         // Update player GFX
         movementAnimator.SetFloat("CurrentVelocity", rb.velocity.magnitude);
 
@@ -426,6 +439,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    
 
     #region Movement
 
@@ -438,6 +452,7 @@ public class PlayerController : MonoBehaviour
         {
             falling = true;
             SoundManager.Instance.PlaySound(FallingSound, gameObject);
+            if (itemGrabbed) DropItem(weakThrowForce);
         }
         else if (transform.position.y > -1)
         {
@@ -481,8 +496,8 @@ public class PlayerController : MonoBehaviour
 
         timerChangeDir += Time.deltaTime;
         if(timerChangeDir >= 0.015f &&
-            (Physics.Raycast(transform.position, -transform.forward, 2f, limits) || Physics.Raycast(transform.position, transform.forward, 2f, limits) || 
-            Physics.Raycast(transform.position, -transform.right, 2f, limits) || Physics.Raycast(transform.position, transform.right, 2f, limits)))
+            (Physics.Raycast(transform.position, -transform.forward, 1f, limits) || Physics.Raycast(transform.position, transform.forward, 1f, limits) || 
+            Physics.Raycast(transform.position, -transform.right, 1f, limits) || Physics.Raycast(transform.position, transform.right, 1f, limits)))
         {
             timerChangeDir = timeTochangeDir;
             if (lastDir > 1) lastDir -= 2;

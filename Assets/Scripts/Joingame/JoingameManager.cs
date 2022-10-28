@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class JoingameManager : MonoBehaviour
 {
+    static JoingameManager instance;
+
+    public static JoingameManager GetInstance()
+    { return instance; }
 
     [SerializeField] Transform playerContainer;
 
@@ -44,10 +48,11 @@ public class JoingameManager : MonoBehaviour
     [SerializeField]
     List<playerJoined> allPlayers;
 
-    InputDevice[] currentPlayerDevices;
-
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+
         playerInputManager = GetComponent<PlayerInputManager>();
         allPlayers = new List<playerJoined>();
     }
@@ -119,7 +124,12 @@ public class JoingameManager : MonoBehaviour
 
     public void SelectPlayers()
     {
-        GameManager.instance.AllPlayersSelected(currentPlayerDevices);
+        // Store all the current being used devices and passing the variable to the gameManager
+        InputDevice[] devices = new InputDevice[4];
+        for (int i = 0; i < allPlayers.Count; i++)
+            devices[i] = allPlayers[i].inputDevice;
+
+        GameManager.instance.AllPlayersSelected(devices);
     }
 
     bool SomeonePressingStart()
