@@ -12,6 +12,8 @@ public class CeilingConveyorHazard : MonoBehaviour
     public List<int> curPoint;
     private List<float> armTravelTimer, curDist;
     public float RolledTime, WarningTime;
+    //EnableThis one if it's more cosmetic
+    public bool noWarnings;
     private void Start()
     {
 
@@ -24,12 +26,16 @@ public class CeilingConveyorHazard : MonoBehaviour
     }
 
     private void Update()
-    {
+    {if(noWarnings == true)
+        {
+            goto SkipWarning;
+        }
         WarningTime -= Time.deltaTime;
         if(WarningTime < 0)
         {
             warningFX.SetActive(true);
         }
+    SkipWarning:;
         if(arms.Count > 0)
         {
 
@@ -93,7 +99,11 @@ public class CeilingConveyorHazard : MonoBehaviour
         curDist.Add(Vector3.Distance(RailPoints[0].position, RailPoints[1].position));
         RolledTime = Random.Range(SpawnTimeMin, SpawnTimeMax);
         WarningTime = RolledTime- 1;
-        warningFX.SetActive(false);
+        if(noWarnings== false)
+        {
+            warningFX.SetActive(false);
+        }
+        
         Invoke(nameof(SpawnArm), RolledTime);
         
     }
