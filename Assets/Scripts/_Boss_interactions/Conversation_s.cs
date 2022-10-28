@@ -15,11 +15,14 @@ public class Conversation_s : MonoBehaviour
 
     [SerializeField]
     private Sentence[]       speeches;
+   
     public  AnimationCurve   bob_up_and_down;
     public  PlayerInput      convo;
     public  Animator         Black_screen;   
     public  int              day;
+    
     private float            t = 0;
+    private int              i = 0;
     #endregion
 
 
@@ -31,9 +34,20 @@ public class Conversation_s : MonoBehaviour
     }
     private void Start()
     {
+        Set_text();
+        increase();
+
         wait();
         Fade_in();
-        
+
+        void increase()
+        {
+            i++;
+        }
+        void Set_text()
+        {
+            Speech_text.text = speeches[day].Conversation[i];
+        }
         void Fade_in()
         {
             Black_screen.Play("fade_in");
@@ -60,8 +74,6 @@ public class Conversation_s : MonoBehaviour
     }
     public void Continue_thing(InputAction.CallbackContext context)
     {
-        int i = 0;
-
         if (context.started)
         {
             Continue_conversation();
