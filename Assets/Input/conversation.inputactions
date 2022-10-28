@@ -1,0 +1,34 @@
+{
+    "name": "conversation",
+    "maps": [
+        {
+            "name": "talk",
+            "id": "23915d87-0397-402e-91ca-78cbf7627a94",
+            "actions": [
+                {
+                    "name": "continue",
+                    "type": "Button",
+                    "id": "0430fe17-9fb4-4ef2-86fb-7c809f4777b1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c81c4733-bd80-494b-a31b-a9d309e1e3ff",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
