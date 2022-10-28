@@ -5524,7 +5524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 0
   speed: 8
-  burningSpeed: 10
+  burningSpeed: 6
   weakThrowForce: 3
   strongThrowForce: 8
   timeBurning: 3

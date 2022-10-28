@@ -481,8 +481,8 @@ public class PlayerController : MonoBehaviour
 
         timerChangeDir += Time.deltaTime;
         if(timerChangeDir >= 0.015f &&
-            (Physics.Raycast(transform.position, -transform.forward, 2f, limits) || Physics.Raycast(transform.position, transform.forward, 2f, limits) || 
-            Physics.Raycast(transform.position, -transform.right, 2f, limits) || Physics.Raycast(transform.position, transform.right, 2f, limits)))
+            (Physics.Raycast(transform.position, -transform.forward, 1f, limits) || Physics.Raycast(transform.position, transform.forward, 1f, limits) || 
+            Physics.Raycast(transform.position, -transform.right, 1f, limits) || Physics.Raycast(transform.position, transform.right, 1f, limits)))
         {
             timerChangeDir = timeTochangeDir;
             if (lastDir > 1) lastDir -= 2;
