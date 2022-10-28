@@ -8,70 +8,108 @@ using TMPro;
 
 public class Conversation_s : MonoBehaviour
 {
-    public TMP_Text Speech_text;
-    public Transform Boss_transfrom;
+    #region Variables
+    public TMP_Text          Speech_text;
+    public Transform         Boss_transfrom;
+    
 
     [SerializeField]
-    private Sentence[] speeches;
-    public PlayerInput convo;
-    public Animator Black_screen;   
-    public int day;
-    public int i;
+    private Sentence[]       speeches;
+    public  AnimationCurve   bob_up_and_down;
+    public  PlayerInput      convo;
+    public  Animator         Black_screen;   
+    public  int              day;
+    private float            t = 0;
+    #endregion
 
 
+    #region Methods
     private void Awake()
     {
         PlayerPrefs.SetInt("Day", 2);
         convo = GetComponent<PlayerInput>();
     }
-
     private void Start()
     {
-        wait_after_load();
-        Black_screen.Play("fade_in");
-        day = PlayerPrefs.GetInt("Day");
-
-    }
-
-
-    void Update()
-    {
+        wait();
+        Fade_in();
         
-    }
-
-    IEnumerator wait_after_load()
-    {
-        yield return new WaitForSeconds(2);
-
-    }
-
-    public void Continue_thing(InputAction.CallbackContext context)
-    {
-        if (context.started)
+        void Fade_in()
         {
-            
-            if (i < speeches[day].Conversation.Length)
-                Speech_text.text = speeches[day].Conversation[i];
-                increase();
-
-            if (i > speeches[day].Conversation.Length)
-            {
-                Black_screen.Play("fade_out");
-                StartCoroutine(Load_level());
-            }
+            Black_screen.Play("fade_in");
         }
     }
-    
-    IEnumerator Load_level()
+    void Update()
     {
-        
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(3);  
+        Boss_bob();
     }
 
-    public void increase()
+   
+    public void Boss_bob()
     {
-        i++;
+        Bob_time();
+        Boss_transfrom.position = new Vector3(Boss_transfrom.position.x, bob_up_and_down.Evaluate(t) + 1, 6);
+
+        void Bob_time()
+        {
+            if (t >= 1)
+                t = 0;
+
+            t += Time.deltaTime;
+        }
     }
+    public void Continue_thing(InputAction.CallbackContext context)
+    {
+        int i = 0;
+
+        if (context.started)
+        {
+            Continue_conversation();
+            Continue_to_scene();
+
+            increase();
+        }
+
+        void Continue_conversation()
+        {
+            if (i < speeches[day].Conversation.Length)
+                Set_text();
+        }
+        void Continue_to_scene()
+        {
+            if (i > speeches[day].Conversation.Length)
+            {
+                Fade_out();
+                Load_level();
+            }
+        }
+
+        void increase()
+        {
+            i++;
+        }
+        void Set_text()
+        {
+            Speech_text.text = speeches[day].Conversation[i];
+        }
+        void Fade_out()
+        {
+            Black_screen.Play("fade_out");
+        }
+    }
+    public void Load_level()
+    {
+        wait();
+        SceneManager.LoadScene(3);  
+    }
+    #endregion
+
+
+    #region IEnumerator
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(2);
+    }
+    #endregion
 }
 
