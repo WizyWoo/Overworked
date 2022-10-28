@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool goingRight;
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
-    [SerializeField] ParticleSystem sweatParticleSystem;
+    [SerializeField] ParticleSystem sweatParticleSystem, StarParticleSystem;
     [SerializeField] GameObject arrow;
     
     [SerializeField] EventReference FallingSound;
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         workCapacitySlider.value = maxWorkCapacity;
 
         sweatParticleSystem.Stop();
-
+        StarParticleSystem.Stop();
         burned = false;
         movingToTarget = false;
 
@@ -118,11 +118,18 @@ public class PlayerController : MonoBehaviour
         {
             DazedTimer -= Time.deltaTime;
         }
-        
+        if(Dazed == true )
+        {
+            StarParticleSystem.Play();
+        }
         if (DazedTimer < 0)
         {
             Dazed = false;
             DazedOnce = false;
+        }
+        if(Dazed == false)
+        {
+            StarParticleSystem.Stop();
         }
         // Update player GFX
         movementAnimator.SetFloat("CurrentVelocity", rb.velocity.magnitude);
