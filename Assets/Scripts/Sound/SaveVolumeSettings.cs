@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class SaveVolumeSettings : MonoBehaviour
 {
-
     public void SaveVol()
     {
-
-        SoundManager.Instance.SaveVolumeSettings();
-
+       SoundManager.Instance.SaveVolumeSettings();
     }
-
 }

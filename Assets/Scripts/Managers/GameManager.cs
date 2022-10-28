@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     static public GameManager instance;
 
     // Simulates if there is only one player, for tutorial reasons
@@ -39,6 +38,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadResultsScene_IEnum(win, level, exhausted));
     }
 
+    public void OnlyOnePlayerState(bool playingAlone)
+    {
+        onlyOnePlayer = playingAlone;
+        //This is changeable but as I am using the prefab I need it
+        //GameManager.instance.OnlyOnePlayerState(playingAlone);
+    }
+
     IEnumerator LoadResultsScene_IEnum(bool win, int level, bool exhausted)
     {
         LoadScene("ResultsScreen");
@@ -60,7 +66,6 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
             JoingameManager.GetInstance().SelectPlayers();
 
-
         string levelNumberString = levelNumber.ToString();
         if (levelNumber <= 9) levelNumberString = "0" + levelNumberString;
 
@@ -71,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
+    
     //IEnumerator LoadScene_IEnum()
     //{
     //    yield return new WaitForSeconds(1);
