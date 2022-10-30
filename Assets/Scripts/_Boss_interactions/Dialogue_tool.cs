@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+
+#if UNITY_EDITOR
 public class Dialogue_tool : EditorWindow
 {
     public string[] tab_names = new string[] { "characters", "options", "dialogue" };
     public int tab_number = 0;
+
+    public int Character_int;
+    public string[] Character_names;
 
 
 
@@ -17,7 +22,7 @@ public class Dialogue_tool : EditorWindow
     }
     private void OnGUI()
     {
-        tab_number = GUILayout.Toolbar(tab_number, tab_names);
+        Tab();
 
         switch (tab_number)
         {
@@ -26,11 +31,18 @@ public class Dialogue_tool : EditorWindow
 
         }
     }
+    public void Tab()
+    {
+        tab_number = GUILayout.Toolbar(tab_number, tab_names);
+    }
+
 
     public void character()
     {
         GUILayout.Label("characters");
 
+
+        GUILayout.Toolbar(Character_int, Character_names);
 
     }
 
@@ -38,5 +50,5 @@ public class Dialogue_tool : EditorWindow
     {
         GUILayout.Label("options");
     }
-
+#endif
 }
