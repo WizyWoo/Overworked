@@ -754,26 +754,14 @@ MonoBehaviour:
   Boss_transfrom: {fileID: 1971286214}
   speeches:
   - Conversation:
-    - hello mutts. you should be greatful that I am not.
-    - this is your job now
-    - assemble my robots and you will be paid
-    - don't you like that money? don't you want to make it in this world?
-  - Conversation:
-    - How was your first day? And I would like to apologize for my behavior.
-    - "it was not \u2026 kind. "
-    - "You see it\u2019s just that it\u2019s traumatizing to have dogs working for
-      me after what happened to my family. "
-    - You see they died from dog fleas.
-    - Please understand this, that I have nothing against you personally.
-  - Conversation:
-    - "Now that you have learnt how to assemble the pieces, you will now work somewhere
-      hot. In my underground lair\u2026 uh I mean forge."
-    - You will be molding the pieces for my wonderful robots.
-    - 'Be careful tho, they are worth more than you are. '
-  - Conversation:
-    - I want to show you my new pet raptor.
-    - He was very expensive to make.
-    - his favorite toy is a dog plushie. sadly it was chewed to pits.
+    - Plebians I hope your day has been most productive.
+    - I see that you sometimes slack off
+    - UNACCEPTABLE!!!
+    - ... sorry I did not mean to shout.
+    - You better work work and work, if you want my money!
+    - Don't you want it? The green to make it in this world.
+    - It is all that matters. Nothing else.
+    - Now begone. I need my evil nap.
   bob_up_and_down:
     serializedVersion: 2
     m_Curve:
@@ -810,7 +798,6 @@ MonoBehaviour:
   convo: {fileID: 0}
   Black_screen: {fileID: 335454120}
   day: 0
-  i: 0
 --- !u!114 &596354202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1956,7 +1943,7 @@ PrefabInstance:
     - target: {fileID: 7266053621115403777, guid: a53044296c2360c44b3f2ff7d0cf0896,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.11
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7266053621115403777, guid: a53044296c2360c44b3f2ff7d0cf0896,
         type: 3}
