@@ -50,5 +50,5 @@ public class Dialogue_tool : EditorWindow
     {
         GUILayout.Label("options");
     }
-#endif
 }
+#endif
