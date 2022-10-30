@@ -12,7 +12,6 @@ public class Conversation_s : MonoBehaviour
     public TMP_Text          Speech_text;
     public Transform         Boss_transfrom;
     
-
     [SerializeField]
     private Sentence[]       speeches;
    
@@ -58,7 +57,7 @@ public class Conversation_s : MonoBehaviour
         Boss_bob();
     }
 
-   
+    
     public void Boss_bob()
     {
         Bob_time();
@@ -95,14 +94,13 @@ public class Conversation_s : MonoBehaviour
                 Load_level();
             }
         }
-
         void increase()
         {
             i++;
         }
         void Set_text()
         {
-            Speech_text.text = speeches[day].Conversation[i];
+            Speech_text.text = speeches[0].Conversation[i];
         }
         void Fade_out()
         {
@@ -112,8 +110,8 @@ public class Conversation_s : MonoBehaviour
     public void Load_level()
     {
         wait();
-        SceneManager.LoadScene(3);  
-    }
+        SceneManager.LoadScene(0);  
+    }   
     #endregion
 
 
