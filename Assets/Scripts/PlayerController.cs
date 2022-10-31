@@ -380,12 +380,20 @@ public class PlayerController : MonoBehaviour
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p1);
                     //else
                     TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p2);
-                }           
+                }
+                movementAnimator.SetBool("Throwing", true);
+                Invoke("setMovementAnimatorFalse", 0.03f);
                 DropItem(strongThrowForce);
+
                 SoundManager.Instance.PlaySound(throwItemSound, gameObject);
             }
     }
 
+
+    void setMovementAnimatorFalse()
+    {
+        movementAnimator.SetBool("Throwing", false);
+    }
     IEnumerator GrabItem()
     {
         // Stop in the place

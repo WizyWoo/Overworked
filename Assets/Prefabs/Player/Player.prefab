@@ -5543,8 +5543,10 @@ MonoBehaviour:
   movementAnimator: {fileID: 2160775817087319051}
   grabSpot: {fileID: 7669628409591314823}
   playerSprites:
-  - {fileID: 21300000, guid: 7122fd2c7ae3c8e48b7ab365c593ff1e, type: 3}
-  - {fileID: 21300000, guid: d0fcff918d82f43468121a06b9a69cc0, type: 3}
+  - {fileID: 21300000, guid: 395c8cd1c8950644e8db3fc66381fc00, type: 3}
+  - {fileID: 21300000, guid: 6ee955a576b12794ea1175ac835ca7bd, type: 3}
+  - {fileID: 21300000, guid: 1dc09dd508f4286428f3d0486771264d, type: 3}
+  - {fileID: 21300000, guid: a78d52d675ff97049a57102b0ef7aa90, type: 3}
   animatorControllers:
   - {fileID: 9100000, guid: 7e1072670970c644280af1460dc630e3, type: 2}
   - {fileID: 9100000, guid: 58e5d64b57117a54db96f29b999db471, type: 2}
