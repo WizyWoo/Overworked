@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     // Turns true if the players were overworked, and they lost because of this
     public bool overworked;
 
-    InputDevice[] currentPlayerDevices;
+    [HideInInspector] public InputDevice[] currentPlayerDevices;
 
 
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;

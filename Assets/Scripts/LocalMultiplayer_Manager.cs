@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class LocalMultiplayer_Manager : MonoBehaviour
 {
@@ -25,12 +25,33 @@ public class LocalMultiplayer_Manager : MonoBehaviour
     [SerializeField] Image[] spawnRadialImage;
     [SerializeField] TMP_Text[] spawnText;
 
+    InputDevice[] devices;
+
+    [SerializeField]  GameObject playerPrefab;
+
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
 
         allPlayers = new List<PlayerController>();
-        //playerInputManager.JoinPlayer(1);
+
+        devices = GameManager.instance.currentPlayerDevices;
+
+        // For debugging purposes, if no players have been selected from the menu, just let players join manually
+        if (devices.Length == 0)
+            playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
+        else
+            playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
+
+
+        for (int i = 0; i < devices.Length; i++)
+        {
+            if (devices[i] == null) continue;
+
+            PlayerController newPlayer = PlayerInput.Instantiate(playerPrefab, pairWithDevice: devices[i]).GetComponent<PlayerController>();
+
+            newPlayer.playerIndex = i;
+        }
     }
 
     // This function is called everytime a player joined

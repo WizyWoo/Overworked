@@ -50,6 +50,9 @@ public class JoingameManager : MonoBehaviour
 
     [SerializeField] public Sprite[] allPlayerSprites;
 
+
+    [SerializeField] GameObject exitPanel;
+
     private void Awake()
     {
         if (instance == null)
@@ -57,6 +60,8 @@ public class JoingameManager : MonoBehaviour
 
         playerInputManager = GetComponent<PlayerInputManager>();
         allPlayers = new List<playerJoined>();
+
+        exitPanel.SetActive(false);
     }
 
     #region Join Exit Events
@@ -76,6 +81,8 @@ public class JoingameManager : MonoBehaviour
 
 
         allPlayers.Add(new playerJoined(newplayer, newPlayerCard, newplayer.GetDevice<InputDevice>()));
+
+        exitPanel.SetActive(true);
     }
 
     public void PlayerExit(Transform playerTransform)
@@ -96,6 +103,9 @@ public class JoingameManager : MonoBehaviour
             thisPlayerCard.playerIndex = i;
             thisPlayerCard.UpdateUI();
         }
+
+        if (allPlayers.Count == 0)
+            exitPanel.SetActive(false);
     }
 
     #endregion
