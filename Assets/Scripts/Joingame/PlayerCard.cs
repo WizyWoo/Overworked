@@ -17,6 +17,13 @@ public class PlayerCard : MonoBehaviour
     [SerializeField] Image panelLightColor;
     [SerializeField] Image panelDarkColor;
 
+    [SerializeField] Image device;
+
+    Vector2 controllerScale = new Vector2(1, 1);
+    Vector2 keyboardScale = new Vector2(1.2f, 0.7f);
+
+    InputDevice currentInputDevice;
+
     private void Start()
     {
         UpdateUI();
@@ -30,6 +37,9 @@ public class PlayerCard : MonoBehaviour
         // Update color
         panelLightColor.color = joingameManager.playerColors[playerIndex].dark;
         panelDarkColor.color = joingameManager.playerColors[playerIndex].light;
+
+        // Update the current device
+
     }
 
 
