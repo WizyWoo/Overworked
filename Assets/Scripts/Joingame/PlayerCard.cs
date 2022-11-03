@@ -14,12 +14,17 @@ public class PlayerCard : MonoBehaviour
 
     [SerializeField] TMP_Text playerNumber;
 
-    [SerializeField] Image panelLightColor;
-    [SerializeField] Image panelDarkColor;
+    [SerializeField] Image panelLightColor_Img;
+    [SerializeField] Image panelDarkColor_Img;
 
-    [SerializeField] Image device;
+    [SerializeField] Image device_Img;
 
-    Vector2 controllerScale = new Vector2(1, 1);
+    [SerializeField] Image doggo_Img;
+
+    [SerializeField] Sprite gamepadSprite;
+    [SerializeField] Sprite keyboardSprite;
+
+    Vector2 gamepadScale = new Vector2(1, 1);
     Vector2 keyboardScale = new Vector2(1.2f, 0.7f);
 
     private void Start()
@@ -33,12 +38,26 @@ public class PlayerCard : MonoBehaviour
         playerNumber.text = "P " + (playerIndex + 1);
 
         // Update color
-        panelLightColor.color = joingameManager.playerColors[playerIndex].dark;
-        panelDarkColor.color = joingameManager.playerColors[playerIndex].light;
+        panelLightColor_Img.color = joingameManager.playerColors[playerIndex].dark;
+        panelDarkColor_Img.color = joingameManager.playerColors[playerIndex].light;
 
         // Update the current device
         // Debug.Log("joingameManager.device = " + joingameManager);
 
+        if (IsController())
+        {
+            device_Img.sprite = gamepadSprite;
+            device_Img.transform.localScale = gamepadScale;
+        }
+        else
+        {
+            device_Img.sprite = keyboardSprite;
+            device_Img.transform.localScale = keyboardScale;
+        }
+    }
+
+    bool IsController()
+    {
         bool isController = false;
 
         InputDevice inputDevice = joingameManager.allPlayers[playerIndex].inputDevice;
@@ -48,7 +67,7 @@ public class PlayerCard : MonoBehaviour
                 isController = true;
         }
 
-        Debug.Log("isController = " + isController);
+        return isController;
     }
 
 

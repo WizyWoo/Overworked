@@ -48,6 +48,8 @@ public class JoingameManager : MonoBehaviour
     [SerializeField]
     [HideInInspector] public List<playerJoined> allPlayers;
 
+    [SerializeField] public Sprite[] allPlayerSprites;
+
     private void Awake()
     {
         if (instance == null)
