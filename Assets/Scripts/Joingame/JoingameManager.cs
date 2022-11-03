@@ -31,7 +31,7 @@ public class JoingameManager : MonoBehaviour
 
 
     [Serializable]
-    struct playerJoined
+    public struct playerJoined
     {
         public playerJoined(PlayerInput playerInput_, PlayerCard playerCard_, InputDevice inputDevice_)
         {
@@ -46,7 +46,7 @@ public class JoingameManager : MonoBehaviour
     }
     
     [SerializeField]
-    List<playerJoined> allPlayers;
+    [HideInInspector] public List<playerJoined> allPlayers;
 
     private void Awake()
     {

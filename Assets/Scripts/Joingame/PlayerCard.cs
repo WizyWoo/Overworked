@@ -22,8 +22,6 @@ public class PlayerCard : MonoBehaviour
     Vector2 controllerScale = new Vector2(1, 1);
     Vector2 keyboardScale = new Vector2(1.2f, 0.7f);
 
-    InputDevice currentInputDevice;
-
     private void Start()
     {
         UpdateUI();
@@ -39,7 +37,18 @@ public class PlayerCard : MonoBehaviour
         panelDarkColor.color = joingameManager.playerColors[playerIndex].light;
 
         // Update the current device
+        // Debug.Log("joingameManager.device = " + joingameManager);
 
+        bool isController = false;
+
+        InputDevice inputDevice = joingameManager.allPlayers[playerIndex].inputDevice;
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
+            if (inputDevice == Gamepad.all[i])
+                isController = true;
+        }
+
+        Debug.Log("isController = " + isController);
     }
 
 
