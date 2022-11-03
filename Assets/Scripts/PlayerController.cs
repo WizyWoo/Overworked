@@ -74,9 +74,9 @@ public class PlayerController : MonoBehaviour
 
     //Variables for burning movement
     [SerializeField] LayerMask limits;
-    bool burned, movingToTarget;
-    int lastDir;
-    Vector3 target;
+    [SerializeField] float limitDetectionDistance;
+    bool burned;
+    int lastDir, burnDir;
     float timeTochangeDir, timerChangeDir, timerUnburn;
 
 
@@ -100,7 +100,6 @@ public class PlayerController : MonoBehaviour
         sweatParticleSystem.Stop();
         StarParticleSystem.Stop();
         burned = false;
-        movingToTarget = false;
 
         timeTochangeDir = UnityEngine.Random.Range(0.3f, 0.5f);
         timerChangeDir = 0f;
@@ -466,6 +465,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -1 && !falling)
         {
             falling = true;
+            burned = false;
             SoundManager.Instance.PlaySound(FallingSound, gameObject);
             if (itemGrabbed) DropItem(weakThrowForce);
         }
@@ -510,24 +510,21 @@ public class PlayerController : MonoBehaviour
         }
 
         timerChangeDir += Time.deltaTime;
-        if(timerChangeDir >= 0.015f &&
-            (Physics.Raycast(transform.position, -transform.forward, 1f, limits) || Physics.Raycast(transform.position, transform.forward, 1f, limits) || 
-            Physics.Raycast(transform.position, -transform.right, 1f, limits) || Physics.Raycast(transform.position, transform.right, 1f, limits)))
+        if(timerChangeDir >= 0.015f && (Physics.Raycast(transform.position, dir, limitDetectionDistance, limits)))
         {
             timerChangeDir = timeTochangeDir;
-            if (lastDir > 1) lastDir -= 2;
-            else lastDir += 2;
+            if (lastDir > 1) burnDir -= 2;
+            else burnDir += 2;
         }
         if(timerChangeDir >= timeTochangeDir)
         {
-            int x = lastDir;
-            while (lastDir == x)
+            while (lastDir != -1 &&lastDir == burnDir)
             {
-               x = UnityEngine.Random.Range(0, 4);
+               burnDir = UnityEngine.Random.Range(0, 4);
             }
-            lastDir = x;
+            lastDir = burnDir;
             Vector2 direction = Vector2.zero;
-            switch (lastDir)
+            switch (burnDir)
             {
                 case 0:
                     direction = new Vector2(0, -1);
@@ -639,7 +636,6 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         burned = false;
-        movingToTarget = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -648,6 +644,9 @@ public class PlayerController : MonoBehaviour
         {
             timerUnburn = 0;
             burned = true;
+            if (UnityEngine.Random.Range(0, 2) == 0) burnDir = 1;
+            else burnDir = 3;
+            lastDir = -1;
             if (currentlyGrabbingAnItem) DropItem(weakThrowForce);
         }
 

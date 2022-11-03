@@ -5605,6 +5605,7 @@ MonoBehaviour:
   limits:
     serializedVersion: 2
     m_Bits: 1024
+  limitDetectionDistance: 2
   Dazed: 0
   DazedOnce: 0
   DazedTimer: 0
