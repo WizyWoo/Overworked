@@ -27,9 +27,9 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
     InputDevice[] devices;
 
-    [SerializeField]  GameObject playerPrefab;
+    [SerializeField] GameObject playerPrefab;
 
-    private void Awake()
+    private void Start()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
 
@@ -38,20 +38,20 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         devices = GameManager.instance.currentPlayerDevices;
 
         // For debugging purposes, if no players have been selected from the menu, just let players join manually
-        if (devices.Length == 0)
+        if (devices == null || devices.Length == 0)
             playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
         else
             playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
 
+        if (devices != null && devices.Length != 0)
+            for (int i = 0; i < devices.Length; i++)
+            {
+                if (devices[i] == null) continue;
 
-        for (int i = 0; i < devices.Length; i++)
-        {
-            if (devices[i] == null) continue;
+                PlayerController newPlayer = PlayerInput.Instantiate(playerPrefab, pairWithDevice: devices[i]).GetComponent<PlayerController>();
 
-            PlayerController newPlayer = PlayerInput.Instantiate(playerPrefab, pairWithDevice: devices[i]).GetComponent<PlayerController>();
-
-            newPlayer.playerIndex = i;
-        }
+                newPlayer.playerIndex = i;
+            }
     }
 
     // This function is called everytime a player joined
@@ -109,16 +109,18 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         if (allPlayers.Count != 0)
             foreach (PlayerController player in allPlayers)
             {
-                if (player.enabled && player.transform.position.y < fallDistanceBeforeRespawning) 
+                if (player.enabled && player.transform.position.y < fallDistanceBeforeRespawning)
                 {
+                    Debug.Log("RespawnSystem");
+
                     LevelManager level01_Manager = FindObjectOfType<LevelManager>();
-                    if(level01_Manager != null) level01_Manager.UpdateMoney(level01_Manager.moneyWhenFall);
+                    if (level01_Manager != null) level01_Manager.UpdateMoney(level01_Manager.moneyWhenFall);
 
                     player.enabled = false;
                     StartCoroutine(TeleportPlayerToSpawnPointInXsec(player.transform, player.playerIndex, 5));
-                    if(player.itemGrabbed) 
+                    if (player.itemGrabbed)
                         player.itemGrabbed.UngrabItem();
-                    if(player.ItemsInRangeForGrabbing.Count > 0) 
+                    if (player.ItemsInRangeForGrabbing.Count > 0)
                         player.ItemsInRangeForGrabbing.Clear();
                 }
             }
