@@ -71,7 +71,7 @@ public class Conversation_s : MonoBehaviour
             t += Time.deltaTime;
         }
     }
-    public void Continue_thing(InputAction.CallbackContext context)
+    public void Continue_thing(InputAction.CallbackContext context) 
     {
         if (context.started)
         {

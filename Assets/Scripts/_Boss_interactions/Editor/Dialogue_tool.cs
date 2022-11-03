@@ -7,6 +7,7 @@ using UnityEditor;
 #if UNITY_EDITOR
 public class Dialogue_tool : EditorWindow
 {
+            
     #region Variables
     public string[] tab_names = new string[] { "characters", "options", "dialogue" };
     public int tab_number = 0;
@@ -26,7 +27,9 @@ public class Dialogue_tool : EditorWindow
     [MenuItem("Window/Dialogue")]
     public static void ShowWindow()
     {
+        
         GetWindow<Dialogue_tool>("Dialogue options");
+
     }
 
 
@@ -46,10 +49,9 @@ public class Dialogue_tool : EditorWindow
             switch (tab_number)
             {
                 case 0: character();    break;
-                case 1: options ();      break;
-                case 2: dialogue_m();     break;
-
-            }
+                case 1: options ();     break;
+                case 2: dialogue_m();   break;
+            }   
         }
     }
 
@@ -97,11 +99,11 @@ public class Dialogue_tool : EditorWindow
 
     }
 
+        Vector2 Scroll_position = new Vector2(0,0);
     public void dialogue_m()
     {
         
         int get_length_of_dialogue = dialogue.Count;
-        
 
 
         Object a_thing = null;
@@ -110,6 +112,7 @@ public class Dialogue_tool : EditorWindow
         int pop = 0;
 
 
+        Scroll_position = EditorGUILayout.BeginScrollView(Scroll_position,false,true, GUILayout.Height(200));
 
         display_dialogue();
         add_sentence();
@@ -119,10 +122,20 @@ public class Dialogue_tool : EditorWindow
         display_writing_field();
 
         GUILayout.Space(20);
-        select_expression();
+        
 
+        EditorGUILayout.EndScrollView();
 
-       a_thing = EditorGUILayout.ObjectField(a_thing,typeof(Animation));
+        void animation_insertion()
+        {
+            a_thing = EditorGUILayout.ObjectField(a_thing,typeof(Animation));
+        }
+
+        void boss_sprite_change()
+        {
+            Object sp = null;
+            sp = EditorGUILayout.ObjectField(sp, typeof(Sprite));
+        }
       
 
         void display_dialogue()
@@ -136,7 +149,9 @@ public class Dialogue_tool : EditorWindow
 
                 for (int i = 0; i < length; i++)
                 {
-                    dialogue[a].S[i] = EditorGUILayout.TextArea(dialogue[a].S[i], GUILayout.MaxHeight(50));
+                    dialogue[a].S[i] = EditorGUILayout.TextArea(dialogue[a].S[i], GUILayout.Height(50));
+                    boss_sprite_change();
+                    animation_insertion();
                 }
 
                 if (GUILayout.Button("add sentence"))
@@ -172,10 +187,7 @@ public class Dialogue_tool : EditorWindow
         {
             pop = EditorGUILayout.Popup(pop, Tool_dropdown);
         }
-
-
     }
-
 }
 #endif
 
@@ -190,10 +202,10 @@ public class test
 public class Boss_speech
 {
     public List<string> S = new List<string>();
-
 }
 
 public class Personality
 {
     Animation A;
 }
+
