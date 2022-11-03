@@ -41,9 +41,10 @@ public class PlayerCard : MonoBehaviour
         panelLightColor_Img.color = joingameManager.playerColors[playerIndex].dark;
         panelDarkColor_Img.color = joingameManager.playerColors[playerIndex].light;
 
-        // Update the current device
-        // Debug.Log("joingameManager.device = " + joingameManager);
+        // Update Character Image
+        doggo_Img.sprite = joingameManager.allPlayerSprites[playerIndex];
 
+        // Update Device Image
         if (IsController())
         {
             device_Img.sprite = gamepadSprite;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414738, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18013408}
   m_Layer: 5
-  m_Name: IDK
+  m_Name: JoinSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8291,7 +8291,7 @@ GameObject:
   - component: {fileID: 1746848762}
   - component: {fileID: 1746848761}
   m_Layer: 5
-  m_Name: PlayerCards
+  m_Name: JoinManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8406,17 +8406,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerContainer: {fileID: 431786419}
   playerColors:
-  - light: {r: 0, g: 0.44723845, b: 1, a: 1}
-    dark: {r: 0, g: 0.3085117, b: 0.6037736, a: 1}
-  - light: {r: 1, g: 0, b: 0, a: 1}
-    dark: {r: 0.6415094, g: 0, b: 0, a: 1}
-  - light: {r: 0.01122018, g: 0.8962264, b: 0, a: 1}
-    dark: {r: 0.028774183, g: 0.5849056, b: 0, a: 1}
-  - light: {r: 0.6674223, g: 0, b: 1, a: 1}
-    dark: {r: 0.37426528, g: 0, b: 0.5660378, a: 1}
+  - light: {r: 0.34509805, g: 0.5921569, b: 0.33333334, a: 1}
+    dark: {r: 0.10784813, g: 0.4528302, b: 0.09142043, a: 1}
+  - light: {r: 0.5921569, g: 0.33333334, b: 0.54901963, a: 1}
+    dark: {r: 0.3962264, g: 0.12484868, b: 0.35099682, a: 1}
+  - light: {r: 0.5921569, g: 0.3372549, b: 0.33333334, a: 1}
+    dark: {r: 0.3962264, g: 0.16577397, b: 0.16222854, a: 1}
+  - light: {r: 0.5921569, g: 0.58431375, b: 0.33333334, a: 1}
+    dark: {r: 0.46226418, g: 0.4513485, b: 0.10204698, a: 1}
   holdStartGame_Img: {fileID: 1034018290}
   holdStartGameBack_Img: {fileID: 956074995}
   allPlayers: []
+  allPlayerSprites:
+  - {fileID: 21300000, guid: 395c8cd1c8950644e8db3fc66381fc00, type: 3}
+  - {fileID: 21300000, guid: 05a2a09eac160de4b844e8eb506e9a82, type: 3}
+  - {fileID: 21300000, guid: 1dc09dd508f4286428f3d0486771264d, type: 3}
+  - {fileID: 21300000, guid: d61fea3c9b8364d4bae80ec8f9f44222, type: 3}
 --- !u!1 &1775096885
 GameObject:
   m_ObjectHideFlags: 0
