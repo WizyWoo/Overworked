@@ -9,6 +9,7 @@ TagManager:
   - RepairStation
   - Buttons
   - Lava
+  - Bridge
   layers:
   - Default
   - TransparentFX
