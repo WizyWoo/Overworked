@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     //Variables for burning movement
     [SerializeField] LayerMask limits;
     [SerializeField] float limitDetectionDistance;
-    bool burned;
+    bool burned, onBridge;
     int lastDir, burnDir;
     float timeTochangeDir, timerChangeDir, timerUnburn;
 
@@ -510,7 +510,7 @@ public class PlayerController : MonoBehaviour
         }
 
         timerChangeDir += Time.deltaTime;
-        if(/*timerChangeDir >= 0.015f &&*/ (Physics.Raycast(transform.position, dir, limitDetectionDistance, limits)))
+        if(Physics.Raycast(transform.position, dir, limitDetectionDistance, limits))
         {
             timerChangeDir = timeTochangeDir;
             if (lastDir > 1) burnDir -= 2;
@@ -520,7 +520,12 @@ public class PlayerController : MonoBehaviour
         {
             while (lastDir != -1 &&lastDir == burnDir)
             {
-               burnDir = UnityEngine.Random.Range(0, 4);
+               if(!onBridge) burnDir = UnityEngine.Random.Range(0, 4);
+               else
+                {
+                    if (UnityEngine.Random.Range(0, 2) == 0) burnDir = 1;
+                    else burnDir = 3;
+                }
             }
             lastDir = burnDir;
             Vector2 direction = Vector2.zero;
@@ -663,5 +668,21 @@ public class PlayerController : MonoBehaviour
 
         inGenerator = false;
         generator = null;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Bridge"))
+        {
+            onBridge = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.transform.CompareTag("Bridge"))
+        {
+            onBridge = false;
+        }
     }
 }
