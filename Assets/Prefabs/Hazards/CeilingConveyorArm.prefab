@@ -191,7 +191,6 @@ GameObject:
   - component: {fileID: 1616379988641842732}
   - component: {fileID: -8504703987438468381}
   - component: {fileID: -8936760753991050509}
-  - component: {fileID: 5168661416756754998}
   m_Layer: 0
   m_Name: CeilingConveyorArm
   m_TagString: Untagged
@@ -252,15 +251,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5168661416756754998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8308186615632149146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf65f541e0724a44098ae16ef1f450b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
