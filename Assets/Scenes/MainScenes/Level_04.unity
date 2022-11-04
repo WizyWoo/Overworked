@@ -1065,7 +1065,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 39b82435972f99b469f039f49bafbc0d, type: 2}
+  - {fileID: 2100000, guid: 53f7424b70554114ebdfd7b5e9b27576, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2088,7 +2088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 150
   timerText: {fileID: 24079502}
   moneyText: {fileID: 1278097472}
   addMoneyText: {fileID: 928100767}
@@ -2107,6 +2106,13 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   MoneyMultiplier: 1
   moneyWhenFall: -5
+  maxTime: 150
+  slow_conveyorBeltSpeed: 0
+  fast_conveyorBeltSpeed: 0
+  slow_conveyorBelts: []
+  fast_conveyorBelts: []
+  partSpawner_rate: 0
+  parts_Spawner: []
   moneyToWin1Star1: 30
   moneyToWin2Star1: 45
   moneyToWin3Star1: 60
