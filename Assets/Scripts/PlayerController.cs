@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.UI;
 using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -355,24 +356,29 @@ public class PlayerController : MonoBehaviour
                 itemGrabbed = nearestItem;
                 StartCoroutine("GrabItem");
 
-                if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+                if(SceneManager.GetActiveScene().name == "Level_01")
                 {
-                    // Inform the tutorial manager
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromConveyor);
-                    //if (playerIndex % 2 == 0)
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p1);
-                    //else
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p2);
-                }
 
-                else if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
-                {
-                    // Inform the tutorial manager
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromConveyor);
-                    //if (playerIndex % 2 == 0)
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromFloor_p1);
-                    //else
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromFloor_p2);
+                    if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+                    {
+                        // Inform the tutorial manager
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromConveyor);
+                        //if (playerIndex % 2 == 0)
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p1);
+                        //else
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromFloor_p2);
+                    }
+
+                    else if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
+                    {
+                        // Inform the tutorial manager
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromConveyor);
+                        //if (playerIndex % 2 == 0)
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromFloor_p1);
+                        //else
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromFloor_p2);
+                    }
+
                 }
 
             }
@@ -396,19 +402,24 @@ public class PlayerController : MonoBehaviour
         if (context.started)
             if (itemGrabbed != null)
             {
-                if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+                if(SceneManager.GetActiveScene().name == "Level_01")
                 {
-                    //if (playerIndex % 2 == 0)
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p1);
-                    //else
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p2);
-                }
-                else if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
-                {
-                    //if (playerIndex % 2 == 0)
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p1);
-                    //else
-                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p2);
+
+                    if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+                    {
+                        //if (playerIndex % 2 == 0)
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p1);
+                        //else
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwArm_p2);
+                    }
+                    else if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
+                    {
+                        //if (playerIndex % 2 == 0)
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p1);
+                        //else
+                        TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.throwWheel_p2);
+                    }
+
                 }
                 movementAnimator.SetBool("Throwing", true);
                 Invoke("setMovementAnimatorFalse", 0.03f);

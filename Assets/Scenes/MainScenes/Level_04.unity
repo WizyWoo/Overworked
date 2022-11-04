@@ -1065,7 +1065,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 39b82435972f99b469f039f49bafbc0d, type: 2}
+  - {fileID: 2100000, guid: 53f7424b70554114ebdfd7b5e9b27576, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1483,7 +1483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598760592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4833067, y: 0.25, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1754,7 +1754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679166133}
   m_LocalRotation: {x: 0.50000006, y: -0.49999997, z: 0.49999997, w: 0.5000001}
-  m_LocalPosition: {x: 7.71, y: 1.03, z: 3.98}
+  m_LocalPosition: {x: 7.71, y: 1.03, z: 5.5}
   m_LocalScale: {x: 0.38128, y: 0.38128, z: 0.38128003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2088,7 +2088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 150
   timerText: {fileID: 24079502}
   moneyText: {fileID: 1278097472}
   addMoneyText: {fileID: 928100767}
@@ -2107,6 +2106,13 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   MoneyMultiplier: 1
   moneyWhenFall: -5
+  maxTime: 150
+  slow_conveyorBeltSpeed: 0
+  fast_conveyorBeltSpeed: 0
+  slow_conveyorBelts: []
+  fast_conveyorBelts: []
+  partSpawner_rate: 0
+  parts_Spawner: []
   moneyToWin1Star1: 30
   moneyToWin2Star1: 45
   moneyToWin3Star1: 60
@@ -2265,7 +2271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195299836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.375, z: 2.83}
+  m_LocalPosition: {x: 0, y: -0.375, z: 5.71}
   m_LocalScale: {x: 0.6666667, y: 0.25, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3439,7 +3445,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.2, z: -1}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!54 &1854151314
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3464,7 +3470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854151310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.72, y: 0.75, z: 10.61}
+  m_LocalPosition: {x: 7.72, y: 0.75, z: 5.91}
   m_LocalScale: {x: 3, y: 2, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3872,7 +3878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115219513}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.25, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5311,7 +5317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8346576028199059416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0016481876, y: 0.12500024, z: -1.2400001}
+  m_LocalPosition: {x: 0, y: 0.12500024, z: 0}
   m_LocalScale: {x: 0.33333334, y: 0.5, z: 0.33333334}
   m_ConstrainProportionsScale: 0
   m_Children:
