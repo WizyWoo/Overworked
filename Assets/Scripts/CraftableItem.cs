@@ -92,6 +92,7 @@ public class CraftableItem : GrabbableItem
     public void ItemAssembled()
     {
         ItemSprite.sprite = AssembledItemSprite;
+        outline.sprite = AssembledItemSprite;
         ProgressIndicator.size = Vector2.zero;
         NeedsCrafting = false;
 

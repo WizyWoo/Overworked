@@ -11,7 +11,7 @@ public class GrabbableItem : MonoBehaviour
 
     Rigidbody rb;
 
-    [SerializeField] SpriteRenderer outline;
+    [SerializeField] protected SpriteRenderer outline;
 
     SphereCollider[] colliders;
 
