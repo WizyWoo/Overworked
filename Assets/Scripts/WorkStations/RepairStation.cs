@@ -47,6 +47,20 @@ public class RepairStation : WorkStation
     protected override void Update()
     {
         base.Update();
+
+        foreach (PlayerController _pC in localMultiplayer.allPlayers)
+        {
+
+            if(_pC.itemGrabbed && _pC.itemGrabbed.TryGetComponent<CraftableItem>(out CraftableItem _cI))
+            {
+
+                if(_cI.typeOfItem == canRepairThisItem && !_cI.Assembled)
+                    outlineScript.enabled = true;
+
+            }
+            
+        }
+
         if(!UsedBy && !AutoRepair || OutOfPower)
         {
 

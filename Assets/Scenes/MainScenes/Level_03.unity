@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3781,6 +3781,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radiusRangeOfSphere: 1
+  localMultiplayer: {fileID: 0}
   DisplayPoint: {fileID: 717119233}
   UseRange: 3
   CraftingSpeed: 50
@@ -5283,6 +5284,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6505f04550bc5744393a9edf0ed7af0a, type: 3}
+--- !u!114 &1900646600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5718706635572660438, guid: 6505f04550bc5744393a9edf0ed7af0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1900646599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7f5e3494de24418b4ca8fcc6f9d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1970794053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5664,6 +5677,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radiusRangeOfSphere: 1
+  localMultiplayer: {fileID: 1900646600}
   DisplayPoint: {fileID: 883162412}
   UseRange: 3
   CraftingSpeed: 30
@@ -5878,6 +5892,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radiusRangeOfSphere: 1
+  localMultiplayer: {fileID: 0}
   DisplayPoint: {fileID: 1299811073450313012}
   UseRange: 3
   CraftingSpeed: 50

@@ -217,6 +217,20 @@ public class CraftingStation : WorkStation
     protected override void Update()
     {
         base.Update();
+
+        foreach (PlayerController _pC in localMultiplayer.allPlayers)
+        {
+
+            if(_pC.itemGrabbed && _pC.itemGrabbed.TryGetComponent<CraftableItem>(out CraftableItem _cI))
+            {
+
+                if((_cI.typeOfItem == recipeID1 && !recipeItem1) || (_cI.typeOfItem == recipeID2 && !recipeItem2))
+                    outlineScript.enabled = true;
+
+            }
+            
+        }
+
         if(!UsedBy || OutOfPower || UsedBy.exhausted || CraftingItem.Assembled)
         {
 

@@ -81,6 +81,20 @@ public class FreezingStation : WorkStation
     protected override void Update()
     {
         base.Update();
+
+        foreach (PlayerController _pC in localMultiplayer.allPlayers)
+        {
+
+            if(_pC.itemGrabbed && _pC.itemGrabbed.TryGetComponent<CraftableItem>(out CraftableItem _cI))
+            {
+
+                if(_cI.typeOfItem == itemToFreeze && !_cI.Assembled)
+                    outlineScript.enabled = true;
+
+            }
+            
+        }
+
         freezeRay.SetActive(freezing);
         foreach (ParticleSystem p in particles)
         {

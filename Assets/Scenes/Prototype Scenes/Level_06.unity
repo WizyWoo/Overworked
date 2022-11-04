@@ -244,6 +244,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6505f04550bc5744393a9edf0ed7af0a, type: 3}
+--- !u!114 &53457374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5718706635572660438, guid: 6505f04550bc5744393a9edf0ed7af0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 53457373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7f5e3494de24418b4ca8fcc6f9d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &85378402
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +981,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: localMultiplayer
+      value: 
+      objectReference: {fileID: 53457374}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: canRepairThisItem
@@ -2372,6 +2389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
+      propertyPath: localMultiplayer
+      value: 
+      objectReference: {fileID: 53457374}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
       propertyPath: canRepairThisItem
       value: 1
       objectReference: {fileID: 0}
@@ -3452,6 +3474,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: localMultiplayer
+      value: 
+      objectReference: {fileID: 53457374}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: canRepairThisItem
