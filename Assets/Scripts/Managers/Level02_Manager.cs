@@ -8,7 +8,7 @@ public class Level02_Manager : LevelManager
 {
     [Header("This Level Variables")]
 
-    [SerializeField] int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
+    public int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
     private void Start()
     {
         moneyToWin1Star = moneyToWin1Star1;

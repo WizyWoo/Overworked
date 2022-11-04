@@ -45,7 +45,7 @@ public class JoingameManager : MonoBehaviour
         public PlayerCard playerCard;
         public InputDevice inputDevice;
     }
-    
+
     [SerializeField]
     [HideInInspector] public List<playerJoined> allPlayers;
 
@@ -55,6 +55,8 @@ public class JoingameManager : MonoBehaviour
     [SerializeField] GameObject exitPanel;
 
     [SerializeField] TMP_Text joinText;
+
+    [SerializeField] GameObject playerCard;
 
     private void Awake()
     {
@@ -67,6 +69,18 @@ public class JoingameManager : MonoBehaviour
         exitPanel.SetActive(false);
 
         allPlayers.Clear();
+
+        InputDevice[] devices = GameManager.instance.currentPlayerDevices;
+
+        if (devices != null)
+        {
+            for (int i = 0; i < devices.Length; i++)
+                if (devices[i] != null)
+                {
+                    Transform newTransform = PlayerInput.Instantiate(playerCard, pairWithDevice: devices[i]).transform;
+                    newTransform.localScale = Vector3.one;
+                }
+        }
     }
 
     #region Join Exit Events
@@ -81,16 +95,14 @@ public class JoingameManager : MonoBehaviour
         newPlayerCard.transform.SetParent(playerContainer);
 
         // SpawnAnimation
-        newplayer.transform.localScale = Vector3.zero;
-        newplayer.transform.DOScale(1, 2).SetEase(Ease.OutElastic);
+        newplayer.transform.localScale = Vector3.one;
+        newplayer.transform.DOKill();
+        //newplayer.transform.DOScale(1, 2).SetEase(Ease.OutElastic);
 
 
         allPlayers.Add(new playerJoined(newplayer, newPlayerCard, newplayer.GetDevice<InputDevice>()));
 
         exitPanel.SetActive(true);
-
-        // Update text
-        joinText.text = "Press  K  or            to join  ( " + allPlayers.Count + " / 4 )";
     }
 
     public void PlayerExit(Transform playerTransform)
@@ -114,10 +126,6 @@ public class JoingameManager : MonoBehaviour
 
         if (allPlayers.Count == 0)
             exitPanel.SetActive(false);
-
-
-        // Update text
-        joinText.text = "Press  K  or            to join  ( " + allPlayers.Count + " / 4 )";
     }
 
     #endregion

@@ -9,13 +9,12 @@ public class GameManager : MonoBehaviour
 {
     static public GameManager instance;
 
-    // Simulates if there is only one player, for tutorial reasons
-    [HideInInspector] public bool onlyOnePlayer;
-
     // Turns true if the players were overworked, and they lost because of this
     public bool overworked;
 
     [HideInInspector] public InputDevice[] currentPlayerDevices;
+
+    public bool onlyOnePlayer;
 
 
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;
@@ -37,13 +36,6 @@ public class GameManager : MonoBehaviour
     public void LoadResultsScene(bool win, int level, bool exhausted)
     {
         StartCoroutine(LoadResultsScene_IEnum(win, level, exhausted));
-    }
-
-    public void OnlyOnePlayerState(bool playingAlone)
-    {
-        onlyOnePlayer = playingAlone;
-        //This is changeable but as I am using the prefab I need it
-        //GameManager.instance.OnlyOnePlayerState(playingAlone);
     }
 
     IEnumerator LoadResultsScene_IEnum(bool win, int level, bool exhausted)
@@ -88,6 +80,8 @@ public class GameManager : MonoBehaviour
     // This method just store the current devices information.
     public void AllPlayersSelected(InputDevice[] currentPlayerDevices_)
     {
+        int numDevices = 0;
+
         if (currentPlayerDevices_ != null)
         {
             currentPlayerDevices = currentPlayerDevices_;
@@ -95,8 +89,13 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < currentPlayerDevices.Length; i++)
             {
                 if (currentPlayerDevices[i] != null)
+                {
                     Debug.Log("currentPlayerDevices_" + i + " = " + currentPlayerDevices[i].name);
+                    numDevices++;
+                }
             }
         }
+
+        onlyOnePlayer = numDevices == 1;
     }
 }
