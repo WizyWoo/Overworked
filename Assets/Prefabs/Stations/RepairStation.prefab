@@ -81,6 +81,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0971536151574140bb28ca8109c672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  radiusRangeOfSphere: 1
   DisplayPoint: {fileID: 1299811073026984507}
   UseRange: 3
   CraftingSpeed: 50
@@ -105,6 +109,7 @@ MonoBehaviour:
   ItemOnStation: {fileID: 0}
   CraftingItem: {fileID: 0}
   UsedBy: {fileID: 0}
+  outlineScript: {fileID: 1863536022874495799}
   canRepairThisItem: 0
   RepairSoundEvent:
     Guid:

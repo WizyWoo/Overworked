@@ -214,9 +214,9 @@ public class CraftingStation : WorkStation
     }
 
     //While UsedBy is set, you can craft shit
-    private void Update()
+    protected override void Update()
     {
-
+        base.Update();
         if(!UsedBy || OutOfPower || UsedBy.exhausted || CraftingItem.Assembled)
         {
 

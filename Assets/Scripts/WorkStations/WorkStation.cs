@@ -5,6 +5,31 @@ using FMODUnity;
 
 public class WorkStation : MonoBehaviour , IInteractable
 {
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] float radiusRangeOfSphere = 1.0f;
+    protected virtual void Update()
+    {
+        Collider[] collidersHit = Physics.OverlapSphere(transform.position, radiusRangeOfSphere, layerMask);
+
+        //If the player is in range from the item, it is not being grabbed, 
+        //And it is not flying, that means that Y velocity it's 0, put the outline active 
+        if (collidersHit.Length > 0 && ItemOnStation)
+        {
+            if (outlineScript != null)
+            {
+                CraftableItem craftableItem = ItemOnStation.GetComponent<CraftableItem>();
+                //If it's a craftable item check if it is not delivered
+                if (craftableItem && !craftableItem.delivered && !craftableItem.Assembled)
+                    outlineScript.enabled = true;
+                else outlineScript.enabled = false;
+            }
+        }
+        else
+        {
+            if (outlineScript != null)
+                outlineScript.enabled = false;
+        }
+    }
 
     [Tooltip("Where the item lands on the table")]
     public Transform DisplayPoint;
@@ -26,6 +51,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     //[HideInInspector]
     public PlayerController UsedBy;
 
+    [SerializeField] protected Outline outlineScript;
     //This shite happens when the player interacts with the station
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)
     {
@@ -104,7 +130,8 @@ public class WorkStation : MonoBehaviour , IInteractable
             ItemOnStation.transform.SetParent(null);
             ItemOnStation.transform.position = DisplayPoint.position;
             ItemOnStation.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            ItemOnStation.OnWorkstation = this;
+            ItemOnStation.OnWorkstation = this;          
+
 
         }
         
@@ -128,7 +155,7 @@ public class WorkStation : MonoBehaviour , IInteractable
             _item.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             ItemOnStation = null;
             CraftingItem = null;
-            
+
         }
 
         UsedBy = null;

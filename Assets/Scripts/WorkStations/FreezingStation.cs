@@ -78,8 +78,9 @@ public class FreezingStation : WorkStation
     }
 
     //repair :)
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         freezeRay.SetActive(freezing);
         foreach (ParticleSystem p in particles)
         {
