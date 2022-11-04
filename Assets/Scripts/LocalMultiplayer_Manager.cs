@@ -37,6 +37,13 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
         devices = GameManager.instance.currentPlayerDevices;
 
+        int j = 0;
+        for (int i = 0; i < devices.Length; i++)
+            if (devices[i] != null) j++;
+
+        Debug.Log("devices = " + j);
+
+
         // For debugging purposes, if no players have been selected from the menu, just let players join manually
         if (devices == null || devices.Length == 0)
             playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;

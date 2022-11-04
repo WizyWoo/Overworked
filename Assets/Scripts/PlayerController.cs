@@ -296,8 +296,8 @@ public class PlayerController : MonoBehaviour
             {
                 //// If there are any null references destroy them
                 /// error needs checking
-                //foreach (GrabbableItem item in ItemsInRangeForGrabbing)
-                //    if (item.GetComponent<CraftableItem>().delivered) ItemsInRangeForGrabbing.Remove(item);
+                foreach (GrabbableItem item in ItemsInRangeForGrabbing)
+                    if (item.GetComponent<CraftableItem>().delivered) ItemsInRangeForGrabbing.Remove(item);
 
                 if (ItemsInRangeForGrabbing.Count == 0) return;
 
@@ -674,7 +674,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bridge"))
         {
-            Debug.Log("on bridge");
             onBridge = true;
         }
     }
@@ -683,7 +682,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bridge"))
         {
-            Debug.Log("not on bridge");
             onBridge = false;
         }
     }
