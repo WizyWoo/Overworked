@@ -46,7 +46,7 @@ public class RepairStation : WorkStation
     //repair :)
     private void Update()
     {
-
+        base.Update();
         if(!UsedBy && !AutoRepair || OutOfPower)
         {
 
