@@ -283,11 +283,41 @@ public class PlayerController : MonoBehaviour
     // Called when the grab button is pressed
     // Checks if there are any near objects, if so pick the nearest one
     float time;
+
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] float radiusRangeOfSphere = 1.0f;
+
+    private void OnDrawGizmos()
+    {
+        //Draw the range where the items are detected 
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radiusRangeOfSphere);
+    }
     public void PressGrab(InputAction.CallbackContext context)
     {
         if (generator != null && inGenerator && !generator.working) generator.SwitchOn();
 
         if (exhausted || grabDelay) return;
+
+        //The list is cleaned each time we pressGrab
+        ItemsInRangeForGrabbing.Clear();
+        //Takes all the colliders that are in a radiusRangeOfSphere 
+        Collider[] collidersHit = Physics.OverlapSphere(transform.position, radiusRangeOfSphere, layerMask);
+
+        //If there's at least one radius add them to the list of grabbable items 
+        if(collidersHit.Length > 0)
+        {
+            for (int i = 0; i < collidersHit.Length; i++)
+            {
+                GrabbableItem grabbableItem = collidersHit[i].GetComponent<GrabbableItem>();
+                if (grabbableItem && !grabbableItem.GetComponent<CraftableItem>().delivered)
+                {
+                    ItemsInRangeForGrabbing.Add(grabbableItem);
+                } 
+                    
+            }
+        }
+
 
         if (context.started)
         {

@@ -5610,6 +5610,10 @@ MonoBehaviour:
   DazedOnce: 0
   DazedTimer: 0
   ItemsInRangeForGrabbing: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  radiusRangeOfSphere: 1
 --- !u!114 &8509748272355988883
 MonoBehaviour:
   m_ObjectHideFlags: 0

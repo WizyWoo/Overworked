@@ -10470,10 +10470,15 @@ MonoBehaviour:
   limits:
     serializedVersion: 2
     m_Bits: 0
+  limitDetectionDistance: 0
   Dazed: 0
   DazedOnce: 0
   DazedTimer: 0
   ItemsInRangeForGrabbing: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  radiusRangeOfSphere: 1
 --- !u!114 &714510363349931985
 MonoBehaviour:
   m_ObjectHideFlags: 0

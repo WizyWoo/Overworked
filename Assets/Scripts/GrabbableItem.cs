@@ -11,17 +11,37 @@ public class GrabbableItem : MonoBehaviour
 
     Rigidbody rb;
 
+    Outline outline;
+
     SphereCollider[] colliders;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        outline = GetComponent<Outline>();
+        if (outline != null) 
+            outline.enabled = false;
         colliders = GetComponents<SphereCollider>();
     }
-
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] float radiusRangeOfSphere = 1.0f;
     private void Update()
     {
+        Collider[] collidersHit = Physics.OverlapSphere(transform.position, radiusRangeOfSphere, layerMask);
+
+        //If the player is in range from the item, put the outline active 
+        if (collidersHit.Length > 0)
+        {
+            //if (outline != null) 
+            //    outline.enabled = true;
+        }    
+        else
+        {
+            //if(outline != null && outline.isActiveAndEnabled) 
+            //    outline.enabled = false;
+        }
+           
+
         if (transform.position.y < -50)
             Destroy(this.gameObject);
     }
@@ -72,23 +92,23 @@ public class GrabbableItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
+        //PlayerController player = other.GetComponent<PlayerController>();
 
-        if (player != null)
-        {
-            if (!GetComponent<CraftableItem>().delivered)
-                player.AddItem(this);
-        }
+        //if (player != null)
+        //{
+            //if (!GetComponent<CraftableItem>().delivered)
+            //    player.AddItem(this);
+        //}
     }
 
     private void OnTriggerExit(Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
+        //PlayerController player = other.GetComponent<PlayerController>();
 
-        if (player != null)
-        {
-            player.RemoveItem(this);
-        }
+        //if (player != null)
+        //{
+        //    player.RemoveItem(this);
+        //}
     }
 
     private void OnDestroy()
