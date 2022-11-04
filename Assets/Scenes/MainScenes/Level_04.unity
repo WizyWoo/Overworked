@@ -813,6 +813,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7398927923185514889, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7398927923185514890, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_IsActive
@@ -3526,7 +3531,7 @@ MonoBehaviour:
   robotSpot: {fileID: 1735461802}
   pointA: {fileID: 2115219514}
   pointB: {fileID: 1195299837}
-  level02_Manager: {fileID: 0}
+  level_Manager: {fileID: 1058643987}
   deliveryItemType: 4
 --- !u!1 &1962732982
 GameObject:

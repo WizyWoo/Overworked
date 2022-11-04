@@ -5101,7 +5101,7 @@ MonoBehaviour:
   robotSpot: {fileID: 1735461802}
   pointA: {fileID: 2115219514}
   pointB: {fileID: 1195299837}
-  level02_Manager: {fileID: 1058643985}
+  level_Manager: {fileID: 1058643985}
   deliveryItemType: 6
 --- !u!4 &1857143308 stripped
 Transform:
