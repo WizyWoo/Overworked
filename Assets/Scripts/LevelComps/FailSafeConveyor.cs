@@ -6,7 +6,7 @@ public class FailSafeConveyor : MonoBehaviour
 {
 
     [SerializeField, Tooltip("negative values go in reverse, positive values go forward")]
-    private float transportDirection;
+    public float transportDirection;
     private List<Rigidbody> rigidbodiesOnConveyor;
     private Transform player;
 
@@ -26,8 +26,6 @@ public class FailSafeConveyor : MonoBehaviour
             player = _col.transform;
         else
             rigidbodiesOnConveyor.Add(_col.rigidbody);
-
-
     }
 
     private void OnCollisionExit(Collision _col)
@@ -75,7 +73,7 @@ public class FailSafeConveyor : MonoBehaviour
 
         }
 
-        if(player)
+        if (player)
             player.position += transform.forward * (transportDirection / 60);
 
     }
