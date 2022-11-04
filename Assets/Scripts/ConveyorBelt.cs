@@ -17,25 +17,31 @@ public class ConveyorBelt : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Rigidbody removeThis = null;
+
         if (itemsInConveyor.Count != 0)
             foreach (Rigidbody itemRb in itemsInConveyor)
             {
                 //Rigidbody itemRb = item.GetComponent<Rigidbody>();
-                itemRb.velocity = speed * new Vector3(direction.x, 0, direction.y).normalized;
+                if (itemRb != null)
+                    itemRb.velocity = speed * new Vector3(direction.x, 0, direction.y).normalized;
+                else
+                    removeThis = itemRb;
             }
+
+        if (removeThis != null)
+            itemsInConveyor.Remove(removeThis);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         GrabbableItem g;
-        RobotBody r;
+        PlayerController p;
 
         Transform selectedObject = null;
 
         if (collision.rigidbody.TryGetComponent<GrabbableItem>(out g))
             selectedObject = g.transform;
-        //else if (collision.rigidbody.TryGetComponent<RobotBody>(out r))
-        //    selectedObject = r.transform;
 
         if (selectedObject != null)
         {
