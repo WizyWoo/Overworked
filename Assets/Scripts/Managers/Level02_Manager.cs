@@ -16,7 +16,7 @@ public class Level02_Manager : LevelManager
         moneyToWin3Star = moneyToWin3Star1;
     }
 
-    public void CorrectRobot()
+    public override void CorrectRobot()
     {
         UpdateMoney(moneyCorrectRobot * MoneyMultiplier);
         if(MoneyMultiplier >= 3)
@@ -33,7 +33,7 @@ public class Level02_Manager : LevelManager
     JustResetOnce:;
     }
 
-    public void IncorrectRobot()
+    public override void IncorrectRobot()
     {
         UpdateMoney(moneyWrongRobot * MoneyMultiplier);
         if(MoneyMultiplier >= 3)
