@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MainMenuBool : MonoBehaviour
 {
-   public void changeGameManagerBool(bool playingAlone)
-   {
-        GameManager.instance.OnlyOnePlayerState(playingAlone);
-   }
+   //public void changeGameManagerBool(bool playingAlone)
+   //{
+   //     GameManager.instance.OnlyOnePlayerState(playingAlone);
+   //}
 }

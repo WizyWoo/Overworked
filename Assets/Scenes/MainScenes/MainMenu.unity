@@ -1206,7 +1206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: -2}
+  m_AnchoredPosition: {x: 20.43, y: -2}
   m_SizeDelta: {x: 36.7889, y: 36.789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223537762
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press  K  or            to join  ( 0 / 4 )
+  m_text: Press  K  or            to join
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8791,6 +8791,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d61fea3c9b8364d4bae80ec8f9f44222, type: 3}
   exitPanel: {fileID: 469883051}
   joinText: {fileID: 449696017}
+  playerCard: {fileID: 1167416651374058902, guid: 1213778c1d13cbc4e8145c1ac7cbac02,
+    type: 3}
 --- !u!1 &1775096885
 GameObject:
   m_ObjectHideFlags: 0
