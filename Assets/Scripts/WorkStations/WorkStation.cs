@@ -91,14 +91,14 @@ public class WorkStation : MonoBehaviour , IInteractable
         if(ItemOnStation || _item.OnWorkstation)
             return false;
 
-        ItemOnStation = _item;
-
-        if(!ItemOnStation.TryGetComponent<CraftableItem>(out CraftingItem))
-            RemoveItem(ItemOnStation);
+        if(!_item.TryGetComponent<CraftableItem>(out CraftingItem))
+            RemoveItem(_item);
         else if(CraftingItem.Assembled)
-            RemoveItem(ItemOnStation);
+            RemoveItem(_item);
         else
         {
+
+            ItemOnStation = _item;
 
             ItemOnStation.UngrabItem();
             ItemOnStation.transform.SetParent(null);
@@ -121,11 +121,11 @@ public class WorkStation : MonoBehaviour , IInteractable
     {
 
         _item.OnWorkstation = null;
-        _item.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
         if(_item = ItemOnStation)
         {
 
+            _item.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             ItemOnStation = null;
             CraftingItem = null;
             

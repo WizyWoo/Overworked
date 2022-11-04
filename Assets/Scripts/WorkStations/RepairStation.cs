@@ -13,19 +13,20 @@ public class RepairStation : WorkStation
     //Yup, it does the same as workstation
     public override bool PlaceItem(GrabbableItem _item)
     {
+
         if(ItemOnStation || _item.OnWorkstation)
             return false;
 
-        ItemOnStation = _item;
-
-        if(!ItemOnStation.TryGetComponent<CraftableItem>(out CraftingItem))
-            RemoveItem(ItemOnStation);
+        if(!_item.TryGetComponent<CraftableItem>(out CraftingItem))
+            RemoveItem(_item);
         else if(CraftingItem.Assembled)
-            RemoveItem(ItemOnStation);
+            RemoveItem(_item);
         else if(CraftingItem.typeOfItem != canRepairThisItem)
-            RemoveItem(ItemOnStation);
+            RemoveItem(_item);
         else
         {
+
+            ItemOnStation = _item;
 
             ItemOnStation.UngrabItem();
             ItemOnStation.transform.SetParent(null);

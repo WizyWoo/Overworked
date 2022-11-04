@@ -40,6 +40,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.5
+    - _Transparency: 0.12
+    - _TransparencyMask: 0.12
     - _VoronoiAgitation: 1.97
     - _VoronoiPower: 2
     - _VoronoiScale: 5.99
