@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class JoingameManager : MonoBehaviour
 {
@@ -53,6 +54,8 @@ public class JoingameManager : MonoBehaviour
 
     [SerializeField] GameObject exitPanel;
 
+    [SerializeField] TMP_Text joinText;
+
     private void Awake()
     {
         if (instance == null)
@@ -62,6 +65,8 @@ public class JoingameManager : MonoBehaviour
         allPlayers = new List<playerJoined>();
 
         exitPanel.SetActive(false);
+
+        allPlayers.Clear();
     }
 
     #region Join Exit Events
@@ -83,6 +88,9 @@ public class JoingameManager : MonoBehaviour
         allPlayers.Add(new playerJoined(newplayer, newPlayerCard, newplayer.GetDevice<InputDevice>()));
 
         exitPanel.SetActive(true);
+
+        // Update text
+        joinText.text = "Press  K  or            to join  ( " + allPlayers.Count + " / 4 )";
     }
 
     public void PlayerExit(Transform playerTransform)
@@ -106,6 +114,10 @@ public class JoingameManager : MonoBehaviour
 
         if (allPlayers.Count == 0)
             exitPanel.SetActive(false);
+
+
+        // Update text
+        joinText.text = "Press  K  or            to join  ( " + allPlayers.Count + " / 4 )";
     }
 
     #endregion
@@ -132,6 +144,9 @@ public class JoingameManager : MonoBehaviour
 
         //if (holdStartGame_Value >= 1)
         //    GameManager.instance.AllPlayersSelected(currentPlayerDevices);
+
+        if (!playerInputManager.joiningEnabled)
+            playerInputManager.EnableJoining();
     }
 
     public void SelectPlayers()
@@ -142,14 +157,5 @@ public class JoingameManager : MonoBehaviour
             devices[i] = allPlayers[i].inputDevice;
 
         GameManager.instance.AllPlayersSelected(devices);
-    }
-
-    bool SomeonePressingStart()
-    {
-        for (int i = 0; i < allPlayers.Count; i++)
-            if (allPlayers[i].playerCard.pressingStart)
-                return true;
-
-        return false;
     }
 }
