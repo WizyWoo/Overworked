@@ -139,7 +139,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  radiusRangeOfSphere: 1
+  radiusRangeOfSphere: 1.8
   typeOfItem: 3
   NeedsCrafting: 0
   recolorWhenDone: 0

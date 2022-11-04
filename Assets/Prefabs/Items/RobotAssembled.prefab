@@ -55,7 +55,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  radiusRangeOfSphere: 1
+  radiusRangeOfSphere: 1.8
   typeOfItem: 4
   NeedsCrafting: 1
   recolorWhenDone: 1
