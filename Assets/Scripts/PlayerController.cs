@@ -674,7 +674,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bridge"))
         {
-            Debug.Log("on bridge");
             onBridge = true;
         }
     }
@@ -683,7 +682,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bridge"))
         {
-            Debug.Log("not on bridge");
             onBridge = false;
         }
     }

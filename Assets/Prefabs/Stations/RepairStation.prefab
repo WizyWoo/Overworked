@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1299811073256918166}
   - component: {fileID: 1299811073256918167}
   - component: {fileID: 1299811073256918168}
+  - component: {fileID: 1863536022874495799}
   - component: {fileID: 1299811073256918169}
   m_Layer: 3
   m_Name: RepairStation
@@ -175,6 +176,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1863536022874495799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299811073256918170}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.92721516, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!65 &1299811073256918169
 BoxCollider:
   m_ObjectHideFlags: 0
