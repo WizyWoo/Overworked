@@ -8,13 +8,13 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] GameObject spawnThisPrefab;
 
     [SerializeField] public float repeatRate;
-    [SerializeField] int initialOffset;
+    [SerializeField] public int initialOffset;
 
-    [HideInInspector] public bool functional = true;
+    [SerializeField] public bool functional = true;
 
     public Generator generator;
 
-    private void Awake()
+    private void Start()
     {
         Invoke("SpawnItem", initialOffset);
     }

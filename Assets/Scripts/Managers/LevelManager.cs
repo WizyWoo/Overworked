@@ -7,12 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-
-    [Header("Variables")]
-    [SerializeField] float maxTime;
-    float currentTime;
-
-    [Header("Referencias")]
+    [Header("REFERENCES")]
     [SerializeField] TMP_Text timerText;
 
     [SerializeField] TextMeshProUGUI moneyText, addMoneyText;
@@ -24,10 +19,42 @@ public class LevelManager : MonoBehaviour
     public int MoneyMultiplier;
     public int moneyWhenFall = 25;
 
-    private void Awake()
+
+
+    protected const string stringLine = "  __-_-_-_-_-__  ";
+    [Header("\n" + "\n" + "ADJUSTING DIFFICULTY PARAMETERS")]
+
+    [Header(stringLine + "Time" + stringLine)]
+    [SerializeField] float maxTime;
+    float currentTime;
+
+    [Header(stringLine + "Conveyor Belts" + stringLine + "\n")]
+    [SerializeField] float slow_conveyorBeltSpeed;
+    [SerializeField] float fast_conveyorBeltSpeed;
+    [Header("References")]
+    [SerializeField] ConveyorBelt[] slow_conveyorBelts;
+    [SerializeField] ConveyorBelt[] fast_conveyorBelts;
+
+    [Header(stringLine + "Spawners" + stringLine + "\n")]
+    [SerializeField] float partSpawner_rate;
+    [Header("References")]
+    [SerializeField] ItemSpawner[] parts_Spawner;
+
+    protected void Awake()
     {
         currentTime = maxTime;
         addMoneyImg.gameObject.SetActive(false);
+
+        // Set up game objects variables
+        for (int i = 0; i < slow_conveyorBelts.Length; i++)
+            slow_conveyorBelts[i].speed = slow_conveyorBeltSpeed;
+
+        for (int i = 0; i < fast_conveyorBelts.Length; i++)
+            fast_conveyorBelts[i].speed = fast_conveyorBeltSpeed;
+
+        // Part Spawners
+        foreach (ItemSpawner spawner in parts_Spawner)
+            spawner.repeatRate = partSpawner_rate;
     }
 
     protected virtual void Update()
