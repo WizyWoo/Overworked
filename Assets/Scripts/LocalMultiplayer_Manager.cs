@@ -10,7 +10,7 @@ public class LocalMultiplayer_Manager : MonoBehaviour
     PlayerInputManager playerInputManager;
 
     // A list with all the players
-    List<PlayerController> allPlayers;
+    public List<PlayerController> allPlayers;
 
     [Header("Parameters")]
     // If the player is below this Y position, respawn him
