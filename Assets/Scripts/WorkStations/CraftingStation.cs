@@ -6,11 +6,8 @@ public class CraftingStation : WorkStation
 {
 
     [Space]
-    [Header("Crafting"), Tooltip("The Items needed to craft an item. Order doesn't matter :) Can use this instead of inputting ID below"), SerializeField]
-    private CraftableItem recipeItem1;
-    [Tooltip("The Items needed to craft an item. Order doesn't matter :) Can use this instead of inputting ID below"), SerializeField]
-    private CraftableItem recipeItem2;
-    [Tooltip("The prefab that should spawn when the recipe items are combined")]
+    private CraftableItem recipeItem1, recipeItem2;
+    [Header("Crafting"), Tooltip("The prefab that should spawn when the recipe items are combined")]
     public GameObject Result;
     [Tooltip("Whether the result is finished by default or needs to be crafted")]
     public bool ResultIsAssembled;
