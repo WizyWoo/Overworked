@@ -44,7 +44,7 @@ public class RepairStation : WorkStation
     }
 
     //repair :)
-    private void Update()
+    protected override void Update()
     {
         base.Update();
         if(!UsedBy && !AutoRepair || OutOfPower)

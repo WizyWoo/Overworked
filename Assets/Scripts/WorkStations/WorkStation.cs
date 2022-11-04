@@ -21,6 +21,7 @@ public class WorkStation : MonoBehaviour , IInteractable
                 //If it's a craftable item check if it is not delivered
                 if (craftableItem && !craftableItem.delivered && !craftableItem.Assembled)
                     outlineScript.enabled = true;
+                else outlineScript.enabled = false;
             }
         }
         else
