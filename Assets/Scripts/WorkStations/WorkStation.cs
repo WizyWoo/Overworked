@@ -7,6 +7,16 @@ public class WorkStation : MonoBehaviour , IInteractable
 {
     [SerializeField] LayerMask layerMask;
     [SerializeField] float radiusRangeOfSphere = 1.0f;
+    protected PlayerController[] playersInScene;
+    [SerializeField]
+    private LocalMultiplayer_Manager localMultiplayer;
+    private void Start()
+    {
+
+        playersInScene = localMultiplayer.allPlayers.ToArray();
+
+    }
+    
     protected virtual void Update()
     {
         Collider[] collidersHit = Physics.OverlapSphere(transform.position, radiusRangeOfSphere, layerMask);
