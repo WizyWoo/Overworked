@@ -35,9 +35,9 @@ public class GrabbableItem : MonoBehaviour
         if (collidersHit.Length > 0 && !beingGrabbed && GetComponent<CraftableItem>()
             && GetComponent<Rigidbody>().velocity.y == 0 && !GetComponent<CraftableItem>().delivered)
         {
-            CraftableItem craftableItem = GetComponent<CraftableItem>();
             if (outline != null)
             {
+                CraftableItem craftableItem = GetComponent<CraftableItem>();
                 //If it's a craftable item check if it is not delivered
                 if (!craftableItem || (craftableItem && !craftableItem.delivered))
                    outline.enabled = true;
