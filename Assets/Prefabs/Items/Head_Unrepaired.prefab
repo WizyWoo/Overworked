@@ -51,10 +51,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnWorkstation: {fileID: 0}
+  outline: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  radiusRangeOfSphere: 1
+  radiusRangeOfSphere: 1.8
   typeOfItem: 2
   NeedsCrafting: 0
   recolorWhenDone: 0
