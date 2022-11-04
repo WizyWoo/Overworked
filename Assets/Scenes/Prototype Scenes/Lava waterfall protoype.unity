@@ -5238,7 +5238,7 @@ MonoBehaviour:
   moneyToWin2Star1: 45
   moneyToWin3Star1: 60
   middleFloor: {fileID: 1103854198}
-  relaxingZone_1Players: {fileID: 17731569}
+  relaxingZone_1Players: {fileID: 0}
   relaxingZones_2Players:
   - {fileID: 17731569}
 --- !u!114 &1780669303

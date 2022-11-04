@@ -510,7 +510,7 @@ public class PlayerController : MonoBehaviour
         }
 
         timerChangeDir += Time.deltaTime;
-        if(timerChangeDir >= 0.015f && (Physics.Raycast(transform.position, dir, limitDetectionDistance, limits)))
+        if(/*timerChangeDir >= 0.015f &&*/ (Physics.Raycast(transform.position, dir, limitDetectionDistance, limits)))
         {
             timerChangeDir = timeTochangeDir;
             if (lastDir > 1) burnDir -= 2;
