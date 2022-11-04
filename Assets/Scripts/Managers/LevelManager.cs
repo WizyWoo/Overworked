@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
     public int MoneyMultiplier;
     public int moneyWhenFall = 25;
 
-
+    public int CoinGaugeMoney;
 
     protected const string stringLine = "  __-_-_-_-_-__  ";
     [Header("\n" + "\n" + "ADJUSTING DIFFICULTY PARAMETERS")]
@@ -152,6 +152,7 @@ public class LevelManager : MonoBehaviour
     public void UpdateMoney(int amount)
     {
         money += amount;
+        CoinGaugeMoney = money;
         if (money <= 0) money = 0;
         StartCoroutine(AddMoneyVisuals(amount));
     }
