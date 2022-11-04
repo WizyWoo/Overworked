@@ -11,16 +11,17 @@ public class GrabbableItem : MonoBehaviour
 
     Rigidbody rb;
 
-    Outline outline;
+    [SerializeField] SpriteRenderer outline;
 
     SphereCollider[] colliders;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        outline = GetComponent<Outline>();
+        
         if (outline != null) 
             outline.enabled = false;
+
         colliders = GetComponents<SphereCollider>();
     }
     [SerializeField] LayerMask layerMask;
@@ -29,16 +30,23 @@ public class GrabbableItem : MonoBehaviour
     {
         Collider[] collidersHit = Physics.OverlapSphere(transform.position, radiusRangeOfSphere, layerMask);
 
-        //If the player is in range from the item, put the outline active 
-        if (collidersHit.Length > 0)
+        //If the player is in range from the item, it is not being grabbed, 
+        //And it is not flying, that means that Y velocity it's 0, put the outline active 
+        if (collidersHit.Length > 0 && !beingGrabbed && GetComponent<CraftableItem>()
+            && GetComponent<Rigidbody>().velocity.y == 0 && !GetComponent<CraftableItem>().delivered)
         {
-            //if (outline != null) 
-            //    outline.enabled = true;
+            CraftableItem craftableItem = GetComponent<CraftableItem>();
+            if (outline != null)
+            {
+                //If it's a craftable item check if it is not delivered
+                if (!craftableItem || (craftableItem && !craftableItem.delivered))
+                   outline.enabled = true;
+            }
         }    
         else
         {
-            //if(outline != null && outline.isActiveAndEnabled) 
-            //    outline.enabled = false;
+            if (outline != null)
+                outline.enabled = false;
         }
            
 
