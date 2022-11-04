@@ -88,24 +88,24 @@ public class CraftingStation : WorkStation
         if(_item.OnWorkstation || ItemOnStation && !recipeItem1 && !recipeItem2)
             return false;
 
-        ItemOnStation = _item;
-
-        if(!ItemOnStation.TryGetComponent<CraftableItem>(out CraftingItem))
+        if(!_item.TryGetComponent<CraftableItem>(out CraftingItem))
         {
 
-            RemoveItem(ItemOnStation);
+            RemoveItem(_item);
             return false;
 
         }
         else if(!CraftingItem.Assembled && !CraftingItem.NeedsCrafting)
         {
 
-            RemoveItem(ItemOnStation);
+            RemoveItem(_item);
             return false;
 
         }
         else if(CraftingItem.NeedsCrafting && !recipeItem1 && !recipeItem2)
         {
+
+            ItemOnStation = _item;
 
             ItemOnStation.UngrabItem();
             ItemOnStation.transform.SetParent(null);
@@ -122,6 +122,8 @@ public class CraftingStation : WorkStation
             if(CraftingItem.typeOfItem == recipeID1 && !recipeItem1)
             {
 
+                ItemOnStation = _item;
+
                 recipeItem1 = CraftingItem;
                 ItemOnStation.UngrabItem();
                 ItemOnStation.transform.SetParent(null);
@@ -133,6 +135,8 @@ public class CraftingStation : WorkStation
             }
             else if(CraftingItem.typeOfItem == recipeID2 && !recipeItem2)
             {
+
+                ItemOnStation = _item;
 
                 recipeItem2 = CraftingItem;
                 ItemOnStation.UngrabItem();
@@ -146,7 +150,7 @@ public class CraftingStation : WorkStation
             else
             {
 
-                RemoveItem(ItemOnStation);
+                RemoveItem(_item);
                 return false;
 
             }
