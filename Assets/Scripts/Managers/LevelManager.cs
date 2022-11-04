@@ -63,6 +63,19 @@ public class LevelManager : MonoBehaviour
         moneyText.text = money.ToString() + " / " + moneyToWin1Star.ToString();
     }
 
+    public virtual void CorrectRobot()
+    {
+
+
+
+    }
+
+    public virtual void IncorrectRobot()
+    {
+
+        
+
+    }
 
     void UpdateTimer()
     {

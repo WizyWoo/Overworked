@@ -11,7 +11,7 @@ public class PartReceiver : MonoBehaviour
 
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
-    [SerializeField] Level02_Manager level02_Manager;
+    [SerializeField] LevelManager level_Manager;
     [SerializeField] private CraftableItem.TypeOfRepairableItem deliveryItemType;
 
     CraftableItem currentItem;
@@ -30,7 +30,7 @@ public class PartReceiver : MonoBehaviour
                 pl.RemoveItem(item);
                 pl.itemGrabbed = null;
             }
-            level02_Manager.CorrectRobot();
+            level_Manager.CorrectRobot();
             item.GrabItem();
             item.transform.SetParent(robotSpot);
             item.transform.DOMove(robotSpot.position, .5f).OnComplete(TakeAwayRobot);
