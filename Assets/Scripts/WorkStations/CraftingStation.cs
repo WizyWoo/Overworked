@@ -160,12 +160,10 @@ public class CraftingStation : WorkStation
         if(recipeItem1 && recipeItem2 && !_stopPlz)
         {
             
-            recipeItem1.transform.position = Vector3.down * 10;
-            recipeItem2.transform.position = Vector3.down * 10;
+            Destroy(recipeItem1.gameObject);
+            Destroy(recipeItem2.gameObject);
             recipeItem1 = null;
             recipeItem2 = null;
-            //Destroy(recipeItem1);
-            //Destroy(recipeItem2);
             GameObject _tempGO = Instantiate(Result, DisplayPoint.position, Quaternion.identity);
             GrabbableItem _tempGI = _tempGO.GetComponent<GrabbableItem>();
             _tempGI.OnWorkstation = this;
