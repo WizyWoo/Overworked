@@ -8,13 +8,36 @@ public class PartReceiver : MonoBehaviour
 
     [SerializeField] Transform platform;
     [SerializeField] Transform robotSpot;
-
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
     [SerializeField] LevelManager level_Manager;
     [SerializeField] private CraftableItem.TypeOfRepairableItem deliveryItemType;
+    [SerializeField]
+    private LocalMultiplayer_Manager localMultiplayer;
+    [SerializeField]
+    private Outline outlineScript;
 
     CraftableItem currentItem;
+
+    private void FixedUpdate()
+    {
+
+        foreach (PlayerController _pC in localMultiplayer.allPlayers)
+        {
+
+            Debug.Log(_pC.gameObject.name);
+
+            if(_pC.itemGrabbed && _pC.itemGrabbed.TryGetComponent<CraftableItem>(out CraftableItem _cI))
+            {
+
+                if(_cI.typeOfItem == deliveryItemType && _cI.Assembled)
+                    outlineScript.enabled = true;
+
+            }
+            
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {

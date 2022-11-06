@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
+  m_IndirectSpecularColor: {r: 0.063215464, g: 0.08529005, b: 0.13257438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -697,6 +697,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CanvasUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398927922860443284, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7398927922860443288, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
@@ -2127,6 +2132,7 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   MoneyMultiplier: 1
   moneyWhenFall: -5
+  CoinGaugeMoney: 0
   maxTime: 150
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0
@@ -3460,6 +3466,7 @@ GameObject:
   - component: {fileID: 1854151314}
   - component: {fileID: 1854151311}
   - component: {fileID: 1854151317}
+  - component: {fileID: 1854151318}
   m_Layer: 0
   m_Name: Robot Receiver
   m_TagString: Untagged
@@ -3533,6 +3540,26 @@ MonoBehaviour:
   pointB: {fileID: 1195299837}
   level_Manager: {fileID: 1058643987}
   deliveryItemType: 4
+  localMultiplayer: {fileID: 1213981627}
+  outlineScript: {fileID: 1854151318}
+--- !u!114 &1854151318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854151310}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1962732982
 GameObject:
   m_ObjectHideFlags: 0
