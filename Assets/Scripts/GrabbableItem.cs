@@ -32,8 +32,10 @@ public class GrabbableItem : MonoBehaviour
 
         //If the player is in range from the item, it is not being grabbed, 
         //And it is not flying, that means that Y velocity it's 0, put the outline active 
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        CraftableItem craftableItem1 = GetComponent<CraftableItem>();
         if (collidersHit.Length > 0 && !beingGrabbed && GetComponent<CraftableItem>()
-            && GetComponent<Rigidbody>().velocity.y == 0 && !GetComponent<CraftableItem>().delivered)
+            && Mathf.Abs(GetComponent<Rigidbody>().velocity.y) <= 1.5f && !GetComponent<CraftableItem>().delivered)
         {
             if (outline != null)
             {
