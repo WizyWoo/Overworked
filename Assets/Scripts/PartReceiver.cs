@@ -16,6 +16,10 @@ public class PartReceiver : MonoBehaviour
     private LocalMultiplayer_Manager localMultiplayer;
     [SerializeField]
     private Outline outlineScript;
+    [SerializeField]
+    private Material indicatorLightMatCorrect, indicatorLightMatWrong, indicatorLightMatPending;
+    [SerializeField]
+    private MeshRenderer scannerLights;
 
     CraftableItem currentItem;
 
@@ -69,7 +73,7 @@ public class PartReceiver : MonoBehaviour
 
     void TakeAwayRobot()
     {
-        
+        scannerLights.materials[0] = indicatorLightMatCorrect;
         platform.transform.DOMove(pointB.position, 1).OnComplete(PreparePlatfomrForNextRobot);
     }
 
@@ -77,6 +81,7 @@ public class PartReceiver : MonoBehaviour
     {
         Destroy(currentItem.gameObject);
         currentItem = null;
+        scannerLights.materials[0] = indicatorLightMatPending;
         platform.transform.DOMove(pointA.position, 1);
     }
 
