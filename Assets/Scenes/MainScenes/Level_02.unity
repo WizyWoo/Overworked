@@ -1519,7 +1519,7 @@ Transform:
   - {fileID: 575457506}
   - {fileID: 510994271}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &822923752
 PrefabInstance:
@@ -3602,6 +3602,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Receiver
       objectReference: {fileID: 0}
+    - target: {fileID: 5238214657363509240, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: level_Manager
+      value: 
+      objectReference: {fileID: 2146607768}
+    - target: {fileID: 5238214657363509240, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: deliveryItemType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238214657363509240, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: localMultiplayer
+      value: 
+      objectReference: {fileID: 1555223193}
     - target: {fileID: 5238214657363509241, guid: 91c7412dc31b05049b8e21d17011db32,
         type: 3}
       propertyPath: m_RootOrder

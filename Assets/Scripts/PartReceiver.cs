@@ -36,8 +36,12 @@ public class PartReceiver : MonoBehaviour
 
                 if(_cI.typeOfItem == deliveryItemType && _cI.Assembled)
                     outlineScript.enabled = true;
+                else
+                    outlineScript.enabled = false;
 
             }
+            else
+                outlineScript.enabled = false;
             
         }
 

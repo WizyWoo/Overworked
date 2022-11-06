@@ -1888,6 +1888,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Receiver
       objectReference: {fileID: 0}
+    - target: {fileID: 5238214657363509240, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: level_Manager
+      value: 
+      objectReference: {fileID: 1058643987}
+    - target: {fileID: 5238214657363509240, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: deliveryItemType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238214657363509240, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: localMultiplayer
+      value: 
+      objectReference: {fileID: 1213981627}
     - target: {fileID: 5238214657363509241, guid: 91c7412dc31b05049b8e21d17011db32,
         type: 3}
       propertyPath: m_RootOrder
