@@ -144,6 +144,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
     }
 
+    public void RefillStamina()
+    {
+
+        currentStamina = maxStamina;
+
+    }
+
     public void DoingWork(float _intensity)
     {
         currentStamina -= (_intensity * Time.deltaTime) + (Time.deltaTime * regainStaminaSpeed);

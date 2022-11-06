@@ -101,6 +101,7 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         spawnpoints[spawnPoint].gameObject.SetActive(false);
 
         playerTr.GetComponentInChildren<PlayerController>().enabled = true;
+        playerTr.GetComponentInChildren<PlayerController>().RefillStamina();
 
         playerTr.position = spawnpoints[playerIndex % 2].position;
     }
