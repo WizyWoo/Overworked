@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 596354200}
   - component: {fileID: 596354201}
   - component: {fileID: 596354202}
+  - component: {fileID: 596354203}
   m_Layer: 0
   m_Name: ok
   m_TagString: Untagged
@@ -845,6 +846,29 @@ MonoBehaviour:
   m_DefaultActionMap: talk
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &596354203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596354199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f48e8faf32bf22498af8b90eb5ed78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - S:
+    - 
+    - 
+    - 
+  Boss_expressions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  boss: {fileID: 0}
+  Dogs: {fileID: 0}
 --- !u!1001 &1196677685
 PrefabInstance:
   m_ObjectHideFlags: 0

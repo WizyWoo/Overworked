@@ -7,8 +7,15 @@ using UnityEditor;
 #if UNITY_EDITOR
 public class Dialogue_tool : EditorWindow
 {
-            
+
     #region Variables
+    Boss_script_variables B;
+    
+    
+    
+
+
+
     public string[] tab_names = new string[] { "characters", "options", "dialogue" };
     public int tab_number = 0;
 
@@ -18,16 +25,26 @@ public class Dialogue_tool : EditorWindow
     public string[] Tool_dropdown = new string[] {"thing", "thing2", "thing3"};
    // public string Tool_dropdown = "hello";
 
-    public GUIContent Content_stuff;
+    private GUIContent Content_stuff;
 
-    public List<test> T = new List<test>();
-    List<Boss_speech> dialogue = new List<Boss_speech>();
+    public  List<test> T = new List<test>();
+    public int dialogue_int;
+    // public List<Boss_speech> dialogue = new List<Boss_speech>();
+    
+
+    private void OnEnable()
+    {
+
+
+    }
+
+    
     #endregion
 
     [MenuItem("Window/Dialogue")]
     public static void ShowWindow()
     {
-        
+           
         GetWindow<Dialogue_tool>("Dialogue options");
 
     }
@@ -36,10 +53,16 @@ public class Dialogue_tool : EditorWindow
 
     private void OnGUI()
     {
+        get_boss_dialogue_script();
         Tool_tab();
         display_selected_tab();
-       
 
+
+
+        void get_boss_dialogue_script()
+        {
+            B = GameObject.Find("ok").GetComponent<Boss_script_variables>();
+        }
         void Tool_tab()
         {
             tab_number = GUILayout.Toolbar(tab_number, tab_names);
@@ -53,15 +76,15 @@ public class Dialogue_tool : EditorWindow
                 case 2: dialogue_m();   break;
             }   
         }
+        
     }
 
 
 
     public void character()
     {
-       GUILayout.Label("characters");
-       Character_int = GUILayout.Toolbar(Character_int, Character_names);
-
+        GUILayout.Label("characters");
+        Character_int = GUILayout.Toolbar(Character_int, Character_names);
     }
     
 
@@ -69,6 +92,7 @@ public class Dialogue_tool : EditorWindow
     {
         test thing = new test();
 
+       
 
         GUILayout.Label("options");
         display_options();
@@ -102,93 +126,114 @@ public class Dialogue_tool : EditorWindow
         Vector2 Scroll_position = new Vector2(0,0);
     public void dialogue_m()
     {
-        
-        int get_length_of_dialogue = dialogue.Count;
-
-
         Object a_thing = null;
         string sentence = "";
-
+        
         int pop = 0;
 
 
-        Scroll_position = EditorGUILayout.BeginScrollView(Scroll_position,false,true, GUILayout.Height(200));
+
+        Scroll_position = EditorGUILayout.BeginScrollView(Scroll_position,false,true);
+       
 
         display_dialogue();
         add_sentence();
         add_more_dialogue();
+        clear_dialogues();
 
 
-        display_writing_field();
 
-        GUILayout.Space(20);
+
+        Space(20);
         
 
         EditorGUILayout.EndScrollView();
 
-        void animation_insertion()
+
+        void display_dialogue()
         {
-            a_thing = EditorGUILayout.ObjectField(a_thing,typeof(Animation));
+            string st = "";
+            int d = B.get_count();
+
+            display_all_sentences();
+
+
+            void display_all_sentences()
+            {
+                for (int a = 0; a < B.get_count(); a++)
+                {
+                    int length = B.get_sentences_count(a);
+
+                    GUILayout.Label("dialogue" + a);
+
+                    for (int i = 0; i < length; i++)
+                    {
+                        st = EditorGUILayout.TextArea(B.get_sentence(a, i), GUILayout.Height(50));
+                        B.set_sentence(a, i, st); 
+                    }
+
+                    if (GUILayout.Button("add sentence"))
+                    {
+                        B.add_sentence(a);
+                    }
+
+                    Space(10);
+                }
+
+            }
+
+            Space(10);
+
         }
+
+        void add_sentence()
+        {
+            if (GUILayout.Button("add dialogue"))
+            {
+                B.add_itnem();
+              
+               // hasUnsavedChanges = true;
+            }
+        }
+       
+        
 
         void boss_sprite_change()
         {
             Object sp = null;
             sp = EditorGUILayout.ObjectField(sp, typeof(Sprite));
         }
-      
-
-        void display_dialogue()
+        void animation_insertion()
         {
-            for (int a = 0; a < dialogue.Count; a++)
-            {
-                int length = dialogue[a].S.Count;
-                string st = "";
-
-                GUILayout.Label("dialogue" + a);
-
-                for (int i = 0; i < length; i++)
-                {
-                    dialogue[a].S[i] = EditorGUILayout.TextArea(dialogue[a].S[i], GUILayout.Height(50));
-                    boss_sprite_change();
-                    animation_insertion();
-                }
-
-                if (GUILayout.Button("add sentence"))
-                    dialogue[a].S.Add(st);
-                
-                GUILayout.Space(10);
-            }
-            Debug.Log(dialogue.Count);
-
-        }
-
-
-        void add_sentence()
-        {
-            Boss_speech b = new Boss_speech();
-            
-            if (GUILayout.Button("add dialogue"))
-            {
-                dialogue.Add(b);
-                Debug.Log("pressed");
-            }
+            a_thing = EditorGUILayout.ObjectField(a_thing,typeof(Animation));
         }
         void add_more_dialogue()
         {
 
         }
 
-        void display_writing_field()
+        void clear_dialogues()
         {
-            sentence = EditorGUILayout.TextArea(sentence, GUILayout.MaxHeight(50));
+            if (GUILayout.Button("clear"))
+                B.Clear_list();
         }
+
         void select_expression()
         {
             pop = EditorGUILayout.Popup(pop, Tool_dropdown);
         }
     }
+   
+
+    void Space(int i)
+    {
+        GUILayout.Space(i);
+    }
+
 }
+
+
+
 #endif
 
 public class test
