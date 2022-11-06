@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 
@@ -124,16 +125,16 @@ public class Dialogue_tool : EditorWindow
     }
 
         Vector2 Scroll_position = new Vector2(0,0);
+ 
     public void dialogue_m()
     {
         Object a_thing = null;
         string sentence = "";
-        
-        int pop = 0;
 
 
 
-        Scroll_position = EditorGUILayout.BeginScrollView(Scroll_position,false,true);
+
+        //Scroll_position = EditorGUILayout.BeginScrollView(Scroll_position,false,true);
        
 
         display_dialogue();
@@ -147,38 +148,57 @@ public class Dialogue_tool : EditorWindow
         Space(20);
         
 
-        EditorGUILayout.EndScrollView();
+       //EditorGUILayout.EndScrollView();
 
 
         void display_dialogue()
         {
+            string[] enum_array;
             string st = "";
             int d = B.get_count();
+           
+            
+
+            enum_array = System.Enum.GetNames(typeof(dog_animation));
 
             display_all_sentences();
+           
+            for (int a = 0; a < B.get_count(); a++)
+            {
+                int length = B.get_sentences_count(a);
 
+                GUILayout.Label("dialogue" + a);
 
+                for (int i = 0; i < length; i++)
+                {
+                    st = EditorGUILayout.TextArea(B.get_sentence(a, i), GUILayout.Height(50));
+                    B.set_sentence(a, i, st);
+                    show_animation_options();
+                }
+
+                if (GUILayout.Button("add sentence"))
+                {
+                    B.add_sentence(a);
+                }
+
+                Space(10);
+            }
+
+            
+
+            void show_animation_options()
+            {
+                dog_animation anim = dog_animation.panic;
+                anim = (dog_animation)EditorGUILayout.EnumPopup(anim);
+                
+            }
+                
+            void enum_animation()
+            {
+
+            }
             void display_all_sentences()
             {
-                for (int a = 0; a < B.get_count(); a++)
-                {
-                    int length = B.get_sentences_count(a);
-
-                    GUILayout.Label("dialogue" + a);
-
-                    for (int i = 0; i < length; i++)
-                    {
-                        st = EditorGUILayout.TextArea(B.get_sentence(a, i), GUILayout.Height(50));
-                        B.set_sentence(a, i, st); 
-                    }
-
-                    if (GUILayout.Button("add sentence"))
-                    {
-                        B.add_sentence(a);
-                    }
-
-                    Space(10);
-                }
 
             }
 
@@ -196,7 +216,7 @@ public class Dialogue_tool : EditorWindow
             }
         }
        
-        
+
 
         void boss_sprite_change()
         {
@@ -218,10 +238,7 @@ public class Dialogue_tool : EditorWindow
                 B.Clear_list();
         }
 
-        void select_expression()
-        {
-            pop = EditorGUILayout.Popup(pop, Tool_dropdown);
-        }
+      
     }
    
 
@@ -229,6 +246,7 @@ public class Dialogue_tool : EditorWindow
     {
         GUILayout.Space(i);
     }
+    
 
 }
 
