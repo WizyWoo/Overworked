@@ -39,10 +39,20 @@ public class GrabbableItem : MonoBehaviour
         {
             if (outline != null)
             {
+                bool playerAnotherItemCloser = false;
+                int i = 0;
+                //Check all the players if there's another item closer
+                while (!playerAnotherItemCloser && i < collidersHit.Length)
+                {
+                    playerAnotherItemCloser = collidersHit[i].GetComponent<PlayerController>().IsNearestItem(this);
+                    i++;
+                }
                 CraftableItem craftableItem = GetComponent<CraftableItem>();
                 //If it's a craftable item check if it is not delivered
-                if (!craftableItem || (craftableItem && !craftableItem.delivered))
-                   outline.enabled = true;
+
+                if (!craftableItem && !playerAnotherItemCloser || (craftableItem &&
+                    !craftableItem.delivered && !playerAnotherItemCloser)) outline.enabled = true;
+                else outline.enabled = false;
             }
         }    
         else
