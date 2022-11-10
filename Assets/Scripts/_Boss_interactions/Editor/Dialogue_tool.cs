@@ -24,6 +24,7 @@ public class Dialogue_tool : EditorWindow
     public string[] Character_names = new string[] {"boss", "dogs"};
 
     public string[] Tool_dropdown = new string[] {"thing", "thing2", "thing3"};
+    
    // public string Tool_dropdown = "hello";
 
     private GUIContent Content_stuff;
@@ -171,7 +172,7 @@ public class Dialogue_tool : EditorWindow
 
                 for (int i = 0; i < length; i++)
                 {
-                    st = EditorGUILayout.TextArea(B.get_sentence(a, i), GUILayout.Height(50));
+                    set_string(st,i);
                     B.set_sentence(a, i, st);
                     show_animation_options();
                 }
@@ -182,6 +183,11 @@ public class Dialogue_tool : EditorWindow
                 }
 
                 Space(10);
+                void set_string(string st,int i)
+                {
+                    st = EditorGUILayout.TextArea(B.get_sentence(a, i), GUILayout.Height(50));
+
+                }
             }
 
             
