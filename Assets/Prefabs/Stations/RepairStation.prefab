@@ -85,11 +85,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radiusRangeOfSphere: 1
+  localMultiplayer: {fileID: 0}
   DisplayPoint: {fileID: 1299811073026984507}
   UseRange: 3
   CraftingSpeed: 50
   WorkIntensity: 2
-  AutoRepair: 0
+  AutoRepair: 1
   SoundEvent:
     Guid:
       Data1: -280209524
