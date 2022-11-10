@@ -62,6 +62,7 @@ public class PartReceiver : MonoBehaviour
                 pl.itemGrabbed = null;
             }
             level_Manager.CorrectRobot();
+            scannerLights.material = indicatorLightMatCorrect;
             item.GrabItem();
             item.transform.SetParent(robotSpot);
             item.transform.DOMove(robotSpot.position, .5f).OnComplete(TakeAwayRobot);
@@ -77,7 +78,6 @@ public class PartReceiver : MonoBehaviour
 
     void TakeAwayRobot()
     {
-        scannerLights.material = indicatorLightMatCorrect;
         platform.transform.DOMove(pointB.position, 1).OnComplete(PreparePlatfomrForNextRobot);
     }
 

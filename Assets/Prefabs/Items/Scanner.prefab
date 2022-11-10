@@ -604,7 +604,7 @@ MonoBehaviour:
     type: 2}
   indicatorLightMatWrong: {fileID: 2100000, guid: ed404b74e889f224692f28518e8fa697,
     type: 2}
-  indicatorLightMatPending: {fileID: 2100000, guid: ed404b74e889f224692f28518e8fa697,
+  indicatorLightMatPending: {fileID: 2100000, guid: 2edd60cfe8c48ee4681767df6c39a703,
     type: 2}
   scannerLights: {fileID: 4816854980780445327}
 --- !u!114 &5238214657363509243
@@ -779,7 +779,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed404b74e889f224692f28518e8fa697, type: 2}
+  - {fileID: 2100000, guid: 2edd60cfe8c48ee4681767df6c39a703, type: 2}
   - {fileID: -3909347909818612287, guid: 808a30fe5b02a494c97d0b8110358225, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
