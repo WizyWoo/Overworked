@@ -77,7 +77,7 @@ public class PartReceiver : MonoBehaviour
 
     void TakeAwayRobot()
     {
-        scannerLights.materials[0] = indicatorLightMatCorrect;
+        scannerLights.material = indicatorLightMatCorrect;
         platform.transform.DOMove(pointB.position, 1).OnComplete(PreparePlatfomrForNextRobot);
     }
 
@@ -85,7 +85,7 @@ public class PartReceiver : MonoBehaviour
     {
         Destroy(currentItem.gameObject);
         currentItem = null;
-        scannerLights.materials[0] = indicatorLightMatPending;
+        scannerLights.material = indicatorLightMatPending;
         platform.transform.DOMove(pointA.position, 1);
     }
 
