@@ -266,6 +266,43 @@ public class PlayerController : MonoBehaviour
         currentStamina -= amount;
     }
 
+    public bool IsNearestItem(GrabbableItem grabbableItem)
+    {
+        ItemsInRangeForGrabbing.Clear();
+        //Takes all the colliders that are in a radiusRangeOfSphere 
+        Collider[] collidersHit = Physics.OverlapSphere(transform.position, radiusRangeOfSphere, layerMask);
+
+        //If there's at least one radius add them to the list of grabbable items 
+        if (collidersHit.Length > 0)
+        {
+            for (int j = 0; j < collidersHit.Length; j++)
+            {
+                GrabbableItem grabbableItemOverlaped = collidersHit[j].GetComponent<GrabbableItem>();
+                if (grabbableItemOverlaped && !grabbableItemOverlaped.GetComponent<CraftableItem>().delivered)
+                {
+                    ItemsInRangeForGrabbing.Add(grabbableItemOverlaped);
+                }
+
+            }
+        }
+
+        int i = 0;
+        bool itemInRange = false;
+        while (i < ItemsInRangeForGrabbing.Count && !itemInRange)
+        {
+            if (ItemsInRangeForGrabbing[i] == null) continue;
+
+            float shortestDistance = Vector3.Distance(grabbableItem.transform.position, transform.position);
+
+            float newDistance = Vector3.Distance(ItemsInRangeForGrabbing[i].transform.position, transform.position);
+
+            if (ItemsInRangeForGrabbing[i] != grabbableItem && newDistance < shortestDistance)
+                itemInRange = true;
+            i++;
+        }
+        return itemInRange;
+    }
+
     #region GrabbingSystem
 
     // All the grabbable items near this player are in this list
