@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
     [Header("REFERENCES")]
     [SerializeField] TMP_Text timerText;
 
@@ -42,6 +43,9 @@ public class LevelManager : MonoBehaviour
 
     protected void Awake()
     {
+
+        Instance = this;
+
         currentTime = maxTime;
         addMoneyImg.gameObject.SetActive(false);
 

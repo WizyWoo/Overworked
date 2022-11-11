@@ -3797,7 +3797,8 @@ MonoBehaviour:
   ConveyorArmPrefab: {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425,
     type: 3}
   warningFX: {fileID: 0}
-  TrainPrefab: {fileID: 0}
+  TrainPrefab: {fileID: 8173250538388149926, guid: 51a03d87fcd97644a93e25a97f706c81,
+    type: 3}
   RailPoints:
   - {fileID: 2155611389290271685}
   - {fileID: 1996128768}
@@ -4046,7 +4047,8 @@ MonoBehaviour:
   ConveyorArmPrefab: {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425,
     type: 3}
   warningFX: {fileID: 0}
-  TrainPrefab: {fileID: 0}
+  TrainPrefab: {fileID: 8173250538388149926, guid: 51a03d87fcd97644a93e25a97f706c81,
+    type: 3}
   RailPoints:
   - {fileID: 5811771874847504251}
   - {fileID: 5811771874885246541}

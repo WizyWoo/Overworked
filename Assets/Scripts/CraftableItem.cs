@@ -39,6 +39,8 @@ public class CraftableItem : GrabbableItem
     [Header("Change me if you want :)")]
     public TypeOfRepairableItem typeOfItem;
     public bool NeedsCrafting;
+    [SerializeField]
+    private int moneyPenaltyWhenBroken = 5;
     [SerializeField, Tooltip("Recolours the item when it is assembled")]
     protected bool recolorWhenDone;
     public bool ResizeWhenDone;
@@ -106,6 +108,7 @@ public class CraftableItem : GrabbableItem
     public void ItemOvercrafted()
     {
 
+        LevelManager.Instance.UpdateMoney(-moneyPenaltyWhenBroken);
         Destroy(gameObject);
 
     }
