@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Conversation_s : MonoBehaviour
@@ -110,7 +109,7 @@ public class Conversation_s : MonoBehaviour
     public void Load_level()
     {
         wait();
-        SceneManager.LoadScene(0);  
+        GameManager.instance.LoadScene("MainMenu");  
     }   
     #endregion
 
