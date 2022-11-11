@@ -10,7 +10,7 @@ public class ResultsManager : MonoBehaviour
     [SerializeField] Transform loseScreen;
     [SerializeField] TMP_Text loseText;
 
-    [SerializeField] Button nextLevel_Bt;
+    [SerializeField] Button bossConversation_Bt;
     [SerializeField] Button retry_Bt;
     [SerializeField] Button mainMenu_Bt;
 
@@ -52,7 +52,7 @@ public class ResultsManager : MonoBehaviour
         winScreen.gameObject.SetActive(true);
         loseScreen.gameObject.SetActive(false);
 
-        nextLevel_Bt.gameObject.SetActive(true);
+        bossConversation_Bt.gameObject.SetActive(true);
         retry_Bt.gameObject.SetActive(true);
         mainMenu_Bt.gameObject.SetActive(true);
 
@@ -83,7 +83,7 @@ public class ResultsManager : MonoBehaviour
         winScreen.gameObject.SetActive(false);
         loseScreen.gameObject.SetActive(true);
 
-        nextLevel_Bt.gameObject.SetActive(false);
+        bossConversation_Bt.gameObject.SetActive(false);
         retry_Bt.gameObject.SetActive(true);
         mainMenu_Bt.gameObject.SetActive(true);    
 
@@ -93,9 +93,10 @@ public class ResultsManager : MonoBehaviour
 
     // Buttons
 
-    public void Overworld_Btn()
+    public void Boss_Speech_Bt()
     {
-        Debug.Log("GO TO OVERWORLD");
+        Debug.Log("GO TALK WITH THE BOSS");
+        GameManager.instance.LoadScene("BossConversation");
     }
 
     public void Retry_Btn()
