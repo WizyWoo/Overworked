@@ -153,7 +153,7 @@ public class FreezingStation : WorkStation
                 if (CraftingItem.Progress >= 100)
                 {
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
-                    SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
+                    freezing = false;
                     RemoveItem(CraftingItem);
                 }
                 else SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
