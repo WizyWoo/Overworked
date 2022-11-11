@@ -79,13 +79,33 @@ public class CraftableItem : GrabbableItem
         {
             //Don't worry about it :)
             progress = value;
-            ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
-            if (progress >= 100)
+            if(progress < 100)
+            {
+
+                ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
+
+            }
+            else if(progress >= 100 && !assembled)
             {//I moved the tutorial thingy
+
                 assembled = true;
                 ItemAssembled();
+
+            }
+            else if(progress >= 200)
+            {
+
+                ItemOvercrafted();
+
             }
         }
+    }
+
+    public void ItemOvercrafted()
+    {
+
+
+
     }
 
     //Called when Progress is set to 100 or Assembled is set to true. Just puts on new sprite and removes indicator :))))
