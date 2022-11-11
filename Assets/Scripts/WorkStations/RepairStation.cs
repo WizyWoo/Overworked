@@ -115,11 +115,11 @@ public class RepairStation : WorkStation
             {
 
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
-                if(CraftingItem.Progress >= 100)
+                if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
                 {
 
+                    CraftingItem.Assembled = true;
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
-                    RemoveItem(CraftingItem);
  
                 }
                 else

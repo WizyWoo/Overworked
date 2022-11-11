@@ -229,7 +229,33 @@ public class CraftingStation : WorkStation
             
         }
 
-        if(!UsedBy || OutOfPower || UsedBy.exhausted || CraftingItem.Assembled)
+        if(!CraftingItem)
+        {
+
+            SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
+            return;
+
+        }
+
+        if(CraftingItem.NeedsCrafting)
+        {
+
+            CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+
+            if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
+            {
+
+                CraftingItem.Assembled = true;
+                SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
+
+            }
+
+        }
+        else
+            SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
+
+
+        /*if(!UsedBy || OutOfPower || UsedBy.exhausted || CraftingItem.Assembled)
         {
 
             SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
@@ -261,7 +287,7 @@ public class CraftingStation : WorkStation
 
             SoundManager.Instance.PlaySound(CraftingSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
-        }
+        }*/
 
     }
 

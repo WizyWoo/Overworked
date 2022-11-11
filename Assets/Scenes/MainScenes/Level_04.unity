@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215464, g: 0.08529005, b: 0.13257438, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3797,6 +3797,7 @@ MonoBehaviour:
   ConveyorArmPrefab: {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425,
     type: 3}
   warningFX: {fileID: 0}
+  TrainPrefab: {fileID: 0}
   RailPoints:
   - {fileID: 2155611389290271685}
   - {fileID: 1996128768}
@@ -4045,6 +4046,7 @@ MonoBehaviour:
   ConveyorArmPrefab: {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425,
     type: 3}
   warningFX: {fileID: 0}
+  TrainPrefab: {fileID: 0}
   RailPoints:
   - {fileID: 5811771874847504251}
   - {fileID: 5811771874885246541}
