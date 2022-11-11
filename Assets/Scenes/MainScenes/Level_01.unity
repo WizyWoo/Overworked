@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4657,6 +4657,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.09, z: 6.76}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!108 &1341614834 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 8346576026369431913, guid: d5baf86ccb434e94fbeb6bc4af2aaba0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8346576026816419950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1367346098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6214,6 +6220,7 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   MoneyMultiplier: 0
   moneyWhenFall: -5
+  CoinGaugeMoney: 0
   maxTime: 180
   slow_conveyorBeltSpeed: 1
   fast_conveyorBeltSpeed: 3
@@ -7428,6 +7435,26 @@ PrefabInstance:
       propertyPath: ceiling
       value: 
       objectReference: {fileID: 1234285937}
+    - target: {fileID: 8346576028359880815, guid: d5baf86ccb434e94fbeb6bc4af2aaba0,
+        type: 3}
+      propertyPath: spotLight
+      value: 
+      objectReference: {fileID: 1341614834}
+    - target: {fileID: 8346576028359880815, guid: d5baf86ccb434e94fbeb6bc4af2aaba0,
+        type: 3}
+      propertyPath: defaultCol.b
+      value: 0.31564614
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346576028359880815, guid: d5baf86ccb434e94fbeb6bc4af2aaba0,
+        type: 3}
+      propertyPath: defaultCol.g
+      value: 0.6509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346576028359880815, guid: d5baf86ccb434e94fbeb6bc4af2aaba0,
+        type: 3}
+      propertyPath: defaultCol.r
+      value: 0.62447256
+      objectReference: {fileID: 0}
     - target: {fileID: 8346576028359884690, guid: d5baf86ccb434e94fbeb6bc4af2aaba0,
         type: 3}
       propertyPath: m_Name
