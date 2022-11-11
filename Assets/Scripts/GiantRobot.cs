@@ -20,15 +20,20 @@ public class GiantRobot : MonoBehaviour
     [SerializeField] GameObject[] wheelOutlineObject;
 
 
+    enum itemTriggered { leftArm, rightArm, wheel}
+
     public void LeftArmTrigger(OnTriggerDelegation3D delegation)
-    { ArmTrigger(-1, delegation); }
+    { ItemTrigger(itemTriggered.leftArm, delegation); }
 
     public void RightArmTrigger(OnTriggerDelegation3D delegation)
-    { ArmTrigger(1, delegation); }
+    { ItemTrigger(itemTriggered.rightArm, delegation); }
+
+    public void WheelTrigger(OnTriggerDelegation3D delegation)
+    { ItemTrigger(itemTriggered.wheel, delegation); }
 
 
     // -1 = Left // 1 = Right
-    void ArmTrigger(int side, OnTriggerDelegation3D delegation)
+    void ItemTrigger(itemTriggered typeOfItem, OnTriggerDelegation3D delegation)
     {
         CraftableItem item = delegation.Other.GetComponent<CraftableItem>();
             
@@ -43,17 +48,19 @@ public class GiantRobot : MonoBehaviour
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.armOutline)
             {
                 // Get correct index
-                int index = SelectArmSpotIndex_Outlines(side);
+                int index = SelectSpotIndex_Outlines(typeOfItem);
                 if (index >= 3) return;
 
 
+                // LEFT
                 // Store gameopbject information in the outlinesArray
-                if (side == -1)
+                if (typeOfItem == itemTriggered.leftArm)
                 {
                     leftArmOutlineObject[index] = item.gameObject;
                     // Select spot
                     newSpot = leftArmsSpots[index];
                 }
+                // RIGHT
                 else
                 {
                     rightArmOutlineObject[index] = item.gameObject;
@@ -63,8 +70,13 @@ public class GiantRobot : MonoBehaviour
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheelOutline)
             {
-                //wheelOutlineObject = item.gameObject;
-                //newSpot = wheel_Spot;
+                // Get correct index
+                int index = SelectSpotIndex_Outlines(typeOfItem);
+                if (index >= 3) return;
+
+                wheelOutlineObject[index] = item.gameObject;
+                // Select spot
+                newSpot = wheelsSpots[index];
             }
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
             {
@@ -76,9 +88,17 @@ public class GiantRobot : MonoBehaviour
             // Set the rotation normal
             item.transform.GetChild(0).rotation = Quaternion.Euler(90, 0, 0);
 
-            float currentSize = item.transform.localScale.x;
-            float requiredSize = currentSize * .35f;
-            item.transform.DOScale(new Vector3(side * requiredSize, requiredSize, requiredSize), 1);
+            float armSize = .35f;
+            float wheelSize = .2f;
+
+            int side;
+            if (typeOfItem == itemTriggered.leftArm) side = -1;
+            else side = 1;
+
+            if (typeOfItem == itemTriggered.leftArm || typeOfItem == itemTriggered.rightArm)
+                item.transform.DOScale(new Vector3(side * armSize, armSize, armSize), 1);
+            else if (typeOfItem == itemTriggered.wheel)
+                item.transform.DOScale(new Vector3(side * wheelSize * 1.6f, wheelSize, wheelSize), 1);
 
             PlayerController pl = item.transform.GetComponentInParent<PlayerController>();
             if (pl != null)
@@ -99,14 +119,16 @@ public class GiantRobot : MonoBehaviour
         }
     }
 
-    public int SelectArmSpotIndex_Outlines(int side)
+    int SelectSpotIndex_Outlines(itemTriggered typeOfItem)
     {
         int i = 0;
 
-        if (side == -1)
+        if (typeOfItem == itemTriggered.leftArm)
             while (i < 3 && leftArmOutlineObject[i] != null) i++;
-        else
+        else if (typeOfItem == itemTriggered.rightArm)
             while (rightArmOutlineObject[i] != null) i++;
+        else if (typeOfItem == itemTriggered.wheel)
+            while (wheelOutlineObject[i] != null) i++;
 
         return i;
     }
