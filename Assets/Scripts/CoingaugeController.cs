@@ -20,6 +20,14 @@ public class CoingaugeController : MonoBehaviour
             Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin2Star1;
             Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin3Star1;
         }
+        if(SceneManager.GetActiveScene().name == "Level_02")
+        {
+            gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star1;
+            Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star1;
+            Coingauge_Part_2.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin2Star1;
+            Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin2Star1;
+            Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin3Star1;
+        }
         if(SceneManager.GetActiveScene().name == "Level_03")
         {
             gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star1;
