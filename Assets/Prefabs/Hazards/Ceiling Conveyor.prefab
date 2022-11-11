@@ -57,6 +57,8 @@ MonoBehaviour:
   ConveyorArmPrefab: {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425,
     type: 3}
   warningFX: {fileID: 8546019666136619527}
+  TrainPrefab: {fileID: 8173250538388149926, guid: 51a03d87fcd97644a93e25a97f706c81,
+    type: 3}
   RailPoints:
   - {fileID: 4852738262955470751}
   - {fileID: 4852738263031956054}

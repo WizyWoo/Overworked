@@ -6,7 +6,7 @@ public class CeilingConveyorHazard : MonoBehaviour
 {
 
     public float SpawnTimeMin, SpawnTimeMax, ConveyorSpeed, DistFromPoint;
-    public GameObject ConveyorArmPrefab, warningFX;
+    public GameObject ConveyorArmPrefab, warningFX, TrainPrefab;
     public Transform[] RailPoints;
     public List<Transform> arms;
     public List<int> curPoint;
@@ -36,6 +36,7 @@ public class CeilingConveyorHazard : MonoBehaviour
             warningFX.SetActive(true);
         }
     SkipWarning:;
+
         if(arms.Count > 0)
         {
 
@@ -67,6 +68,7 @@ public class CeilingConveyorHazard : MonoBehaviour
                 {
 
                     arms[i].position = Vector3.Lerp(RailPoints[curPoint[i]-1].position, RailPoints[curPoint[i]].position, armTravelTimer[i] / curDist[i]);
+                    arms[i].LookAt(RailPoints[curPoint[i]], Vector3.up);
 
                 }
 
@@ -90,7 +92,13 @@ public class CeilingConveyorHazard : MonoBehaviour
     private void SpawnArm()
     {
 
-        GameObject _tempGO = Instantiate(ConveyorArmPrefab, RailPoints[0].position, Quaternion.identity);
+        GameObject _tempGO = null;
+
+        if(Random.Range(0, 100) == 0)
+            _tempGO = Instantiate(TrainPrefab, RailPoints[0].position, Quaternion.identity);
+        else
+            _tempGO = Instantiate(ConveyorArmPrefab, RailPoints[0].position, Quaternion.identity);
+
         _tempGO.GetComponent<ConveyorArm>().MovePower = ConveyorSpeed;
 
         arms.Add(_tempGO.transform);
