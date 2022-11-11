@@ -115,7 +115,6 @@ public class CraftableItem : GrabbableItem
     {
         ItemSprite.sprite = AssembledItemSprite;
         outline.sprite = AssembledItemSprite;
-        NeedsCrafting = false;
 
         if(recolorWhenDone)
             ItemSprite.color = newColor;
@@ -136,7 +135,6 @@ public class CraftableItem : GrabbableItem
         else ItemSprite.sprite = finalSprite;
 
         ProgressIndicator.size = Vector2.zero;
-        NeedsCrafting = false;
 
         if (recolorWhenDone)
         {

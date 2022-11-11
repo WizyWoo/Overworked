@@ -1932,7 +1932,7 @@ PrefabInstance:
     - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: CraftingSpeed
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
@@ -4193,7 +4193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2146607768
 MonoBehaviour:
   m_ObjectHideFlags: 0

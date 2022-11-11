@@ -148,7 +148,12 @@ public class FreezingStation : WorkStation
             if (AutoRepair && CraftingItem.typeOfItem == itemToFreeze)
             {
                 freezing = true;
-                CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+
+                if(CraftingItem.Progress < 100)
+                    CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+                else
+                    CraftingItem.Progress += OverCraftingSpeed * Time.deltaTime;
+                
                 if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
                 {
 

@@ -240,7 +240,11 @@ public class CraftingStation : WorkStation
         if(CraftingItem.NeedsCrafting)
         {
 
-            CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+            
+            if(CraftingItem.Progress < 100)
+                CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+            else
+                CraftingItem.Progress += OverCraftingSpeed * Time.deltaTime;
 
             if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
             {

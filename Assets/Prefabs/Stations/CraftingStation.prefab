@@ -89,6 +89,7 @@ MonoBehaviour:
   DisplayPoint: {fileID: 5595768150498218261}
   UseRange: 3
   CraftingSpeed: 25
+  OverCraftingSpeed: 20
   WorkIntensity: 2
   AutoRepair: 1
   SoundEvent:
