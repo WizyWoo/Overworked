@@ -28,7 +28,7 @@ public class Level01_Manager : LevelManager
     [Header("This Level References")]
 
     [SerializeField] SpriteRenderer tickImage;
-    [SerializeField] int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
+    public int moneyToWin1Star1, moneyToWin2Star1, moneyToWin3Star1;
 
 
     [SerializeField] GameObject middleFloor;
