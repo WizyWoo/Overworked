@@ -7,7 +7,7 @@ using UnityEditor;
 namespace CustomStuffPog
 {
 
-    [CustomEditor(typeof(CraftableItem))]
+    [CustomEditor(typeof(CraftableItem)), CanEditMultipleObjects]
     public class CraftableItemEditor : Editor
     {
         public override void OnInspectorGUI()
@@ -46,6 +46,8 @@ public class CraftableItem : GrabbableItem
     public GameObject TurnOffWhenDone;
     [SerializeField]
     protected Color newColor;
+    [SerializeField, Tooltip("Colors for the progress bar :)))")]
+    protected Color overCraftingColor = Color.red, normalColor = Color.white;
     [SerializeField]
     protected float ProgressBarWidth = 10;
     [Space, Header("plz give reference")]
@@ -84,12 +86,20 @@ public class CraftableItem : GrabbableItem
 
                 ProgressIndicator.size = new Vector2(((progress / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
 
+
             }
             else if(progress >= 100 && !assembled)
             {//I moved the tutorial thingy
 
                 assembled = true;
                 ItemAssembled();
+
+            }
+            else if(progress < 200 && progress > 100)
+            {
+
+                ProgressIndicator.size = new Vector2((((progress - 100) / 100) * ProgressBarWidth) / 2, ProgressIndicator.size.y);
+                ProgressIndicator.color = overCraftingColor;
 
             }
             else if(progress >= 200)
@@ -113,7 +123,6 @@ public class CraftableItem : GrabbableItem
     {
         ItemSprite.sprite = AssembledItemSprite;
         outline.sprite = AssembledItemSprite;
-        ProgressIndicator.size = Vector2.zero;
         NeedsCrafting = false;
 
         if(recolorWhenDone)

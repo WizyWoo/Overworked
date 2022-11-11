@@ -106,8 +106,7 @@ public class FreezingStation : WorkStation
             
         }
 
-        if(UsedBy)
-            freezing = true;
+        freezing = false;
 
         if (!UsedBy && !AutoRepair || OutOfPower)
         {
@@ -150,17 +149,19 @@ public class FreezingStation : WorkStation
             {
                 freezing = true;
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
-                if (CraftingItem.Progress >= 100)
+                if (CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
                 {
+
                     SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
-                    freezing = false;
-                    RemoveItem(CraftingItem);
+
                 }
                 else SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
             }
             else
                 SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
         }
+        else
+            SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
 
     }
 }
