@@ -9,6 +9,8 @@ Shader "Poggers/MovingSurface"
         [NoScaleOffset] _Texture("Texture", 2D) = "white"
         _FlowDirX("Flow direction", float) = 0
         _FlowDirY("Flow direction", float) = 0
+        _TileDirX("X tile direction", float) = 0
+        _TileDirZ("Y tile direction", float) = 0
         _TexSize("Tiling scale", float) = 1
 
     }
@@ -63,13 +65,13 @@ Shader "Poggers/MovingSurface"
 
             }
             
-            float _FlowDirX, _FlowDirY, _TexSize;
+            float _FlowDirX, _FlowDirY, _TexSize, _TileDirX, _TileDirZ;
 
             half4 frag(v2f IN) : SV_Target
             {
 
-                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(((IN.wPos.x + IN.wPos.y / 2) * _TexSize) + (_Time[1] * _FlowDirX * _TexSize), 
-                ((IN.wPos.z + IN.wPos.y / 2) * _TexSize) + (_Time[1] * _FlowDirY * _TexSize)));
+                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(IN.uv.x + (IN.wPos.x * _TileDirX) + (_Time[1] * _FlowDirX * _TexSize), 
+                IN.uv.y + (IN.wPos.z * _TileDirZ) + (_Time[1] * _FlowDirY * _TexSize)));
                 return color;
 
             }

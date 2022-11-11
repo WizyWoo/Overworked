@@ -66,7 +66,7 @@ Shader "Poggers/TileSurface"
             half4 frag(v2f IN) : SV_Target
             {
 
-                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2((IN.wPos.x * _TexSize), (IN.wPos.z * _TexSize)));
+                half4 color = SAMPLE_TEXTURE2D(_Texture, sampler_Texture, float2(((IN.wPos.x + IN.wPos.y) * _TexSize), ((IN.wPos.z + IN.wPos.y) * _TexSize)));
                 return color;
 
             }

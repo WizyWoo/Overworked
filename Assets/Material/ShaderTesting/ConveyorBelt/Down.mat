@@ -122,6 +122,8 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _TexSize: 0.6
+    - _TileDirX: 0
+    - _TileDirZ: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
