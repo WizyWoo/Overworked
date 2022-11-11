@@ -67,9 +67,9 @@ public class RepairStation : WorkStation
             SoundManager.Instance.PlaySound(RepairSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
             if(CraftingItem.Progress < 100)
-                CraftingItem.Progress += CraftingSpeed;
+                CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
             else
-                CraftingItem.Progress += OverCraftingSpeed;
+                CraftingItem.Progress += OverCraftingSpeed * Time.deltaTime;
 
             if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
             {

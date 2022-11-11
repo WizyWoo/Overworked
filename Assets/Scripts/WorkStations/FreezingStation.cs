@@ -116,9 +116,9 @@ public class FreezingStation : WorkStation
             SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
             if(CraftingItem.Progress < 100)
-                CraftingItem.Progress += CraftingSpeed;
+                CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
             else
-                CraftingItem.Progress += OverCraftingSpeed;
+                CraftingItem.Progress += OverCraftingSpeed * Time.deltaTime;
 
             if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
             {
