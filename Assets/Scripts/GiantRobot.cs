@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GiantRobot : MonoBehaviour
 {
@@ -19,19 +20,18 @@ public class GiantRobot : MonoBehaviour
     [SerializeField] GameObject[] wheelOutlineObject;
 
 
-
-    public void LeftArmTrigger(OnTriggerDelegation delegation)
+    public void LeftArmTrigger(OnTriggerDelegation3D delegation)
     { ArmTrigger(-1, delegation); }
 
-    public void RightArmTrigger(OnTriggerDelegation delegation)
+    public void RightArmTrigger(OnTriggerDelegation3D delegation)
     { ArmTrigger(1, delegation); }
 
 
     // -1 = Left // 1 = Right
-    void ArmTrigger(int side, OnTriggerDelegation delegation)
+    void ArmTrigger(int side, OnTriggerDelegation3D delegation)
     {
         CraftableItem item = delegation.Other.GetComponent<CraftableItem>();
-
+            
         if (item != null)
         {
             //// Comprobar si esta crafteado
@@ -42,25 +42,24 @@ public class GiantRobot : MonoBehaviour
 
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.armOutline)
             {
-                if (side == -1)
-                {
-
-                }
-                else
-                {
-
-                }
-
+                // Get correct index
                 int index = SelectArmSpotIndex_Outlines(side);
+                if (index >= 3) return;
 
-                // Select spot
-                newSpot = leftArmsSpots[index];
 
                 // Store gameopbject information in the outlinesArray
                 if (side == -1)
+                {
                     leftArmOutlineObject[index] = item.gameObject;
+                    // Select spot
+                    newSpot = leftArmsSpots[index];
+                }
                 else
+                {
                     rightArmOutlineObject[index] = item.gameObject;
+                    // Select spot
+                    newSpot = rightArmsSpots[index];
+                }
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheelOutline)
             {
@@ -72,9 +71,14 @@ public class GiantRobot : MonoBehaviour
 
             }
 
+            item.transform.DOKill();
+
             // Set the rotation normal
             item.transform.GetChild(0).rotation = Quaternion.Euler(90, 0, 0);
 
+            float currentSize = item.transform.localScale.x;
+            float requiredSize = currentSize * .35f;
+            item.transform.DOScale(new Vector3(side * requiredSize, requiredSize, requiredSize), 1);
 
             PlayerController pl = item.transform.GetComponentInParent<PlayerController>();
             if (pl != null)
@@ -100,7 +104,7 @@ public class GiantRobot : MonoBehaviour
         int i = 0;
 
         if (side == -1)
-            while (leftArmOutlineObject[i] != null) i++;
+            while (i < 3 && leftArmOutlineObject[i] != null) i++;
         else
             while (rightArmOutlineObject[i] != null) i++;
 
