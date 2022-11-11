@@ -5911,7 +5911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a176998c8286d843966e6d909717948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doTutorial: 0
+  doTutorial: 1
   duringTutorial: 0
   changingPhase: 0
   tutorialRobotSpawn_Left: {fileID: 1285151526}

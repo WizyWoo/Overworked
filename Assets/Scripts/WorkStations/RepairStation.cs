@@ -61,7 +61,7 @@ public class RepairStation : WorkStation
             
         }
 
-        if(!CraftingItem && CraftingItem.typeOfItem == canRepairThisItem)
+        if(CraftingItem && CraftingItem.typeOfItem == canRepairThisItem)
         {
 
             SoundManager.Instance.PlaySound(RepairSoundEvent, gameObject, SoundManager.SoundType.Loop);
