@@ -15,7 +15,7 @@ public class Scanner : MonoBehaviour
     Level01_Manager level01Manager;
 
     [SerializeField] [ColorUsage(true, true)] Color rightCol, wrongCol, defaultCol;
-    [SerializeField] Material glassMat;
+    [SerializeField] Light spotLight;
     [SerializeField] float timeBulbOn;
     [SerializeField] Renderer bulbRenderer;
     [SerializeField] Transform okayRobotPos;
@@ -40,35 +40,24 @@ public class Scanner : MonoBehaviour
             if (IsRobotRepaired(robotDelivered))
             {
                 //change color
-                glassMat.color = rightCol;
-                glassMat.EnableKeyword("_EMISSION");
-                glassMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
-                glassMat.SetColor("_EmissionColor", rightCol);
-
+                spotLight.color = rightCol;
+                SoundManager.Instance.PlaySound(correctRobot, gameObject);
                 Total_Assembled_Robots++;
+                level01Manager.CorrectRobot();
                 IncrementWinCon = true;
 
                 robotDelivered.GetComponentInParent<RobotRail>().RemoveRobotFromConveyor(robotDelivered);
                 other.transform.SetParent(null);
                 other.transform.position = okayRobotPos.position;
-
-                SoundManager.Instance.PlaySound(correctRobot, gameObject);
-
-                level01Manager.CorrectRobot();
             }
-
             else
             {
                 StartCoroutine(WrongRobot(robotDelivered));
-
                 //change color
-                glassMat.color = wrongCol;
-                glassMat.EnableKeyword("_EMISSION");
-                glassMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
-                glassMat.SetColor("_EmissionColor", new Color(wrongCol.r, wrongCol.g, wrongCol.b));
-
+                spotLight.color = wrongCol;
                 SoundManager.Instance.PlaySound(incorrectRobot, gameObject);
                 level01Manager.IncorrectRobot();
+                IncrementLoseCon = true;
 
                 if (robotDelivered.leftArmAssembled)
                 {
@@ -79,17 +68,13 @@ public class Scanner : MonoBehaviour
                 {
                     if (throwItemsIfIncorrectRobot)
                         ceiling.ThrowItem(armToThrow);
-                    // ThrowItem(arm);
                 }
                 if (robotDelivered.wheelAssembled)
                 {
                     if (throwItemsIfIncorrectRobot)
                         ceiling.ThrowItem(wheelToThrow);
                 }
-
-                IncrementLoseCon = true;
             }
-
             Invoke("ReturnBulbToDefault", timeBulbOn);
         }
     }
@@ -99,10 +84,7 @@ public class Scanner : MonoBehaviour
 
     void ReturnBulbToDefault()
     {
-        glassMat.color = defaultCol;
-        glassMat.SetColor("_EmissionColor", defaultCol);
-        glassMat.DisableKeyword("_EMISSION");
-        glassMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
+        spotLight.color = defaultCol;
     }
 
     IEnumerator WrongRobot(RobotBody rb)
@@ -114,21 +96,6 @@ public class Scanner : MonoBehaviour
 
         Destroy(rb.gameObject);
     }
-
-    //Parabolic movement
-    //Vector3 BallisticVel(Transform target, float angle)
-    //{
-    //    Vector3 dir = target.position - transform.position;  // get target direction
-    //    float h = dir.y;  // get height difference
-    //    dir.y = 0;  // retain only the horizontal direction
-    //    float dist = dir.magnitude;  // get horizontal distance
-    //    float a = angle * Mathf.Deg2Rad;  // convert angle to radians
-    //    dir.y = dist * Mathf.Tan(a);  // set dir to the elevation angle
-    //    dist += h / Mathf.Tan(a);  // correct for small height differences
-    //                               // calculate the velocity magnitude
-    //    float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude / Mathf.Sin(2 * a));
-    //    return vel * dir.normalized;
-    //} 
 
     // Returns true if the robot has all the parts assembled
     bool IsRobotRepaired(RobotBody r)
