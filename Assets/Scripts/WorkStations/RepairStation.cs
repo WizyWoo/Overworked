@@ -61,7 +61,33 @@ public class RepairStation : WorkStation
             
         }
 
-        if(!UsedBy && !AutoRepair || OutOfPower)
+        if(!CraftingItem && CraftingItem.typeOfItem == canRepairThisItem)
+        {
+
+            SoundManager.Instance.PlaySound(RepairSoundEvent, gameObject, SoundManager.SoundType.Loop);
+
+            if(CraftingItem.Progress < 100)
+                CraftingItem.Progress += CraftingSpeed;
+            else
+                CraftingItem.Progress += OverCraftingSpeed;
+
+            if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
+            {
+
+                CraftingItem.Assembled = true;
+                SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
+
+            }
+
+        }
+        else
+        {
+
+            SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
+
+        }
+
+        /*if(!UsedBy && !AutoRepair || OutOfPower)
         {
 
             SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
@@ -134,7 +160,7 @@ public class RepairStation : WorkStation
             else
                 SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
 
-        }
+        }*/
 
     }
 

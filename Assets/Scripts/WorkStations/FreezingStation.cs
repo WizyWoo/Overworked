@@ -80,6 +80,7 @@ public class FreezingStation : WorkStation
     //repair :)
     protected override void Update()
     {
+
         base.Update();
 
         foreach (PlayerController _pC in localMultiplayer.allPlayers)
@@ -108,7 +109,34 @@ public class FreezingStation : WorkStation
 
         freezing = false;
 
-        if (!UsedBy && !AutoRepair || OutOfPower)
+        if(CraftingItem && CraftingItem.typeOfItem == itemToFreeze)
+        {
+
+            freezing = true;
+            SoundManager.Instance.PlaySound(FreezeSoundEvent, gameObject, SoundManager.SoundType.Loop);
+
+            if(CraftingItem.Progress < 100)
+                CraftingItem.Progress += CraftingSpeed;
+            else
+                CraftingItem.Progress += OverCraftingSpeed;
+
+            if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
+            {
+
+                CraftingItem.Assembled = true;
+                SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
+
+            }
+
+        }
+        else
+        {
+
+            SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
+
+        }
+        
+        /*if (!UsedBy && !AutoRepair || OutOfPower)
         {
             freezing = false;
             SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
@@ -168,7 +196,7 @@ public class FreezingStation : WorkStation
                 SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
         }
         else
-            SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
+            SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);*/
 
     }
 }
