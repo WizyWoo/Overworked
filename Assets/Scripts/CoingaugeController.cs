@@ -9,7 +9,18 @@ public class CoingaugeController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {if(SceneManager.GetActiveScene().name == "Level_03")
+    {
+        levelManager = GameObject.Find("LevelManager");
+
+        if(SceneManager.GetActiveScene().name == "Level_01")
+        {
+            gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin1Star1;
+            Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin1Star1;
+            Coingauge_Part_2.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin2Star1;
+            Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin2Star1;
+            Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin3Star1;
+        }
+        if(SceneManager.GetActiveScene().name == "Level_03")
         {
             gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star1;
             Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star1;
@@ -17,7 +28,14 @@ public class CoingaugeController : MonoBehaviour
             Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin2Star1;
             Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin3Star1; 
         }
-       
+       if(SceneManager.GetActiveScene().name == "Level_04")
+        {
+            gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin1Star1;
+            Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin1Star1;
+            Coingauge_Part_2.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin2Star1;
+            Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin2Star1;
+            Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin3Star1;
+        }
     }
 
     // Update is called once per frame
