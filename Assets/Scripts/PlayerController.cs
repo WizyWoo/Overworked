@@ -268,6 +268,8 @@ public class PlayerController : MonoBehaviour
 
     public bool IsNearestItem(GrabbableItem grabbableItem)
     {
+        //Putting in the list all the possible items
+        //Clean the list
         ItemsInRangeForGrabbing.Clear();
         //Takes all the colliders that are in a radiusRangeOfSphere 
         Collider[] collidersHit = Physics.OverlapSphere(transform.position, radiusRangeOfSphere, layerMask);
@@ -282,20 +284,23 @@ public class PlayerController : MonoBehaviour
                 {
                     ItemsInRangeForGrabbing.Add(grabbableItemOverlaped);
                 }
-
             }
         }
-
+        //Checking if there's some item closer to the player than the given item
         int i = 0;
         bool itemInRange = false;
+        //We check the distance from grabbableItem and the rest of them
+        //If the distance of another item is bigger just put the boolean itemInRange at true
+        //And get out of the while, if not the while continue, it returns itemInRange,
+        //If there's no another item closer returns false, else return true
         while (i < ItemsInRangeForGrabbing.Count && !itemInRange)
         {
+            //If the item is null
             if (ItemsInRangeForGrabbing[i] == null) continue;
-
+            //Calculating the two distances
             float shortestDistance = Vector3.Distance(grabbableItem.transform.position, transform.position);
-
             float newDistance = Vector3.Distance(ItemsInRangeForGrabbing[i].transform.position, transform.position);
-
+            
             if (ItemsInRangeForGrabbing[i] != grabbableItem && newDistance < shortestDistance)
                 itemInRange = true;
             i++;
