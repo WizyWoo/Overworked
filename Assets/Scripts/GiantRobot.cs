@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GiantRobot : MonoBehaviour
 {
@@ -19,19 +20,23 @@ public class GiantRobot : MonoBehaviour
     [SerializeField] GameObject[] wheelOutlineObject;
 
 
+    enum itemTriggered { leftArm, rightArm, wheel}
 
-    public void LeftArmTrigger(OnTriggerDelegation delegation)
-    { ArmTrigger(-1, delegation); }
+    public void LeftArmTrigger(OnTriggerDelegation3D delegation)
+    { ItemTrigger(itemTriggered.leftArm, delegation); }
 
-    public void RightArmTrigger(OnTriggerDelegation delegation)
-    { ArmTrigger(1, delegation); }
+    public void RightArmTrigger(OnTriggerDelegation3D delegation)
+    { ItemTrigger(itemTriggered.rightArm, delegation); }
+
+    public void WheelTrigger(OnTriggerDelegation3D delegation)
+    { ItemTrigger(itemTriggered.wheel, delegation); }
 
 
     // -1 = Left // 1 = Right
-    void ArmTrigger(int side, OnTriggerDelegation delegation)
+    void ItemTrigger(itemTriggered typeOfItem, OnTriggerDelegation3D delegation)
     {
         CraftableItem item = delegation.Other.GetComponent<CraftableItem>();
-
+            
         if (item != null)
         {
             //// Comprobar si esta crafteado
@@ -42,39 +47,58 @@ public class GiantRobot : MonoBehaviour
 
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.armOutline)
             {
-                if (side == -1)
-                {
+                // Get correct index
+                int index = SelectSpotIndex_Outlines(typeOfItem);
+                if (index >= 3) return;
 
-                }
-                else
-                {
 
-                }
-
-                int index = SelectArmSpotIndex_Outlines(side);
-
-                // Select spot
-                newSpot = leftArmsSpots[index];
-
+                // LEFT
                 // Store gameopbject information in the outlinesArray
-                if (side == -1)
+                if (typeOfItem == itemTriggered.leftArm)
+                {
                     leftArmOutlineObject[index] = item.gameObject;
+                    // Select spot
+                    newSpot = leftArmsSpots[index];
+                }
+                // RIGHT
                 else
+                {
                     rightArmOutlineObject[index] = item.gameObject;
+                    // Select spot
+                    newSpot = rightArmsSpots[index];
+                }
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheelOutline)
             {
-                //wheelOutlineObject = item.gameObject;
-                //newSpot = wheel_Spot;
+                // Get correct index
+                int index = SelectSpotIndex_Outlines(typeOfItem);
+                if (index >= 3) return;
+
+                wheelOutlineObject[index] = item.gameObject;
+                // Select spot
+                newSpot = wheelsSpots[index];
             }
             if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
             {
 
             }
 
+            item.transform.DOKill();
+
             // Set the rotation normal
             item.transform.GetChild(0).rotation = Quaternion.Euler(90, 0, 0);
 
+            float armSize = .35f;
+            float wheelSize = .2f;
+
+            int side;
+            if (typeOfItem == itemTriggered.leftArm) side = -1;
+            else side = 1;
+
+            if (typeOfItem == itemTriggered.leftArm || typeOfItem == itemTriggered.rightArm)
+                item.transform.DOScale(new Vector3(side * armSize, armSize, armSize), 1);
+            else if (typeOfItem == itemTriggered.wheel)
+                item.transform.DOScale(new Vector3(side * wheelSize * 1.6f, wheelSize, wheelSize), 1);
 
             PlayerController pl = item.transform.GetComponentInParent<PlayerController>();
             if (pl != null)
@@ -95,14 +119,16 @@ public class GiantRobot : MonoBehaviour
         }
     }
 
-    public int SelectArmSpotIndex_Outlines(int side)
+    int SelectSpotIndex_Outlines(itemTriggered typeOfItem)
     {
         int i = 0;
 
-        if (side == -1)
-            while (leftArmOutlineObject[i] != null) i++;
-        else
+        if (typeOfItem == itemTriggered.leftArm)
+            while (i < 3 && leftArmOutlineObject[i] != null) i++;
+        else if (typeOfItem == itemTriggered.rightArm)
             while (rightArmOutlineObject[i] != null) i++;
+        else if (typeOfItem == itemTriggered.wheel)
+            while (wheelOutlineObject[i] != null) i++;
 
         return i;
     }
