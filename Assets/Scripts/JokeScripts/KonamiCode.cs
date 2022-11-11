@@ -47,7 +47,8 @@ public class KonamiCode : MonoBehaviour
                 if (Input.GetKeyUp(KeyCode.A)) step++;
                 break;
             case 10:
-                KC = true;
+                KC = !KC;
+                step = 0;
                 break;
         }
     }

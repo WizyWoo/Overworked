@@ -20,6 +20,12 @@ public class EggController : MonoBehaviour
         if (KC.KC == true)
         {
             Egg.SetActive(true);
+            GameManager.instance.KonamiCode = true;
+        }
+        if(KC.KC == false)
+        {
+            Egg.SetActive(false);
+            GameManager.instance.KonamiCode = false;
         }
     }
 }
