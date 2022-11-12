@@ -8,19 +8,22 @@ using TMPro;
 public class Conversation_s : MonoBehaviour
 {
     #region Variables
+    public Boss_script_variables B;
     public TMP_Text          Speech_text;
     public Transform         Boss_transfrom;
     
     [SerializeField]
     private Sentence[]       speeches;
-   
+    public Sprite            Boss_sprite;
+
+
     public  AnimationCurve   bob_up_and_down;
     public  PlayerInput      convo;
     public  Animator         Black_screen;   
-    public  int              day;
     
     private float            t = 0;
     private int              i = 0;
+    private int              r;
     #endregion
 
 
@@ -29,31 +32,35 @@ public class Conversation_s : MonoBehaviour
     {
         PlayerPrefs.SetInt("Day", 2);
         convo = GetComponent<PlayerInput>();
+
+        r = Random.Range(0, B.dialogue.Count);
+        Debug.Log(B.dialogue.Count);
+        Debug.Log(r);
     }
     private void Start()
     {
+
         Set_text();
+        set_boss_sprite();
+        set_dog_animation();
+
         increase();
 
-        wait();
+        
         Fade_in();
-
-        void increase()
-        {
-            i++;
-        }
-        void Set_text()
-        {
-            Speech_text.text = speeches[day].Conversation[i];
-        }
+        
         void Fade_in()
         {
             Black_screen.Play("fade_in");
         }
+        
     }
     void Update()
     {
         Boss_bob();
+        Debug.Log(B.expres.ContainsKey(expression.normal));
+
+        Debug.Log(Random.Range(0, 3));
     }
 
     
@@ -82,30 +89,48 @@ public class Conversation_s : MonoBehaviour
 
         void Continue_conversation()
         {
-            if (i < speeches[day].Conversation.Length)
+            if (i < B.dialogue[r].S.Count)
+            {
                 Set_text();
+                set_boss_sprite();
+                set_dog_animation();
+                Debug.Log(i);
+            }
         }
         void Continue_to_scene()
         {
-            if (i > speeches[day].Conversation.Length)
+            if (i > B.dialogue[r].S.Count - 1)
             {
+                Debug.Log(i);
                 Fade_out();
                 Load_level();
             }
         }
-        void increase()
-        {
-            i++;
-        }
-        void Set_text()
-        {
-            Speech_text.text = speeches[0].Conversation[i];
-        }
+
+
         void Fade_out()
         {
             Black_screen.Play("fade_out");
         }
     }
+    public void increase()
+    {
+        i++;
+    }
+    public void Set_text()
+    {
+        Speech_text.text = B.dialogue[r].S[i];
+    }
+    public void set_boss_sprite()
+    {
+        B.boss.sprite = B.expres[B.get_expressions(r, i)];
+    }
+    public void set_dog_animation()
+    {
+        B.Dogs[0].Play(B.D_a[B.dialogue[r].da[i]]);
+        B.Dogs[1].Play(B.D_a[B.dialogue[r].da[i]]);
+    }
+    
     public void Load_level()
     {
         wait();

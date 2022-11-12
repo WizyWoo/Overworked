@@ -11,37 +11,33 @@ public class Dialogue_tool : EditorWindow
 
     #region Variables
     Boss_script_variables B;
-    
-    
-    
 
+    public int tab_number = 0;
+    public int Character_int = 0;
+    public int dialogue_int;
 
 
     public string[] tab_names = new string[] { "characters", "options", "dialogue" };
-    public int tab_number = 0;
-
-    public int Character_int = 0;
     public string[] Character_names = new string[] {"boss", "dogs"};
-
     public string[] Tool_dropdown = new string[] {"thing", "thing2", "thing3"};
-    
-   // public string Tool_dropdown = "hello";
+    public  List<test> T = new List<test>();
 
     private GUIContent Content_stuff;
+    public Vector2 scroll;
 
-    public  List<test> T = new List<test>();
-    public int dialogue_int;
+    
+
     // public List<Boss_speech> dialogue = new List<Boss_speech>();
     
+    #endregion
 
     private void OnEnable()
     {
-
+        
 
     }
-
     
-    #endregion
+    
 
     [MenuItem("Window/Dialogue")]
     public static void ShowWindow()
@@ -132,31 +128,24 @@ public class Dialogue_tool : EditorWindow
         Object a_thing = null;
         string sentence = "";
 
-
-
-
-        //Scroll_position = EditorGUILayout.BeginScrollView(Scroll_position,false,true);
-       
+       scroll = EditorGUILayout.BeginScrollView(scroll);
 
         display_dialogue();
         add_sentence();
         add_more_dialogue();
         clear_dialogues();
 
-
-
-
         Space(20);
         
 
-       //EditorGUILayout.EndScrollView();
+        if(GUILayout.Button("save"))
+            EditorUtility.SetDirty(B);
 
 
         void display_dialogue()
         {
             string[] enum_array;
             string st = "";
-            int d = B.get_count();
            
             
 
@@ -168,35 +157,44 @@ public class Dialogue_tool : EditorWindow
             {
                 int length = B.get_sentences_count(a);
 
-                GUILayout.Label("dialogue" + a);
+                GUILayout.Label("dialogue " + a);
 
                 for (int i = 0; i < length; i++)
                 {
-                    set_string(st,i);
-                    B.set_sentence(a, i, st);
-                    show_animation_options();
+                    set_string(i);
+
+                    expression anim = B.get_expressions(a,i);
+                    anim = (expression)EditorGUILayout.EnumPopup(anim);
+                    B.set_expression(a, i, anim);
+
+                    dog_animation da = B.get_animation(a, i);
+                    da = (dog_animation)EditorGUILayout.EnumPopup(da);
+                    B.set_animation(a, i, da);
                 }
 
                 if (GUILayout.Button("add sentence"))
                 {
                     B.add_sentence(a);
+                    
                 }
 
                 Space(10);
-                void set_string(string st,int i)
+                void set_string(int i)
                 {
                     st = EditorGUILayout.TextArea(B.get_sentence(a, i), GUILayout.Height(50));
-
+                    B.set_sentence(a, i, st);
                 }
             }
 
             
-
-            void show_animation_options()
+            void set_cat_expression(expression i)
             {
-                dog_animation anim = dog_animation.panic;
-                anim = (dog_animation)EditorGUILayout.EnumPopup(anim);
-                
+
+                B.set_sprite(i);
+            }
+
+            void show_expression_option()
+            {
             }
                 
             void enum_animation()
@@ -217,8 +215,6 @@ public class Dialogue_tool : EditorWindow
             if (GUILayout.Button("add dialogue"))
             {
                 B.add_itnem();
-              
-               // hasUnsavedChanges = true;
             }
         }
        
@@ -244,6 +240,7 @@ public class Dialogue_tool : EditorWindow
                 B.Clear_list();
         }
 
+        EditorGUILayout.EndScrollView();
       
     }
    
@@ -268,13 +265,5 @@ public class test
 
 }
 
-public class Boss_speech
-{
-    public List<string> S = new List<string>();
-}
 
-public class Personality
-{
-    Animation A;
-}
 
