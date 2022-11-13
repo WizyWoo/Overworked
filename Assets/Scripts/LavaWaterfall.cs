@@ -4,21 +4,76 @@ using UnityEngine;
 
 public class LavaWaterfall : MonoBehaviour
 {
-    [SerializeField] GameObject lavaBlurp;
+    [SerializeField] Transform initalPoint, finalPoint, lavaWaterfall;
+    [SerializeField] Vector2 lavaSpawnTimes;
 
-    [SerializeField] Vector2 timeForLavaBlurp;
+    Rigidbody lavaWaterFallRb;
+    bool falling;
+    float timeToFall, timeToAppear, timerToFall, timerToAppear;
     // Start is called before the first frame update
     void Start()
     {
-        float time = Random.Range(timeForLavaBlurp.x, timeForLavaBlurp.y);
-        Invoke("LavaBlurp", time);
+        lavaWaterFallRb = lavaWaterfall.GetComponent<Rigidbody>();
+        lavaWaterFallRb.useGravity = false;
+        falling = false;
+
+        timeToFall = Random.Range(lavaSpawnTimes.x, lavaSpawnTimes.y);
+        timeToAppear = Random.Range(lavaSpawnTimes.x, lavaSpawnTimes.y);
     }
 
-    void LavaBlurp()
+    private void Update()
     {
-        GameObject clon = Instantiate(lavaBlurp, this.transform);
+        if (!falling)
+        {
+            if (lavaWaterfall.gameObject.activeInHierarchy)
+            {
+                timerToFall += Time.deltaTime;
 
-        float time = Random.Range(timeForLavaBlurp.x, timeForLavaBlurp.y);
-        Invoke("LavaBlurp", time);
+                if (timerToFall >= timeToFall)
+                {
+                    Fall();
+                }
+            }
+            else
+            {
+                timerToAppear += Time.deltaTime;
+
+                if (timerToAppear >= timeToAppear)
+                {
+                    Appear();
+                }
+            }
+        }
+        else
+        {
+            if (lavaWaterfall.position.y <= finalPoint.position.y)
+            {
+                falling = false;
+
+                lavaWaterfall.position = initalPoint.position;
+                lavaWaterFallRb.useGravity = false;
+
+                lavaWaterfall.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    void Appear()
+    {
+        Debug.Log("Appear");
+        lavaWaterfall.gameObject.SetActive(true);
+
+        timerToAppear = 0;
+        timeToAppear = Random.Range(lavaSpawnTimes.x, lavaSpawnTimes.y);
+    }
+
+    void Fall()
+    {
+        Debug.Log("Fall");
+        lavaWaterFallRb.useGravity = true;
+        falling = true;
+
+        timerToFall = 0;
+        timeToFall = Random.Range(lavaSpawnTimes.x, lavaSpawnTimes.y);
     }
 }
