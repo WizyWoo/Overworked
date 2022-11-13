@@ -20,7 +20,10 @@ public class PartReceiver : MonoBehaviour
     private Material indicatorLightMatCorrect, indicatorLightMatWrong, indicatorLightMatPending;
     [SerializeField]
     private MeshRenderer scannerLights;
-
+    [SerializeField]
+    private GameObject inRangePopup;
+    [SerializeField]
+    private float popupRange;
     CraftableItem currentItem;
 
     private void FixedUpdate()
@@ -35,13 +38,32 @@ public class PartReceiver : MonoBehaviour
             {
 
                 if(_cI.typeOfItem == deliveryItemType && _cI.Assembled)
+                {
+
+                    if(Vector3.Distance(transform.position, _pC.transform.position) < popupRange)
+                        inRangePopup.SetActive(true);
+                    else
+                        inRangePopup.SetActive(false);
+                    
                     outlineScript.enabled = true;
+
+                }
                 else
+                {
+                    
+                    inRangePopup.SetActive(false);
                     outlineScript.enabled = false;
+
+                }
 
             }
             else
+            {
+
+                inRangePopup.SetActive(false);
                 outlineScript.enabled = false;
+
+            }
             
         }
 
