@@ -211,7 +211,6 @@ public class CraftingStation : WorkStation
         
     }
 
-    //While UsedBy is set, you can craft shit
     protected override void Update()
     {
         base.Update();
@@ -240,7 +239,8 @@ public class CraftingStation : WorkStation
         if(CraftingItem.NeedsCrafting)
         {
 
-            
+            SoundManager.Instance.PlaySound(CraftingSoundEvent, gameObject, SoundManager.SoundType.Loop);
+
             if(CraftingItem.Progress < 100)
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
             else

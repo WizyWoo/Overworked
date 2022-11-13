@@ -23,9 +23,9 @@ public class WorkStation : MonoBehaviour , IInteractable
 
         //If the player is in range from the item, it is not being grabbed, 
         //And it is not flying, that means that Y velocity it's 0, put the outline active 
-        if (collidersHit.Length > 0 && ItemOnStation)
+        if (collidersHit.Length > 0)
         {
-            if (outlineScript != null)
+            if (outlineScript != null && ItemOnStation)
             {
                 CraftableItem craftableItem = ItemOnStation.GetComponent<CraftableItem>();
                 //If it's a craftable item check if it is not delivered
@@ -33,16 +33,23 @@ public class WorkStation : MonoBehaviour , IInteractable
                     outlineScript.enabled = true;
                 else outlineScript.enabled = false;
             }
+            if(InRangePopup)
+                InRangePopup.SetActive(true);
         }
         else
         {
             if (outlineScript != null)
                 outlineScript.enabled = false;
+            
+            if(InRangePopup)
+                InRangePopup.SetActive(false);
         }
     }
 
     [Tooltip("Where the item lands on the table")]
     public Transform DisplayPoint;
+    [Tooltip("This will pop up when the player is in range of the station")]
+    public GameObject InRangePopup;
     [Header("Workstation Settings")]
     [Tooltip("How far away the player can interact with the table from")]
     public float UseRange;
@@ -163,6 +170,7 @@ public class WorkStation : MonoBehaviour , IInteractable
         {
 
             _item.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            CraftingItem.ItemRemovedFromStation();
             ItemOnStation = null;
             CraftingItem = null;
 

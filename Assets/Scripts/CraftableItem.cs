@@ -113,6 +113,13 @@ public class CraftableItem : GrabbableItem
 
     }
 
+    public void ItemRemovedFromStation()
+    {
+
+        ProgressIndicator.size = new Vector2(0, ProgressIndicator.size.y);
+
+    }
+
     //Called when Progress is set to 100 or Assembled is set to true. Just puts on new sprite and removes indicator :))))
     public void ItemAssembled()
     {
