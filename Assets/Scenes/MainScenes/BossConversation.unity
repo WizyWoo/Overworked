@@ -751,6 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe27cf9e75763e4aaea8d5dc2fc2d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  B: {fileID: 0}
   Speech_text: {fileID: 347808874}
   Boss_transfrom: {fileID: 1971286214}
   speeches:
@@ -763,6 +764,7 @@ MonoBehaviour:
     - Don't you want it? The green to make it in this world.
     - It is all that matters. Nothing else.
     - Now begone. I need my evil nap.
+  Boss_sprite: {fileID: 0}
   bob_up_and_down:
     serializedVersion: 2
     m_Curve:
@@ -798,7 +800,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   convo: {fileID: 0}
   Black_screen: {fileID: 335454120}
-  day: 0
 --- !u!114 &596354202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,15 +861,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - S:
-    - 
-    - 
-    - 
+    - 'Greetins dogs, you should be happy that I would hire such SCUM as you. '
+    - Dogs are ugly, dirty and sloth. So if I hear as much as a complaint, it will
+      be taken off your pay cheack.
+    - I can replace you at any time remember, there are enough STUPID dogs that would
+      do your piss job for less!
+    - So get to it!
+    ex: 00000000000000000200000002000000
+    da: 00000000010000000100000002000000
+  - S:
+    - I have a confesion
+    - I... am such a good person. it is so hard to be so good when everyone else
+      are so DUMB, but I have accepted that.
+    - People have been so bad to me in the past, but I have come out on top.
+    - My mom and dad died when I was just a kitten. I sWeaR I did NOT kill them!
+    - at least you have someone who cares for you...
+    - oh right you don't.
+    - So don't do something you will regret!
+    ex: 00000000010000000100000001000000010000000000000002000000
+    da: 00000000000000000000000000000000000000000100000001000000
   Boss_expressions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  dog_anim: []
   boss: {fileID: 0}
-  Dogs: {fileID: 0}
+  Dogs:
+  - {fileID: 0}
 --- !u!1001 &1196677685
 PrefabInstance:
   m_ObjectHideFlags: 0
