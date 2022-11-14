@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638031523553861046
+  lastModified: 638040514918741929
   FileSizes: []
   Exists: 1
 --- !u!114 &-7989093544598219125
@@ -38,13 +38,13 @@ MonoBehaviour:
     Data4: -202928073
   Banks:
   - {fileID: -3813699992411260954}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1233
+  Length: 2200
 --- !u!114 &-7556399271035790866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638031523553831125
+  lastModified: 638040514918521816
   FileSizes: []
   Exists: 1
 --- !u!114 &-3692604444830743295
@@ -264,7 +264,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638031523553861046
+  lastModified: 638040514918761947
   FileSizes:
   - Name: 
     Value: 2858
@@ -311,7 +311,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_UI.bank
   Name: BANK_UI
   StudioPath: bank:/BANK_UI
-  lastModified: 638031523553841084
+  lastModified: 638040514918711903
   FileSizes: []
   Exists: 1
 --- !u!114 &-3181725752735172162
@@ -329,7 +329,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_MUS.bank
   Name: BANK_MUS
   StudioPath: bank:/BANK_MUS
-  lastModified: 638031523553621673
+  lastModified: 638040514917082291
   FileSizes: []
   Exists: 1
 --- !u!114 &-2348724219133141341
@@ -500,7 +500,7 @@ MonoBehaviour:
   - {fileID: -8475376811953283045}
   StringsBanks:
   - {fileID: -3692604444830743295}
-  cacheTime: 638031523553861046
+  cacheTime: 638040514918761947
   cacheVersion: 131592
 --- !u!114 &534089264016308898
 MonoBehaviour:
@@ -625,7 +625,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_VO.bank
   Name: BANK_VO
   StudioPath: bank:/BANK_VO
-  lastModified: 638031523553851073
+  lastModified: 638040514918721909
   FileSizes: []
   Exists: 1
 --- !u!114 &3305447444526966031
@@ -679,8 +679,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 9
+  MaxDistance: 700
   Length: 6000
 --- !u!114 &4345761676942489692
 MonoBehaviour:
@@ -724,7 +724,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638031523553611700
+  lastModified: 638040514917062282
   FileSizes: []
   Exists: 1
 --- !u!114 &4858835938729398249
