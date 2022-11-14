@@ -45,15 +45,20 @@ public class WorkStation : MonoBehaviour , IInteractable
                 InRangePopup.SetActive(false);
         }
 
-        if(Crafting && !OverCrafting)
-            CraftingParticle.SetActive(true);
-        else
-            CraftingParticle.SetActive(false);
-        
-        if(OverCrafting)
-            OverCraftingParticle.SetActive(true);
-        else
-            OverCraftingParticle.SetActive(false);
+        if(CraftingParticle && OverCraftingParticle)
+        {
+
+            if(Crafting && !OverCrafting)
+                CraftingParticle.SetActive(true);
+            else
+                CraftingParticle.SetActive(false);
+            
+            if(OverCrafting)
+                OverCraftingParticle.SetActive(true);
+            else
+                OverCraftingParticle.SetActive(false);
+
+        }
 
     }
 
