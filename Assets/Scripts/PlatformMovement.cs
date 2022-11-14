@@ -38,7 +38,8 @@ public class PlatformMovement : MonoBehaviour
     IEnumerator GoA()
     {
         velocity = Random.Range(minVelocity, maxVelocity);
-        float c = 0; 
+        float c = 0;
+        SoundManager.Instance.PlaySound(constantMovement, gameObject, SoundManager.SoundType.Loop);
         while (Vector3.Distance(transform.position, a.position) > 0.01f)
         {
             yield return 0;
@@ -46,7 +47,8 @@ public class PlatformMovement : MonoBehaviour
             c += velocity * Time.deltaTime;
             c = Mathf.Clamp(c, 0, 1);
         }
-
+        SoundManager.Instance.StopSound(constantMovement, gameObject);
+        SoundManager.Instance.PlaySound(directionChange, gameObject);
         StartCoroutine(GoB());
         StopCoroutine(GoA());
     }
