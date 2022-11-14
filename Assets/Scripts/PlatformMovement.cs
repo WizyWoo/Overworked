@@ -12,7 +12,7 @@ public class PlatformMovement : MonoBehaviour
 
     private float velocity;
     [SerializeField] AnimationCurve animationCurve;
-
+    [SerializeField] FMODUnity.EventReference constantMovement, directionChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +55,7 @@ public class PlatformMovement : MonoBehaviour
     {
         velocity = Random.Range(minVelocity, maxVelocity);
         float c = 0;
+        SoundManager.Instance.PlaySound(constantMovement, gameObject, SoundManager.SoundType.Loop);
         while (Vector3.Distance(transform.position, b.position) > 0.1f)
         {
             yield return 0;
@@ -62,7 +63,8 @@ public class PlatformMovement : MonoBehaviour
             c += velocity * Time.deltaTime;
             c = Mathf.Clamp(c, 0, 1);
         }
-
+        SoundManager.Instance.StopSound(constantMovement, gameObject);
+        SoundManager.Instance.PlaySound(directionChange, gameObject);
         StartCoroutine(GoA());
         StopCoroutine(GoB());
     }

@@ -96,7 +96,11 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
   lastModified: 638013409741993082
+=======
+  lastModified: 638031523553861046
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   FileSizes:
   - Name: 
     Value: 2858
@@ -170,7 +174,11 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< HEAD
   lastModified: 638007316422712593
+=======
+  lastModified: 638031523553861046
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   FileSizes: []
   Exists: 1
 --- !u!114 &-4160018042491712230
@@ -405,7 +413,11 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_VO.bank
   Name: BANK_VO
   StudioPath: bank:/BANK_VO
+<<<<<<< HEAD
   lastModified: 638007316422692648
+=======
+  lastModified: 638031523553851073
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   FileSizes: []
   Exists: 1
 --- !u!114 &-34394917909100050
@@ -490,7 +502,11 @@ MonoBehaviour:
   - {fileID: -4767335179712241288}
   StringsBanks:
   - {fileID: -5946740043873004462}
+<<<<<<< HEAD
   cacheTime: 638015946935434649
+=======
+  cacheTime: 638031523553861046
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   cacheVersion: 131592
 --- !u!114 &100430021207997848
 MonoBehaviour:
@@ -671,7 +687,11 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_UI.bank
   Name: BANK_UI
   StudioPath: bank:/BANK_UI
+<<<<<<< HEAD
   lastModified: 638007316422682676
+=======
+  lastModified: 638031523553841084
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   FileSizes: []
   Exists: 1
 --- !u!114 &3258047523532793487
@@ -689,7 +709,11 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
+<<<<<<< HEAD
   lastModified: 638015946935434649
+=======
+  lastModified: 638031523553831125
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   FileSizes: []
   Exists: 1
 --- !u!114 &3502362754288130423
@@ -707,7 +731,11 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
+<<<<<<< HEAD
   lastModified: 638007523277988600
+=======
+  lastModified: 638031523553611700
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   FileSizes: []
   Exists: 1
 --- !u!114 &3515580262380426486
@@ -1022,7 +1050,11 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_MUS.bank
   Name: BANK_MUS
   StudioPath: bank:/BANK_MUS
+<<<<<<< HEAD
   lastModified: 638007316422302848
+=======
+  lastModified: 638031523553621673
+>>>>>>> a5f662713ecafe59ae33c3da7223877fbaa25867
   FileSizes: []
   Exists: 1
 --- !u!114 &8264950605115077689
