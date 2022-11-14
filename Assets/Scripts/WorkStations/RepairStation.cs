@@ -67,14 +67,25 @@ public class RepairStation : WorkStation
             SoundManager.Instance.PlaySound(RepairSoundEvent, gameObject, SoundManager.SoundType.Loop);
 
             if(CraftingItem.Progress < 100)
+            {
+
+                OverCrafting = false;
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+
+            }
             else
+            {
+
+                OverCrafting = true;
                 CraftingItem.Progress += OverCraftingSpeed * Time.deltaTime;
+
+            }
 
             if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
             {
 
                 CraftingItem.Assembled = true;
+                FinishedCraftingParticle.Play();
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
 
             }
@@ -83,6 +94,8 @@ public class RepairStation : WorkStation
         else
         {
 
+            Crafting = false;
+            OverCrafting = false;
             SoundManager.Instance.StopSound(RepairSoundEvent, gameObject);
 
         }

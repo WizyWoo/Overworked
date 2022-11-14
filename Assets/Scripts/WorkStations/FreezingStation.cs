@@ -124,6 +124,7 @@ public class FreezingStation : WorkStation
             {
 
                 CraftingItem.Assembled = true;
+                FinishedCraftingParticle.Play();
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
 
             }

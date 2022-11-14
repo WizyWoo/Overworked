@@ -44,12 +44,24 @@ public class WorkStation : MonoBehaviour , IInteractable
             if(InRangePopup)
                 InRangePopup.SetActive(false);
         }
+
+        if(Crafting && !OverCrafting)
+            CraftingParticle.SetActive(true);
+        else
+            CraftingParticle.SetActive(false);
+        
+        if(OverCrafting)
+            OverCraftingParticle.SetActive(true);
+        else
+            OverCraftingParticle.SetActive(false);
+
     }
 
     [Tooltip("Where the item lands on the table")]
     public Transform DisplayPoint;
     [Tooltip("This will pop up when the player is in range of the station")]
-    public GameObject InRangePopup;
+    public GameObject InRangePopup, CraftingParticle, OverCraftingParticle;
+    public ParticleSystem FinishedCraftingParticle;
     [Header("Workstation Settings")]
     [Tooltip("How far away the player can interact with the table from")]
     public float UseRange;
@@ -60,7 +72,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     public bool AutoRepair;
     public EventReference SoundEvent, CompletedSoundEvent;
     [HideInInspector]
-    public bool InUse, OutOfPower;
+    public bool InUse, OutOfPower, Crafting, OverCrafting;
     [HideInInspector]
     public GrabbableItem ItemOnStation;
     [HideInInspector]

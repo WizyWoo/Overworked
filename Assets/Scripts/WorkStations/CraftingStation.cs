@@ -231,6 +231,8 @@ public class CraftingStation : WorkStation
         if(!CraftingItem)
         {
 
+            Crafting = false;
+            OverCrafting = false;
             SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
             return;
 
@@ -240,23 +242,41 @@ public class CraftingStation : WorkStation
         {
 
             SoundManager.Instance.PlaySound(CraftingSoundEvent, gameObject, SoundManager.SoundType.Loop);
+            Crafting = true;
 
             if(CraftingItem.Progress < 100)
+            {
+
+                OverCrafting = false;
                 CraftingItem.Progress += CraftingSpeed * Time.deltaTime;
+
+            }
             else
+            {
+
+                OverCrafting = true;
                 CraftingItem.Progress += OverCraftingSpeed * Time.deltaTime;
+
+            }
 
             if(CraftingItem.Progress >= 100 && !CraftingItem.Assembled)
             {
 
                 CraftingItem.Assembled = true;
+                FinishedCraftingParticle.Play();
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
 
             }
 
         }
         else
+        {
+
+            Crafting = false;
+            OverCrafting = false;
             SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
+
+        }
 
 
         /*if(!UsedBy || OutOfPower || UsedBy.exhausted || CraftingItem.Assembled)
