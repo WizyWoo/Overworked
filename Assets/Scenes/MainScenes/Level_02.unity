@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1325,6 +1325,56 @@ PrefabInstance:
         type: 3}
       propertyPath: minVelocity
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: directionChange.Path
+      value: event:/SFX/SFX_Envior/SFX_Envior_PlatformClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: constantMovement.Path
+      value: event:/SFX/SFX_Envior/SFX_Envior_PlatformMoving
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: directionChange.Guid.Data1
+      value: -754521166
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: directionChange.Guid.Data2
+      value: 1124610670
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: directionChange.Guid.Data3
+      value: 1137193371
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: directionChange.Guid.Data4
+      value: 1356646378
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: constantMovement.Guid.Data1
+      value: -327000831
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: constantMovement.Guid.Data2
+      value: 1282756334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: constantMovement.Guid.Data3
+      value: 2109056944
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785572362851961963, guid: 37b3a092dc9da524f8175ef592c262d8,
+        type: 3}
+      propertyPath: constantMovement.Guid.Data4
+      value: -181099050
       objectReference: {fileID: 0}
     - target: {fileID: 3785572362976464661, guid: 37b3a092dc9da524f8175ef592c262d8,
         type: 3}
