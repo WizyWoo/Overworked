@@ -23,6 +23,8 @@ public class PartReceiver : MonoBehaviour
     [SerializeField]
     private GameObject inRangePopup;
     [SerializeField]
+    private ParticleSystem DeliveredItemParticle;
+    [SerializeField]
     private float popupRange;
     CraftableItem currentItem;
 
@@ -84,6 +86,7 @@ public class PartReceiver : MonoBehaviour
                 pl.itemGrabbed = null;
             }
             level_Manager.CorrectRobot();
+            DeliveredItemParticle.Play();
             scannerLights.material = indicatorLightMatCorrect;
             item.GrabItem();
             item.transform.SetParent(robotSpot);
