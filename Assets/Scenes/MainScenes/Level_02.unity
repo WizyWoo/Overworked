@@ -1982,13 +1982,18 @@ PrefabInstance:
     - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: CraftingSpeed
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: localMultiplayer
       value: 
       objectReference: {fileID: 1555223193}
+    - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
+        type: 3}
+      propertyPath: OverCraftingSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5595768151472524684, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: ResultIsAssembled
