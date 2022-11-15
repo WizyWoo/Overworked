@@ -5215,6 +5215,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418307495}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1418307498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3569856404873890756, guid: 280af432d75fd4b4cacaf36fab8450de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1418307493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418307495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7cc723db3763f468113131635f1b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1429527670 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
@@ -6728,7 +6740,7 @@ MonoBehaviour:
   - {fileID: 1026594497}
   fast_conveyorBelts:
   - {fileID: 108380245}
-  - {fileID: 0}
+  - {fileID: 1418307498}
   partSpawner_rate: 6
   parts_Spawner:
   - {fileID: 1174088878}

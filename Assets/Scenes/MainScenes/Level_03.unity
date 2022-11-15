@@ -170,7 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 5
+  TransportDirection: {x: 0, y: 0, z: -1}
+  TransportSpeed: 5
 --- !u!65 &18825029
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1922,7 +1923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: -1}
+  TransportSpeed: 1
 --- !u!65 &682608049
 BoxCollider:
   m_ObjectHideFlags: 0
