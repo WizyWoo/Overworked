@@ -2851,7 +2851,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3514,6 +3514,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1411027946}
     m_Modifications:
+    - target: {fileID: 1599285870675795019, guid: 280af432d75fd4b4cacaf36fab8450de,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232516603242148901, guid: 280af432d75fd4b4cacaf36fab8450de,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3569856404873890756, guid: 280af432d75fd4b4cacaf36fab8450de,
         type: 3}
       propertyPath: direction.x
@@ -5585,6 +5595,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1411027946}
     m_Modifications:
+    - target: {fileID: 1599285870675795019, guid: 280af432d75fd4b4cacaf36fab8450de,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232516603242148901, guid: 280af432d75fd4b4cacaf36fab8450de,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3569856404873890756, guid: 280af432d75fd4b4cacaf36fab8450de,
         type: 3}
       propertyPath: direction.x
