@@ -188,10 +188,11 @@ public class WorkStation : MonoBehaviour , IInteractable
 
             _item.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             CraftingItem.ItemRemovedFromStation();
-            ItemOnStation = null;
-            CraftingItem = null;
 
         }
+
+        ItemOnStation = null;
+        CraftingItem = null;
 
         UsedBy = null;
         InUse = false;

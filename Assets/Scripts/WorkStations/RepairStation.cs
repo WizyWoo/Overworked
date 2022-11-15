@@ -19,8 +19,8 @@ public class RepairStation : WorkStation
 
         if(!_item.TryGetComponent<CraftableItem>(out CraftingItem))
             RemoveItem(_item);
-        else if(CraftingItem.Assembled)
-            RemoveItem(_item);
+        /*else if(CraftingItem.Assembled)
+            RemoveItem(_item);*/
         else if(CraftingItem.typeOfItem != canRepairThisItem)
             RemoveItem(_item);
         else
