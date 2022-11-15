@@ -26,10 +26,10 @@ public class Level04_Manager : LevelManager
         // ADJUST LEVEL DIFFICULTY VARIABLES
 
         for (int i = 0; i < slow_conveyor.Length; i++)
-            slow_conveyor[i].transportDirection = slow_conveyorSpeed;
+            slow_conveyor[i].TransportSpeed = slow_conveyorSpeed;
 
         for (int i = 0; i < fast_conveyor.Length; i++)
-            fast_conveyor[i].transportDirection = fast_conveyorSpeed;
+            fast_conveyor[i].TransportSpeed = fast_conveyorSpeed;
     }
 
 

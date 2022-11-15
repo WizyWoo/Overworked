@@ -6,7 +6,8 @@ public class FailSafeConveyor : MonoBehaviour
 {
 
     [SerializeField, Tooltip("negative values go in reverse, positive values go forward")]
-    public float transportDirection;
+    public Vector3 TransportDirection;
+    public float TransportSpeed;
     private List<Rigidbody> rigidbodiesOnConveyor;
     private Transform player;
 
@@ -38,7 +39,7 @@ public class FailSafeConveyor : MonoBehaviour
         else if(rigidbodiesOnConveyor.Remove(_col.rigidbody))
         {
 
-            _col.rigidbody.velocity = transform.forward * transportDirection;
+            _col.rigidbody.velocity = TransportDirection;
 
         }
 
@@ -69,12 +70,12 @@ public class FailSafeConveyor : MonoBehaviour
 
             }
 
-            rigidbodiesOnConveyor[i].transform.position += transform.forward * (transportDirection / 60);
+            rigidbodiesOnConveyor[i].transform.position += TransportDirection * (TransportSpeed / 60);
 
         }
 
         if (player)
-            player.position += transform.forward * (transportDirection / 60);
+            player.position += TransportDirection * (TransportSpeed / 60);
 
     }
 
