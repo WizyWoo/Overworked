@@ -10,6 +10,8 @@ public class RelaxZone : MonoBehaviour
 
     [SerializeField] ParticleSystem particleSys;
     [SerializeField] EventReference HealingSound;
+    public Transform CoffeeCupPoint;
+    public GameObject CoffeeCupPrefab;
 
     private void Awake()
     {
@@ -39,7 +41,13 @@ public class RelaxZone : MonoBehaviour
     {
         PlayerController player;
         if (other.TryGetComponent<PlayerController>(out player))
+        {
+
+            GameObject _newCup = Instantiate(CoffeeCupPrefab, CoffeeCupPoint);
+            CoffeeCupPoint = _newCup.GetComponentInChildren<Transform>();
             playersInRelaxZone.Add(player);
+
+        }
     }
 
     private void OnTriggerExit(Collider other)
