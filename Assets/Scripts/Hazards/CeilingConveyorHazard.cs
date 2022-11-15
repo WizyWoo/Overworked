@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class CeilingConveyorHazard : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CeilingConveyorHazard : MonoBehaviour
     public List<int> curPoint;
     private List<float> armTravelTimer, curDist;
     public float RolledTime, WarningTime;
+    public EventReference TrainSound;
     //EnableThis one if it's more cosmetic
     public bool noWarnings;
     private void Start()
@@ -95,7 +97,12 @@ public class CeilingConveyorHazard : MonoBehaviour
         GameObject _tempGO = null;
 
         if(Random.Range(0, 100) == 0)
+        {
+
             _tempGO = Instantiate(TrainPrefab, RailPoints[0].position, Quaternion.identity);
+            SoundManager.Instance.PlaySound(TrainSound, gameObject);
+
+        }
         else
             _tempGO = Instantiate(ConveyorArmPrefab, RailPoints[0].position, Quaternion.identity);
 

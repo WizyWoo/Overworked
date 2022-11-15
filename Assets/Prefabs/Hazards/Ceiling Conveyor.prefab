@@ -67,6 +67,13 @@ MonoBehaviour:
   curPoint: 
   RolledTime: 0
   WarningTime: 0
+  TrainSound:
+    Guid:
+      Data1: 822400634
+      Data2: 1093644268
+      Data3: -776694347
+      Data4: -1871920986
+    Path: event:/SFX/SFX_Envior/SFX_Train_Passby
   noWarnings: 1
 --- !u!1 &4852738262561718136
 GameObject:
