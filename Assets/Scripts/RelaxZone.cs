@@ -12,6 +12,7 @@ public class RelaxZone : MonoBehaviour
     [SerializeField] EventReference HealingSound;
     public Transform CoffeeCupPoint;
     public GameObject CoffeeCupPrefab;
+    public Vector3 Offset;
 
     private void Awake()
     {
@@ -44,7 +45,8 @@ public class RelaxZone : MonoBehaviour
         {
 
             GameObject _newCup = Instantiate(CoffeeCupPrefab, CoffeeCupPoint);
-            CoffeeCupPoint = _newCup.GetComponentInChildren<Transform>();
+            _newCup.transform.position += Offset;
+            CoffeeCupPoint = _newCup.transform;
             playersInRelaxZone.Add(player);
 
         }

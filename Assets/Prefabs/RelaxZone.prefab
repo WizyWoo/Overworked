@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6540279155316442537}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.602, y: 0.32, z: 0.779}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.602, y: 0.11, z: 0.779}
+  m_LocalScale: {x: 180, y: 180, z: 180}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8374386666172676020}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &7015430043810516440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4903,8 +4903,10 @@ MonoBehaviour:
       Data3: -1023359356
       Data4: -202928073
     Path: event:/SFX/SFX_Machine/SFX_M_Healing
-  CoffeeCupPoint: {fileID: 0}
-  CoffeeCupPrefab: {fileID: 0}
+  CoffeeCupPoint: {fileID: 3065675955252123186}
+  CoffeeCupPrefab: {fileID: 4348697553783062768, guid: 9e141e06b2ae19f4f98a08fe9d6ec442,
+    type: 3}
+  Offset: {x: 0, y: 0.18, z: 0}
 --- !u!65 &8374386666172676021
 BoxCollider:
   m_ObjectHideFlags: 0
