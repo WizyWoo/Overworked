@@ -612,6 +612,13 @@ MonoBehaviour:
   inRangePopup: {fileID: 6002946687508238056}
   DeliveredItemParticle: {fileID: 7201636370212726085}
   popupRange: 3
+  ItemDeliveredSound:
+    Guid:
+      Data1: -1070050264
+      Data2: 1195820558
+      Data3: -578153283
+      Data4: 2069510922
+    Path: event:/SFX/SFX_Scanner/SFX_Scanner_RobAccept
 --- !u!114 &5238214657363509243
 MonoBehaviour:
   m_ObjectHideFlags: 0

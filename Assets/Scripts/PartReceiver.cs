@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 using DG.Tweening;
 
 public class PartReceiver : MonoBehaviour
@@ -26,6 +27,8 @@ public class PartReceiver : MonoBehaviour
     private ParticleSystem DeliveredItemParticle;
     [SerializeField]
     private float popupRange;
+    [SerializeField]
+    private EventReference ItemDeliveredSound;
     CraftableItem currentItem;
 
     private void FixedUpdate()
@@ -86,6 +89,7 @@ public class PartReceiver : MonoBehaviour
                 pl.itemGrabbed = null;
             }
             level_Manager.CorrectRobot();
+            SoundManager.Instance.PlaySound(ItemDeliveredSound, gameObject);
             DeliveredItemParticle.Play();
             scannerLights.material = indicatorLightMatCorrect;
             item.GrabItem();
