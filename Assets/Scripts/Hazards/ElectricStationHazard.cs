@@ -17,6 +17,7 @@ public class ElectricStationHazard : MonoBehaviour
     [SerializeField, Tooltip("How long wires electrify for")]
     private float electrifyTime;
     public float RolledTime, warningTime;
+    [SerializeField] float throwbackForce;
     private void Start()
     {
 
@@ -74,14 +75,24 @@ public class ElectricStationHazard : MonoBehaviour
 
     private void ElectrocutedPlayer(GameObject _player)
     {
+        PlayerController playerController = _player.GetComponent<PlayerController>();
 
-        _player.GetComponent<PlayerController>().Electrocuted(StaminaHit);
-        _player.GetComponent<Rigidbody>().isKinematic = true;
+        playerController.electrocuted = true;
+        playerController.Electrocuted(StaminaHit);
+        //_player.GetComponent<Rigidbody>().isKinematic = true;
+        if(playerController.Dir == Vector2.zero) playerController.GetComponent<Rigidbody>().AddForce(-playerController.Dir * throwbackForce);
+        else playerController.GetComponent<Rigidbody>().AddForce(transform.forward * throwbackForce);
+        StartCoroutine(StopAfterThrowback(_player));
         SoundManager.Instance.PlaySound(PlayerElectrocutedSound, gameObject);
         Instantiate(PlayerElectrocutionFX, _player.transform).GetComponent<DestroyAfter>().DestroyTimer = ElectrocutionTime;
 
         StartCoroutine(nameof(DebuffOff), _player);
+    }
 
+    IEnumerator StopAfterThrowback(GameObject _playerRb)
+    {
+        yield return new WaitForSeconds(0.4f);
+        _playerRb.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     private IEnumerator DebuffOff(GameObject _player)
@@ -89,7 +100,8 @@ public class ElectricStationHazard : MonoBehaviour
 
         yield return new WaitForSeconds(ElectrocutionTime);
 
-        _player.GetComponent<Rigidbody>().isKinematic = false;
+        _player.GetComponent<PlayerController>().electrocuted = false;
+        //_player.GetComponent<Rigidbody>().isKinematic = false;
 
     }
 

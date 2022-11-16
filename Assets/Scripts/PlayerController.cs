@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float timeBurning;
     float horInput, verInput;
     // The direction the character is facing
-    Vector2 dir;
+    public Vector2 Dir { get; private set; }
 
     // Stamina
     [Header("Stamina")]
@@ -82,8 +82,10 @@ public class PlayerController : MonoBehaviour
 
 
     //Boolean for reversing movement and float to turn it off
-   public bool Dazed, DazedOnce;
+    public bool Dazed, DazedOnce;
     public float DazedTimer;
+
+    public bool electrocuted;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -525,7 +527,7 @@ public class PlayerController : MonoBehaviour
         itemGrabbed.UngrabItem();
 
         itemGrabbed.GetComponent<Rigidbody>().velocity =
-            new Vector3(dir.x * throwForce, throwForce, dir.y * throwForce);
+            new Vector3(Dir.x * throwForce, throwForce, Dir.y * throwForce);
 
         itemGrabbed = null;
     }
@@ -569,13 +571,15 @@ public class PlayerController : MonoBehaviour
     {
         // Update dir
         if (horInput != 0)
-            dir = new Vector2(Mathf.Sign(horInput), 0);
+            Dir = new Vector2(Mathf.Sign(horInput), 0);
         else if (verInput != 0)
-            dir = new Vector2(0, Mathf.Sign(verInput));
+            Dir = new Vector2(0, Mathf.Sign(verInput));
 
         // If the character is in the process of grabbing an item
         // Dont let the player move
         if (currentlyGrabbingAnItem) return;
+
+        if (electrocuted) return;
 
         Vector3 newVelocity = Vector3.zero;
 
@@ -600,7 +604,7 @@ public class PlayerController : MonoBehaviour
         }
 
         timerChangeDir += Time.deltaTime;
-        if(Physics.Raycast(transform.position, dir, limitDetectionDistance, limits))
+        if(Physics.Raycast(transform.position, Dir, limitDetectionDistance, limits))
         {
             timerChangeDir = timeTochangeDir;
             if (lastDir > 1) burnDir -= 2;
@@ -644,6 +648,8 @@ public class PlayerController : MonoBehaviour
     // INPUT
     public void GetMoveInput(InputAction.CallbackContext context)
     {
+        if (electrocuted) return; 
+
         if (Dazed == true)
         {
             horInput = -context.ReadValue<Vector2>().x;
