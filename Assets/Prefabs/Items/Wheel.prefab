@@ -223,14 +223,17 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  radiusRangeOfSphere: 1.8
+  radiusRangeOfSphere: 1.5
   typeOfItem: 1
   NeedsCrafting: 0
+  moneyPenaltyWhenBroken: 5
   recolorWhenDone: 0
   ResizeWhenDone: 0
   NewSize: {x: 0, y: 0}
   TurnOffWhenDone: {fileID: 0}
   newColor: {r: 0, g: 0, b: 0, a: 0}
+  overCraftingPBarColor: {r: 1, g: 0, b: 0, a: 1}
+  normalPBarColor: {r: 1, g: 1, b: 1, a: 1}
   ProgressBarWidth: 20
   ProgressIndicator: {fileID: 3670930035728738504}
   ItemSprite: {fileID: 3670930036268102308}
