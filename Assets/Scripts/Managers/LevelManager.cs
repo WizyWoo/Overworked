@@ -134,7 +134,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.LoadResultsScene(false, GetLevel(), true);
     }
     // It is called when the players wins
-    private void Win()
+    public void Win()
     {
         if (money >= moneyToWin3Star) GameManager.instance.amountOfStars = 3;
         else if (money >= moneyToWin2Star) GameManager.instance.amountOfStars = 2;
