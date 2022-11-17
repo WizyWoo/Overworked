@@ -80,9 +80,11 @@ public class ElectricStationHazard : MonoBehaviour
         playerController.electrocuted = true;
         playerController.Electrocuted(StaminaHit);
         //_player.GetComponent<Rigidbody>().isKinematic = true;
-        if(playerController.Dir == Vector2.zero) playerController.GetComponent<Rigidbody>().AddForce(-playerController.Dir * throwbackForce);
-        else playerController.GetComponent<Rigidbody>().AddForce(transform.forward * throwbackForce);
+
+        playerController.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        playerController.GetComponent<Rigidbody>().AddForce(transform.forward * throwbackForce);
         StartCoroutine(StopAfterThrowback(_player));
+
         SoundManager.Instance.PlaySound(PlayerElectrocutedSound, gameObject);
         Instantiate(PlayerElectrocutionFX, _player.transform).GetComponent<DestroyAfter>().DestroyTimer = ElectrocutionTime;
 
