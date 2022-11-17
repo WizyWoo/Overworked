@@ -569,6 +569,9 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
+
+        if (electrocuted) { horInput = verInput = 0; return; }
+
         // Update dir
         if (horInput != 0)
             Dir = new Vector2(Mathf.Sign(horInput), 0);
@@ -578,8 +581,6 @@ public class PlayerController : MonoBehaviour
         // If the character is in the process of grabbing an item
         // Dont let the player move
         if (currentlyGrabbingAnItem) return;
-
-        if (electrocuted) return;
 
         Vector3 newVelocity = Vector3.zero;
 
