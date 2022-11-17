@@ -34,7 +34,7 @@ public class Level01_Manager : LevelManager
     [SerializeField] GameObject[] relaxingZones_2Players;
 
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
