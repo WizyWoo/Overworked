@@ -244,9 +244,9 @@ GameObject:
   - component: {fileID: 8511085465110998832}
   - component: {fileID: 8511085465110998833}
   - component: {fileID: 8511085465110998838}
-  - component: {fileID: 3454177083429852814}
   - component: {fileID: 3454177083429852815}
   - component: {fileID: 8511085465110998841}
+  - component: {fileID: 6444153708814754587}
   m_Layer: 3
   m_Name: Freeze Station
   m_TagString: RepairStation
@@ -324,19 +324,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3454177083429852814
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8511085465110998836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5, y: 2, z: 2}
-  m_Center: {x: 0, y: 1.5, z: 0.5}
 --- !u!114 &3454177083429852815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2933,6 +2920,20 @@ MonoBehaviour:
     - {x: 0.6499066, y: -0.6165555, z: -0.44438806}
     - {x: -0.6499066, y: -0.6165555, z: -0.44438806}
     - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
+--- !u!136 &6444153708814754587
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8511085465110998836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 6
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8511085466727857660
 GameObject:
   m_ObjectHideFlags: 0
