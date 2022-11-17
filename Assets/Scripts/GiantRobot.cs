@@ -32,7 +32,9 @@ public class GiantRobot : MonoBehaviour
     { ItemTrigger(itemTriggered.leftArm, delegation); }
 
     public void RightArmTrigger(OnTriggerDelegation3D delegation)
-    { ItemTrigger(itemTriggered.rightArm, delegation); }
+    {
+        ItemTrigger(itemTriggered.rightArm, delegation);
+    }
 
     public void WheelTrigger(OnTriggerDelegation3D delegation)
     { ItemTrigger(itemTriggered.wheel, delegation); }
@@ -98,15 +100,21 @@ public class GiantRobot : MonoBehaviour
                 }
                 else
                 {
-                    newSpot = leftArmsSpots[index];
-                    leftArmsAssembled[index] = true;
+                    newSpot = rightArmsSpots[index];
+                    rightArmsAssembled[index] = true;
 
                     if (rightArmOutlineObject[index] != null) rightArmOutlineObject[index].SetActive(false);
                 }
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
             {
+                int index = SelectSpotIndex(typeOfItem);
+                if (index >= 3) return;
 
+                newSpot = wheelsSpots[index];
+                wheelsAssembled[index] = true;
+
+                if (wheelOutlineObject[index] != null) wheelOutlineObject[index].SetActive(false);
             }
 
             item.transform.DOKill();

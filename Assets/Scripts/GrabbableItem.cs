@@ -16,8 +16,8 @@ public class GrabbableItem : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        
-        if (outline != null) 
+
+        if (outline != null)
             outline.enabled = false;
 
         colliders = GetComponents<SphereCollider>();
@@ -58,10 +58,11 @@ public class GrabbableItem : MonoBehaviour
             }
         }
         //Íf nothing of before happends just disable the outline
-        else {
+        else
+        {
             if (outline != null)
                 outline.enabled = false;
-        }   
+        }
         //If the item is falling and it's too below destroy it    
         if (transform.position.y < -50)
             Destroy(this.gameObject);
@@ -87,9 +88,13 @@ public class GrabbableItem : MonoBehaviour
             Debug.Log("REMOVE ITEM");
 
             if (GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
-                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromRepairTable);
+            {
+                if (TutorialManager.GetInstance() != null)
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabArmFromRepairTable);
+            }
             else if (GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
-                TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromRepairTable);
+                if (TutorialManager.GetInstance() != null)
+                    TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.grabWheelFromRepairTable);
         }
     }
     public void UngrabItem()
@@ -111,8 +116,8 @@ public class GrabbableItem : MonoBehaviour
 
         //if (player != null)
         //{
-            //if (!GetComponent<CraftableItem>().delivered)
-            //    player.AddItem(this);
+        //if (!GetComponent<CraftableItem>().delivered)
+        //    player.AddItem(this);
         //}
     }
     private void OnTriggerExit(Collider other)
