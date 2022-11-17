@@ -4,25 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance;
     [Header("REFERENCES")]
-    [SerializeField] TMP_Text timerText;
 
+    public FMODUnity.EventReference levelCompleted;
+    public int MoneyMultiplier;
+    public int moneyWhenFall = 25;
+    public static LevelManager Instance;
+    public int CoinGaugeMoney;
+    public int moneyToWin1Star = 30, moneyToWin2Star = 60, moneyToWin3Star = 90;
+
+    [SerializeField] TMP_Text timerText;
     [SerializeField] TextMeshProUGUI moneyText, addMoneyText;
     [SerializeField] Image addMoneyImg;
     [SerializeField] Color addColor, subsColor;
-    [SerializeField] protected int money = 0, moneyCorrectRobot, moneyWrongRobot;
-    public FMODUnity.EventReference levelCompleted;
-    protected int moneyToWin1Star, moneyToWin2Star, moneyToWin3Star;
-    public int MoneyMultiplier;
-    public int moneyWhenFall = 25;
-
-    public int CoinGaugeMoney;
+    [SerializeField] protected int money = 0, moneyCorrectRobot = 5, moneyWrongRobot = 5;
 
     protected const string stringLine = "  __-_-_-_-_-__  ";
+
     [Header("\n" + "\n" + "ADJUSTING DIFFICULTY PARAMETERS")]
 
     [Header(stringLine + "Time" + stringLine)]
@@ -32,19 +34,28 @@ public class LevelManager : MonoBehaviour
     [Header(stringLine + "Conveyor Belts" + stringLine + "\n")]
     [SerializeField] float slow_conveyorBeltSpeed;
     [SerializeField] float fast_conveyorBeltSpeed;
+
     [Header("References")]
     [SerializeField] ConveyorBelt[] slow_conveyorBelts;
     [SerializeField] ConveyorBelt[] fast_conveyorBelts;
 
     [Header(stringLine + "Spawners" + stringLine + "\n")]
     [SerializeField] float partSpawner_rate;
+
     [Header("References")]
     [SerializeField] ItemSpawner[] parts_Spawner;
 
-    protected void Awake()
+    private Vector3 initialTickPosition;
+    [SerializeField] SpriteRenderer tickImage;
+    protected virtual void Awake()
     {
-
         Instance = this;
+
+        // Save the tick image position
+        if (tickImage != null)
+            initialTickPosition = tickImage.transform.position;
+
+        StartCoroutine(ShowGoodFeedback());
 
         currentTime = maxTime;
         addMoneyImg.gameObject.SetActive(false);
@@ -60,27 +71,44 @@ public class LevelManager : MonoBehaviour
         foreach (ItemSpawner spawner in parts_Spawner)
             spawner.repeatRate = partSpawner_rate;
     }
-
     protected virtual void Update()
     {
         UpdateTimer();
         moneyText.text = money.ToString() + " / " + moneyToWin1Star.ToString();
     }
-
     public virtual void CorrectRobot()
     {
-
-
-
+        UpdateMoney(moneyCorrectRobot * MoneyMultiplier);
+        StartCoroutine(ShowGoodFeedback());
+        //    if (MoneyMultiplier >= 3)
+        //    {
+        //        goto JustResetOnce;
+        //    }
+        //    if (MoneyMultiplier > 1)
+        //    {
+        //        MoneyMultiplier = 1;
+        //        MoneyMultiplier++;
+        //        goto JustResetOnce;
+        //    }
+        //    MoneyMultiplier++;
+        //JustResetOnce:;
     }
-
     public virtual void IncorrectRobot()
     {
-
-        
-
+        UpdateMoney(moneyWrongRobot * MoneyMultiplier);
+    //    if (MoneyMultiplier >= 3)
+    //    {
+    //        goto NoMore;
+    //    }
+    //    if (MoneyMultiplier > 1)
+    //    {
+    //        MoneyMultiplier++;
+    //        goto NoMore;
+    //    }
+    //    MoneyMultiplier = 1;
+    //    MoneyMultiplier++;
+    //NoMore:;
     }
-
     void UpdateTimer()
     {
         currentTime -= Time.deltaTime;
@@ -114,10 +142,9 @@ public class LevelManager : MonoBehaviour
     // When the timer ends, each level can have a winCondition that they can override
     protected virtual bool WinCondition()
     {
-        return true;
+        return money >= moneyToWin1Star;
     }
     
-
     // It is called when the players loses
     private void Lose()
     {
@@ -125,14 +152,12 @@ public class LevelManager : MonoBehaviour
 
         GameManager.instance.LoadResultsScene(false, GetLevel(), false);
     }
-
     public void LoseExhausted()
     {
         Debug.Log("LOSE THIS");
 
         GameManager.instance.LoadResultsScene(false, GetLevel(), true);
     }
-
     // It is called when the players wins
     protected void Win()
     {
@@ -144,7 +169,6 @@ public class LevelManager : MonoBehaviour
         Debug.Log("WIN THIS");
         GameManager.instance.LoadResultsScene(true, GetLevel(), false);
     }
-
     int GetLevel()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -160,7 +184,6 @@ public class LevelManager : MonoBehaviour
         if (money <= 0) money = 0;
         StartCoroutine(AddMoneyVisuals(amount));
     }
-
     IEnumerator AddMoneyVisuals(int amount)
     {
         addMoneyText.text = amount.ToString();
@@ -191,5 +214,24 @@ public class LevelManager : MonoBehaviour
         addMoneyImg.rectTransform.position = new Vector3(addMoneyImg.rectTransform.position.x, iniY, addMoneyImg.rectTransform.position.z);
 
         addMoneyImg.gameObject.SetActive(false);
+    }
+
+    IEnumerator ShowGoodFeedback()
+    {
+        if (tickImage != null)
+        {
+            float showDuration = 1;
+
+            tickImage.DOFade(1, showDuration);
+            tickImage.transform.position = new Vector3(initialTickPosition.x, initialTickPosition.y - 1, initialTickPosition.z);
+            tickImage.transform.DOMoveY(initialTickPosition.y, showDuration);
+            tickImage.transform.DORotate(new Vector3(75, 0, 360), showDuration, RotateMode.FastBeyond360);
+
+            yield return new WaitForSeconds(showDuration);
+
+            tickImage.transform.DOMoveY(initialTickPosition.y - 1, showDuration);
+            tickImage.DOFade(0, showDuration);
+            tickImage.transform.DORotate(new Vector3(75, 0, 360), showDuration, RotateMode.FastBeyond360);
+        }
     }
 }

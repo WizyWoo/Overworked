@@ -65,6 +65,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level_" + levelNumberString);
     }
 
+    public string GetSceneName()
+    {
+        return SceneManager.GetActiveScene().ToString();
+    }
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
