@@ -72,7 +72,6 @@ public class SoundManager : MonoBehaviour
 
         }
 
-
         settings = SoundSettingsManager.LoadVolumeSettings();
         if(settings == null)
             settings = SoundSettingsManager.SaveVolumeSettings();
@@ -98,7 +97,7 @@ public class SoundManager : MonoBehaviour
 
             _ei.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             _ei.release();
-            
+
         }
 
     }
