@@ -19,8 +19,14 @@ public class GiantRobot : MonoBehaviour
     [SerializeField] GameObject[] rightArmOutlineObject;
     [SerializeField] GameObject[] wheelOutlineObject;
 
+    private void Awake()
+    {
+        leftArmsAssembled = new bool[3];
+        rightArmsAssembled = new bool[3];
+        wheelsAssembled = new bool[3];
+    }
 
-    enum itemTriggered { leftArm, rightArm, wheel}
+    enum itemTriggered { leftArm, rightArm, wheel }
 
     public void LeftArmTrigger(OnTriggerDelegation3D delegation)
     { ItemTrigger(itemTriggered.leftArm, delegation); }
@@ -36,7 +42,7 @@ public class GiantRobot : MonoBehaviour
     void ItemTrigger(itemTriggered typeOfItem, OnTriggerDelegation3D delegation)
     {
         CraftableItem item = delegation.Other.GetComponent<CraftableItem>();
-            
+
         if (item != null)
         {
             //// Comprobar si esta crafteado
@@ -78,7 +84,27 @@ public class GiantRobot : MonoBehaviour
                 // Select spot
                 newSpot = wheelsSpots[index];
             }
-            if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+            else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
+            {
+                int index = SelectSpotIndex(typeOfItem);
+                if (index >= 3) return;
+
+                if (typeOfItem == itemTriggered.leftArm)
+                {
+                    newSpot = leftArmsSpots[index];
+                    leftArmsAssembled[index] = true;
+
+                    if (leftArmOutlineObject[index] != null) leftArmOutlineObject[index].SetActive(false);
+                }
+                else
+                {
+                    newSpot = leftArmsSpots[index];
+                    leftArmsAssembled[index] = true;
+
+                    if (rightArmOutlineObject[index] != null) rightArmOutlineObject[index].SetActive(false);
+                }
+            }
+            else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
             {
 
             }
@@ -129,6 +155,20 @@ public class GiantRobot : MonoBehaviour
             while (rightArmOutlineObject[i] != null) i++;
         else if (typeOfItem == itemTriggered.wheel)
             while (wheelOutlineObject[i] != null) i++;
+
+        return i;
+    }
+
+    int SelectSpotIndex(itemTriggered typeOfItem)
+    {
+        int i = 0;
+
+        if (typeOfItem == itemTriggered.leftArm)
+            while (i < 3 && leftArmsAssembled[i]) i++;
+        else if (typeOfItem == itemTriggered.rightArm)
+            while (i < 3 && rightArmsAssembled[i]) i++;
+        else if (typeOfItem == itemTriggered.wheel)
+            while (i < 3 && wheelsAssembled[i]) i++;
 
         return i;
     }

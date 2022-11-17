@@ -37,8 +37,6 @@ public class PartReceiver : MonoBehaviour
         foreach (PlayerController _pC in localMultiplayer.allPlayers)
         {
 
-            Debug.Log(_pC.gameObject.name);
-
             if(_pC.itemGrabbed && _pC.itemGrabbed.TryGetComponent<CraftableItem>(out CraftableItem _cI))
             {
 

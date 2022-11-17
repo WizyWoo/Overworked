@@ -26,7 +26,11 @@ public class CoinGauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentMoney = GameObject.Find("LevelManager").GetComponent<Level02_Manager>().CoinGaugeMoney;
+        //This is gonna be changed but im so tired right now :)
+        if(GameManager.instance.GetSceneName() == "Level_01")
+            currentMoney = GameObject.Find("LevelManager").GetComponent<Level02_Manager>().CoinGaugeMoney;
+        else if(GameManager.instance.GetSceneName() == "Level_02")
+            currentMoney = GameObject.Find("LevelManager").GetComponent<Level02_Manager>().CoinGaugeMoney;
 
 
         if (this.gameObject.name == "CoinGauge_Part_2")

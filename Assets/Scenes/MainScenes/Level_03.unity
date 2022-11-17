@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1764,6 +1764,11 @@ PrefabInstance:
       propertyPath: minTime
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6093884449816104498, guid: 7d5f094c8a352254fbb80fc4786a9a14,
+        type: 3}
+      propertyPath: throwbackForce
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6093884450086444814, guid: 7d5f094c8a352254fbb80fc4786a9a14,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -2418,6 +2423,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8511085465110998841, guid: 9a234be98fec6f644ae4434fe3524adb,
+        type: 3}
+      propertyPath: outlineMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8511085466727857662, guid: 9a234be98fec6f644ae4434fe3524adb,
         type: 3}
       propertyPath: m_Size.x
@@ -2742,15 +2752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 24079502}
-  moneyText: {fileID: 1278097472}
-  addMoneyText: {fileID: 928100767}
-  addMoneyImg: {fileID: 1427237162}
-  addColor: {r: 0.11624193, g: 1, b: 0, a: 0}
-  subsColor: {r: 1, g: 0, b: 0, a: 0}
-  money: 0
-  moneyCorrectRobot: 5
-  moneyWrongRobot: -3
   levelCompleted:
     Guid:
       Data1: 2103139438
@@ -2761,6 +2762,18 @@ MonoBehaviour:
   MoneyMultiplier: 1
   moneyWhenFall: -5
   CoinGaugeMoney: 0
+  moneyToWin1Star: 30
+  moneyToWin2Star: 60
+  moneyToWin3Star: 90
+  timerText: {fileID: 24079502}
+  moneyText: {fileID: 1278097472}
+  addMoneyText: {fileID: 928100767}
+  addMoneyImg: {fileID: 1427237162}
+  addColor: {r: 0.11624193, g: 1, b: 0, a: 0}
+  subsColor: {r: 1, g: 0, b: 0, a: 0}
+  money: 0
+  moneyCorrectRobot: 5
+  moneyWrongRobot: -3
   maxTime: 150
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0
@@ -2768,9 +2781,7 @@ MonoBehaviour:
   fast_conveyorBelts: []
   partSpawner_rate: 0
   parts_Spawner: []
-  moneyToWin1Star1: 30
-  moneyToWin2Star1: 45
-  moneyToWin3Star1: 60
+  tickImage: {fileID: 1530804844}
 --- !u!4 &1058643986
 Transform:
   m_ObjectHideFlags: 0
@@ -3512,6 +3523,91 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef424fabe08babb4381141d95324d99d, type: 3}
+--- !u!1001 &1530804843
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4683183669375994496, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183669375994496, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2042346909
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161378, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_Name
+      value: Tick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.456
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 39.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683183670170161379, guid: 7a1904587b91feb4caf1338660aa1143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7a1904587b91feb4caf1338660aa1143, type: 3}
+--- !u!212 &1530804844 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4683183669375994496, guid: 7a1904587b91feb4caf1338660aa1143,
+    type: 3}
+  m_PrefabInstance: {fileID: 1530804843}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1547590480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Freeze Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511085465110998841, guid: 9a234be98fec6f644ae4434fe3524adb,
+        type: 3}
+      propertyPath: outlineMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8511085466727857662, guid: 9a234be98fec6f644ae4434fe3524adb,
         type: 3}
