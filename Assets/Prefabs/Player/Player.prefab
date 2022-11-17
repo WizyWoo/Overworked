@@ -4838,7 +4838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653086058047881975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.398, z: 0.398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5210,7 +5210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3569876825660219107}
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: -1.03, z: 0.37}
+  m_LocalPosition: {x: 0, y: -0.399, z: 0.369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5711,11 +5711,12 @@ MonoBehaviour:
   Dazed: 0
   DazedOnce: 0
   DazedTimer: 0
+  electrocuted: 0
   ItemsInRangeForGrabbing: []
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  radiusRangeOfSphere: 1
+  radiusRangeOfSphere: 1.8
 --- !u!114 &8509748272355988883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5930,7 +5931,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.1, z: -0.42}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &-1102752442443225848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6018,7 +6019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7669628410667424828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: 0.13, z: 0}
+  m_LocalPosition: {x: -0.09, y: 0, z: 0}
   m_LocalScale: {x: -0.17, y: 0.17, z: 1.1333333}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -10936,7 +10937,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7883544442141701955}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
