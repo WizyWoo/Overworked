@@ -37,7 +37,6 @@ public class Level01_Manager : LevelManager
     private void Awake()
     {
         base.Awake();
-        CorrectRobot();
 
         // Setup level for 1 or 2 players
         if (GameManager.instance.onlyOnePlayer)

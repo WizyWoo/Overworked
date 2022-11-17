@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327b3186ac5c67d48b4eee004d8f76dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisLevelsManager: {fileID: 1058643985}
+  ThisLevelsManager: {fileID: 0}
   Penalty: -5
 --- !u!65 &528720841
 BoxCollider:
@@ -2699,7 +2699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1058643986}
-  - component: {fileID: 1058643985}
+  - component: {fileID: 1058643987}
   - component: {fileID: 1058643984}
   m_Layer: 0
   m_Name: LevelManager
@@ -2740,48 +2740,6 @@ MonoBehaviour:
       Data3: -1622379083
       Data4: -566997830
     Path: event:/SFX/SFX_Notification_RushHour
---- !u!114 &1058643985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058643983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelCompleted:
-    Guid:
-      Data1: 2103139438
-      Data2: 1268086304
-      Data3: -2093164100
-      Data4: 1583118354
-    Path: event:/SFX/SFX_Notification_LevelComplete
-  MoneyMultiplier: 1
-  moneyWhenFall: -5
-  CoinGaugeMoney: 0
-  moneyToWin1Star: 30
-  moneyToWin2Star: 60
-  moneyToWin3Star: 90
-  timerText: {fileID: 24079502}
-  moneyText: {fileID: 1278097472}
-  addMoneyText: {fileID: 928100767}
-  addMoneyImg: {fileID: 1427237162}
-  addColor: {r: 0.11624193, g: 1, b: 0, a: 0}
-  subsColor: {r: 1, g: 0, b: 0, a: 0}
-  money: 0
-  moneyCorrectRobot: 5
-  moneyWrongRobot: -3
-  maxTime: 150
-  slow_conveyorBeltSpeed: 0
-  fast_conveyorBeltSpeed: 0
-  slow_conveyorBelts: []
-  fast_conveyorBelts: []
-  partSpawner_rate: 0
-  parts_Spawner: []
-  tickImage: {fileID: 1530804844}
 --- !u!4 &1058643986
 Transform:
   m_ObjectHideFlags: 0
@@ -2798,6 +2756,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1058643987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058643983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a32df6f8174dd44b936a3382d71d1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCompleted:
+    Guid:
+      Data1: 2103139438
+      Data2: 1268086304
+      Data3: -2093164100
+      Data4: 1583118354
+    Path: event:/SFX/SFX_Notification_LevelComplete
+  CoinGaugeMoney: 0
+  moneyWhenFall: 25
+  moneyToWin1Star: 30
+  moneyToWin2Star: 60
+  moneyToWin3Star: 90
+  moneyText: {fileID: 1278097472}
+  addMoneyText: {fileID: 928100767}
+  addMoneyImg: {fileID: 1427237162}
+  addColor: {r: 0.11624193, g: 1, b: 0, a: 0}
+  subsColor: {r: 1, g: 0, b: 0, a: 0}
+  money: 0
+  moneyCorrectRobot: 5
+  moneyWrongRobot: 5
+  timerText: {fileID: 24079502}
+  maxTime: 150
+  slow_conveyorBeltSpeed: 0
+  fast_conveyorBeltSpeed: 0
+  slow_conveyorBelts: []
+  fast_conveyorBelts: []
+  partSpawner_rate: 0
+  parts_Spawner: []
+  tickImage: {fileID: 1530804844}
 --- !u!1 &1062192402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,7 +4490,7 @@ PrefabInstance:
         type: 3}
       propertyPath: level_Manager
       value: 
-      objectReference: {fileID: 1058643985}
+      objectReference: {fileID: 0}
     - target: {fileID: 5238214657363509240, guid: 91c7412dc31b05049b8e21d17011db32,
         type: 3}
       propertyPath: localMultiplayer
