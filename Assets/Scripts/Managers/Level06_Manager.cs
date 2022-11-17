@@ -6,4 +6,5 @@ using TMPro;
 
 public class Level06_Manager : LevelManager
 {
+
 }
