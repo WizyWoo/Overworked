@@ -223,7 +223,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  radiusRangeOfSphere: 1.8
+  radiusRangeOfSphere: 1.6
   typeOfItem: 6
   NeedsCrafting: 0
   moneyPenaltyWhenBroken: 5

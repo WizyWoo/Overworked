@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1299811073256918167}
   - component: {fileID: 1299811073256918168}
   - component: {fileID: 1863536022874495799}
-  - component: {fileID: 1299811073256918169}
+  - component: {fileID: 1279125363597537311}
   m_Layer: 3
   m_Name: RepairStation
   m_TagString: RepairStation
@@ -89,7 +89,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  radiusRangeOfSphere: 2
+  radiusRangeOfSphere: 1.6
   localMultiplayer: {fileID: 0}
   DisplayPoint: {fileID: 1299811073026984507}
   InRangePopup: {fileID: 8296731647950888218}
@@ -508,8 +508,8 @@ MonoBehaviour:
     - {x: -0.00000011032012, y: -0.00000014712246, z: -1}
     - {x: 0.6218761, y: 0.6218758, z: -0.47596282}
     - {x: 0.8737905, y: 0.17380823, z: -0.4541814}
---- !u!65 &1299811073256918169
-BoxCollider:
+--- !u!136 &1279125363597537311
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -518,8 +518,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2, z: 1.2}
+  m_Radius: 2
+  m_Height: 6
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8296731647950888218
 GameObject:
