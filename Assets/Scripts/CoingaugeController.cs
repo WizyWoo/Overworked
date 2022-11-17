@@ -48,22 +48,18 @@ public class CoingaugeController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if(Coingauge_Part_3.GetComponent<CoinGauge>().Full == true)
-        {
-            FilledCoinGauge = 3;
-            goto LazySkip;
-        }
+    {   
         if(Coingauge_Part_2.GetComponent<CoinGauge>().Full == true)
         {
             FilledCoinGauge = 2;
-            goto LazySkip;
         }
-        
-        if(gameObject.GetComponent<CoinGauge>().Full == true)
+
+        else if (gameObject.GetComponent<CoinGauge>().Full == true)
         {
             FilledCoinGauge = 1;
         }
-        LazySkip:;
+        else FilledCoinGauge = 0;
+
         switch (FilledCoinGauge)
         {
             case 0:
@@ -73,7 +69,8 @@ public class CoingaugeController : MonoBehaviour
 
                 case 1:
                 Coingauge_Part_2.SetActive(true);
-                    break;
+                Coingauge_Part_3.SetActive(false);
+                break;
             case 2:
                 Coingauge_Part_3.SetActive(true);
                 break;

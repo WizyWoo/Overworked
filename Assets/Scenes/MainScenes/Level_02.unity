@@ -2269,6 +2269,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1836727214440567109, guid: 995e229fcb7994e48a9f2c79659474cf,
+        type: 3}
+      propertyPath: outlineMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5595768151472524673, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
       propertyPath: m_Name

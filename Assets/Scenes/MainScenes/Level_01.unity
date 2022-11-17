@@ -1301,6 +1301,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RepairStation (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1863536022874495799, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: outlineMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3cd20acd6a29a840a1fa8c78b2b56f3, type: 3}
 --- !u!4 &297061824 stripped
@@ -5574,6 +5579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RepairStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863536022874495799, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: outlineMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3cd20acd6a29a840a1fa8c78b2b56f3, type: 3}
