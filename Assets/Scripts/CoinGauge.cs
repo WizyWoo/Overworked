@@ -12,6 +12,7 @@ public class CoinGauge : MonoBehaviour
     public float currentMoney;
     public float CurrentPercent;
 
+    [SerializeField] LevelManager levelManager;
     public GameObject[] Percentages;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class CoinGauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentMoney = GameObject.Find("LevelManager").GetComponent<LevelManager>().CoinGaugeMoney;
+        currentMoney = levelManager.GetComponent<LevelManager>().CoinGaugeMoney;
 
         if (this.gameObject.name == "CoinGauge_Part_2")
         {
