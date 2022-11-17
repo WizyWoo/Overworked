@@ -573,10 +573,16 @@ public class PlayerController : MonoBehaviour
         if (electrocuted) { horInput = verInput = 0; return; }
 
         // Update dir
-        if (horInput != 0)
-            Dir = new Vector2(Mathf.Sign(horInput), 0);
-        else if (verInput != 0)
+        if (Mathf.Abs(verInput) >= .5f)
             Dir = new Vector2(0, Mathf.Sign(verInput));
+        else if (Mathf.Abs(horInput) >= .5f)
+            Dir = new Vector2(Mathf.Sign(horInput), 0);
+
+        Debug.Log("Dir = " + Dir);
+
+
+        //if (verInput >= .5f)
+        //    Dir = new Vector2(0, Mathf.Sign(verInput));
 
         // If the character is in the process of grabbing an item
         // Dont let the player move
@@ -709,26 +715,26 @@ public class PlayerController : MonoBehaviour
     #endregion
     private void FlipAnimAndRotateArrow()
     {
-        if ((goingRight && rb.velocity.x < -.01f) || (!goingRight && rb.velocity.x > .01f))
+        if ((goingRight && Dir.x < -.01f) || (!goingRight && Dir.x > .01f))
         {
             flipAnimator.SetTrigger("Flip");
         }
        
-        if (rb.velocity.x > 0.1f)
+        if (Dir.x > 0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, arrow.transform.rotation.z);
             goingRight = true;
         }
-        else if (rb.velocity.x < -0.1f)
+        else if (Dir.x < -0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 180.0f, arrow.transform.rotation.z);
             goingRight = false;
         }
-        else if (rb.velocity.z > 0.1f)
+        else if (Dir.y > 0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, 90.0f);
         }
-        else if (rb.velocity.z < -0.1f)
+        else if (Dir.y < -0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, -90.0f);
         }      
