@@ -116,6 +116,8 @@ public class RobotBody : MonoBehaviour
 
             item.GetComponent<CraftableItem>().delivered = true;
 
+            if (item.outline != null) item.outline.enabled = false;
+
             item.enabled = false;
         }
     }

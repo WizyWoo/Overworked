@@ -48,8 +48,8 @@
                     "id": "978bfe49-cc26-4a3d-ab7b-7d7a29327403",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
+                    "processors": "StickDeadzone(min=0.25)",
+                    "groups": "Gamepad",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -199,6 +199,17 @@
                 },
                 {
                     "name": "",
+                    "id": "d489042f-9faa-4132-bdbd-fc1c287d0d68",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d3cdbeed-6ef6-4c0c-bad4-4f62614cbeb0",
                     "path": "<Keyboard>/l",
                     "interactions": "",
@@ -234,6 +245,17 @@
                     "name": "",
                     "id": "4f6c2b96-5da6-4482-ace1-2a79f1c27cb7",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4397b10b-a769-4ab0-910d-9e5dc0c7c584",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

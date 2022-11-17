@@ -4,78 +4,47 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CoingaugeController : MonoBehaviour
 {
-    public GameObject levelManager, Coingauge_Part_2, Coingauge_Part_3;
-    private int FilledCoinGauge;
+    public LevelManager levelManager;
+    private int filledCoinGauge;
+    [SerializeField] CoinGauge coinGauge1, coinGauge2, coinGauge3;
 
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.Find("LevelManager");
-
-        if(SceneManager.GetActiveScene().name == "Level_01")
-        {
-            gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level01_Manager>().moneyToWin3Star;
-        }
-        if(SceneManager.GetActiveScene().name == "Level_02")
-        {
-            gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin3Star;
-        }
-        if(SceneManager.GetActiveScene().name == "Level_03")
-        {
-            gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level02_Manager>().moneyToWin3Star; 
-        }
-       if(SceneManager.GetActiveScene().name == "Level_04")
-        {
-            gameObject.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin1Star;
-            Coingauge_Part_2.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().minMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin2Star;
-            Coingauge_Part_3.GetComponent<CoinGauge>().maxMoney = levelManager.GetComponent<Level04_Manager>().moneyToWin3Star;
-        }
+        coinGauge1.maxMoney = levelManager.moneyToWin1Star;
+        coinGauge2.minMoney = levelManager.moneyToWin1Star;
+        coinGauge2.maxMoney = levelManager.moneyToWin2Star;
+        coinGauge3.minMoney = levelManager.moneyToWin2Star;
+        coinGauge3.maxMoney = levelManager.moneyToWin3Star;
     }
 
     // Update is called once per frame
     void Update()
-    {   if(Coingauge_Part_3.GetComponent<CoinGauge>().Full == true)
+    {   
+        if(coinGauge2.Full == true)
         {
-            FilledCoinGauge = 3;
-            goto LazySkip;
+            filledCoinGauge = 2;
         }
-        if(Coingauge_Part_2.GetComponent<CoinGauge>().Full == true)
+
+        else if (coinGauge1.Full == true)
         {
-            FilledCoinGauge = 2;
-            goto LazySkip;
+            filledCoinGauge = 1;
         }
-        
-        if(gameObject.GetComponent<CoinGauge>().Full == true)
-        {
-            FilledCoinGauge = 1;
-        }
-        LazySkip:;
-        switch (FilledCoinGauge)
+        else filledCoinGauge = 0;
+
+        switch (filledCoinGauge)
         {
             case 0:
-                Coingauge_Part_2.SetActive(false);
-                Coingauge_Part_3.SetActive(false);
+                coinGauge2.gameObject.SetActive(false);
+                coinGauge3.gameObject.SetActive(false);
                 break;
 
                 case 1:
-                Coingauge_Part_2.SetActive(true);
-                    break;
+                coinGauge2.gameObject.SetActive(true);
+                coinGauge3.gameObject.SetActive(false);
+                break;
             case 2:
-                Coingauge_Part_3.SetActive(true);
+                coinGauge3.gameObject.SetActive(true);
                 break;
 
         }

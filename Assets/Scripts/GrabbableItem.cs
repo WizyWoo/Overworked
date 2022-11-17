@@ -6,7 +6,7 @@ using DG.Tweening;
 public class GrabbableItem : MonoBehaviour
 {
     public WorkStation OnWorkstation;
-    [SerializeField] protected SpriteRenderer outline;
+    public SpriteRenderer outline;
     [SerializeField] LayerMask layerMask;
     [SerializeField] float radiusRangeOfSphere = 1.0f;
     SphereCollider[] colliders;

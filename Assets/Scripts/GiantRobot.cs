@@ -19,6 +19,7 @@ public class GiantRobot : MonoBehaviour
     [SerializeField] GameObject[] rightArmOutlineObject;
     [SerializeField] GameObject[] wheelOutlineObject;
 
+
     private void Awake()
     {
         leftArmsAssembled = new bool[3];
@@ -105,6 +106,10 @@ public class GiantRobot : MonoBehaviour
 
                     if (rightArmOutlineObject[index] != null) rightArmOutlineObject[index].SetActive(false);
                 }
+
+                LevelManager.Instance.CorrectRobot();
+
+                CheckWin();
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
             {
@@ -115,6 +120,10 @@ public class GiantRobot : MonoBehaviour
                 wheelsAssembled[index] = true;
 
                 if (wheelOutlineObject[index] != null) wheelOutlineObject[index].SetActive(false);
+
+                LevelManager.Instance.CorrectRobot();
+
+                CheckWin();
             }
 
             item.transform.DOKill();
@@ -181,7 +190,24 @@ public class GiantRobot : MonoBehaviour
         return i;
     }
 
+    void CheckWin()
+    {
+        bool allLeftArmAssembled = true;
+        bool allRightArmAssembled = true;
+        bool allWheelsAssembled = true;
 
+        for (int i = 0; i < 3; i++)
+            if (!leftArmsAssembled[i]) allLeftArmAssembled = false;
+
+        for (int i = 0; i < 3; i++)
+            if (!rightArmsAssembled[i]) allRightArmAssembled = false;
+
+        for (int i = 0; i < 3; i++)
+            if (!wheelsAssembled[i]) allWheelsAssembled = false;
+
+        if (allLeftArmAssembled && allRightArmAssembled && allWheelsAssembled)
+            LevelManager.Instance.Win();
+    }
 
     [SerializeField] AnimationCurve animationCurve;
     float assembleVelocity = 3;
