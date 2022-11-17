@@ -1,4 +1,4 @@
-Shader "Poggers/NotMineButOhWellMoving"
+Shader "Poggers/MovingSurface"
 {
     Properties
 

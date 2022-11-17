@@ -1,4 +1,4 @@
-Shader "Poggers/NotMineButOhWell"
+Shader "Poggers/TiledSurfaceTexture"
 {
     Properties
 
