@@ -85,13 +85,16 @@ public class SoundManager : MonoBehaviour
 
         ApplyVolumeSettings();
 
+
+        eventInstances = new Dictionary<(EventReference, GameObject), EventInstance>();
+        eventInstanceList = new List<EventInstance>();
+
     }
 
     private void Start()
     {
 
-        eventInstances = new Dictionary<(EventReference, GameObject), EventInstance>();
-        eventInstanceList = new List<EventInstance>();
+
 
     }
 
