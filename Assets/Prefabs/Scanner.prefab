@@ -307,10 +307,13 @@ MonoBehaviour:
   ceiling: {fileID: 0}
   rightCol: {r: 0, g: 1, b: 0.0627451, a: 1}
   wrongCol: {r: 0.9473069, g: 0, b: 0, a: 1}
-  defaultCol: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
-  glassMat: {fileID: 2100000, guid: 0b4f6d3a940e5af4085bac51b4a5df60, type: 2}
+  defaultCol: {r: 0.62447256, g: 0.6509434, b: 0.31564614, a: 1}
+  spotLight: {fileID: 8346576026369431913}
   timeBulbOn: 2
   bulbRenderer: {fileID: 8013246044708504174}
+  correctColMat: {fileID: 2100000, guid: 127eb75a863101547a2ee8dd3f2718d9, type: 2}
+  wrongColMat: {fileID: 2100000, guid: ed404b74e889f224692f28518e8fa697, type: 2}
+  standbyColMat: {fileID: 2100000, guid: 2edd60cfe8c48ee4681767df6c39a703, type: 2}
   okayRobotPos: {fileID: 8346576027614516915}
   correctRobot:
     Guid:

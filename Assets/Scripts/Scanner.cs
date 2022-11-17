@@ -18,6 +18,7 @@ public class Scanner : MonoBehaviour
     [SerializeField] Light spotLight;
     [SerializeField] float timeBulbOn;
     [SerializeField] Renderer bulbRenderer;
+    [SerializeField] Material correctColMat, wrongColMat, standbyColMat;
     [SerializeField] Transform okayRobotPos;
     public FMODUnity.EventReference correctRobot, incorrectRobot;
 
@@ -41,6 +42,7 @@ public class Scanner : MonoBehaviour
             {
                 //change color
                 spotLight.color = rightCol;
+                bulbRenderer.material = correctColMat;
                 SoundManager.Instance.PlaySound(correctRobot, gameObject);
                 Total_Assembled_Robots++;
                 level01Manager.CorrectRobot();
@@ -55,6 +57,7 @@ public class Scanner : MonoBehaviour
                 StartCoroutine(WrongRobot(robotDelivered));
                 //change color
                 spotLight.color = wrongCol;
+                bulbRenderer.material = wrongColMat;
                 SoundManager.Instance.PlaySound(incorrectRobot, gameObject);
                 level01Manager.IncorrectRobot();
                 IncrementLoseCon = true;
@@ -85,6 +88,7 @@ public class Scanner : MonoBehaviour
     void ReturnBulbToDefault()
     {
         spotLight.color = defaultCol;
+        bulbRenderer.material = standbyColMat;
     }
 
     IEnumerator WrongRobot(RobotBody rb)
