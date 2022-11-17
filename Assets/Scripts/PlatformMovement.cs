@@ -50,7 +50,7 @@ public class PlatformMovement : MonoBehaviour
         SoundManager.Instance.StopSound(constantMovement, gameObject);
         SoundManager.Instance.PlaySound(directionChange, gameObject);
         StartCoroutine(GoB());
-        StopCoroutine(GoA());
+        //StopCoroutine(GoA());
     }
 
     IEnumerator GoB()
@@ -68,7 +68,7 @@ public class PlatformMovement : MonoBehaviour
         SoundManager.Instance.StopSound(constantMovement, gameObject);
         SoundManager.Instance.PlaySound(directionChange, gameObject);
         StartCoroutine(GoA());
-        StopCoroutine(GoB());
+        //StopCoroutine(GoB());
     }
 
     private void OnCollisionEnter(Collision collision)
