@@ -10,11 +10,11 @@ public class Level04_Manager : LevelManager
 
     [SerializeField] float slow_conveyorSpeed;
     [SerializeField] float fast_conveyorSpeed;
-    [Header("References")]
+    [Header("FAIL SAFE CONVEYORS")]
     [SerializeField] FailSafeConveyor[] slow_conveyor;
     [SerializeField] FailSafeConveyor[] fast_conveyor;
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
 

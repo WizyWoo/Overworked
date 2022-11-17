@@ -766,6 +766,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2086185419362332899, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643987}
     - target: {fileID: 2340996896987182375, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -781,6 +786,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5165270411303007540, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643987}
+    - target: {fileID: 7081045107932910343, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643987}
     - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_Pivot.x
@@ -986,6 +1001,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643983}
     - target: {fileID: 7809940087663001449, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2054,13 +2074,11 @@ MonoBehaviour:
       Data3: -2093164100
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
-  MoneyMultiplier: 1
-  moneyWhenFall: -5
   CoinGaugeMoney: 0
+  moneyWhenFall: -5
   moneyToWin1Star: 30
   moneyToWin2Star: 60
   moneyToWin3Star: 90
-  timerText: {fileID: 24079502}
   moneyText: {fileID: 1278097472}
   addMoneyText: {fileID: 928100767}
   addMoneyImg: {fileID: 1427237162}
@@ -2069,6 +2087,7 @@ MonoBehaviour:
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
+  timerText: {fileID: 24079502}
   maxTime: 150
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0

@@ -34,10 +34,9 @@ public class Level01_Manager : LevelManager
     [SerializeField] GameObject[] relaxingZones_2Players;
 
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
-        CorrectRobot();
 
         // Setup level for 1 or 2 players
         if (GameManager.instance.onlyOnePlayer)

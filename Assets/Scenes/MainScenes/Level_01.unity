@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6620,13 +6620,11 @@ MonoBehaviour:
       Data3: -2093164100
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
-  MoneyMultiplier: 0
-  moneyWhenFall: -5
   CoinGaugeMoney: 0
+  moneyWhenFall: -5
   moneyToWin1Star: 30
   moneyToWin2Star: 60
   moneyToWin3Star: 90
-  timerText: {fileID: 2063368424}
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
   addMoneyImg: {fileID: 538108139}
@@ -6635,6 +6633,7 @@ MonoBehaviour:
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
+  timerText: {fileID: 2063368424}
   maxTime: 180
   slow_conveyorBeltSpeed: 1
   fast_conveyorBeltSpeed: 3
@@ -7655,11 +7654,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2086185419362332899, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1780669302}
     - target: {fileID: 3283144239859706736, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5165270411303007540, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1780669302}
+    - target: {fileID: 7081045107932910343, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1780669302}
     - target: {fileID: 7398927922860443284, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_Name
@@ -7785,6 +7799,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1780669299}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
 --- !u!1001 &8346576026816419950

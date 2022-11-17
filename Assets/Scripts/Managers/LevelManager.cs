@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -9,44 +8,47 @@ using DG.Tweening;
 public class LevelManager : MonoBehaviour
 {
     [Header("REFERENCES")]
-
-    public FMODUnity.EventReference levelCompleted;
-    public int MoneyMultiplier;
-    public int moneyWhenFall = 25;
     public static LevelManager Instance;
-    public int CoinGaugeMoney;
-    public int moneyToWin1Star = 30, moneyToWin2Star = 60, moneyToWin3Star = 90;
+    [Header("FMOD SOUNDS")]
+    public FMODUnity.EventReference levelCompleted;
 
-    [SerializeField] TMP_Text timerText;
+    [Header("MONEY STUFF")]
+    public int CoinGaugeMoney;
+    public int moneyWhenFall = 25;
+    public int moneyToWin1Star = 30, moneyToWin2Star = 60, moneyToWin3Star = 90;
     [SerializeField] TextMeshProUGUI moneyText, addMoneyText;
     [SerializeField] Image addMoneyImg;
     [SerializeField] Color addColor, subsColor;
     [SerializeField] protected int money = 0, moneyCorrectRobot = 5, moneyWrongRobot = 5;
 
+    [Header("TIMER")]
+    [SerializeField] TMP_Text timerText;
+
     protected const string stringLine = "  __-_-_-_-_-__  ";
 
     [Header("\n" + "\n" + "ADJUSTING DIFFICULTY PARAMETERS")]
-
     [Header(stringLine + "Time" + stringLine)]
     [SerializeField] float maxTime;
     float currentTime;
 
-    [Header(stringLine + "Conveyor Belts" + stringLine + "\n")]
+    [Header(stringLine + "CONVEYOR BELTS SPEEDS" + stringLine + "\n")]
     [SerializeField] float slow_conveyorBeltSpeed;
     [SerializeField] float fast_conveyorBeltSpeed;
 
-    [Header("References")]
+    [Header("CONVEYOR BELTS")]
     [SerializeField] ConveyorBelt[] slow_conveyorBelts;
     [SerializeField] ConveyorBelt[] fast_conveyorBelts;
 
-    [Header(stringLine + "Spawners" + stringLine + "\n")]
+    [Header(stringLine + "SPAWNERS" + stringLine + "\n")]
     [SerializeField] float partSpawner_rate;
 
-    [Header("References")]
+    [Header("REFERENCES")]
     [SerializeField] ItemSpawner[] parts_Spawner;
 
+    [Header("TICK IMAGE")]
     private Vector3 initialTickPosition;
     [SerializeField] SpriteRenderer tickImage;
+
     protected virtual void Awake()
     {
         Instance = this;
@@ -78,36 +80,12 @@ public class LevelManager : MonoBehaviour
     }
     public virtual void CorrectRobot()
     {
-        UpdateMoney(moneyCorrectRobot * MoneyMultiplier);
-        StartCoroutine(ShowGoodFeedback());
-        //    if (MoneyMultiplier >= 3)
-        //    {
-        //        goto JustResetOnce;
-        //    }
-        //    if (MoneyMultiplier > 1)
-        //    {
-        //        MoneyMultiplier = 1;
-        //        MoneyMultiplier++;
-        //        goto JustResetOnce;
-        //    }
-        //    MoneyMultiplier++;
-        //JustResetOnce:;
+        UpdateMoney(moneyCorrectRobot);
+        StartCoroutine(ShowGoodFeedback()); 
     }
     public virtual void IncorrectRobot()
     {
-        UpdateMoney(moneyWrongRobot * MoneyMultiplier);
-    //    if (MoneyMultiplier >= 3)
-    //    {
-    //        goto NoMore;
-    //    }
-    //    if (MoneyMultiplier > 1)
-    //    {
-    //        MoneyMultiplier++;
-    //        goto NoMore;
-    //    }
-    //    MoneyMultiplier = 1;
-    //    MoneyMultiplier++;
-    //NoMore:;
+        UpdateMoney(moneyWrongRobot);
     }
     void UpdateTimer()
     {
@@ -138,18 +116,15 @@ public class LevelManager : MonoBehaviour
 
         timerText.text = minutes + " : " + secondsString;
     }
-
     // When the timer ends, each level can have a winCondition that they can override
     protected virtual bool WinCondition()
     {
         return money >= moneyToWin1Star;
     }
-    
     // It is called when the players loses
     private void Lose()
     {
         Debug.Log("LOSE THIS");
-
         GameManager.instance.LoadResultsScene(false, GetLevel(), false);
     }
     public void LoseExhausted()
@@ -159,7 +134,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.LoadResultsScene(false, GetLevel(), true);
     }
     // It is called when the players wins
-    protected void Win()
+    private void Win()
     {
         if (money >= moneyToWin3Star) GameManager.instance.amountOfStars = 3;
         else if (money >= moneyToWin2Star) GameManager.instance.amountOfStars = 2;
@@ -169,9 +144,9 @@ public class LevelManager : MonoBehaviour
         Debug.Log("WIN THIS");
         GameManager.instance.LoadResultsScene(true, GetLevel(), false);
     }
-    int GetLevel()
+    private int GetLevel()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        string sceneName = GameManager.instance.GetSceneName();
         int levelNumber = int.Parse(sceneName[sceneName.Length - 2].ToString()) * 10 
             + int.Parse(sceneName[sceneName.Length - 1].ToString());
 
@@ -215,7 +190,6 @@ public class LevelManager : MonoBehaviour
 
         addMoneyImg.gameObject.SetActive(false);
     }
-
     IEnumerator ShowGoodFeedback()
     {
         if (tickImage != null)

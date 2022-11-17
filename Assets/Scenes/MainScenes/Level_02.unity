@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -554,6 +554,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2086185419362332899, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 2146607768}
+    - target: {fileID: 5165270411303007540, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 2146607768}
+    - target: {fileID: 7081045107932910343, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 2146607768}
     - target: {fileID: 7398927922860443284, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_Name
@@ -689,6 +704,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 2146607767}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
 --- !u!114 &120414725 stripped
@@ -4779,13 +4799,11 @@ MonoBehaviour:
       Data3: -2093164100
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
-  MoneyMultiplier: 1
-  moneyWhenFall: -5
   CoinGaugeMoney: 0
+  moneyWhenFall: -5
   moneyToWin1Star: 30
   moneyToWin2Star: 60
   moneyToWin3Star: 90
-  timerText: {fileID: 120414729}
   moneyText: {fileID: 120414732}
   addMoneyText: {fileID: 120414727}
   addMoneyImg: {fileID: 120414728}
@@ -4794,6 +4812,7 @@ MonoBehaviour:
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
+  timerText: {fileID: 120414729}
   maxTime: 150
   slow_conveyorBeltSpeed: 1
   fast_conveyorBeltSpeed: 2
