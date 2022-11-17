@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4129672295874809208}
   m_LocalRotation: {x: 0.4999998, y: -0, z: -0, w: 0.86602557}
-  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.091, z: 0.272}
   m_LocalScale: {x: 0.06, y: 0.06, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 4432132866689624400}
   - component: {fileID: 4432132866689624403}
   - component: {fileID: 4432132866689624402}
-  - component: {fileID: 4432132866689624405}
   - component: {fileID: 4432132866689624404}
   m_Layer: 6
   m_Name: Body
@@ -142,11 +141,14 @@ MonoBehaviour:
   radiusRangeOfSphere: 1.8
   typeOfItem: 3
   NeedsCrafting: 0
+  moneyPenaltyWhenBroken: 5
   recolorWhenDone: 0
   ResizeWhenDone: 0
   NewSize: {x: 0, y: 0}
   TurnOffWhenDone: {fileID: 0}
   newColor: {r: 0, g: 0, b: 0, a: 0}
+  overCraftingPBarColor: {r: 1, g: 0, b: 0, a: 1}
+  normalPBarColor: {r: 1, g: 1, b: 1, a: 1}
   ProgressBarWidth: 20
   ProgressIndicator: {fileID: 4432132867342593128}
   ItemSprite: {fileID: 4432132867869898244}
@@ -170,19 +172,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!135 &4432132866689624405
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4432132866689624407}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.11
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &4432132866689624404
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -305,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4432132867869898247}
   m_LocalRotation: {x: 0.4999998, y: -0, z: -0, w: 0.86602557}
-  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.09099998, z: 0.272}
   m_LocalScale: {x: 0.06, y: 0.06, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

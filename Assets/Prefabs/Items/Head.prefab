@@ -58,11 +58,14 @@ MonoBehaviour:
   radiusRangeOfSphere: 1.8
   typeOfItem: 2
   NeedsCrafting: 0
+  moneyPenaltyWhenBroken: 5
   recolorWhenDone: 0
   ResizeWhenDone: 0
   NewSize: {x: 0, y: 0}
   TurnOffWhenDone: {fileID: 0}
   newColor: {r: 0, g: 0, b: 0, a: 0}
+  overCraftingPBarColor: {r: 1, g: 0, b: 0, a: 1}
+  normalPBarColor: {r: 1, g: 1, b: 1, a: 1}
   ProgressBarWidth: 20
   ProgressIndicator: {fileID: 4432132867342593128}
   ItemSprite: {fileID: 4432132867869898244}
@@ -221,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4432132867869898247}
   m_LocalRotation: {x: 0.4999998, y: -0, z: -0, w: 0.86602557}
-  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
   m_LocalScale: {x: 0.06, y: 0.06, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -305,7 +308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5339377800229750484}
   m_LocalRotation: {x: 0.4999998, y: -0, z: -0, w: 0.86602557}
-  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
   m_LocalScale: {x: 0.06, y: 0.06, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
