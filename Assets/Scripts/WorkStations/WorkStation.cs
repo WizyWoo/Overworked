@@ -135,7 +135,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     private void OnTriggerEnter(Collider _col)
     {
 
-        if(_col.TryGetComponent<GrabbableItem>(out GrabbableItem _item))
+        if(_col.TryGetComponent<GrabbableItem>(out GrabbableItem _item) && !_col.isTrigger)
         {
 
             PlaceItem(_item);

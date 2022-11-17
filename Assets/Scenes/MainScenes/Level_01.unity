@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
+  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1521,7 +1521,7 @@ PrefabInstance:
     - target: {fileID: 5477226369417589087, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_text
-      value: J
+      value: E
       objectReference: {fileID: 0}
     - target: {fileID: 5477226369811330533, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
@@ -2656,6 +2656,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 419.78
       objectReference: {fileID: 0}
+    - target: {fileID: 5477226369417589087, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_text
+      value: Space Button
+      objectReference: {fileID: 0}
     - target: {fileID: 5477226369811330533, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2919,6 +2924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 419.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477226369417589087, guid: 25ee0c56e64a67043be697dc146fbd84,
+        type: 3}
+      propertyPath: m_text
+      value: Space button
       objectReference: {fileID: 0}
     - target: {fileID: 5477226369811330533, guid: 25ee0c56e64a67043be697dc146fbd84,
         type: 3}
