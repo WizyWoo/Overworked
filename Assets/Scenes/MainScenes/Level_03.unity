@@ -2850,7 +2850,7 @@ MonoBehaviour:
   moneyCorrectRobot: 5
   moneyWrongRobot: 5
   timerText: {fileID: 24079502}
-  maxTime: 150
+  maxTime: 180
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0
   slow_conveyorBelts: []

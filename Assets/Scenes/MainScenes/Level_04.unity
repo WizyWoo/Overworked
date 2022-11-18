@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1963,6 +1963,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 921988782319187079, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.546
+      objectReference: {fileID: 0}
+    - target: {fileID: 921988782319187079, guid: 91c7412dc31b05049b8e21d17011db32,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.141
+      objectReference: {fileID: 0}
     - target: {fileID: 5238214657363509219, guid: 91c7412dc31b05049b8e21d17011db32,
         type: 3}
       propertyPath: m_Name
@@ -2144,7 +2154,7 @@ MonoBehaviour:
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
   timerText: {fileID: 24079502}
-  maxTime: 150
+  maxTime: 180
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0
   slow_conveyorBelts: []
@@ -3244,6 +3254,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6930725782040691634, guid: 995e229fcb7994e48a9f2c79659474cf,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 995e229fcb7994e48a9f2c79659474cf, type: 3}
 --- !u!4 &1603015586 stripped
@@ -4032,6 +4047,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 564251952}
     m_Modifications:
+    - target: {fileID: 2863797917552577040, guid: 86463ea76f9bed44c825deb24a80edee,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.92156863
+      objectReference: {fileID: 0}
     - target: {fileID: 2863797917552577042, guid: 86463ea76f9bed44c825deb24a80edee,
         type: 3}
       propertyPath: m_Name
