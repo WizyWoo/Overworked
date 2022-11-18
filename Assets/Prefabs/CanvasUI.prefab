@@ -2981,6 +2981,7 @@ MonoBehaviour:
   maxMoney: 5000000
   currentMoney: 0
   CurrentPercent: 0
+  levelManager: {fileID: 0}
   Percentages:
   - {fileID: 788995997249086290}
   - {fileID: 2424152566527957467}
@@ -4266,7 +4267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7398927922597647085}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5795,6 +5796,7 @@ MonoBehaviour:
   maxMoney: 5000000
   currentMoney: 0
   CurrentPercent: 0
+  levelManager: {fileID: 0}
   Percentages:
   - {fileID: 8583859098906734519}
   - {fileID: 1758030206185921011}
@@ -6293,6 +6295,7 @@ MonoBehaviour:
   maxMoney: 5000000
   currentMoney: 0
   CurrentPercent: 0
+  levelManager: {fileID: 0}
   Percentages:
   - {fileID: 8911774453454888325}
   - {fileID: 6716210518704764972}
@@ -6317,8 +6320,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
-  Coingauge_Part_2: {fileID: 4073123693901762645}
-  Coingauge_Part_3: {fileID: 7901445350325028681}
+  coinGauge1: {fileID: 0}
+  coinGauge2: {fileID: 0}
+  coinGauge3: {fileID: 0}
 --- !u!1 &8796563696158678966
 GameObject:
   m_ObjectHideFlags: 0
