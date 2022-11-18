@@ -308,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
@@ -950,8 +950,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232865862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.7503004, y: 0, z: 0.6858}
-  m_LocalScale: {x: 6.5904193, y: 1, z: 6.6678066}
+  m_LocalPosition: {x: -4.7503004, y: -0, z: 0.9027}
+  m_LocalScale: {x: 6.5904193, y: 1, z: 7.1018806}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440095528}
@@ -1263,9 +1263,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
+      propertyPath: CraftingSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
       propertyPath: localMultiplayer
       value: 
       objectReference: {fileID: 5718706634855156265}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: OverCraftingSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: canRepairThisItem
@@ -1406,8 +1416,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371000220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.7496996, y: 0, z: 0.6858}
-  m_LocalScale: {x: 6.58919, y: 1, z: 6.6678066}
+  m_LocalPosition: {x: 4.7496996, y: -0, z: 0.9027}
+  m_LocalScale: {x: 6.58919, y: 1, z: 7.1018806}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440095528}
@@ -1726,7 +1736,7 @@ PrefabInstance:
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7358858461169700786, guid: b38ea8e6bf8a03449934c53dd6a6be51,
         type: 3}
@@ -5567,9 +5577,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
+      propertyPath: CraftingSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
       propertyPath: localMultiplayer
       value: 
       objectReference: {fileID: 5718706634855156265}
+    - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+        type: 3}
+      propertyPath: OverCraftingSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918167, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5579,11 +5599,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RepairStation
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863536022874495799, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
-        type: 3}
-      propertyPath: outlineMode
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3cd20acd6a29a840a1fa8c78b2b56f3, type: 3}
@@ -6654,8 +6669,8 @@ MonoBehaviour:
   CoinGaugeMoney: 0
   moneyWhenFall: -5
   moneyToWin1Star: 30
-  moneyToWin2Star: 60
-  moneyToWin3Star: 90
+  moneyToWin2Star: 45
+  moneyToWin3Star: 60
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
   addMoneyImg: {fileID: 538108139}
@@ -6680,7 +6695,7 @@ MonoBehaviour:
   - {fileID: 1602229224}
   tickImage: {fileID: 328761974}
   slow_robotRailSpeed: 1
-  fast_robotRailSpeed: 3
+  fast_robotRailSpeed: 2
   slow_robotRail:
   - {fileID: 1297629720}
   - {fileID: 1445585445}
@@ -6690,7 +6705,7 @@ MonoBehaviour:
   fast_robotRail:
   - {fileID: 1484915558}
   - {fileID: 1132911310}
-  robotSpawner_rate: 16
+  robotSpawner_rate: 24
   left_RobotSpawner: {fileID: 1367346100}
   right_RobotSpawner: {fileID: 1684884586}
   middleFloor: {fileID: 1103854198}
