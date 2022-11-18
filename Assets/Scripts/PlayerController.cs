@@ -14,7 +14,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public int playerIndex;
-
+    //UpSprites and DownSprites
+    [SerializeField] GameObject UpGFX, DownGFX;
     // Movement
     [Header("DESIGNER VARIABLES")]
     [SerializeField] float speed;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
     [SerializeField] Animator flipAnimator;
     
+
     [SerializeField] bool goingRight;
     [SerializeField] Image staminaUI;
     [SerializeField] Image staminaUI_back;
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
     float timeTochangeDir, timerChangeDir, timerUnburn;
 
 
+   
     //Boolean for reversing movement and float to turn it off
     public bool Dazed, DazedOnce;
     public float DazedTimer;
@@ -665,6 +668,25 @@ public class PlayerController : MonoBehaviour
         }
         horInput = context.ReadValue<Vector2>().x;
         verInput = context.ReadValue<Vector2>().y;
+
+        if (verInput > 0.5)
+        {
+            UpGFX.SetActive(true);
+            DownGFX.SetActive(false);
+            gfx.enabled = false;
+        }
+        if(verInput < -0.5)
+        {
+            UpGFX.SetActive(false);
+            DownGFX.SetActive(true);
+            gfx.enabled = false;
+        }
+        if(horInput < -0.5|| horInput> 0.5)
+        {
+            UpGFX.SetActive(false);
+            DownGFX.SetActive(false);
+            gfx.enabled = true;
+        }
     }
 
 
