@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2286,8 +2286,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1836727214440567109, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}
-      propertyPath: outlineMode
-      value: 2
+      propertyPath: bakeKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836727214440567109, guid: 995e229fcb7994e48a9f2c79659474cf,
+        type: 3}
+      propertyPath: bakeValues.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5595768151472524673, guid: 995e229fcb7994e48a9f2c79659474cf,
         type: 3}

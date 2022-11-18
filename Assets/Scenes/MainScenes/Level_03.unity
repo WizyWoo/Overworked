@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2489,16 +2489,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Freeze Station (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8511085465110998841, guid: 9a234be98fec6f644ae4434fe3524adb,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8511085465110998841, guid: 9a234be98fec6f644ae4434fe3524adb,
-        type: 3}
-      propertyPath: outlineMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8511085466727857662, guid: 9a234be98fec6f644ae4434fe3524adb,
         type: 3}
       propertyPath: m_Size.x
@@ -4513,11 +4503,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Freeze Station
       objectReference: {fileID: 0}
-    - target: {fileID: 8511085465110998841, guid: 9a234be98fec6f644ae4434fe3524adb,
-        type: 3}
-      propertyPath: outlineMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8511085466727857662, guid: 9a234be98fec6f644ae4434fe3524adb,
         type: 3}
       propertyPath: m_Size.x
@@ -4621,11 +4606,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238214657363509243, guid: 91c7412dc31b05049b8e21d17011db32,
-        type: 3}
-      propertyPath: outlineMode
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91c7412dc31b05049b8e21d17011db32, type: 3}

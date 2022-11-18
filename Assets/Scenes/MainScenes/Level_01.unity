@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1275,11 +1275,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RepairStation (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863536022874495799, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
-        type: 3}
-      propertyPath: outlineMode
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3cd20acd6a29a840a1fa8c78b2b56f3, type: 3}
