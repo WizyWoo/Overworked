@@ -6668,9 +6668,9 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   CoinGaugeMoney: 0
   moneyWhenFall: -5
-  moneyToWin1Star: 30
-  moneyToWin2Star: 45
-  moneyToWin3Star: 60
+  moneyToWin1Star: 20
+  moneyToWin2Star: 30
+  moneyToWin3Star: 45
   moneyText: {fileID: 1141903775}
   addMoneyText: {fileID: 1148291661}
   addMoneyImg: {fileID: 538108139}
@@ -6705,7 +6705,7 @@ MonoBehaviour:
   fast_robotRail:
   - {fileID: 1484915558}
   - {fileID: 1132911310}
-  robotSpawner_rate: 24
+  robotSpawner_rate: 30
   left_RobotSpawner: {fileID: 1367346100}
   right_RobotSpawner: {fileID: 1684884586}
   middleFloor: {fileID: 1103854198}
@@ -7720,6 +7720,16 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 1780669302}
+    - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 7398927922860443284, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_Name
