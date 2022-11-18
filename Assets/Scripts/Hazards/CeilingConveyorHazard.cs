@@ -13,6 +13,8 @@ public class CeilingConveyorHazard : MonoBehaviour
     public List<int> curPoint;
     private List<float> armTravelTimer, curDist;
     public float RolledTime, WarningTime;
+    [Tooltip("if this is 100, the train has a 1 in 100 chance of spawning")]
+    public int ChanceForTrain = 100;
     public EventReference TrainSound;
     //EnableThis one if it's more cosmetic
     public bool noWarnings;
@@ -96,7 +98,7 @@ public class CeilingConveyorHazard : MonoBehaviour
 
         GameObject _tempGO = null;
 
-        if(Random.Range(0, 100) == 0)
+        if(Random.Range(0, ChanceForTrain) == 0)
         {
 
             _tempGO = Instantiate(TrainPrefab, RailPoints[0].position, Quaternion.identity);
