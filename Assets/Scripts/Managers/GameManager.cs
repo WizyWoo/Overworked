@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public bool onlyOnePlayer;
 
     public bool KonamiCode;
-    public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt;
+    public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent;
     public bool FirstTimeRent, Overtime;
     private void Awake()
     {

@@ -41,6 +41,7 @@ public class CeilingConveyorHazard : MonoBehaviour
         }
     SkipWarning:;
 
+        ChanceForTrain = GameManager.instance.TrainPercent;
         if(arms.Count > 0)
         {
 
