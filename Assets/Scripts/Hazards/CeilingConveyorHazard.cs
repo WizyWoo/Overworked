@@ -41,7 +41,7 @@ public class CeilingConveyorHazard : MonoBehaviour
         }
     SkipWarning:;
 
-        ChanceForTrain = GameManager.instance.TrainPercent;
+        
         if(arms.Count > 0)
         {
 
@@ -98,8 +98,11 @@ public class CeilingConveyorHazard : MonoBehaviour
     {
 
         GameObject _tempGO = null;
-
-        if(Random.Range(0, ChanceForTrain) == 0)
+        if(GameManager.instance.KonamiCode == true)
+        {
+            ChanceForTrain = GameManager.instance.TrainPercent;
+        }
+        if (Random.Range(0, ChanceForTrain) == 0)
         {
 
             _tempGO = Instantiate(TrainPrefab, RailPoints[0].position, Quaternion.identity);
