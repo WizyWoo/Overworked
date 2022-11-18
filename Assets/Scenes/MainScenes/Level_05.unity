@@ -7738,7 +7738,7 @@ PrefabInstance:
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: CraftingSpeed
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
@@ -7748,7 +7748,7 @@ PrefabInstance:
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
       propertyPath: OverCraftingSpeed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
         type: 3}
@@ -8398,7 +8398,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1058643983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12c5a6d917ff704d823519afe7421e4, type: 3}
+  m_Script: {fileID: 11500000, guid: e133faf124808274c97dbf1e5b12a03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelCompleted:
@@ -8411,16 +8411,16 @@ MonoBehaviour:
   CoinGaugeMoney: 0
   moneyWhenFall: -5
   moneyToWin1Star: 30
-  moneyToWin2Star: 60
-  moneyToWin3Star: 90
+  moneyToWin2Star: 45
+  moneyToWin3Star: 60
   moneyText: {fileID: 1278097472}
   addMoneyText: {fileID: 928100767}
   addMoneyImg: {fileID: 1427237162}
-  addColor: {r: 0.11764706, g: 1, b: 0, a: 0}
-  subsColor: {r: 1, g: 0, b: 0, a: 0}
+  addColor: {r: 0.11764706, g: 1, b: 0, a: 1}
+  subsColor: {r: 1, g: 0, b: 0, a: 1}
   money: 0
   moneyCorrectRobot: 5
-  moneyWrongRobot: -3
+  moneyWrongRobot: 5
   timerText: {fileID: 24079502}
   maxTime: 180
   slow_conveyorBeltSpeed: 0
@@ -8431,10 +8431,6 @@ MonoBehaviour:
   parts_Spawner:
   - {fileID: 1046046366}
   tickImage: {fileID: 1194952026}
-  slow_conveyorSpeed: 1
-  fast_conveyorSpeed: 6
-  slow_conveyor: []
-  fast_conveyor: []
 --- !u!1 &1086609280
 GameObject:
   m_ObjectHideFlags: 0
