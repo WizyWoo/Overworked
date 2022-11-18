@@ -27,6 +27,7 @@ public class FailSafeConveyor : MonoBehaviour
             player = _col.transform;
         else
             rigidbodiesOnConveyor.Add(_col.rigidbody);
+        
     }
 
     private void OnCollisionExit(Collision _col)
@@ -39,7 +40,7 @@ public class FailSafeConveyor : MonoBehaviour
         else if(rigidbodiesOnConveyor.Remove(_col.rigidbody))
         {
 
-            _col.rigidbody.velocity = TransportDirection;
+            _col.rigidbody.velocity = TransportDirection * TransportSpeed;
 
         }
 
