@@ -8,7 +8,6 @@ public class RobotRail : MonoBehaviour
     [SerializeField] Vector2 direction;
     public bool functional = true;
     Rigidbody rb;
-
     List<RobotBody> itemsInConveyor = new List<RobotBody>();
 
     void Start()
@@ -23,8 +22,8 @@ public class RobotRail : MonoBehaviour
         if (itemsInConveyor.Count != 0)
             foreach (RobotBody robot in itemsInConveyor)
             {
-                Rigidbody robotRB = robot.GetComponent<Rigidbody>();
-                robotRB.velocity = speed * new Vector3(direction.x, 0, direction.y).normalized;
+                //Rigidbody robotRB = robot.GetComponent<Rigidbody>();
+                robot.transform.position += new Vector3(direction.x, 0, direction.y) * (speed / 60);
             }
     }
 
