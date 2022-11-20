@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     public bool overworked;
 
     [HideInInspector] public InputDevice[] currentPlayerDevices;
-
+    public string CurrentLevel;
     public bool onlyOnePlayer;
-
+    public bool FakeReset;
     public bool KonamiCode;
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent;
     public bool FirstTimeRent, Overtime;
@@ -30,7 +30,13 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            CurrentLevel = SceneManager.GetActiveScene().name;
+        }
+    }
 
     // At the end of a level this is called by the level manager for loading the results scene
     public void LoadResultsScene(bool win, int level, bool exhausted)
@@ -73,7 +79,23 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    
+
+    public void JustStartTheReset()
+    {
+        StartCoroutine(FakeResetVoid());
+    }
+    private IEnumerator FakeResetVoid()
+    {
+        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(ResetPart2());
+        yield return new WaitForSeconds(0);
+        
+    }
+    private IEnumerator ResetPart2()
+    {
+        SceneManager.LoadScene(CurrentLevel);
+        yield return new WaitForSeconds(0);
+    }
     //IEnumerator LoadScene_IEnum()
     //{
     //    yield return new WaitForSeconds(1);
