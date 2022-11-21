@@ -4831,6 +4831,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321666177}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1323217726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2231666085636085558, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 120414724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1323217727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7398927923006879994, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 120414724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1323217728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 92124293211977515, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 120414724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1396359725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6534,6 +6570,8 @@ MonoBehaviour:
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
   CoinGaugeMoney: 0
+  MoneyMultiplier: 1
+  visualmoneymultiplier: 0
   moneyWhenFall: -5
   moneyToWin1Star: 30
   moneyToWin2Star: 60
@@ -6548,6 +6586,8 @@ MonoBehaviour:
   moneyWrongRobot: -3
   timerText: {fileID: 120414729}
   maxTime: 150
+  topTimerPart: {fileID: 1323217728}
+  bottomTimerPart: {fileID: 1323217726}
   slow_conveyorBeltSpeed: 1
   fast_conveyorBeltSpeed: 2
   slow_conveyorBelts:
@@ -6586,7 +6626,7 @@ MonoBehaviour:
   - {fileID: 1174088878}
   - {fileID: 1602229224}
   fasterRobotRail: []
-  bossText: {fileID: 120414732}
+  bossText: {fileID: 1323217727}
   dialoguePanel: {fileID: 120414731}
   bossFace: {fileID: 120414730}
   redScreenEffect: {fileID: 120414725}

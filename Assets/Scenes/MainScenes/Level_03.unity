@@ -1130,6 +1130,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f52362b90e31488dff8ff9c2515fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &187063599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2231666085636085558, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 187063595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &187063600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7398927923006879994, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 187063595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &187063601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 92124293211977515, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 187063595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &198878639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2190,7 @@ MonoBehaviour:
   FasterSpawners:
   - {fileID: 1046046366}
   fasterRobotRail: []
-  bossText: {fileID: 1278097472}
+  bossText: {fileID: 187063600}
   dialoguePanel: {fileID: 250908094}
   bossFace: {fileID: 760515625}
   redScreenEffect: {fileID: 1493660852}
@@ -2202,6 +2238,7 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   CoinGaugeMoney: 0
   MoneyMultiplier: 1
+  visualmoneymultiplier: 0
   moneyWhenFall: -5
   moneyToWin1Star: 30
   moneyToWin2Star: 60
@@ -2216,6 +2253,8 @@ MonoBehaviour:
   moneyWrongRobot: -3
   timerText: {fileID: 24079502}
   maxTime: 180
+  topTimerPart: {fileID: 187063601}
+  bottomTimerPart: {fileID: 187063599}
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0
   slow_conveyorBelts: []

@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
     [Header("\n" + "\n" + "ADJUSTING DIFFICULTY PARAMETERS")]
     [Header(stringLine + "Time" + stringLine)]
     [SerializeField] float maxTime;
+    [SerializeField] Image topTimerPart, bottomTimerPart;
     float currentTime;
 
     [Header(stringLine + "CONVEYOR BELTS SPEEDS" + stringLine + "\n")]
@@ -78,7 +79,7 @@ public class LevelManager : MonoBehaviour
     protected virtual void Update()
     {
         UpdateTimer();
-        moneyText.text = " ";
+        //moneyText.text = " ";
        // moneyText.text = money.ToString() + " / " + moneyToWin1Star.ToString();
     }
     public virtual void CorrectRobot()
@@ -102,6 +103,9 @@ public class LevelManager : MonoBehaviour
     {
         currentTime -= Time.deltaTime;
 
+        topTimerPart.fillAmount = (currentTime / maxTime) * 0.49f + 0.51f;
+        bottomTimerPart.fillAmount = 1 - (currentTime / maxTime);
+
         // Check win/lose condition
         if (currentTime <= 0)
         {
@@ -117,6 +121,7 @@ public class LevelManager : MonoBehaviour
                 Lose();
         }
 
+        /*
         // Update UI
         int minutes =  Mathf.FloorToInt(currentTime / 60);
         int seconds = Mathf.FloorToInt(currentTime % 60);
@@ -125,7 +130,7 @@ public class LevelManager : MonoBehaviour
         if (seconds < 10) secondsString = "0" + seconds;
         else secondsString = seconds.ToString();
 
-        timerText.text = minutes + " : " + secondsString;
+        timerText.text = minutes + " : " + secondsString;*/
     }
     // When the timer ends, each level can have a winCondition that they can override
     protected virtual bool WinCondition()
