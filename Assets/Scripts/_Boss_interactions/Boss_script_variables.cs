@@ -8,9 +8,9 @@ public class Boss_script_variables : MonoBehaviour
     [HideInInspector]
     public List<Boss_speech> dialogue       = new List<Boss_speech>();
 
-    public List<Sprite> Boss_expressions    = new List<Sprite>();
+    public List<Sprite> Boss_expressions    = new List<Sprite>(4);
  
-    public Dictionary<expression, Sprite> expres = new Dictionary<expression, Sprite>();
+    public Dictionary<expression, Sprite> expres = new Dictionary<expression, Sprite>(4);
     public Dictionary<dog_animation, string> D_a    = new Dictionary<dog_animation, string>();
 
     public Animator[] Dogs;
@@ -26,6 +26,7 @@ public class Boss_script_variables : MonoBehaviour
         expres.Add(expression.angry,    Boss_expressions[0]);
         expres.Add(expression.sad,      Boss_expressions[1]);
         expres.Add(expression.normal,   Boss_expressions[2]);
+        expres.Add(expression.laugh,    Boss_expressions[3]);
 
        
         Debug.Log(expres.ContainsKey(expression.normal));
@@ -131,7 +132,8 @@ public enum expression
 {
     normal,
     sad,
-    angry
+    angry,
+    laugh
 }
 public enum dog_animation
 {
