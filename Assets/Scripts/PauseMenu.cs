@@ -19,6 +19,13 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
+    public void RestartScene()
+    {
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
     // Update is called once per frame
     void Update()
     {
