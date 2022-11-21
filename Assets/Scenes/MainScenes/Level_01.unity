@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
+  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3251,18 +3251,6 @@ MonoBehaviour:
   initialOffset: 0
   functional: 1
   generator: {fileID: 0}
---- !u!114 &865293989 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5165270411303007540, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7398927922647669091}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f52362b90e31488dff8ff9c2515fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &888332280 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7398927922860443291, guid: 51d5446e76f7c8141be11656ae7555a2,
@@ -3603,18 +3591,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1068517405}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1072233816 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7081045107932910343, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7398927922647669091}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f52362b90e31488dff8ff9c2515fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1098875675
 GameObject:
   m_ObjectHideFlags: 0
@@ -4630,18 +4606,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.09, z: 6.76}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1361352849 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2086185419362332899, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 7398927922647669091}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f52362b90e31488dff8ff9c2515fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1367346098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7500,13 +7464,18 @@ PrefabInstance:
       objectReference: {fileID: 1780669302}
     - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -200
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7398927922860443284, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
@@ -7628,26 +7597,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398927923185514890, guid: 51d5446e76f7c8141be11656ae7555a2,
+    - target: {fileID: 7398927924169972100, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: coinGauge1
-      value: 
-      objectReference: {fileID: 1072233816}
-    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: coinGauge2
-      value: 
-      objectReference: {fileID: 865293989}
-    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: coinGauge3
-      value: 
-      objectReference: {fileID: 1361352849}
     - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: levelManager

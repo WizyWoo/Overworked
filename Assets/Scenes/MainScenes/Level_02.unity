@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
+  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -539,51 +539,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2146607770}
     m_Modifications:
-    - target: {fileID: 1450905884, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1450905884, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+    - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
-    - target: {fileID: 1450905884, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1450905884, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1450905884, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2086185419362332899, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 2146607768}
-    - target: {fileID: 5165270411303007540, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 2146607768}
-    - target: {fileID: 7081045107932910343, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 2146607768}
     - target: {fileID: 7398927922860443284, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_Name
       value: CanvasUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398927922860443288, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7398927922860443291, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
@@ -690,46 +654,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398927923185514888, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398927923185514890, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398927923657544488, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398927924070264976, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: coinGauge1
-      value: 
-      objectReference: {fileID: 1617071461}
-    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: coinGauge2
-      value: 
-      objectReference: {fileID: 1617071460}
-    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: coinGauge3
-      value: 
-      objectReference: {fileID: 1617071459}
-    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
-        type: 3}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 2146607768}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d5446e76f7c8141be11656ae7555a2, type: 3}
 --- !u!114 &120414725 stripped
@@ -4152,42 +4076,6 @@ MonoBehaviour:
   initialOffset: 0
   functional: 1
   generator: {fileID: 0}
---- !u!114 &1617071459 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2086185419362332899, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 120414724}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f52362b90e31488dff8ff9c2515fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1617071460 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5165270411303007540, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 120414724}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f52362b90e31488dff8ff9c2515fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1617071461 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7081045107932910343, guid: 51d5446e76f7c8141be11656ae7555a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 120414724}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f52362b90e31488dff8ff9c2515fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1709338603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3785572361583610545, guid: 37b3a092dc9da524f8175ef592c262d8,
@@ -5268,9 +5156,9 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   CoinGaugeMoney: 0
   moneyWhenFall: -5
-  moneyToWin1Star: 30
-  moneyToWin2Star: 60
-  moneyToWin3Star: 90
+  moneyToWin1Star: 15
+  moneyToWin2Star: 30
+  moneyToWin3Star: 45
   moneyText: {fileID: 120414732}
   addMoneyText: {fileID: 120414727}
   addMoneyImg: {fileID: 120414728}
