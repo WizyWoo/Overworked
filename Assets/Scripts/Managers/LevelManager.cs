@@ -86,9 +86,10 @@ public class LevelManager : MonoBehaviour
         {
             goto noplus;
         }
+    
+        UpdateMoney(moneyCorrectRobot);
         MoneyMultiplier++;
     noplus:
-        UpdateMoney(moneyCorrectRobot);
         StartCoroutine(ShowGoodFeedback()); 
     }
     public virtual void IncorrectRobot()
