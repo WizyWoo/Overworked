@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("MONEY STUFF")]
     public int CoinGaugeMoney;
+    public int MoneyMultiplier = 1;
     public int moneyWhenFall = 25;
     public int moneyToWin1Star = 30, moneyToWin2Star = 60, moneyToWin3Star = 90;
     [SerializeField] TextMeshProUGUI moneyText, addMoneyText;
@@ -81,11 +82,18 @@ public class LevelManager : MonoBehaviour
     }
     public virtual void CorrectRobot()
     {
+        if (MoneyMultiplier >= 3)
+        {
+            goto noplus;
+        }
+        MoneyMultiplier++;
+    noplus:
         UpdateMoney(moneyCorrectRobot);
         StartCoroutine(ShowGoodFeedback()); 
     }
     public virtual void IncorrectRobot()
     {
+        MoneyMultiplier = 1;
         UpdateMoney(moneyWrongRobot);
     }
     void UpdateTimer()
@@ -155,7 +163,8 @@ public class LevelManager : MonoBehaviour
     }
     public void UpdateMoney(int amount)
     {
-        money += amount;
+        money += amount *MoneyMultiplier;
+       
         CoinGaugeMoney = money;
         if (money <= 0) money = 0;
         StartCoroutine(AddMoneyVisuals(amount));
