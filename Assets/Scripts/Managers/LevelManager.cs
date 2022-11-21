@@ -177,9 +177,10 @@ public class LevelManager : MonoBehaviour
             MoneyMultiplier = 1;
             money += amount;
             loseMoney = false;
+            goto noDoubleLoss;
         }
         money += amount *MoneyMultiplier;
-       
+    noDoubleLoss:;
         CoinGaugeMoney = money;
         if (money <= 0) money = 0;
         StartCoroutine(AddMoneyVisuals(amount));
