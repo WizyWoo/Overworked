@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using FMODUnity;
 
 #if UNITY_EDITOR
 namespace CustomStuffPog
@@ -105,10 +106,13 @@ public class CraftableItem : GrabbableItem
         }
     }
 
+    public EventReference BrokenSound;
+
     public void ItemOvercrafted()
     {
 
         LevelManager.Instance.UpdateMoney(-moneyPenaltyWhenBroken);
+        SoundManager.Instance.PlayOneShot(BrokenSound, gameObject);
         Destroy(gameObject);
 
     }

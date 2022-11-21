@@ -73,6 +73,13 @@ MonoBehaviour:
     type: 3}
   assembled: 0
   delivered: 0
+  BrokenSound:
+    Guid:
+      Data1: -783905506
+      Data2: 1113603044
+      Data3: 1282322608
+      Data4: 1635217975
+    Path: event:/SFX/SFX_Int/SFX_Int_Workbench_DestroyedItem
 --- !u!54 &4432132866689624402
 Rigidbody:
   m_ObjectHideFlags: 0

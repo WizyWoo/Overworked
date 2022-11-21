@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3670930036268102311}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.275, z: -0.024999999}
   m_LocalScale: {x: 0.09, y: 0.09, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -241,6 +241,13 @@ MonoBehaviour:
     type: 3}
   assembled: 0
   delivered: 0
+  BrokenSound:
+    Guid:
+      Data1: -783905506
+      Data2: 1113603044
+      Data3: 1282322608
+      Data4: 1635217975
+    Path: event:/SFX/SFX_Int/SFX_Int_Workbench_DestroyedItem
 --- !u!54 &3670930037122264562
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -295,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8948068856166687340}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.275, z: -0.025}
   m_LocalScale: {x: 0.09, y: 0.09, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
