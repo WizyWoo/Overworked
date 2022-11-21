@@ -59,7 +59,7 @@ public class Dialogue_tool : EditorWindow
 
         void get_boss_dialogue_script()
         {
-            B = GameObject.Find("ok").GetComponent<Boss_script_variables>();
+            B = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Boss_script_variables>();
         }
         void Tool_tab()
         {
@@ -187,14 +187,11 @@ public class Dialogue_tool : EditorWindow
             }
 
             
-            void set_cat_expression(expression i)
-            {
-
-                B.set_sprite(i);
-            }
+      
 
             void show_expression_option()
             {
+
             }
                 
             void enum_animation()
@@ -218,17 +215,6 @@ public class Dialogue_tool : EditorWindow
             }
         }
        
-
-
-        void boss_sprite_change()
-        {
-            Object sp = null;
-            sp = EditorGUILayout.ObjectField(sp, typeof(Sprite));
-        }
-        void animation_insertion()
-        {
-            a_thing = EditorGUILayout.ObjectField(a_thing,typeof(Animation));
-        }
         void add_more_dialogue()
         {
 

@@ -8,13 +8,14 @@ using TMPro;
 public class Conversation_s : MonoBehaviour
 {
     #region Variables
-    public Boss_script_variables B;
-    public TMP_Text          Speech_text;
-    public Transform         Boss_transfrom;
+    /// <summary> Boss_script_variable</summary>
+    private Boss_script_variables B;
+   /// <summary> TMP_Text </summary>
+    public TMP_Text           Speech_text;
+
     
-    [SerializeField]
-    private Sentence[]       speeches;
-    public Sprite            Boss_sprite;
+    private Transform         Boss_transfrom;
+    private SpriteRenderer    Boss_sprite;
 
 
     public  AnimationCurve   bob_up_and_down;
@@ -24,18 +25,55 @@ public class Conversation_s : MonoBehaviour
     private float            t = 0;
     private int              i = 0;
     private int              r;
+
+    private bool             boss_is_here;
     #endregion
 
 
     #region Methods
     private void Awake()
     {
-        PlayerPrefs.SetInt("Day", 2);
+
+        B = GetComponent<Boss_script_variables>();
+
+        Set_boss_variables();
+        get_dialogue_variables();
+
         convo = GetComponent<PlayerInput>();
 
-        r = Random.Range(0, B.dialogue.Count);
-        Debug.Log(B.dialogue.Count);
-        Debug.Log(r);
+        
+        void Set_boss_variables()
+        { 
+            GameObject Boss;
+
+            if (Boss_is_in_the_scene())
+            {
+                Boss            = Boss_object();
+                Boss_sprite     = Boss.GetComponent<SpriteRenderer>();
+                Boss_transfrom  = Boss.transform;
+                boss_is_here    = true;
+
+            }
+            else boss_is_here = false;
+        }
+
+        GameObject Boss_object()
+        {
+            return GameObject.Find("boss").transform.GetChild(0).gameObject;
+        }
+        
+
+        void get_dialogue_variables()
+        {
+            r = Random.Range(0, B.dialogue.Count);
+            Debug.Log(B.dialogue.Count);
+            Debug.Log(r);
+        }
+
+        bool Boss_is_in_the_scene()
+        {
+            return GameObject.Find("boss") != null;
+        }
     }
     private void Start()
     {
@@ -57,74 +95,101 @@ public class Conversation_s : MonoBehaviour
     }
     void Update()
     {
-        Boss_bob();
-        Debug.Log(B.expres.ContainsKey(expression.normal));
+        if(boss_is_here)
+            Boss_bob();
 
-        Debug.Log(Random.Range(0, 3));
-    }
-
-    
-    public void Boss_bob()
-    {
-        Bob_time();
-        Boss_transfrom.position = new Vector3(Boss_transfrom.position.x, bob_up_and_down.Evaluate(t) + 1, 6);
-
-        void Bob_time()
+        
+        void Boss_bob()
         {
-            if (t >= 1)
+            Bob_time(ref t);
+            Boss_transfrom.position = bobing();
+
+            Vector3 bobing()
+            {
+                return new Vector3(x(), y(), 6);
+            }
+            float x()
+            {
+                return Boss_transfrom.position.x;
+            }
+            float y()
+            {
+                return bob_up_and_down.Evaluate(t) + 1;
+            }
+    
+        }
+        
+        void Bob_time(ref float t)
+        {
+            if (t >= bob_up_and_down.keys[2].time)
                 t = 0;
 
-            t += Time.deltaTime;
+                t += Time.deltaTime;        
         }
     }
+
     public void Continue_thing(InputAction.CallbackContext context) 
     {
         if (context.started)
         {
-            Continue_conversation();
-            Continue_to_scene();
-
-            increase();
-        }
-
-        void Continue_conversation()
-        {
-            if (i < B.dialogue[r].S.Count)
+            if (I_is_bellow_sentence_count())
             {
+                Debug.Log(B.dialogue[r].S.Count);
                 Set_text();
                 set_boss_sprite();
                 set_dog_animation();
                 Debug.Log(i);
             }
-        }
-        void Continue_to_scene()
-        {
-            if (i > B.dialogue[r].S.Count - 1)
+
+            if (I_is_above_sentence_count())
             {
                 Debug.Log(i);
                 Fade_out();
                 Load_level();
             }
+            
+            increase();
         }
 
 
+        
+
+        bool I_is_bellow_sentence_count()
+        {
+            return i < B.dialogue[r].S.Count;
+        }
+        bool I_is_above_sentence_count()
+        {
+            return i > B.dialogue[r].S.Count - 1;
+        }
         void Fade_out()
         {
             Black_screen.Play("fade_out");
+            wait();
         }
+        
+
     }
+
+
     public void increase()
     {
         i++;
     }
+
     public void Set_text()
     {
+        
+
         Speech_text.text = B.dialogue[r].S[i];
     }
+
     public void set_boss_sprite()
     {
-        B.boss.sprite = B.expres[B.get_expressions(r, i)];
+        if (boss_is_here)
+            Boss_sprite.sprite = B.expres[B.get_expressions(r, i)];
     }
+
     public void set_dog_animation()
     {
         B.Dogs[0].Play(B.D_a[B.dialogue[r].da[i]]);
@@ -133,7 +198,6 @@ public class Conversation_s : MonoBehaviour
     
     public void Load_level()
     {
-        wait();
         GameManager.instance.LoadScene("MainMenu");  
     }   
     #endregion
