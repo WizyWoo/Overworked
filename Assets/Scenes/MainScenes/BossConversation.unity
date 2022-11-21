@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -845,190 +845,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 31268001862583011}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &596354199
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 596354200}
-  - component: {fileID: 596354201}
-  - component: {fileID: 596354202}
-  - component: {fileID: 596354203}
-  m_Layer: 0
-  m_Name: ok
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &596354200
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596354199}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 941.5614, y: 291.84015, z: 259.5996}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &596354201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596354199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe27cf9e75763e4aaea8d5dc2fc2d34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  B: {fileID: 596354203}
-  Speech_text: {fileID: 347808874}
-  Boss_transfrom: {fileID: 1971286214}
-  speeches:
-  - Conversation:
-    - Plebians I hope your day has been most productive.
-    - I see that you sometimes slack off
-    - UNACCEPTABLE!!!
-    - ... sorry I did not mean to shout.
-    - You better work work and work, if you want my money!
-    - Don't you want it? The green to make it in this world.
-    - It is all that matters. Nothing else.
-    - Now begone. I need my evil nap.
-  Boss_sprite: {fileID: 0}
-  bob_up_and_down:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.987967
-      outSlope: 1.987967
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.49920595
-      value: 0.99240494
-      inSlope: 0.003152132
-      outSlope: 0.003152132
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1.9816628
-      outSlope: -1.9816628
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  convo: {fileID: 596354202}
-  Black_screen: {fileID: 335454120}
---- !u!114 &596354202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596354199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 4f0b750ce82f7cc48aa711d401c059ab,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 596354201}
-        m_TargetAssemblyTypeName: Conversation_s, Assembly-CSharp
-        m_MethodName: Continue_thing
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 0430fe17-9fb4-4ef2-86fb-7c809f4777b1
-    m_ActionName: talk/continue[/Keyboard/space]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: talk
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &596354203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596354199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f48e8faf32bf22498af8b90eb5ed78d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - S:
-    - 'Greetins dogs, you should be happy that I would hire such SCUM as you. '
-    - Dogs are ugly, dirty and sloth. So if I hear as much as a complaint, it will
-      be taken off your pay cheack.
-    - I can replace you at any time remember, there are enough STUPID dogs that would
-      do your piss job for less!
-    - So get to it!
-    ex: 00000000000000000200000002000000
-    da: 00000000010000000100000002000000
-  - S:
-    - I have a confesion
-    - I... am such a good person. it is so hard to be so good when everyone else
-      are so DUMB, but I have accepted that.
-    - People have been so bad to me in the past, but I have come out on top.
-    - My mom and dad died when I was just a kitten. I sWeaR I did NOT kill them!
-    - at least you have someone who cares for you...
-    - oh right you don't.
-    - So don't do something you will regret!
-    ex: 00000000010000000100000001000000010000000000000002000000
-    da: 00000000000000000000000000000000000000000100000001000000
-  Boss_expressions:
-  - {fileID: 21300000, guid: aab6d6af94b562f4eb9aa82311952fcf, type: 3}
-  - {fileID: 21300000, guid: 1eaa4c30ff033a3449f110127edf801f, type: 3}
-  - {fileID: 21300000, guid: d76d30996eca9414383cb677b69a49ef, type: 3}
-  dog_anim: []
-  boss: {fileID: 1903525374}
-  Dogs:
-  - {fileID: 557237483}
-  - {fileID: 1658090260}
 --- !u!1001 &1196677685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1809,18 +1625,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!212 &1903525374 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7266053620423315884, guid: a53044296c2360c44b3f2ff7d0cf0896,
-    type: 3}
-  m_PrefabInstance: {fileID: 7266053620158000156}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1971286214 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7266053621115403777, guid: a53044296c2360c44b3f2ff7d0cf0896,
-    type: 3}
-  m_PrefabInstance: {fileID: 7266053620158000156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2075916469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +1829,95 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf06010cd1623a149b0174b0f2110806, type: 3}
+--- !u!1001 &277068726862126822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 277068727373478513, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_Name
+      value: Dialogue_manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478525, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: Dogs.Array.data[0]
+      value: 
+      objectReference: {fileID: 557237483}
+    - target: {fileID: 277068727373478525, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: Dogs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1658090260}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 941.5614
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 291.84015
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 259.5996
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478526, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277068727373478527, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: Speech_text
+      value: 
+      objectReference: {fileID: 347808874}
+    - target: {fileID: 277068727373478527, guid: 83d459b7ff28c794c8134677c1d657e4,
+        type: 3}
+      propertyPath: Black_screen
+      value: 
+      objectReference: {fileID: 335454120}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83d459b7ff28c794c8134677c1d657e4, type: 3}
 --- !u!1001 &3886849236041833366
 PrefabInstance:
   m_ObjectHideFlags: 0
