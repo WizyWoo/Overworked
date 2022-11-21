@@ -172,7 +172,7 @@ public class LevelManager : MonoBehaviour
     }
     public void UpdateMoney(int amount)
     {
-        if(loseMoney == true)
+        if(amount < 0)
         {
             MoneyMultiplier = 1;
             money += amount;

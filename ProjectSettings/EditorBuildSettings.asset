@@ -22,12 +22,15 @@ EditorBuildSettings:
     guid: d6c6e7f617e35794c80ab6a0c59c78a0
   - enabled: 1
     path: Assets/Scenes/MainScenes/Level_05.unity
-    guid: ffa141574d66ed94b9117a9e5ac4faaa
+    guid: c5c28bd2c2c55554aac6c8e9262f1017
   - enabled: 1
     path: Assets/Scenes/MainScenes/Level_06.unity
-    guid: f9404c8ed5558d54297bdb5b5db5450e
+    guid: ffa141574d66ed94b9117a9e5ac4faaa
   - enabled: 1
     path: Assets/Scenes/MainScenes/Level_07.unity
+    guid: f9404c8ed5558d54297bdb5b5db5450e
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/Level_08.unity
     guid: aeb9259b7a0518b45bb6a17e358ef5c9
   - enabled: 1
     path: Assets/Scenes/MainScenes/BossConversation.unity
