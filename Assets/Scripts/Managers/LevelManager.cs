@@ -84,12 +84,13 @@ public class LevelManager : MonoBehaviour
     }
     public virtual void CorrectRobot()
     {
+        
+    
+        UpdateMoney(moneyCorrectRobot);
         if (MoneyMultiplier >= 3)
         {
             goto noplus;
         }
-    
-        UpdateMoney(moneyCorrectRobot);
         MoneyMultiplier++;
     noplus:
         StartCoroutine(ShowGoodFeedback()); 
