@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
+  m_IndirectSpecularColor: {r: 0.063213885, g: 0.08528754, b: 0.13257036, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -523,6 +523,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2086185419362332899, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643985}
     - target: {fileID: 2340996896987182375, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -538,6 +543,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5165270411303007540, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643985}
+    - target: {fileID: 7081045107932910343, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643985}
     - target: {fileID: 7398927922597647084, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_Pivot.x
@@ -733,6 +748,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7634012245572485223, guid: 51d5446e76f7c8141be11656ae7555a2,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1058643985}
     - target: {fileID: 7809940087663001449, guid: 51d5446e76f7c8141be11656ae7555a2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1051,7 +1071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &272810633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1322,7 +1343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!1 &385433955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,7 +1513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &526551519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1696,7 +1719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &574813387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2451,7 +2475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 6
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &778693333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2562,7 +2587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &789572410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3032,7 +3058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 6
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1025978510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3163,7 +3190,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795207caf70ac3041adbc2379f45afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 24079502}
+  levelCompleted:
+    Guid:
+      Data1: 2103139438
+      Data2: 1268086304
+      Data3: -2093164100
+      Data4: 1583118354
+    Path: event:/SFX/SFX_Notification_LevelComplete
+  CoinGaugeMoney: 0
+  MoneyMultiplier: 1
+  visualmoneymultiplier: 0
+  moneyWhenFall: -5
+  moneyToWin1Star: 30
+  moneyToWin2Star: 60
+  moneyToWin3Star: 90
   moneyText: {fileID: 1278097472}
   addMoneyText: {fileID: 928100767}
   addMoneyImg: {fileID: 1427237162}
@@ -3172,25 +3212,17 @@ MonoBehaviour:
   money: 0
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
-  levelCompleted:
-    Guid:
-      Data1: 2103139438
-      Data2: 1268086304
-      Data3: -2093164100
-      Data4: 1583118354
-    Path: event:/SFX/SFX_Notification_LevelComplete
-  MoneyMultiplier: 1
-  moneyWhenFall: -5
+  timerText: {fileID: 24079502}
   maxTime: 150
+  topTimerPart: {fileID: 0}
+  bottomTimerPart: {fileID: 0}
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0
   slow_conveyorBelts: []
   fast_conveyorBelts: []
   partSpawner_rate: 0
   parts_Spawner: []
-  moneyToWin1Star1: 30
-  moneyToWin2Star1: 45
-  moneyToWin3Star1: 60
+  tickImage: {fileID: 0}
 --- !u!4 &1058643986
 Transform:
   m_ObjectHideFlags: 0
@@ -3538,7 +3570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 6
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1205578756
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3814,7 +3847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 6
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1402779490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3995,7 +4029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1499867588
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4450,7 +4485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1626229730
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4595,7 +4631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1693035914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4874,7 +4911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1757039455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4985,7 +5023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 1
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &1817050732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5568,7 +5607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9b5005fa65574da4af61b53cb7712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transportDirection: 6
+  TransportDirection: {x: 0, y: 0, z: 0}
+  TransportSpeed: 0
 --- !u!65 &2100521814
 BoxCollider:
   m_ObjectHideFlags: 0
