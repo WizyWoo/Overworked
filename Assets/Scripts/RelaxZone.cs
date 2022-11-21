@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class RelaxZone : MonoBehaviour
+public class RelaxZone : MonoBehaviour , IInteractable
 {
     List<PlayerController> playersInRelaxZone = new List<PlayerController>();
     [SerializeField] float relaxSpeed;
 
     [SerializeField] ParticleSystem particleSys;
-    [SerializeField] EventReference HealingSound;
+    [SerializeField] EventReference HealingSound, Music;
     public Transform CoffeeCupPoint;
     public GameObject CoffeeCupPrefab;
     public Vector3 Offset;
@@ -58,4 +58,12 @@ public class RelaxZone : MonoBehaviour
         if (other.TryGetComponent<PlayerController>(out player))
             playersInRelaxZone.Remove(player);
     }
+
+    public void Activate(Transform _player = null, bool _buttonDown = true)
+    {
+
+        SoundManager.Instance.PlaySound(Music, gameObject);
+
+    }
+
 }

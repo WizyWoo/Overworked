@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 75
   Length: 4988
+--- !u!114 &-8422472925565907923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Int/SFX_Int_Workbench_DestroyedItem
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_Int/SFX_Int_Workbench_DestroyedItem
+  Guid:
+    Data1: -783905506
+    Data2: 1113603044
+    Data3: 1282322608
+    Data4: 1635217975
+  Banks:
+  - {fileID: -2078946228132599203}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-8287581561803501039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +225,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-6150425572936940165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Machine/SFX_M_MemeSONG
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_Machine/SFX_M_MemeSONG
+  Guid:
+    Data1: -1694415206
+    Data2: 1091727462
+    Data3: 1960277417
+    Data4: 1678210425
+  Banks:
+  - {fileID: -2078946228132599203}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7200
 --- !u!114 &-5904875680374562213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +502,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638041046894678122
+  lastModified: 638046552071786976
   FileSizes: []
   Exists: 1
 --- !u!114 &-2078278860544342615
@@ -683,12 +737,14 @@ MonoBehaviour:
   - {fileID: 1978769505519785147}
   - {fileID: -4417700721711961965}
   - {fileID: -2078278860544342615}
+  - {fileID: -8422472925565907923}
+  - {fileID: -6150425572936940165}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6227528845335756635}
   StringsBanks:
   - {fileID: 3934386581715932662}
-  cacheTime: 638041046894678122
+  cacheTime: 638046552071797010
   cacheVersion: 131592
 --- !u!114 &1322963632927291879
 MonoBehaviour:
@@ -814,10 +870,10 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638040995067547211
+  lastModified: 638046552071797010
   FileSizes:
   - Name: 
-    Value: 2914
+    Value: 3020
   Exists: 1
 --- !u!114 &4087311182728410636
 MonoBehaviour:
@@ -1079,7 +1135,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 121200
+  Length: 2500
 --- !u!114 &8771189292310505014
 MonoBehaviour:
   m_ObjectHideFlags: 0

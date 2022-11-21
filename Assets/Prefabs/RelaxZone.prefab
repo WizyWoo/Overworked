@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3026165905548929293}
   - component: {fileID: 4347556367174216666}
   - component: {fileID: 1984067139691097328}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3065675955252123186}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CupPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 6639412095035128074}
   - component: {fileID: 3271728028963637303}
   - component: {fileID: 1981960129013806127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 8374386666172676020}
   - component: {fileID: 8374386666172676023}
   - component: {fileID: 8374386666172676021}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RelaxZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5002,6 +5002,13 @@ MonoBehaviour:
       Data3: -1023359356
       Data4: -202928073
     Path: event:/SFX/SFX_Machine/SFX_M_Healing
+  Music:
+    Guid:
+      Data1: -1694415206
+      Data2: 1091727462
+      Data3: 1960277417
+      Data4: 1678210425
+    Path: event:/SFX/SFX_Machine/SFX_M_MemeSONG
   CoffeeCupPoint: {fileID: 3065675955252123186}
   CoffeeCupPrefab: {fileID: 4348697553783062768, guid: 9e141e06b2ae19f4f98a08fe9d6ec442,
     type: 3}
@@ -5030,7 +5037,7 @@ GameObject:
   - component: {fileID: 8374386666461269313}
   - component: {fileID: 8374386666461269315}
   - component: {fileID: 8374386666461269312}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: New Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5129,7 +5136,7 @@ GameObject:
   - component: {fileID: 8374386666696090415}
   - component: {fileID: 8374386666696090577}
   - component: {fileID: 8374386666696090414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5268,6 +5275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh_CoffeJar
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 955b3c6ff2dbf644783abb8f752da7ef,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 955b3c6ff2dbf644783abb8f752da7ef, type: 3}
 --- !u!4 &829623798479741957 stripped
@@ -5348,6 +5360,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh_CoffeMachine 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bfdb68b39da8e0a4fbd227a297c534b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfdb68b39da8e0a4fbd227a297c534b8, type: 3}
 --- !u!4 &2153510601582759323 stripped
@@ -5363,6 +5380,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8374386666172676020}
     m_Modifications:
+    - target: {fileID: 3322690354870985970, guid: 151efb112903eb6429202b93288cf855,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4452315048204661146, guid: 151efb112903eb6429202b93288cf855,
         type: 3}
       propertyPath: ShapeModule.m_Scale.y
@@ -5432,6 +5454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Relax_ParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845240315267780526, guid: 151efb112903eb6429202b93288cf855,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6845240315267780526, guid: 151efb112903eb6429202b93288cf855,
         type: 3}
