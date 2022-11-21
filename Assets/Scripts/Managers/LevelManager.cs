@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     [Header("FMOD SOUNDS")]
     public FMODUnity.EventReference levelCompleted;
-
+    public bool loseMoney;
     [Header("MONEY STUFF")]
     public int CoinGaugeMoney;
     public int MoneyMultiplier = 1;
@@ -97,7 +97,8 @@ public class LevelManager : MonoBehaviour
     }
     public virtual void IncorrectRobot()
     {
-        MoneyMultiplier = 1;
+        
+        loseMoney = true;
         UpdateMoney(moneyWrongRobot);
     }
     void UpdateTimer()
@@ -171,6 +172,12 @@ public class LevelManager : MonoBehaviour
     }
     public void UpdateMoney(int amount)
     {
+        if(loseMoney == true)
+        {
+            MoneyMultiplier = 1;
+            money += amount;
+            loseMoney = false;
+        }
         money += amount *MoneyMultiplier;
        
         CoinGaugeMoney = money;
