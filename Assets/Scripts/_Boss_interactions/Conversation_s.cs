@@ -143,9 +143,9 @@ public class Conversation_s : MonoBehaviour
 
             if (I_is_above_sentence_count())
             {
-                Debug.Log(i);
                 Fade_out();
-                Load_level();
+                StartCoroutine(wait());
+                
             }
             
             increase();
@@ -165,7 +165,6 @@ public class Conversation_s : MonoBehaviour
         void Fade_out()
         {
             Black_screen.Play("fade_out");
-            wait();
         }
         
 
@@ -207,6 +206,7 @@ public class Conversation_s : MonoBehaviour
     IEnumerator wait()
     {
         yield return new WaitForSeconds(2);
+        Load_level();
     }
     #endregion
 }
