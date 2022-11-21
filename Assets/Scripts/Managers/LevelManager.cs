@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     [Header("MONEY STUFF")]
     public int CoinGaugeMoney;
     public int MoneyMultiplier = 1;
+    public int visualmoneymultiplier;
     public int moneyWhenFall = 25;
     public int moneyToWin1Star = 30, moneyToWin2Star = 60, moneyToWin3Star = 90;
     [SerializeField] TextMeshProUGUI moneyText, addMoneyText;
@@ -172,7 +173,8 @@ public class LevelManager : MonoBehaviour
     }
     IEnumerator AddMoneyVisuals(int amount)
     {
-        addMoneyText.text = amount.ToString();
+        visualmoneymultiplier = amount *MoneyMultiplier;
+        addMoneyText.text = visualmoneymultiplier.ToString();
 
         addMoneyImg.gameObject.SetActive(true);
 
