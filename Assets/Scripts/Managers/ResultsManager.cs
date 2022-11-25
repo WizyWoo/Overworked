@@ -8,7 +8,7 @@ public class ResultsManager : MonoBehaviour
 {
 
     private List<string> cutscenes = new List<string>() 
-    { "outside", "test", "BossCoNversation", "Boss_alone" };
+    { "outside", "test", "BossCoNversation", "Boss_alone", "family_photo" };
 
     [SerializeField] Transform winScreen;
     [SerializeField] Transform loseScreen;
