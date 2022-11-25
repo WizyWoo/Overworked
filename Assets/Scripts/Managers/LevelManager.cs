@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
 
         StartCoroutine(ShowGoodFeedback());
 
-        currentTime = maxTime - 170;
+        currentTime = maxTime;
         addMoneyImg.gameObject.SetActive(false);
 
         // Set up game objects variables
