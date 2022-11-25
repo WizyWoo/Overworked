@@ -67,15 +67,16 @@ public class CoinGauge : MonoBehaviour
             }
             else
             {
+                for (int i = Percentages.Length - 1 - RoughPercent; i >= RoughPercent; i--)
+                {
+                    Percentages[i].SetActive(false);
+                }
                 //Puts everything able
                 for (int i = 1; i < RoughPercent + 1; i++)
                 {
                     Percentages[RoughPercent - i].SetActive(true);
                 }
-                for (int i = Percentages.Length - 1 - RoughPercent; i >= RoughPercent; i--)
-                {
-                    Percentages[i].SetActive(false);
-                }
+               
             }
         }
     }
