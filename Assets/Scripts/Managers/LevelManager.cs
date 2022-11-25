@@ -159,9 +159,23 @@ public class LevelManager : MonoBehaviour
     // It is called when the players wins
     public void Win()
     {
-        if (money >= moneyToWin3Star) GameManager.instance.amountOfStars = 3;
-        else if (money >= moneyToWin2Star) GameManager.instance.amountOfStars = 2;
-        else GameManager.instance.amountOfStars = 1;
+        if (money >= moneyToWin3Star)
+        {
+            GameManager.instance.TotalStars += 3;
+            GameManager.instance.amountOfStars = 3;
+        }
+        else if (money >= moneyToWin2Star)
+        {
+            GameManager.instance.amountOfStars = 2;
+
+            GameManager.instance.TotalStars += 2;
+        }
+        else 
+        {
+            GameManager.instance.amountOfStars = 1;
+            GameManager.instance.TotalStars +=1;
+        }
+        
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);
 
         Debug.Log("WIN THIS");
@@ -187,6 +201,11 @@ public class LevelManager : MonoBehaviour
         money += amount *MoneyMultiplier;
     noDoubleLoss:;
         CoinGaugeMoney = money;
+        if(GameManager.instance.ArcadeMode == true)
+        {
+            currentTime += 2 * MoneyMultiplier;
+        }
+        
         if (money <= 0) money = 0;
         StartCoroutine(AddMoneyVisuals(amount));
     }

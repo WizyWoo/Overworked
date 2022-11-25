@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public string CurrentLevel;
     public bool onlyOnePlayer;
     public bool FakeReset;
-    public bool KonamiCode;
-    public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent;
+    public bool KonamiCode, ArcadeMode, ArcadeModeApp, AMAHardMode, AMAEasyMode; 
+    public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalFailures;
     public bool FirstTimeRent, Overtime;
     private void Awake()
     {
@@ -35,6 +35,21 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             CurrentLevel = SceneManager.GetActiveScene().name;
+        }
+
+        if(TotalFailures>= 3)
+        {
+            ArcadeModeApp = true;
+            AMAEasyMode = true;
+        }
+        if(TotalStars >= 24)
+        {
+            ArcadeModeApp = true;
+            AMAHardMode = true;
+        }
+        if (TotalStars >= 16)
+        {
+            ArcadeModeApp = true;
         }
     }
 
