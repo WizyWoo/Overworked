@@ -2809,6 +2809,7 @@ GameObject:
   - component: {fileID: 1058643986}
   - component: {fileID: 1058643987}
   - component: {fileID: 1058643984}
+  - component: {fileID: 1058643988}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2884,6 +2885,7 @@ MonoBehaviour:
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
   loseMoney: 0
+  Fadeout: {fileID: 0}
   CoinGaugeMoney: 0
   MoneyMultiplier: 1
   visualmoneymultiplier: 0
@@ -2911,6 +2913,21 @@ MonoBehaviour:
   partSpawner_rate: 0
   parts_Spawner: []
   tickImage: {fileID: 1530804844}
+--- !u!114 &1058643988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058643983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d650cd2e70abab4da010eda59f25f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelManager: {fileID: 0}
+  fadeOutUIImage: {fileID: 1838299041}
+  fadeSpeed: 0.8
 --- !u!1 &1062192402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,6 +4082,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4bf3d1e0e917ec488a015f5372e78f7, type: 3}
+--- !u!114 &1838299041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3946815325264120367, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 187063595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1854151316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5238214657363509241, guid: 91c7412dc31b05049b8e21d17011db32,
