@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
     [Header(stringLine + "Time" + stringLine)]
     [SerializeField] float maxTime;
     [SerializeField] Image topTimerPart, bottomTimerPart;
+    [SerializeField] Animation timerEndAnimation;
     float currentTime;
 
     [Header(stringLine + "CONVEYOR BELTS SPEEDS" + stringLine + "\n")]
@@ -62,7 +63,7 @@ public class LevelManager : MonoBehaviour
 
         StartCoroutine(ShowGoodFeedback());
 
-        currentTime = maxTime;
+        currentTime = maxTime - 170;
         addMoneyImg.gameObject.SetActive(false);
 
         // Set up game objects variables
@@ -105,7 +106,11 @@ public class LevelManager : MonoBehaviour
     {
         currentTime -= Time.deltaTime;
 
-        topTimerPart.fillAmount = (currentTime / maxTime) * 0.49f + 0.51f;
+        if((currentTime / maxTime) * 0.49f > 0.004f)
+            topTimerPart.fillAmount = (currentTime / maxTime) * 0.49f + 0.51f;
+        else
+            timerEndAnimation.Play();
+
         bottomTimerPart.fillAmount = 1 - (currentTime / maxTime);
 
         // Check win/lose condition

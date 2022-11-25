@@ -4376,6 +4376,7 @@ GameObject:
   - component: {fileID: 8092375127544294047}
   - component: {fileID: 6447034097674467993}
   - component: {fileID: 92124293211977515}
+  - component: {fileID: 7958684876878383566}
   m_Layer: 0
   m_Name: Timer_Top
   m_TagString: Untagged
@@ -4441,6 +4442,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!111 &7958684876878383566
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076045050638880434}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 36a59cc0c139f7b43a14289d1fb8e1a7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 36a59cc0c139f7b43a14289d1fb8e1a7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7325895531396017466
 GameObject:
   m_ObjectHideFlags: 0

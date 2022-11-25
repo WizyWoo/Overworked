@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215464, g: 0.08529005, b: 0.13257438, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3091,6 +3091,7 @@ MonoBehaviour:
   maxTime: 180
   topTimerPart: {fileID: 187063601}
   bottomTimerPart: {fileID: 187063599}
+  timerEndAnimation: {fileID: 1997448128}
   slow_conveyorBeltSpeed: 0
   fast_conveyorBeltSpeed: 0
   slow_conveyorBelts: []
@@ -4784,6 +4785,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8374386666172676020, guid: 07882416cd00f0d4eaa6179b07233a33,
     type: 3}
   m_PrefabInstance: {fileID: 1974590183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1997448128 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 7958684876878383566, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 187063595}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &2085399883 stripped
 RectTransform:

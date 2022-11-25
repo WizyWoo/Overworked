@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6408,6 +6408,7 @@ MonoBehaviour:
       Data3: -2093164100
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
+  loseMoney: 0
   CoinGaugeMoney: 0
   MoneyMultiplier: 1
   visualmoneymultiplier: 0
@@ -6427,6 +6428,7 @@ MonoBehaviour:
   maxTime: 210
   topTimerPart: {fileID: 7398927922647669093}
   bottomTimerPart: {fileID: 7398927922647669092}
+  timerEndAnimation: {fileID: 7398927922647669094}
   slow_conveyorBeltSpeed: 1
   fast_conveyorBeltSpeed: 3
   slow_conveyorBelts:
@@ -7653,6 +7655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &7398927922647669094 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 7958684876878383566, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7398927922647669091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8346576026816419950
 PrefabInstance:
   m_ObjectHideFlags: 0

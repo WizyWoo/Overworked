@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3172,6 +3172,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4bf3d1e0e917ec488a015f5372e78f7, type: 3}
+--- !u!111 &917325246 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 7958684876878383566, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 120414724}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &971343454
 GameObject:
   m_ObjectHideFlags: 0
@@ -6828,6 +6834,7 @@ MonoBehaviour:
   maxTime: 150
   topTimerPart: {fileID: 1323217728}
   bottomTimerPart: {fileID: 1323217726}
+  timerEndAnimation: {fileID: 917325246}
   slow_conveyorBeltSpeed: 1
   fast_conveyorBeltSpeed: 2
   slow_conveyorBelts:
