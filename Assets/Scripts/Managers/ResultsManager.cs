@@ -7,7 +7,8 @@ using TMPro;
 public class ResultsManager : MonoBehaviour
 {
 
-    public List<string> cutscenes = new List<string>() { "outside", "test", "BossCoversation", "Boss_alone" };
+    private List<string> cutscenes = new List<string>() 
+    { "outside", "test", "BossCoNversation", "Boss_alone", "family_photo" };
 
     [SerializeField] Transform winScreen;
     [SerializeField] Transform loseScreen;
@@ -100,7 +101,7 @@ public class ResultsManager : MonoBehaviour
     {
         Debug.Log("GO TALK WITH THE BOSS");
 
-        GameManager.instance.LoadScene(cutscenes[Random.Range(0,cutscenes.Count + 1)]);
+        GameManager.instance.LoadScene(cutscenes[Random.Range(0,cutscenes.Count)]);
 
 
     }

@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/test.unity
     guid: cec8821377b9d8a499c9fb0f7bb779e1
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/family_photo.unity
+    guid: 8c42e6cee2f7bd341ae2bdb4c945a37b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d58bcf9c51c433a4db31349a8deac92c,
       type: 2}
