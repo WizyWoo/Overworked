@@ -18,10 +18,8 @@ public class megaphone : MonoBehaviour
     {
 
         if (i > 1)
-        {
             i = 0;
-        }    
-
+        
         i = i + Time.deltaTime;
         transform.localScale = new Vector3(scaling.Evaluate(i) + 1, 1, scaling.Evaluate(i) + 1);
        

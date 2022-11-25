@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class ResultsManager : MonoBehaviour
 {
+    
+    public List<Scene> cutscenes = new List<Scene>();
+
     [SerializeField] Transform winScreen;
     [SerializeField] Transform loseScreen;
     [SerializeField] TMP_Text loseText;
