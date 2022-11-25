@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
 
+
 public class LevelManager : MonoBehaviour
 {
     [Header("REFERENCES")]
@@ -12,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [Header("FMOD SOUNDS")]
     public FMODUnity.EventReference levelCompleted;
     public bool loseMoney;
+    public SimpleFade Fadeout;
     [Header("MONEY STUFF")]
     public int CoinGaugeMoney;
     public int MoneyMultiplier = 1;
@@ -56,7 +58,7 @@ public class LevelManager : MonoBehaviour
     protected virtual void Awake()
     {
         Instance = this;
-
+        Fadeout = gameObject.GetComponent<SimpleFade>();
         // Save the tick image position
         if (tickImage != null)
             initialTickPosition = tickImage.transform.position;
@@ -148,13 +150,14 @@ public class LevelManager : MonoBehaviour
     private void Lose()
     {
         Debug.Log("LOSE THIS");
-        GameManager.instance.LoadResultsScene(false, GetLevel(), false);
+        StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  false, false));
+        //GameManager.instance.LoadResultsScene(false, GetLevel(), false);
     }
     public void LoseExhausted()
     {
         Debug.Log("LOSE THIS");
-
-        GameManager.instance.LoadResultsScene(false, GetLevel(), true);
+        StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  false, true));
+        //GameManager.instance.LoadResultsScene(false, GetLevel(), true);
     }
     // It is called when the players wins
     public void Win()
@@ -179,9 +182,11 @@ public class LevelManager : MonoBehaviour
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);
 
         Debug.Log("WIN THIS");
-        GameManager.instance.LoadResultsScene(true, GetLevel(), false);
+        StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  true, false));
+
+       // GameManager.instance.LoadResultsScene(true, GetLevel(), false);
     }
-    private int GetLevel()
+    public int GetLevel()
     {
         string sceneName = GameManager.instance.GetSceneName();
         int levelNumber = int.Parse(sceneName[sceneName.Length - 2].ToString()) * 10 

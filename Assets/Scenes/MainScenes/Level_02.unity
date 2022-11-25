@@ -2431,6 +2431,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25ee0c56e64a67043be697dc146fbd84, type: 3}
+--- !u!114 &886186725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3946815325264120367, guid: 51d5446e76f7c8141be11656ae7555a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 120414724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &888863606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5205,6 +5217,7 @@ GameObject:
   - component: {fileID: 2146607770}
   - component: {fileID: 2146607768}
   - component: {fileID: 2146607769}
+  - component: {fileID: 2146607771}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -5232,6 +5245,7 @@ MonoBehaviour:
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
   loseMoney: 0
+  Fadeout: {fileID: 2146607771}
   CoinGaugeMoney: 0
   MoneyMultiplier: 1
   visualmoneymultiplier: 0
@@ -5248,7 +5262,7 @@ MonoBehaviour:
   moneyCorrectRobot: 5
   moneyWrongRobot: -3
   timerText: {fileID: 120414729}
-  maxTime: 10
+  maxTime: 180
   topTimerPart: {fileID: 1780681988}
   bottomTimerPart: {fileID: 1780681987}
   timerEndAnimation: {fileID: 2139045295}
@@ -5317,6 +5331,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146607771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146607767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d650cd2e70abab4da010eda59f25f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelManager: {fileID: 2146607768}
+  fadeOutUIImage: {fileID: 886186725}
+  fadeSpeed: 0.8
 --- !u!1 &100497736748600520
 GameObject:
   m_ObjectHideFlags: 0
