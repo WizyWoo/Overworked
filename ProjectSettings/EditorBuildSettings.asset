@@ -38,6 +38,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScenes/ResultsScreen.unity
     guid: a56048e140110e146aa6da5b5a525297
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Boss_alone.unity
+    guid: 22c6fc3baa7afd64caa0e82562cb7909
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/outside.unity
+    guid: 8f414fc576747354fb36a0be962a66d4
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/test.unity
+    guid: cec8821377b9d8a499c9fb0f7bb779e1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d58bcf9c51c433a4db31349a8deac92c,
       type: 2}
