@@ -150,7 +150,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638049674306160269
+  lastModified: 638049671033691379
   FileSizes: []
   Exists: 1
 --- !u!114 &-7013925635876870676
@@ -195,7 +195,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_MUS.bank
   Name: BANK_MUS
   StudioPath: bank:/BANK_MUS
-  lastModified: 638049674306439521
+  lastModified: 638049671033733069
   FileSizes: []
   Exists: 1
 --- !u!114 &-6395970088701827795
@@ -267,7 +267,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_UI.bank
   Name: BANK_UI
   StudioPath: bank:/BANK_UI
-  lastModified: 638049674307856863
+  lastModified: 638049671034369544
   FileSizes: []
   Exists: 1
 --- !u!114 &-5763896511640301341
@@ -502,7 +502,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638049674307557080
+  lastModified: 638049671034340069
   FileSizes: []
   Exists: 1
 --- !u!114 &-2078278860544342615
@@ -680,7 +680,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_VO.bank
   Name: BANK_VO
   StudioPath: bank:/BANK_VO
-  lastModified: 638049674307866851
+  lastModified: 638049671034379520
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -744,7 +744,7 @@ MonoBehaviour:
   - {fileID: 6227528845335756635}
   StringsBanks:
   - {fileID: 3934386581715932662}
-  cacheTime: 638049674307986516
+  cacheTime: 638049671034409448
   cacheVersion: 131592
 --- !u!114 &1322963632927291879
 MonoBehaviour:
@@ -870,7 +870,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638049674307986516
+  lastModified: 638049671034409448
   FileSizes:
   - Name: 
     Value: 3020
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638049674307976554
+  lastModified: 638049671034389509
   FileSizes: []
   Exists: 1
 --- !u!114 &6433444256502910416

@@ -106,10 +106,12 @@ public class CeilingConveyorButBetter : MonoBehaviour
         float _t = 0;
         Vector3 _lastPoint = points[0].position, _curPoint;
 
+        for(int i = 0; i < points.Length; i++)
+            Gizmos.DrawCube(points[i].position, Vector3.one * 0.1f);
+
         for(int i = 0; i < points.Length-3; i += 3)
         {
 
-            Gizmos.DrawCube(points[i].position, Vector3.one * 0.1f);
             int _pointCounter = 0;
 
             for(int j = 0; j < resolution; j ++)
@@ -135,11 +137,6 @@ public class CeilingConveyorButBetter : MonoBehaviour
 
     private Vector3 Cerp(float _time, int _ps)
     {
-
-        /*if(_time >= 1)
-            return points[points.Length-1].position;*/
-
-        //int _s = (int)(_time * (points.Length-3));
 
         Vector3 _pointA = points[_ps].position;
         Vector3 _pointB = points[_ps+1].position;
