@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class ResultsManager : MonoBehaviour
 {
+
+    public List<string> cutscenes = new List<string>() { "outside", "test", "BossCoversation", "Boss_alone" };
+
     [SerializeField] Transform winScreen;
     [SerializeField] Transform loseScreen;
     [SerializeField] TMP_Text loseText;
@@ -96,7 +99,10 @@ public class ResultsManager : MonoBehaviour
     public void Boss_Speech_Bt()
     {
         Debug.Log("GO TALK WITH THE BOSS");
-        GameManager.instance.LoadScene("BossConversation");
+
+        GameManager.instance.LoadScene(cutscenes[Random.Range(0,cutscenes.Count + 1)]);
+
+
     }
 
     public void Retry_Btn()

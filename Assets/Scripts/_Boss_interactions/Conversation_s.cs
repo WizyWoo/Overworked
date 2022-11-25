@@ -105,17 +105,16 @@ public class Conversation_s : MonoBehaviour
             Boss_transfrom.position = bobing();
 
             Vector3 bobing()
-            {
-                return new Vector3(x(), y(), 6);
-            }
+            { return new Vector3(x(), y(), z()); }
+            
             float x()
-            {
-                return Boss_transfrom.position.x;
-            }
+            { return Boss_transfrom.position.x; }
+            
             float y()
-            {
-                return bob_up_and_down.Evaluate(t) + 1;
-            }
+            { return bob_up_and_down.Evaluate(t) + 1; }
+            
+            float z()
+            { return Boss_transfrom.position.z; }
     
         }
         

@@ -2381,6 +2381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47cd3e08ae393394e92c0e2794fd81de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutscenes: []
   winScreen: {fileID: 208734610}
   loseScreen: {fileID: 2122707880}
   loseText: {fileID: 1820612009}
