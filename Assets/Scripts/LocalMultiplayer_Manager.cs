@@ -29,9 +29,6 @@ public class LocalMultiplayer_Manager : MonoBehaviour
 
     [SerializeField] GameObject playerPrefab;
 
-    [SerializeField] RuntimeAnimatorController[] playerAnimators;
-
-
     private void Start()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
@@ -60,7 +57,6 @@ public class LocalMultiplayer_Manager : MonoBehaviour
                 PlayerController newPlayer = PlayerInput.Instantiate(playerPrefab, pairWithDevice: devices[i]).GetComponent<PlayerController>();
 
                 newPlayer.playerIndex = i;
-                newPlayer.GetComponentInChildren<Animator>().runtimeAnimatorController = playerAnimators[newPlayer.playerIndex];  
             }
     }
 
@@ -74,7 +70,6 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         int playerIndex = playerInputManager.playerCount - 1;
         newPlayerController.playerIndex = playerIndex;
         newPlayerController.transform.SetParent(playerContainer);
-        newPlayerController.GetComponentInChildren<Animator>().runtimeAnimatorController = playerAnimators[newPlayerController.playerIndex];
 
         allPlayers.Add(newPlayerController);
 
