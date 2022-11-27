@@ -204,6 +204,23 @@ public class TutorialManager : MonoBehaviour
                     //antiMessUp_repairStationCollisions.SetActive(false);
                     antiMessUp_repairStation.GetComponent<CapsuleCollider>().enabled = true;
                 }
+
+
+                else if (currentPhase == tutorialPhase.grabArmFromFloor_p1)
+                {
+                    yield return new WaitForSeconds(.5f);
+
+                    firstRobotBody.GetComponents<BoxCollider>()[1].enabled = false;
+                    //firstRobotBody.GetComponent<Rigidbody>().isKinematic = true;
+                    //antiMessUp_firstRobot.SetActive(true);
+                }
+
+                else if (currentPhase == tutorialPhase.assembleArm)
+                {
+                    firstRobotBody.GetComponents<BoxCollider>()[1].enabled = true;
+                    //firstRobotBody.GetComponent<Rigidbody>().isKinematic = false;
+                    //antiMessUp_firstRobot.SetActive(false);
+                }
             }
             else
             {
@@ -225,10 +242,11 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    RobotBody firstRobotBody;
 
     void SpawnFirstRobot()
     {
-        Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+        firstRobotBody = Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity).GetComponent<RobotBody>();
         Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
         Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
         Instantiate(outlineArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
