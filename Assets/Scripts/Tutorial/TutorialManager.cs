@@ -28,6 +28,12 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager GetInstance()
     { return instance; }
 
+
+    // Anti messing up gameobjects : invisible collisions preventing the player from messing up the tutorial
+    [Header("ANTI MESSING UP OBJ")]
+
+    [SerializeField] GameObject antiMessUp_repairStationCollisions;
+
     // Tutorial phases
     public enum tutorialPhase
     {
@@ -139,7 +145,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator TryToChangePhase_IEnumerator(tutorialPhase phaseDone)
     {
-        // Wait until the previous panel has already
+        // Wait until the previous panel has already finished
         yield return new WaitUntil(() => !changingPhase);
 
         // If the player just perform the action that he was supposed to do right now according to the tutorial
@@ -179,6 +185,31 @@ public class TutorialManager : MonoBehaviour
                 if (currentPhase == tutorialPhase.assembleOtherRobot)
                     SpawnSecondRobot();
             }
+
+            // Anti messing up collisions
+
+            if (!GameManager.instance.onlyOnePlayer)
+            {
+                // Player 1 grabbed Arm
+                if (currentPhase == tutorialPhase.throwArm_p1)
+                {
+                    antiMessUp_repairStationCollisions.SetActive(true);
+
+                    // Activate collisions of repair stations
+                }
+
+                else if (currentPhase == tutorialPhase.repairArm)
+                {
+                    antiMessUp_repairStationCollisions.SetActive(false);
+                }
+                    Debug.Log("grabArmFromConveyor");
+            }
+            else
+            {
+                if (currentPhase == tutorialPhase.grabArmFromConveyor)
+                    Debug.Log("grabArmFromConveyor");
+            }
+
 
             // Finish the tutorial
             if (currentPhase == tutorialPhase.tutorialDone)

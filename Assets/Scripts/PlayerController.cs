@@ -583,7 +583,6 @@ public class PlayerController : MonoBehaviour
         else if (Mathf.Abs(horInput) >= .5f)
             Dir = new Vector2(Mathf.Sign(horInput), 0);
 
-        Debug.Log("Dir = " + Dir);
 
 
         //if (verInput >= .5f)
