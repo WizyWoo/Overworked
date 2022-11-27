@@ -9,7 +9,7 @@ public class CoingaugeController : MonoBehaviour
     [SerializeField] CoinGauge coinGauge1, coinGauge2, coinGauge3;
 
     // Start is called before the first frame update
-    void awake()
+    void Awake()
     {
         coinGauge1.maxMoney = levelManager.moneyToWin1Star;
         coinGauge2.minMoney = levelManager.moneyToWin1Star;
