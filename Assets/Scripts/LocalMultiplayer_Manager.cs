@@ -57,8 +57,8 @@ public class LocalMultiplayer_Manager : MonoBehaviour
                 PlayerController newPlayer = PlayerInput.Instantiate(playerPrefab, pairWithDevice: devices[i]).GetComponent<PlayerController>();
 
                 newPlayer.playerIndex = i;
-                newPlayer.UpGFX.GetComponent<SpriteRenderer>().sprite = newPlayer.upPlayerSprites[newPlayer.playerIndex];
-                newPlayer.DownGFX.GetComponent<SpriteRenderer>().sprite = newPlayer.downPlayerSprites[newPlayer.playerIndex];
+                //newPlayer.UpGFX.GetComponent<SpriteRenderer>().sprite = newPlayer.upPlayerSprites[newPlayer.playerIndex];
+                //newPlayer.DownGFX.GetComponent<SpriteRenderer>().sprite = newPlayer.downPlayerSprites[newPlayer.playerIndex];
             }
     }
 
@@ -72,8 +72,8 @@ public class LocalMultiplayer_Manager : MonoBehaviour
         int playerIndex = playerInputManager.playerCount - 1;
         newPlayerController.playerIndex = playerIndex;
         newPlayerController.transform.SetParent(playerContainer);
-        newPlayerController.UpGFX.GetComponent<SpriteRenderer>().sprite = newPlayerController.upPlayerSprites[newPlayerController.playerIndex];
-        newPlayerController.DownGFX.GetComponent<SpriteRenderer>().sprite = newPlayerController.downPlayerSprites[newPlayerController.playerIndex];
+        //newPlayerController.UpGFX.GetComponent<SpriteRenderer>().sprite = newPlayerController.upPlayerSprites[newPlayerController.playerIndex];
+        //newPlayerController.DownGFX.GetComponent<SpriteRenderer>().sprite = newPlayerController.downPlayerSprites[newPlayerController.playerIndex];
 
         allPlayers.Add(newPlayerController);
 
