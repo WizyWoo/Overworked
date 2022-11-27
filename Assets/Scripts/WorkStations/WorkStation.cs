@@ -30,7 +30,7 @@ public class WorkStation : MonoBehaviour , IInteractable
                 CraftableItem craftableItem = ItemOnStation.GetComponent<CraftableItem>();
                 //If it's a craftable item check if it is not delivered
                 if (craftableItem && !craftableItem.delivered && !craftableItem.Assembled)
-                    outlineScript.enabled = true;
+                    ;//outlineScript.enabled = true;
                 else outlineScript.enabled = false;
             }
             if(InRangePopup)

@@ -6862,7 +6862,7 @@ MonoBehaviour:
   MoneyMultiplier: 1
   visualmoneymultiplier: 0
   moneyWhenFall: -5
-  moneyToWin1Star: 20
+  moneyToWin1Star: 15
   moneyToWin2Star: 30
   moneyToWin3Star: 45
   moneyText: {fileID: 1141903775}
