@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
     [Header(stringLine + "Time" + stringLine)]
     [SerializeField] float maxTime;
     [SerializeField] Image topTimerPart, bottomTimerPart;
-    [SerializeField] Animation timerEndAnimation;
+    [SerializeField] Animation timerEndAnimation, timerShakeAnimation;
     float currentTime;
 
     [Header(stringLine + "CONVEYOR BELTS SPEEDS" + stringLine + "\n")]
@@ -108,6 +108,10 @@ public class LevelManager : MonoBehaviour
 
         bottomTimerPart.fillAmount = 1 - (currentTime / maxTime);
 
+        if (currentTime <= 30) //hope this means 30 last seconds
+        {
+            timerShakeAnimation.Play();
+        }
         // Check win/lose condition
         if (currentTime <= 0)
         {
