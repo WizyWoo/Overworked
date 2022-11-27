@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public int playerIndex;
     //UpSprites and DownSprites
-    public GameObject UpGFX, DownGFX;
+    //public GameObject UpGFX, DownGFX;
     // Movement
     [Header("DESIGNER VARIABLES")]
     [SerializeField] float speed;
@@ -139,7 +139,8 @@ public class PlayerController : MonoBehaviour
             StarParticleSystem.Stop();
         }
         // Update player GFX
-        movementAnimator.SetFloat("CurrentVelocity", rb.velocity.magnitude);
+        movementAnimator.SetFloat("CurrentXVelocity", rb.velocity.x);
+        movementAnimator.SetFloat("CurrentZVelocity", rb.velocity.z);
 
         // Update stamina variables and stamina gfx
         StaminaSystem();
@@ -672,21 +673,21 @@ public class PlayerController : MonoBehaviour
 
         if (verInput > 0.5)
         {
-            UpGFX.SetActive(true);
-            DownGFX.SetActive(false);
-            gfx.enabled = false;
+            //UpGFX.SetActive(true);
+            //DownGFX.SetActive(false);
+            //gfx.enabled = false;
         }
         if(verInput < -0.5)
         {
-            UpGFX.SetActive(false);
-            DownGFX.SetActive(true);
-            gfx.enabled = false;
+            //UpGFX.SetActive(false);
+            //DownGFX.SetActive(true);
+            //gfx.enabled = false;
         }
         if(horInput < -0.5|| horInput> 0.5)
         {
-            UpGFX.SetActive(false);
-            DownGFX.SetActive(false);
-            gfx.enabled = true;
+            //UpGFX.SetActive(false);
+            //DownGFX.SetActive(false);
+            //gfx.enabled = true;
         }
     }
 

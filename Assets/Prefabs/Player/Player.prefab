@@ -5128,7 +5128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &958098240173618555
 Transform:
   m_ObjectHideFlags: 0
@@ -5393,7 +5393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6132316564507493719
 Transform:
   m_ObjectHideFlags: 0
@@ -5868,8 +5868,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  UpGFX: {fileID: 2862555598777718552}
-  DownGFX: {fileID: 4898148161027828182}
   speed: 8
   burningSpeed: 6
   weakThrowForce: 3
@@ -5905,9 +5903,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bb857c3596c3d924a8613d863a435b39, type: 3}
   animatorControllers:
   - {fileID: 9100000, guid: 7e1072670970c644280af1460dc630e3, type: 2}
-  - {fileID: 9100000, guid: 58e5d64b57117a54db96f29b999db471, type: 2}
-  - {fileID: 9100000, guid: df71a2f579e8f7341986dd8b81f46f6c, type: 2}
-  - {fileID: 9100000, guid: f7fdab20118afd5449f0c155cd46e257, type: 2}
+  - {fileID: 9100000, guid: 0e12f27a79062c5468ad6af23204a79a, type: 2}
+  - {fileID: 9100000, guid: 8dbe04ba3c0a8ff45879ffc773590f2f, type: 2}
+  - {fileID: 9100000, guid: df58b74060fa5024da67d5887517e3fb, type: 2}
   flipAnimator: {fileID: 8905786987973865828}
   goingRight: 0
   staminaUI: {fileID: 525579167426050083}
@@ -6342,7 +6340,7 @@ Animator:
   m_GameObject: {fileID: 7669628410667424828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 58e5d64b57117a54db96f29b999db471, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7e1072670970c644280af1460dc630e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
