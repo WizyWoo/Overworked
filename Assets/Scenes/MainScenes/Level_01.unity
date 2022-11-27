@@ -1343,6 +1343,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 297061823}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &297061825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1299811073256918165, guid: e3cd20acd6a29a840a1fa8c78b2b56f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 297061823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0971536151574140bb28ca8109c672b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &313676332
 GameObject:
   m_ObjectHideFlags: 0
@@ -6551,7 +6563,8 @@ MonoBehaviour:
     type: 3}
   outlineWheelPrefab: {fileID: 3670930037122264567, guid: b08117a70c152a64e8beb2b4534af13f,
     type: 3}
-  antiMessUp_repairStation: {fileID: 1568241039}
+  antiMessUp_repairStation_Arm: {fileID: 1568241039}
+  antiMessUp_repairStation_Wheel: {fileID: 297061825}
   antiMessUp_firstRobot: {fileID: 313676332}
   currentPhase: 0
   tutorialItems:
