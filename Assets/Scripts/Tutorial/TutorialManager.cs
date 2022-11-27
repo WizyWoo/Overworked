@@ -28,6 +28,13 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager GetInstance()
     { return instance; }
 
+
+    // Anti messing up gameobjects : invisible collisions preventing the player from messing up the tutorial
+    [Header("ANTI MESSING UP OBJ")]
+
+    [SerializeField] RepairStation antiMessUp_repairStation;
+    [SerializeField] GameObject antiMessUp_firstRobot;
+
     // Tutorial phases
     public enum tutorialPhase
     {
@@ -139,7 +146,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator TryToChangePhase_IEnumerator(tutorialPhase phaseDone)
     {
-        // Wait until the previous panel has already
+        // Wait until the previous panel has already finished
         yield return new WaitUntil(() => !changingPhase);
 
         // If the player just perform the action that he was supposed to do right now according to the tutorial
@@ -180,6 +187,48 @@ public class TutorialManager : MonoBehaviour
                     SpawnSecondRobot();
             }
 
+            // Anti messing up collisions
+
+            if (!GameManager.instance.onlyOnePlayer)
+            {
+                // Player 1 grabbed Arm
+                if (currentPhase == tutorialPhase.throwArm_p1)
+                {
+                    // Activate collisions of repair stations
+                    //antiMessUp_repairStationCollisions.SetActive(true);
+                    antiMessUp_repairStation.GetComponent<CapsuleCollider>().enabled = false;
+                }
+
+                else if (currentPhase == tutorialPhase.repairArm)
+                {
+                    //antiMessUp_repairStationCollisions.SetActive(false);
+                    antiMessUp_repairStation.GetComponent<CapsuleCollider>().enabled = true;
+                }
+
+
+                else if (currentPhase == tutorialPhase.grabArmFromFloor_p1)
+                {
+                    yield return new WaitForSeconds(.5f);
+
+                    firstRobotBody.GetComponents<BoxCollider>()[1].enabled = false;
+                    //firstRobotBody.GetComponent<Rigidbody>().isKinematic = true;
+                    //antiMessUp_firstRobot.SetActive(true);
+                }
+
+                else if (currentPhase == tutorialPhase.assembleArm)
+                {
+                    firstRobotBody.GetComponents<BoxCollider>()[1].enabled = true;
+                    //firstRobotBody.GetComponent<Rigidbody>().isKinematic = false;
+                    //antiMessUp_firstRobot.SetActive(false);
+                }
+            }
+            else
+            {
+                if (currentPhase == tutorialPhase.grabArmFromConveyor)
+                    Debug.Log("grabArmFromConveyor");
+            }
+
+
             // Finish the tutorial
             if (currentPhase == tutorialPhase.tutorialDone)
             {
@@ -193,10 +242,11 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    RobotBody firstRobotBody;
 
     void SpawnFirstRobot()
     {
-        Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
+        firstRobotBody = Instantiate(bodyRobotPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity).GetComponent<RobotBody>();
         Instantiate(repairedArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
         Instantiate(repairedWheelPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
         Instantiate(outlineArmPrefab, tutorialRobotSpawn_Left.position, Quaternion.identity);
