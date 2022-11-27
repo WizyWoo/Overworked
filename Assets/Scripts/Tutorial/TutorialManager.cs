@@ -32,7 +32,8 @@ public class TutorialManager : MonoBehaviour
     // Anti messing up gameobjects : invisible collisions preventing the player from messing up the tutorial
     [Header("ANTI MESSING UP OBJ")]
 
-    [SerializeField] GameObject antiMessUp_repairStationCollisions;
+    [SerializeField] RepairStation antiMessUp_repairStation;
+    [SerializeField] GameObject antiMessUp_firstRobot;
 
     // Tutorial phases
     public enum tutorialPhase
@@ -193,16 +194,16 @@ public class TutorialManager : MonoBehaviour
                 // Player 1 grabbed Arm
                 if (currentPhase == tutorialPhase.throwArm_p1)
                 {
-                    antiMessUp_repairStationCollisions.SetActive(true);
-
                     // Activate collisions of repair stations
+                    //antiMessUp_repairStationCollisions.SetActive(true);
+                    antiMessUp_repairStation.GetComponent<CapsuleCollider>().enabled = false;
                 }
 
                 else if (currentPhase == tutorialPhase.repairArm)
                 {
-                    antiMessUp_repairStationCollisions.SetActive(false);
+                    //antiMessUp_repairStationCollisions.SetActive(false);
+                    antiMessUp_repairStation.GetComponent<CapsuleCollider>().enabled = true;
                 }
-                    Debug.Log("grabArmFromConveyor");
             }
             else
             {
