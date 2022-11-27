@@ -87,15 +87,8 @@ public class LevelManager : MonoBehaviour
     }
     public virtual void CorrectRobot()
     {
-        
-    
         UpdateMoney(moneyCorrectRobot);
-        if (MoneyMultiplier >= 3)
-        {
-            goto noplus;
-        }
-        MoneyMultiplier++;
-    noplus:
+        if (MoneyMultiplier < 3) MoneyMultiplier++;      
         StartCoroutine(ShowGoodFeedback()); 
     }
     public virtual void IncorrectRobot()
@@ -201,10 +194,9 @@ public class LevelManager : MonoBehaviour
             MoneyMultiplier = 1;
             money += amount;
             loseMoney = false;
-            goto noDoubleLoss;
         }
-        money += amount *MoneyMultiplier;
-    noDoubleLoss:;
+        else money += amount * MoneyMultiplier;
+
         CoinGaugeMoney = money;
         if(GameManager.instance.ArcadeMode == true)
         {

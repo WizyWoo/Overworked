@@ -199,6 +199,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4710eb92-5da1-4f9c-ae9a-40e08d7912e3",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d3cdbeed-6ef6-4c0c-bad4-4f62614cbeb0",
                     "path": "<Keyboard>/l",
                     "interactions": "",
@@ -234,6 +245,17 @@
                     "name": "",
                     "id": "4f6c2b96-5da6-4482-ace1-2a79f1c27cb7",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de67f2f7-2cd1-49e9-886a-6c2e7f04e61e",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
