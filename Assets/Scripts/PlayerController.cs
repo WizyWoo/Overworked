@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public int playerIndex;
     //UpSprites and DownSprites
-    [SerializeField] GameObject UpGFX, DownGFX;
+    public GameObject UpGFX, DownGFX;
     // Movement
     [Header("DESIGNER VARIABLES")]
     [SerializeField] float speed;
@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator movementAnimator;
     [SerializeField] Transform grabSpot;
     [SerializeField] Sprite[] playerSprites;
+    public Sprite[] upPlayerSprites;
+    public Sprite[] downPlayerSprites;
     [SerializeField] RuntimeAnimatorController[] animatorControllers;
     [SerializeField] Animator flipAnimator;
     
