@@ -201,7 +201,7 @@ public class TutorialManager : MonoBehaviour
                     antiMessUp_repairStation_Arm.GetComponent<CapsuleCollider>().enabled = false;
                 }
 
-                else if (currentPhase == tutorialPhase.repairWheel)
+                else if (currentPhase == tutorialPhase.repairArm)
                     antiMessUp_repairStation_Arm.GetComponent<CapsuleCollider>().enabled = true;
 
                 else if (currentPhase == tutorialPhase.grabArmFromFloor_p1)
@@ -220,21 +220,21 @@ public class TutorialManager : MonoBehaviour
                 // SECOND ROBOT
 
 
-                else if (currentPhase == tutorialPhase.throwWheel_p1)
-                    antiMessUp_repairStation_Wheel.GetComponent<CapsuleCollider>().enabled = false;
-
                 else if (currentPhase == tutorialPhase.grabWheelFromFloor_p2)
                     antiMessUp_repairStation_Wheel.GetComponent<CapsuleCollider>().enabled = false;
 
+                else if (currentPhase == tutorialPhase.repairWheel)
+                    antiMessUp_repairStation_Wheel.GetComponent<CapsuleCollider>().enabled = true;
 
-                else if (currentPhase == tutorialPhase.grabArmFromFloor_p1)
+
+                else if (currentPhase == tutorialPhase.grabWheelFromFloor_p1)
                 {
                     yield return new WaitForSeconds(.5f);
 
                     secondRobotBody.GetComponents<BoxCollider>()[1].enabled = false;
                 }
 
-                else if (currentPhase == tutorialPhase.assembleArm)
+                else if (currentPhase == tutorialPhase.assembleOtherRobot)
                     secondRobotBody.GetComponents<BoxCollider>()[1].enabled = true;
 
                 //antiMessUp_repairStation_Wheel
