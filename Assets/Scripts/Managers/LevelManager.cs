@@ -59,6 +59,10 @@ public class LevelManager : MonoBehaviour
     {
         Instance = this;
         Fadeout = gameObject.GetComponent<SimpleFade>();
+        if(GameManager.instance.Easy== true)
+        {
+            currentTime += currentTime/2;
+        }
         // Save the tick image position
         if (tickImage != null)
             initialTickPosition = tickImage.transform.position;
@@ -88,7 +92,7 @@ public class LevelManager : MonoBehaviour
     public virtual void CorrectRobot()
     {
         UpdateMoney(moneyCorrectRobot);
-        if (MoneyMultiplier < 3) MoneyMultiplier++;      
+        if (MoneyMultiplier < 3&& GameManager.instance.Hard == false) MoneyMultiplier++;      
         StartCoroutine(ShowGoodFeedback()); 
     }
     public virtual void IncorrectRobot()
@@ -148,17 +152,20 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("LOSE THIS");
         StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  false, false));
+        GameManager.instance.TotalLoss++;
         //GameManager.instance.LoadResultsScene(false, GetLevel(), false);
     }
     public void LoseExhausted()
     {
         Debug.Log("LOSE THIS");
         StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  false, true));
+        GameManager.instance.TotalLoss++;
         //GameManager.instance.LoadResultsScene(false, GetLevel(), true);
     }
     // It is called when the players wins
     public void Win()
     {
+        if (GameManager.instance.ArcadeMode == true) goto NoStars4u;
         if (money >= moneyToWin3Star)
         {
             GameManager.instance.TotalStars += 3;
@@ -175,7 +182,7 @@ public class LevelManager : MonoBehaviour
             GameManager.instance.amountOfStars = 1;
             GameManager.instance.TotalStars +=1;
         }
-        
+    NoStars4u:;
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);
 
         Debug.Log("WIN THIS");
@@ -193,10 +200,18 @@ public class LevelManager : MonoBehaviour
     }
     public void UpdateMoney(int amount)
     {
-        if(amount < 0)
+        if(amount < 0 || loseMoney== true)
         {
             MoneyMultiplier = 1;
             money += amount;
+            if (GameManager.instance.Easy)
+            {
+                MoneyMultiplier = 2;
+                
+            }
+           
+        
+            
             loseMoney = false;
         }
         else money += amount * MoneyMultiplier;

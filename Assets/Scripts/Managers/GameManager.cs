@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public string CurrentLevel;
     public bool onlyOnePlayer;
     public bool FakeReset;
-    public bool KonamiCode, ArcadeMode, ArcadeModeApp, AMAHardMode, AMAEasyMode; 
-    public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalFailures;
+    public bool KonamiCode, ArcadeMode, ArcadeModeApp, AMAHardMode, AMAEasyMode, Easy,Hard; 
+    public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalLoss;
     public bool FirstTimeRent, Overtime;
     private void Awake()
     {
@@ -37,17 +37,17 @@ public class GameManager : MonoBehaviour
             CurrentLevel = SceneManager.GetActiveScene().name;
         }
 
-        if(TotalFailures>= 3)
+        if(TotalLoss>= 3|| KonamiCode==true)
         {
             ArcadeModeApp = true;
             AMAEasyMode = true;
         }
-        if(TotalStars >= 24)
+        if(TotalStars >= 24 || KonamiCode == true)
         {
-            ArcadeModeApp = true;
+            
             AMAHardMode = true;
         }
-        if (TotalStars >= 16)
+        if (TotalStars >= 16 || KonamiCode == true)
         {
             ArcadeModeApp = true;
         }
@@ -94,7 +94,20 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
+    public void Easymode()
+    {
+        Easy = !Easy;
+        Hard = false;
+    }
+    public void Hardmode()
+    {
+        Easy = false;
+        Hard = !Hard;
+    }
+    public void Arcademode()
+    {
+        ArcadeMode = !ArcadeMode;
+    }
     public void JustStartTheReset()
     {
         StartCoroutine(FakeResetVoid());
