@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     float horInput, verInput;
     // The direction the character is facing
     public Vector2 Dir { get; private set; }
+    int dir;
 
     // Stamina
     [Header("Stamina")]
@@ -121,7 +122,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {if(DazedOnce == true)
+    {
+        if(DazedOnce == true)
         {
             DazedTimer -= Time.deltaTime;
         }
@@ -141,6 +143,7 @@ public class PlayerController : MonoBehaviour
         // Update player GFX
         movementAnimator.SetFloat("CurrentXVelocity", rb.velocity.x);
         movementAnimator.SetFloat("CurrentZVelocity", rb.velocity.z);
+        movementAnimator.SetFloat("Dir", (float)dir);
 
         // Update stamina variables and stamina gfx
         StaminaSystem();
@@ -150,6 +153,8 @@ public class PlayerController : MonoBehaviour
         // Quick bug fix, need to change in the future
         if (rb.velocity.y > 0)
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+
+        
     }
 
     public void RefillStamina()
@@ -748,19 +753,23 @@ public class PlayerController : MonoBehaviour
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, arrow.transform.rotation.z);
             goingRight = true;
+            dir = 2;
         }
         else if (Dir.x < -0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 180.0f, arrow.transform.rotation.z);
             goingRight = false;
+            dir = 2;
         }
         else if (Dir.y > 0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, 90.0f);
+            dir = 0;
         }
         else if (Dir.y < -0.1f)
         {
             arrow.transform.localRotation = Quaternion.Euler(arrow.transform.rotation.x, 0.0f, -90.0f);
+            dir = 1;
         }      
     }
 

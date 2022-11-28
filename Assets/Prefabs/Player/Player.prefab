@@ -5903,9 +5903,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bb857c3596c3d924a8613d863a435b39, type: 3}
   animatorControllers:
   - {fileID: 9100000, guid: 7e1072670970c644280af1460dc630e3, type: 2}
-  - {fileID: 9100000, guid: 0e12f27a79062c5468ad6af23204a79a, type: 2}
-  - {fileID: 9100000, guid: 8dbe04ba3c0a8ff45879ffc773590f2f, type: 2}
-  - {fileID: 9100000, guid: df58b74060fa5024da67d5887517e3fb, type: 2}
+  - {fileID: 9100000, guid: 2e7866386e6333645991d342996a90d0, type: 2}
+  - {fileID: 9100000, guid: 3090435c86b24434cbff8aab2c14c0fc, type: 2}
+  - {fileID: 9100000, guid: 1dbe509a761eaf548845fa6f09b42823, type: 2}
   flipAnimator: {fileID: 8905786987973865828}
   goingRight: 0
   staminaUI: {fileID: 525579167426050083}
@@ -6340,7 +6340,7 @@ Animator:
   m_GameObject: {fileID: 7669628410667424828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7e1072670970c644280af1460dc630e3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2e7866386e6333645991d342996a90d0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
