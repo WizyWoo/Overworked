@@ -20,6 +20,8 @@ public class Scanner : MonoBehaviour
     [SerializeField] Renderer bulbRenderer;
     [SerializeField] Material correctColMat, wrongColMat, standbyColMat;
     [SerializeField] Transform okayRobotPos;
+    [SerializeField]
+    private ParticleSystem DeliveredItemParticle;
     public FMODUnity.EventReference correctRobot, incorrectRobot;
 
     int cont;
@@ -44,6 +46,7 @@ public class Scanner : MonoBehaviour
                 spotLight.color = rightCol;
                 bulbRenderer.material = correctColMat;
                 SoundManager.Instance.PlaySound(correctRobot, gameObject);
+                DeliveredItemParticle.Play();
                 Total_Assembled_Robots++;
                 level01Manager.CorrectRobot();
                 IncrementWinCon = true;
