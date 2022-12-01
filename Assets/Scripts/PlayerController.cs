@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
             StarParticleSystem.Stop();
         }
         // Update player GFX
-        movementAnimator.SetFloat("CurrentXVelocity", rb.velocity.x);
+        movementAnimator.SetFloat("CurrentXVelocity", Mathf.Abs(rb.velocity.x));
         movementAnimator.SetFloat("CurrentZVelocity", rb.velocity.z);
         movementAnimator.SetFloat("Dir", (float)dir);
 
