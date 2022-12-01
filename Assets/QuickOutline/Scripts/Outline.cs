@@ -95,7 +95,8 @@ public class Outline : MonoBehaviour {
     // Retrieve or generate smooth normals
     LoadSmoothNormals();
 
-    // Apply material properties immediately
+        // Apply material properties immediately
+
     needsUpdate = true;
   }
 
@@ -110,7 +111,8 @@ public class Outline : MonoBehaviour {
 
       renderer.materials = materials.ToArray();
     }
-  }
+        UpdateMaterialProperties();
+    }
 
   void OnValidate() {
 
@@ -129,7 +131,7 @@ public class Outline : MonoBehaviour {
     }
   }
 
-  void Update() {
+   void Update() {
     if (needsUpdate) {
       needsUpdate = false;
 
