@@ -8,6 +8,8 @@ public class CeilingConveyorButBetter : MonoBehaviour
     [Header("Setup")]
     [SerializeField] private Transform[] points;
     [SerializeField] private float conveyorSpeed, initialDelay, minDelay, maxDelay;
+    [Tooltip("This specifies how accurate the curve interpolation will be per curve segment")]
+    [SerializeField] private int curveResolution;
     [Header("Objects that are spawned on the conveyor")]
     [SerializeField] private GameObject[] conveyorObjects;
     [SerializeField] private GameObject train;
@@ -17,6 +19,8 @@ public class CeilingConveyorButBetter : MonoBehaviour
     private List<Transform> spawnedItems;
     private List<int> steps;
     private List<float> timers;
+    private Vector3[] arcLenghtParamedVectors;
+    private int curveArcs;
 
     private void Awake()
     {
@@ -24,6 +28,8 @@ public class CeilingConveyorButBetter : MonoBehaviour
         spawnedItems = new List<Transform>();
         timers = new List<float>();
         steps = new List<int>();
+
+        UpdatePoints();
 
     }
 
@@ -48,33 +54,50 @@ public class CeilingConveyorButBetter : MonoBehaviour
         
     }
 
+    private void UpdatePoints()
+    {
+
+        arcLenghtParamedVectors = new Vector3[resolution * (points.Length / 3) + 1];
+
+        int _index = 1;
+
+        arcLenghtParamedVectors[0] = Cerp(0f/(float)resolution, 0);
+
+        for(int j = 0; j <= points.Length - 3; j += 3)
+        {
+
+            for(int i = 1; i <= resolution; i++)
+            {
+
+                arcLenghtParamedVectors[_index] = Cerp((float)i/(float)resolution, j);
+                _index++;
+
+            }
+        
+        }
+
+    }
+
     private void Update()
     {
 
-        if(points.Length < 3 || spawnedItems.Count < 1)
-            return;
-
-        for(int i = 0; i < spawnedItems.Count; i ++)
+        for(int i = 0; i < spawnedItems.Count; i++)
         {
 
-            Vector3 _newPos = Cerp(timers[i], steps[i]);
+            spawnedItems[i].position = Vector3.Lerp(arcLenghtParamedVectors[steps[i]], arcLenghtParamedVectors[steps[i]+1], timers[i]);
 
-            spawnedItems[i].LookAt(_newPos, Vector3.up);
-            spawnedItems[i].position = _newPos;
+            timers[i] += Time.deltaTime * (conveyorSpeed / Vector3.Distance(arcLenghtParamedVectors[steps[i]], arcLenghtParamedVectors[steps[i]+1]));
 
-            timers[i] += Time.deltaTime * conveyorSpeed;
-            if(timers[i] >= 1)
+            if(timers[i] > 1)
             {
 
-                timers[i] = 0;
-                steps[i] += 3;
+                timers[i] -= 1;
+                steps[i]++;
 
-                Debug.Log(steps[i] + " + " + points.Length);
-
-                if(steps[i] >= points.Length-1)
+                if(steps[i] >= arcLenghtParamedVectors.Length - 1)
                 {
 
-                    RemoveItemAt(i);
+                    steps[i] = 0;
 
                 }
 
