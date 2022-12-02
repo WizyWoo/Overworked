@@ -112,7 +112,11 @@ public class LevelManager : MonoBehaviour
 
         bottomTimerPart.fillAmount = 1 - (currentTime / maxTime);
 
-        if (currentTime <= 30) //hope this means 30 last seconds
+        if (currentTime <= 10) //More violent shake >:D
+        {
+            timerShakeAnimation.Play("TimerShakeFaster");
+        }
+        else if (currentTime <= 30) //hope this means 30 last seconds
         {
             timerShakeAnimation.Play();
         }
