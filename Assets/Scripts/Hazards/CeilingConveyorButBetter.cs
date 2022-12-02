@@ -13,14 +13,11 @@ public class CeilingConveyorButBetter : MonoBehaviour
     [Header("Objects that are spawned on the conveyor")]
     [SerializeField] private GameObject[] conveyorObjects;
     [SerializeField] private GameObject train;
-    [Header("Visualization")]
-    [SerializeField] private int resolution;
 
     private List<Transform> spawnedItems;
     private List<int> steps;
     private List<float> timers;
     private Vector3[] arcLenghtParamedVectors;
-    private int curveArcs;
 
     private void Awake()
     {
@@ -57,19 +54,19 @@ public class CeilingConveyorButBetter : MonoBehaviour
     private void UpdatePoints()
     {
 
-        arcLenghtParamedVectors = new Vector3[resolution * (points.Length / 3) + 1];
+        arcLenghtParamedVectors = new Vector3[curveResolution * (points.Length / 3) + 1];
 
         int _index = 1;
 
-        arcLenghtParamedVectors[0] = Cerp(0f/(float)resolution, 0);
+        arcLenghtParamedVectors[0] = Cerp(0f/(float)curveResolution, 0);
 
         for(int j = 0; j <= points.Length - 3; j += 3)
         {
 
-            for(int i = 1; i <= resolution; i++)
+            for(int i = 1; i <= curveResolution; i++)
             {
 
-                arcLenghtParamedVectors[_index] = Cerp((float)i/(float)resolution, j);
+                arcLenghtParamedVectors[_index] = Cerp((float)i/(float)curveResolution, j);
                 _index++;
 
             }
@@ -120,12 +117,12 @@ public class CeilingConveyorButBetter : MonoBehaviour
     private void OnDrawGizmos()
     {
 
-        if(points.Length < 3 || resolution < 1)
+        if(points.Length < 3 || curveResolution < 1)
             return;
         
         Gizmos.color = Color.green;
 
-        int _points = points.Length * resolution;
+        int _points = points.Length * curveResolution;
         float _t = 0;
         Vector3 _lastPoint = points[0].position, _curPoint;
 
@@ -137,11 +134,11 @@ public class CeilingConveyorButBetter : MonoBehaviour
 
             int _pointCounter = 0;
 
-            for(int j = 0; j < resolution; j ++)
+            for(int j = 0; j < curveResolution; j ++)
             {
 
                 _pointCounter++;
-                _t = (float)_pointCounter / (float)resolution;
+                _t = (float)_pointCounter / (float)curveResolution;
 
                 _curPoint = Cerp(_t, i);
 

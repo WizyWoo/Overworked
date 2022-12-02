@@ -730,7 +730,9 @@ MonoBehaviour:
   initialDelay: 1
   minDelay: 2
   maxDelay: 4
-  conveyorObjects: []
+  curveResolution: 0
+  conveyorObjects:
+  - {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425, type: 3}
   train: {fileID: 8173250538388149926, guid: 51a03d87fcd97644a93e25a97f706c81, type: 3}
   resolution: 10
 --- !u!1 &8592433775402368366
