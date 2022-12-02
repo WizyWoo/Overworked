@@ -176,13 +176,15 @@ public class GameManager : MonoBehaviour
     }
     private void activateNextLevelButton(int levelNumber)
     {
+        //Enable next level button
         for (int i = 0; i < levelNumber + 1; i++)
         {
-            buttons[i].enabled = true;
+            if(!buttons[i].isActiveAndEnabled) buttons[i].enabled = true;
         }
+        //Disable the locker and black screen of levels unlocked
         for (int i = 1; i < levelNumber + 1; i++)
         {
-            buttons[i].enabled = true;
+            if(gameObjects[i - 1].activeSelf) gameObjects[i - 1].SetActive(false);
         }
     }
 }

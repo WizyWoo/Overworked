@@ -5946,6 +5946,51 @@ PrefabInstance:
       propertyPath: buttons.Array.data[8]
       value: 
       objectReference: {fileID: 1373546655}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 683959796}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1935054647}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1086001194}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1914685520}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 421086056}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 1729194712}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 726752851}
+    - target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+        type: 3}
+      propertyPath: gameObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 1358650799}
     - target: {fileID: 8482794919417174579, guid: 76edd319476361e4eab620a03f5ffb2e,
         type: 3}
       propertyPath: m_Name
