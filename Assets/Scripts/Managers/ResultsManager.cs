@@ -62,7 +62,8 @@ public class ResultsManager : MonoBehaviour
 
         //set up stars
         stars.SetActive(true);
-        for (int i = 0; i < GameManager.instance.amountOfStars; i++)
+        GameManager gameManager = GameManager.instance;
+        for (int i = 0; i < gameManager.amountOfStars; i++)
             stars.transform.GetChild(i).GetComponent<Image>().enabled = true;
     }
 

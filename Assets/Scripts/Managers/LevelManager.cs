@@ -195,7 +195,7 @@ public class LevelManager : MonoBehaviour
         }
     NoStars4u:;
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);
-
+        GameManager.instance.decideNextLevelNumber();
         Debug.Log("WIN THIS");
         StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  true, false));
 
