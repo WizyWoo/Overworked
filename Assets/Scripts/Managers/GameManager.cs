@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     static public GameManager instance;
-
+    [SerializeField] Button[] buttons;
+    [SerializeField] GameObject[] gameObjects;
     // Turns true if the players were overworked, and they lost because of this
     public bool overworked;
 
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     public bool KonamiCode, ArcadeMode, ArcadeModeApp, AMAHardMode, AMAEasyMode, Easy,Hard; 
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalLoss;
     public bool FirstTimeRent, Overtime;
+    static private int levelNumberPlaying = 0;
     private void Awake()
     {
         // Singleton
@@ -28,6 +31,18 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+        //Disable every button and activate just the first one
+        if (buttons.Length > 0) {
+            foreach (Button button in buttons)
+            {
+                button.enabled = false;
+            }
+            //buttons[0].enabled = true;
+
+            activateNextLevelButton(levelNumberPlaying);
+        }
+ 
     }
 
     private void Update()
@@ -151,5 +166,25 @@ public class GameManager : MonoBehaviour
         }
 
         onlyOnePlayer = numDevices == 1;
+    }
+    public void decideNextLevelNumber()
+    {
+        string levelName = GetSceneName();
+        char levelNumberName = levelName[levelName.Length - 1];
+        //I have to substract 48 because in ASCII 1 in char is kept as 49, 2 as 50....
+        levelNumberPlaying = levelNumberName - 48;
+    }
+    private void activateNextLevelButton(int levelNumber)
+    {
+        //Enable next level button
+        for (int i = 0; i < levelNumber + 1; i++)
+        {
+            if(!buttons[i].isActiveAndEnabled) buttons[i].enabled = true;
+        }
+        //Disable the locker and black screen of levels unlocked
+        for (int i = 1; i < levelNumber + 1; i++)
+        {
+            if(gameObjects[i - 1].activeSelf) gameObjects[i - 1].SetActive(false);
+        }
     }
 }

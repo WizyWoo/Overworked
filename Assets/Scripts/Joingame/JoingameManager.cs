@@ -58,6 +58,9 @@ public class JoingameManager : MonoBehaviour
 
     [SerializeField] GameObject playerCard;
 
+    // Player sprites on the screen
+    [SerializeField] Transform[] players;
+
     private void Awake()
     {
         if (instance == null)
@@ -81,6 +84,12 @@ public class JoingameManager : MonoBehaviour
                     newTransform.localScale = Vector3.one;
                 }
         }
+
+        //// No players at first
+        //foreach (Transform playerSprite in players)
+        //    playerSprite.gameObject.SetActive(false);
+
+        UpdatePlayerSprites();
     }
 
     #region Join Exit Events
@@ -103,6 +112,9 @@ public class JoingameManager : MonoBehaviour
         allPlayers.Add(new playerJoined(newplayer, newPlayerCard, newplayer.GetDevice<InputDevice>()));
 
         exitPanel.SetActive(true);
+
+        UpdatePlayerSprites();
+        //players[newPlayerCard.playerIndex].gameObject.SetActive(true);
     }
 
     public void PlayerExit(Transform playerTransform)
@@ -126,6 +138,23 @@ public class JoingameManager : MonoBehaviour
 
         if (allPlayers.Count == 0)
             exitPanel.SetActive(false);
+
+        UpdatePlayerSprites();
+        //players[playerInput.playerIndex].gameObject.SetActive(false);
+    }
+
+    void UpdatePlayerSprites()
+    {
+        int nPlayers = allPlayers.Count;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (i < nPlayers)
+                players[i].gameObject.SetActive(true);
+            else 
+                players[i].gameObject.SetActive(false);
+        }
+
     }
 
     #endregion

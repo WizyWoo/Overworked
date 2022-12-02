@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     [Header("FMOD SOUNDS")]
     public FMODUnity.EventReference levelCompleted;
-    public bool loseMoney;
+    public bool loseMoney, incrementOnce;
     public SimpleFade Fadeout;
     [Header("MONEY STUFF")]
     public int CoinGaugeMoney;
@@ -151,15 +151,26 @@ public class LevelManager : MonoBehaviour
     private void Lose()
     {
         Debug.Log("LOSE THIS");
+        if(incrementOnce == false)
+        {
+            GameManager.instance.TotalLoss++;
+        incrementOnce = true;
+        }
+        
         StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  false, false));
-        GameManager.instance.TotalLoss++;
+        
         //GameManager.instance.LoadResultsScene(false, GetLevel(), false);
     }
     public void LoseExhausted()
     {
         Debug.Log("LOSE THIS");
+        if (incrementOnce == false)
+        {
+            GameManager.instance.TotalLoss++;
+            incrementOnce = true;
+        }
         StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  false, true));
-        GameManager.instance.TotalLoss++;
+        
         //GameManager.instance.LoadResultsScene(false, GetLevel(), true);
     }
     // It is called when the players wins
@@ -184,7 +195,7 @@ public class LevelManager : MonoBehaviour
         }
     NoStars4u:;
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);
-
+        GameManager.instance.decideNextLevelNumber();
         Debug.Log("WIN THIS");
         StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  true, false));
 

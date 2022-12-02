@@ -100,6 +100,12 @@ public class TutorialManager : MonoBehaviour
         {
             EndTutorial();
         }
+
+        // Disappear all arrows
+        for (int i = 0; i < arrows.Length; i++)
+            arrows[i].obj.SetActive(false);
+
+        arrows[0].obj.SetActive(true);
     }
 
     void InizializeTutorialElements()
@@ -288,6 +294,27 @@ public class TutorialManager : MonoBehaviour
         // Find the adecuate tutorial element for the phase
         TutorialItem tutorialItem = Array.Find(tutorialItems, tutorialItem => tutorialItem.phase == phase);
         StartCoroutine(tutorialItem.Show());
+
+        UpdateArrow(phase);
+    }
+
+    [Serializable]
+    struct TutorialArrow
+    {
+        public tutorialPhase phase;
+        public GameObject obj;
+    }
+
+    [SerializeField]
+    TutorialArrow[] arrows;
+
+    void UpdateArrow(tutorialPhase phase)
+    {
+        for (int i = 0; i < arrows.Length; i++)
+            arrows[i].obj.SetActive(false);
+
+        GameObject newArrow = Array.Find(arrows, arrow => arrow.phase == phase).obj;
+        newArrow.SetActive(true);
     }
 
     void HideTutorialItem(tutorialPhase phase)
@@ -311,5 +338,10 @@ public class TutorialManager : MonoBehaviour
 
         foreach (var spawner in rightRobotSpawner)
             spawner.functional = true;
+
+
+        // Hide all arrows
+        for (int i = 0; i < arrows.Length; i++)
+            arrows[i].obj.SetActive(false);
     }
 }
