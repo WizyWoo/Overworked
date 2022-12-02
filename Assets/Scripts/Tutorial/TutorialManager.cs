@@ -288,6 +288,28 @@ public class TutorialManager : MonoBehaviour
         // Find the adecuate tutorial element for the phase
         TutorialItem tutorialItem = Array.Find(tutorialItems, tutorialItem => tutorialItem.phase == phase);
         StartCoroutine(tutorialItem.Show());
+
+        UpdateArrow(phase);
+    }
+
+    [Serializable]
+    struct TutorialArrow
+    {
+        public tutorialPhase phase;
+        public GameObject obj;
+    }
+
+    [SerializeField]
+    TutorialArrow[] arrows;
+
+    void UpdateArrow(tutorialPhase phase)
+    {
+        for (int i = 0; i < arrows.Length; i++)
+            arrows[i].obj.SetActive(false);
+
+        GameObject newArrow = Array.Find(arrows, arrow => arrow.phase == phase).obj;
+
+        newArrow.SetActive(true);
     }
 
     void HideTutorialItem(tutorialPhase phase)
