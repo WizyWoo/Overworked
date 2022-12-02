@@ -58,6 +58,9 @@ public class JoingameManager : MonoBehaviour
 
     [SerializeField] GameObject playerCard;
 
+
+    [SerializeField] Transform[] players;
+
     private void Awake()
     {
         if (instance == null)
@@ -103,6 +106,8 @@ public class JoingameManager : MonoBehaviour
         allPlayers.Add(new playerJoined(newplayer, newPlayerCard, newplayer.GetDevice<InputDevice>()));
 
         exitPanel.SetActive(true);
+
+        players[newPlayerCard.playerIndex].gameObject.SetActive(true);
     }
 
     public void PlayerExit(Transform playerTransform)
@@ -126,6 +131,8 @@ public class JoingameManager : MonoBehaviour
 
         if (allPlayers.Count == 0)
             exitPanel.SetActive(false);
+
+        players[playerInput.playerIndex].gameObject.SetActive(false);
     }
 
     #endregion
