@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     static public GameManager instance;
     [SerializeField] Button[] buttons;
-    [SerializeField] GameObject[] gameObjects;
+    [SerializeField] Animator[] animators;
     // Turns true if the players were overworked, and they lost because of this
     public bool overworked;
 
@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
             //buttons[0].enabled = true;
 
             activateNextLevelButton(levelNumberPlaying);
+            foreach (Animator animator in animators)
+            {
+                animator.enabled = false;
+            }
         }
  
     }
@@ -184,7 +188,10 @@ public class GameManager : MonoBehaviour
         //Disable the locker and black screen of levels unlocked
         for (int i = 1; i < levelNumber + 1; i++)
         {
-            if(gameObjects[i - 1].activeSelf) gameObjects[i - 1].SetActive(false);
+            if (animators[i - 1].gameObject.activeSelf)
+            {
+                animators[i - 1].enabled = true;
+            }
         }
     }
 }
