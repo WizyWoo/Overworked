@@ -6634,12 +6634,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1463271289}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1463271291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5477226370292661382, guid: 25ee0c56e64a67043be697dc146fbd84,
-    type: 3}
-  m_PrefabInstance: {fileID: 1463271289}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1477515113
 GameObject:
   m_ObjectHideFlags: 0
@@ -7871,7 +7865,7 @@ MonoBehaviour:
     infoImages: []
     infoTexts: []
   - phase: 8
-    gameObject: {fileID: 1463271291}
+    gameObject: {fileID: 1238170006}
     panel: {fileID: 0}
     infoImages: []
     infoTexts: []
