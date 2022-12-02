@@ -38,13 +38,12 @@ public class GameManager : MonoBehaviour
             {
                 button.enabled = false;
             }
-            //buttons[0].enabled = true;
 
-            activateNextLevelButton(levelNumberPlaying);
             foreach (Animator animator in animators)
             {
                 animator.enabled = false;
             }
+            activateNextLevelButton(levelNumberPlaying);
         }
  
     }
