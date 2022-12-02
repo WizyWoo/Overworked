@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.06321229, g: 0.0852948, b: 0.13256563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2482,6 +2482,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6198410387182202588, guid: 9a234be98fec6f644ae4434fe3524adb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8511085465110998832, guid: 9a234be98fec6f644ae4434fe3524adb,
         type: 3}
       propertyPath: m_RootOrder
@@ -4909,6 +4914,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 564251952}
     m_Modifications:
+    - target: {fileID: 2527675259982407486, guid: 9a234be98fec6f644ae4434fe3524adb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3454177083429852815, guid: 9a234be98fec6f644ae4434fe3524adb,
         type: 3}
       propertyPath: localMultiplayer
