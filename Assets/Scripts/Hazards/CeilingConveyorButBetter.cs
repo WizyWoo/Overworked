@@ -5,7 +5,10 @@ using UnityEngine;
 public class CeilingConveyorButBetter : MonoBehaviour
 {
 
-    [Header("Setup")]
+    [Header("Setup"), Tooltip("Toggle this on to use bezier curve for interpolation")]
+    [SerializeField] private bool useBezier;
+    [Tooltip("Should the conveyor loop")]
+    [SerializeField] private bool loopConveyor;
     [SerializeField] private Transform[] points;
     [SerializeField] private float conveyorSpeed, initialDelay, minDelay, maxDelay;
     [Tooltip("This specifies how accurate the curve interpolation will be per curve segment")]
@@ -26,7 +29,15 @@ public class CeilingConveyorButBetter : MonoBehaviour
         timers = new List<float>();
         steps = new List<int>();
 
+#if UNITY_EDITOR
+
+        InvokeRepeating(nameof(UpdatePoints), 0, 1f);
+
+#else
+
         UpdatePoints();
+
+#endif
 
     }
 
@@ -78,23 +89,64 @@ public class CeilingConveyorButBetter : MonoBehaviour
     private void Update()
     {
 
-        for(int i = 0; i < spawnedItems.Count; i++)
+        if(useBezier)
         {
 
-            spawnedItems[i].position = Vector3.Lerp(arcLenghtParamedVectors[steps[i]], arcLenghtParamedVectors[steps[i]+1], timers[i]);
-
-            timers[i] += Time.deltaTime * (conveyorSpeed / Vector3.Distance(arcLenghtParamedVectors[steps[i]], arcLenghtParamedVectors[steps[i]+1]));
-
-            if(timers[i] > 1)
+            for(int i = 0; i < spawnedItems.Count; i++)
             {
 
-                timers[i] -= 1;
-                steps[i]++;
+                Vector3 _newPos = Vector3.Lerp(arcLenghtParamedVectors[steps[i]], arcLenghtParamedVectors[steps[i]+1], timers[i]);
 
-                if(steps[i] >= arcLenghtParamedVectors.Length - 1)
+                spawnedItems[i].LookAt(_newPos, Vector3.up);
+                spawnedItems[i].position = _newPos;
+
+                timers[i] += Time.deltaTime * (conveyorSpeed / Vector3.Distance(arcLenghtParamedVectors[steps[i]], arcLenghtParamedVectors[steps[i]+1]));
+
+                if(timers[i] > 1)
                 {
 
-                    steps[i] = 0;
+                    timers[i] -= 1;
+                    steps[i]++;
+
+                    if(steps[i] >= arcLenghtParamedVectors.Length - 1)
+                    {
+
+                        if(loopConveyor)
+                            steps[i] = 0;
+                        else
+                            RemoveItemAt(i);
+
+                    }
+
+                }
+
+            }
+
+        }
+        else
+        {
+            
+            for(int i = 0; i < spawnedItems.Count; i ++)
+            {
+
+                Vector3 _newPos = Vector3.Lerp(points[steps[i]].position, points[steps[i]+1].position, timers[i]);
+
+                spawnedItems[i].LookAt(_newPos, Vector3.up);
+                spawnedItems[i].position = _newPos;
+
+                timers[i] += Time.deltaTime * (conveyorSpeed / Vector3.Distance(points[steps[i]].position, points[steps[i]+1].position));
+                if(timers[i] >= 1)
+                {
+
+                    timers[i] = 0;
+                    steps[i] += 1;
+
+                    if(steps[i] >= points.Length-1)
+                    {
+
+                        RemoveItemAt(i);
+
+                    }
 
                 }
 
