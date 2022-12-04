@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063215524, g: 0.08529012, b: 0.13257429, a: 1}
+  m_IndirectSpecularColor: {r: 0.063215464, g: 0.08529005, b: 0.13257438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1690,7 +1690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &569525804
 Transform:
   m_ObjectHideFlags: 0
@@ -7055,7 +7055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679166133}
   m_LocalRotation: {x: 0.50000006, y: -0.49999997, z: 0.49999997, w: 0.5000001}
-  m_LocalPosition: {x: 6.6400003, y: 1.03, z: 3.98}
+  m_LocalPosition: {x: 6.319, y: 0.638, z: 3.98}
   m_LocalScale: {x: 0.38128, y: 0.38128, z: 0.38128003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8427,6 +8427,7 @@ MonoBehaviour:
       Data4: 1583118354
     Path: event:/SFX/SFX_Notification_LevelComplete
   loseMoney: 0
+  incrementOnce: 0
   Fadeout: {fileID: 0}
   CoinGaugeMoney: 0
   MoneyMultiplier: 1
