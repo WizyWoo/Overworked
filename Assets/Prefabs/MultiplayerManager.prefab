@@ -711,7 +711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5718706635163498406
 Transform:
   m_ObjectHideFlags: 0
@@ -851,6 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a7f5e3494de24418b4ca8fcc6f9d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allPlayers: []
   fallDistanceBeforeRespawning: -10
   playerContainer: {fileID: 5718706634494998751}
   spawnpoints:
@@ -1012,7 +1013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5718706635918544498
 Transform:
   m_ObjectHideFlags: 0
