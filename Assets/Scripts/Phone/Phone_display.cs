@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Phone_display : MonoBehaviour
 {
 
-    public bool is_paused;
+    public bool is_paused, main_menu;
     public KeyCode pause_menu_key;
     
     public GameObject home, settings, work;
@@ -29,10 +29,14 @@ public class Phone_display : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(pause_menu_key))
+        if (main_menu)
         {
-            is_paused = !is_paused;
+            animator.Play("display");
+            return;
         }
+
+        if (Input.GetKeyDown(pause_menu_key))  is_paused = !is_paused;
+        
         if (is_paused == true)
         {
             Time.timeScale = 0f;
