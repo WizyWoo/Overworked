@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a17a0e81117e914b81b2b51707e79d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrainPercent: {fileID: 0}
+  TrainPercent: {fileID: 8345182787503910795}
   TrainText: 
   TrainValue: 0
 --- !u!1 &2073948790234750034
