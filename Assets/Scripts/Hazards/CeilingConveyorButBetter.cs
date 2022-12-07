@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class CeilingConveyorButBetter : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class CeilingConveyorButBetter : MonoBehaviour
     [Header("Objects that are spawned on the conveyor")]
     [SerializeField] private GameObject[] conveyorObjects;
     [SerializeField] private GameObject train;
+    [SerializeField] private EventReference trainSound;
 
     private List<Transform> spawnedItems;
     private List<int> steps;
@@ -59,6 +61,8 @@ public class CeilingConveyorButBetter : MonoBehaviour
             _selectedObject = conveyorObjects[Random.Range(0, conveyorObjects.Length)];
 
         }
+        else
+            SoundManager.Instance.PlaySound(trainSound, gameObject);
 
         Transform _tempItem = Instantiate(_selectedObject, points[0].position, Quaternion.identity).transform;
 
