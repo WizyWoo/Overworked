@@ -6104,7 +6104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395985528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.713281, y: 0.7100505, z: 6.665503}
+  m_LocalPosition: {x: 5.64, y: 0.7100505, z: 6.665503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8188,6 +8188,7 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Notification_LevelComplete
   loseMoney: 0
   incrementOnce: 0
+  StarGainOnce: 0
   Fadeout: {fileID: 0}
   CoinGaugeMoney: 0
   MoneyMultiplier: 1
