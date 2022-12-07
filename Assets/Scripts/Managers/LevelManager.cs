@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     [Header("FMOD SOUNDS")]
     public FMODUnity.EventReference levelCompleted;
-    public bool loseMoney, incrementOnce;
+    public bool loseMoney, incrementOnce, StarGainOnce;
     public SimpleFade Fadeout;
     [Header("MONEY STUFF")]
     public int CoinGaugeMoney;
@@ -112,7 +112,11 @@ public class LevelManager : MonoBehaviour
 
         bottomTimerPart.fillAmount = 1 - (currentTime / maxTime);
 
-        if (currentTime <= 30) //hope this means 30 last seconds
+        if (currentTime <= 10) //More violent shake >:D
+        {
+            timerShakeAnimation.Play("TimerShakeFaster");
+        }
+        else if (currentTime <= 30) //hope this means 30 last seconds
         {
             timerShakeAnimation.Play();
         }
@@ -179,19 +183,33 @@ public class LevelManager : MonoBehaviour
         if (GameManager.instance.ArcadeMode == true) goto NoStars4u;
         if (money >= moneyToWin3Star)
         {
-            GameManager.instance.TotalStars += 3;
+            
             GameManager.instance.amountOfStars = 3;
+            if(StarGainOnce== false)
+            {
+                GameManager.instance.TotalStars += 3;
+                StarGainOnce = true;
+            }
+            
         }
         else if (money >= moneyToWin2Star)
         {
             GameManager.instance.amountOfStars = 2;
-
-            GameManager.instance.TotalStars += 2;
+            if(StarGainOnce == false)
+            {
+                GameManager.instance.TotalStars += 2;
+                StarGainOnce = true;
+            }
+            
         }
         else 
         {
             GameManager.instance.amountOfStars = 1;
-            GameManager.instance.TotalStars +=1;
+            if (StarGainOnce == false)
+            {
+                GameManager.instance.TotalStars += 1;
+                StarGainOnce = true;
+            }
         }
     NoStars4u:;
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);

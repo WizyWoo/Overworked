@@ -22,15 +22,6 @@ namespace VolumeSliderCustomEditor
             DrawDefaultInspector();
 
             SoundManager _sM = (SoundManager)target;
-
-            GUILayout.Label("Click me :)");
-            if(GUILayout.Button("Press plz"))
-            {
-
-                Debug.Log("I am D pressed");
-
-            }
-
         }
 
     }
@@ -43,13 +34,13 @@ public class VolumeSlider : MonoBehaviour
 {
 
     public string BusPath = "vca:/Master";
-    public Slider VolSlider;
+    private Slider VolSlider;
     private Bus bus;
     private SoundSettings settings;
 
     private void Start()
     {
-
+        VolSlider = GetComponentInChildren<Slider>();
         bus = RuntimeManager.GetBus(BusPath);
         bus.getVolume(out float _vol);
         VolSlider.value = _vol;

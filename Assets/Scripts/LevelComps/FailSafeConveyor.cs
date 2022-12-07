@@ -5,7 +5,7 @@ using UnityEngine;
 public class FailSafeConveyor : MonoBehaviour
 {
 
-    [SerializeField, Tooltip("negative values go in reverse, positive values go forward")]
+    [Tooltip("negative values go in reverse, positive values go forward")]
     public Vector3 TransportDirection;
     public float TransportSpeed;
     private List<Rigidbody> rigidbodiesOnConveyor;
@@ -77,6 +77,15 @@ public class FailSafeConveyor : MonoBehaviour
 
         if (player)
             player.position += TransportDirection * (TransportSpeed / 60);
+
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawLine(transform.up + transform.position, transform.up + transform.position + TransportDirection.normalized);
 
     }
 
