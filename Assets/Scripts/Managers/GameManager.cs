@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public bool KonamiCode, ArcadeMode, ArcadeModeApp, AMAHardMode, AMAEasyMode, Easy,Hard; 
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalLoss;
     public bool FirstTimeRent, Overtime;
-    static private int levelNumberPlaying = 0;
+    static private int levelNumberPlaying = 5;
     private void Awake()
     {
         // Singleton
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
         string levelName = GetSceneName();
         char levelNumberName = levelName[levelName.Length - 1];
         //I have to substract 48 because in ASCII 1 in char is kept as 49, 2 as 50....
-        levelNumberPlaying = levelNumberName - 48;
+        if(levelNumberPlaying < levelNumberName - 48) levelNumberPlaying = levelNumberName - 48;
     }
     private void activateNextLevelButton(int levelNumber)
     {
