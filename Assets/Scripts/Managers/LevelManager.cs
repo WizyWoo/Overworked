@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour
     private Vector3 initialTickPosition;
     [SerializeField] SpriteRenderer tickImage;
 
+    private bool decideLevelNumber = true;
     protected virtual void Awake()
     {
         Instance = this;
@@ -213,7 +214,10 @@ public class LevelManager : MonoBehaviour
         }
     NoStars4u:;
         SoundManager.Instance.PlaySound(levelCompleted, gameObject);
-        GameManager.instance.decideNextLevelNumber();
+        if (decideLevelNumber) {
+            decideLevelNumber = false;
+            GameManager.instance.decideNextLevelNumber();
+        }
         Debug.Log("WIN THIS");
         StartCoroutine(Fadeout.FadeAndLoadScene(SimpleFade.FadeDirection.In,  true, false));
 
