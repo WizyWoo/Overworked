@@ -128,7 +128,7 @@ public class LocalMultiplayer_Manager : MonoBehaviour
                     if (level01_Manager != null) level01_Manager.UpdateMoney(level01_Manager.moneyWhenFall);
 
                     player.enabled = false;
-                    StartCoroutine(TeleportPlayerToSpawnPointInXsec(player.transform, player.playerIndex, 5));
+                    StartCoroutine(TeleportPlayerToSpawnPointInXsec(player.transform, player.playerIndex, 3));
                     if (player.itemGrabbed)
                         player.itemGrabbed.UngrabItem();
                     if (player.ItemsInRangeForGrabbing.Count > 0)
