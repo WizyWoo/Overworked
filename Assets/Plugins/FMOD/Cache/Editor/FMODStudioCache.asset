@@ -177,7 +177,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638055698871236877
+  lastModified: 638060119205860832
   FileSizes: []
   Exists: 1
 --- !u!114 &-7013925635876870676
@@ -222,7 +222,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_MUS.bank
   Name: BANK_MUS
   StudioPath: bank:/BANK_MUS
-  lastModified: 638055698871256880
+  lastModified: 638060119205890861
   FileSizes: []
   Exists: 1
 --- !u!114 &-6395970088701827795
@@ -294,7 +294,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_UI.bank
   Name: BANK_UI
   StudioPath: bank:/BANK_UI
-  lastModified: 638055698871586955
+  lastModified: 638060119207922698
   FileSizes: []
   Exists: 1
 --- !u!114 &-5763896511640301341
@@ -595,6 +595,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1924
+--- !u!114 &-2262211024739062265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Int/SFX_Int_Workbench_ItemBeingOvercrafted
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_Int/SFX_Int_Workbench_ItemBeingOvercrafted
+  Guid:
+    Data1: -1693307226
+    Data2: 1230800191
+    Data3: -751312728
+    Data4: -1974809150
+  Banks:
+  - {fileID: -2078946228132599203}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 425
 --- !u!114 &-2247200881874979971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,7 +664,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638055698871576952
+  lastModified: 638060119207552358
   FileSizes: []
   Exists: 1
 --- !u!114 &-2078278860544342615
@@ -815,7 +842,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_VO.bank
   Name: BANK_VO
   StudioPath: bank:/BANK_VO
-  lastModified: 638055698871596953
+  lastModified: 638060119207942719
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -881,13 +908,44 @@ MonoBehaviour:
   - {fileID: -3733363094700362902}
   - {fileID: -2754903120863312645}
   - {fileID: -5323072619767689148}
+  - {fileID: -2262211024739062265}
+  - {fileID: 6411052702024411650}
+  - {fileID: 892677836918855524}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6227528845335756635}
   StringsBanks:
   - {fileID: 3934386581715932662}
-  cacheTime: 638055698871606966
+  cacheTime: 638060119207982756
   cacheVersion: 131592
+--- !u!114 &892677836918855524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_TimeRunningOut
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_TimeRunningOut
+  Guid:
+    Data1: -581094749
+    Data2: 1243172320
+    Data3: 1625079998
+    Data4: 1226855325
+  Banks:
+  - {fileID: -5904875680374562213}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 4889153725405595193}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1322963632927291879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,10 +1070,10 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638055698871606966
+  lastModified: 638060119207982756
   FileSizes:
   - Name: 
-    Value: 3334
+    Value: 3478
   Exists: 1
 --- !u!114 &4087311182728410636
 MonoBehaviour:
@@ -1071,6 +1129,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5550
+--- !u!114 &4889153725405595193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/UI_TimeRunningOut/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2356696134
+    data2: 2956140787
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &5216475396354252440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,9 +1276,36 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638055698871606966
+  lastModified: 638060119207962736
   FileSizes: []
   Exists: 1
+--- !u!114 &6411052702024411650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_LevelUnlock
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_LevelUnlock
+  Guid:
+    Data1: -1331794412
+    Data2: 1137436333
+    Data3: 983565206
+    Data4: -1051232621
+  Banks:
+  - {fileID: -5904875680374562213}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2196
 --- !u!114 &6433444256502910416
 MonoBehaviour:
   m_ObjectHideFlags: 0
