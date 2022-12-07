@@ -645,8 +645,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 7.8
+  MaxDistance: 85
   Length: 673
 --- !u!114 &-2078946228132599203
 MonoBehaviour:
