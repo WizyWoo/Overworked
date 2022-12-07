@@ -1705,6 +1705,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4255503816851314070, guid: a370c4838666dd14b9199f922ec21e63,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e114654832f872c449ecdfc7873138fa,
+        type: 2}
+    - target: {fileID: 4255503816851314070, guid: a370c4838666dd14b9199f922ec21e63,
+        type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
@@ -1713,6 +1719,12 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 24.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4255503816851314070, guid: a370c4838666dd14b9199f922ec21e63,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2967825594435957670, guid: e114654832f872c449ecdfc7873138fa,
+        type: 2}
     - target: {fileID: 4544070423533174214, guid: a370c4838666dd14b9199f922ec21e63,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3161,8 +3173,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press  SPACE  or          to join
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e114654832f872c449ecdfc7873138fa, type: 2}
+  m_sharedMaterial: {fileID: 2967825594435957670, guid: e114654832f872c449ecdfc7873138fa,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11619,8 +11632,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go To Work
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e114654832f872c449ecdfc7873138fa, type: 2}
+  m_sharedMaterial: {fileID: 2967825594435957670, guid: e114654832f872c449ecdfc7873138fa,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13085,8 +13099,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press  L  or            to exit '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e114654832f872c449ecdfc7873138fa, type: 2}
+  m_sharedMaterial: {fileID: 2967825594435957670, guid: e114654832f872c449ecdfc7873138fa,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
