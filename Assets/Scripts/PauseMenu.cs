@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public  bool isPaused;
+    public static bool isPaused;
     bool ShowSettings, ShowTutorial;
     public GameObject PauseMenuPrefab;
     public KeyCode PauseMenuKey;
