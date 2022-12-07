@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public bool FirstTimeRent, Overtime;
     static private int levelNumberPlaying = 0;
     static private bool activateNextButton = false;
-    public FMODUnity.EventReference unlockLevelSound, levelClick, genericClick;
+    public FMODUnity.EventReference unlockLevelSound, levelClick, genericClick, backFromMenu;
     private void Awake()
     {
         // Singleton
@@ -223,6 +223,9 @@ public class GameManager : MonoBehaviour
                 break;
             case "genericClick":
                 SoundManager.Instance.PlaySound(genericClick, gameObject);
+                break;
+            case "backFromMenu":
+                SoundManager.Instance.PlaySound(backFromMenu, gameObject);
                 break;
             default:
                 break;

@@ -34,20 +34,24 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(PauseMenuKey))
         {
             isPaused = !isPaused;
-        }
-        if (isPaused == true)
-        {
-            Time.timeScale = 0f;
-            PauseMenuPrefab.SetActive(true);
-        }
-        if (isPaused == false)
-        {
-            Time.timeScale = 1;
-            PauseMenuPrefab.SetActive(false);  
+        
+            if (isPaused) {
+                Time.timeScale = 0f;
+                PauseMenuPrefab.SetActive(true);
+            }
+            else {
+                Resume();
+            }
         }
     }
 
-    
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        GameManager.instance.reproduceSound("backFromMenu");
+        PauseMenuPrefab.SetActive(false);
+        isPaused = false;
+    }
 
     public void GoToSetting()
     {

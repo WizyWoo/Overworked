@@ -89,6 +89,13 @@ MonoBehaviour:
       Data3: 362279059
       Data4: -1966017238
     Path: event:/UI/UI_ButtonClick_1
+  backFromMenu:
+    Guid:
+      Data1: 2032186562
+      Data2: 1243950239
+      Data3: 158604431
+      Data4: 127935612
+    Path: event:/UI/UI_ReturnBack
 --- !u!1001 &747363002848213718
 PrefabInstance:
   m_ObjectHideFlags: 0
