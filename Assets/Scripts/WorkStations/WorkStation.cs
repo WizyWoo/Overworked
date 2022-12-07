@@ -70,7 +70,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     [Header("Workstation Settings")]
     [Tooltip("How far away the player can interact with the table from")]
     public float UseRange;
-    [Tooltip("The speed at which you do work at this station")]
+    [Tooltip("The speed at which the item is crafted in %, meaning at 50 it will take 2 seconds")]
     public float CraftingSpeed, OverCraftingSpeed;
     [Tooltip("A multiplier for how much stamina you use at this station, 0 = no stamina used")]
     public float WorkIntensity;
