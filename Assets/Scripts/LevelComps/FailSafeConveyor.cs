@@ -85,7 +85,9 @@ public class FailSafeConveyor : MonoBehaviour
 
         Gizmos.color = Color.green;
 
-        Gizmos.DrawLine(transform.up + transform.position, transform.up + transform.position + TransportDirection.normalized);
+        Vector3 _up = transform.up + transform.position;
+
+        Gizmos.DrawLine(_up, _up + TransportDirection.normalized);
 
     }
 

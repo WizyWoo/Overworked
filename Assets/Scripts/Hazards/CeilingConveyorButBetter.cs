@@ -51,7 +51,9 @@ public class CeilingConveyorButBetter : MonoBehaviour
     private void SpawnItem()
     {
 
-        Transform _tempItem = Instantiate(train, points[0].position, Quaternion.identity).transform;
+        GameObject _selectedObject = train;
+
+        Transform _tempItem = Instantiate(_selectedObject, points[0].position, Quaternion.identity).transform;
 
         spawnedItems.Add(_tempItem);
         timers.Add(0);
