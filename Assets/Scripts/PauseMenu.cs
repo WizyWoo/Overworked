@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         isPaused = false;
+        PauseMenuPrefab.SetActive(false);
     }
 
     public void RestartScene()
