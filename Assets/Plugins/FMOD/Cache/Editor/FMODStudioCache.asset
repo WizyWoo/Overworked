@@ -54,6 +54,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &-8404639829969428793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/UI_TimeRunningOut/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2356696134
+    data2: 2956140787
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8386418375633711096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_LevelUnlock
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_LevelUnlock
+  Guid:
+    Data1: -1331794412
+    Data2: 1137436333
+    Data3: 983565206
+    Data4: -1051232621
+  Banks:
+  - {fileID: -5904875680374562213}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2196
 --- !u!114 &-8287581561803501039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +129,34 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8025105625347433411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_TimeRunningOut
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_TimeRunningOut
+  Guid:
+    Data1: -581094749
+    Data2: 1243172320
+    Data3: 1625079998
+    Data4: 1226855325
+  Banks:
+  - {fileID: -5904875680374562213}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -8404639829969428793}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -177,7 +256,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_AMBX.bank
   Name: BANK_AMBX
   StudioPath: bank:/BANK_AMBX
-  lastModified: 638056407288728052
+  lastModified: 638058284676299981
   FileSizes: []
   Exists: 1
 --- !u!114 &-7013925635876870676
@@ -222,7 +301,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_MUS.bank
   Name: BANK_MUS
   StudioPath: bank:/BANK_MUS
-  lastModified: 638056407288738082
+  lastModified: 638058284676319994
   FileSizes: []
   Exists: 1
 --- !u!114 &-6395970088701827795
@@ -321,7 +400,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_UI.bank
   Name: BANK_UI
   StudioPath: bank:/BANK_UI
-  lastModified: 638056407289133452
+  lastModified: 638058284684110932
   FileSizes: []
   Exists: 1
 --- !u!114 &-5763896511640301341
@@ -691,7 +770,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_SFX.bank
   Name: BANK_SFX
   StudioPath: bank:/BANK_SFX
-  lastModified: 638056407289113436
+  lastModified: 638058284677518227
   FileSizes: []
   Exists: 1
 --- !u!114 &-2078278860544342615
@@ -869,7 +948,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/BANK_VO.bank
   Name: BANK_VO
   StudioPath: bank:/BANK_VO
-  lastModified: 638056407289133452
+  lastModified: 638058284684130946
   FileSizes: []
   Exists: 1
 --- !u!114 &-21479284965233367
@@ -962,12 +1041,14 @@ MonoBehaviour:
   - {fileID: 3744184563548812411}
   - {fileID: -2352703136393970748}
   - {fileID: 2093083511056663329}
+  - {fileID: -8386418375633711096}
+  - {fileID: -8025105625347433411}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6227528845335756635}
   StringsBanks:
   - {fileID: 3934386581715932662}
-  cacheTime: 638056407289153473
+  cacheTime: 638058284684160972
   cacheVersion: 131592
 --- !u!114 &1322963632927291879
 MonoBehaviour:
@@ -1174,10 +1255,10 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638056407289153473
+  lastModified: 638058284684160972
   FileSizes:
   - Name: 
-    Value: 3334
+    Value: 3428
   Exists: 1
 --- !u!114 &4087311182728410636
 MonoBehaviour:
@@ -1356,7 +1437,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638056407289143461
+  lastModified: 638058284684150965
   FileSizes: []
   Exists: 1
 --- !u!114 &6433444256502910416
