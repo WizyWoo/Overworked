@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalLoss;
     public bool FirstTimeRent, Overtime;
     static private int levelNumberPlaying = 0;
-    static private bool activateNextButton = true;
+    static private bool activateNextButton = false;
+    public FMODUnity.EventReference unlockLevelSound, levelClick, genericClick;
     private void Awake()
     {
         // Singleton
@@ -200,10 +201,31 @@ public class GameManager : MonoBehaviour
         }
         if(levelNumber - 1 >= 0)
         {
-            if (activateNextButton)
+            if (activateNextButton) {
                 animators[levelNumber - 1].enabled = true;
+            }
+               
             else
                 animators[levelNumber - 1].gameObject.SetActive(false);
+        }
+    }
+
+    public void reproduceSound(string sound)
+    {
+        switch (sound)
+        {
+            case "unlockLevelSound":
+                if(activateNextButton)
+                    SoundManager.Instance.PlaySound(unlockLevelSound, gameObject);
+                break;
+            case "levelClickDefault":
+                SoundManager.Instance.PlaySound(levelClick, gameObject);
+                break;
+            case "genericClick":
+                SoundManager.Instance.PlaySound(genericClick, gameObject);
+                break;
+            default:
+                break;
         }
     }
 }
