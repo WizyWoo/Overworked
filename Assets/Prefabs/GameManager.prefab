@@ -45,16 +45,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f83a65ab7ee92748a4641dd908632aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons: []
+  animators: []
   overworked: 0
+  CurrentLevel: 
   onlyOnePlayer: 1
+  FakeReset: 0
   KonamiCode: 0
+  ArcadeMode: 0
+  ArcadeModeApp: 0
+  AMAHardMode: 0
+  AMAEasyMode: 0
+  Easy: 0
+  Hard: 0
   finishedMoneyLevel: 0
   amountOfStars: 0
   minimumMoney: 0
   TotalMoney: 100
   TotalDebt: 0
+  TrainPercent: 0
+  TotalStars: 0
+  TotalLoss: 0
   FirstTimeRent: 1
   Overtime: 0
+  unlockLevelSound:
+    Guid:
+      Data1: -1331794412
+      Data2: 1137436333
+      Data3: 983565206
+      Data4: -1051232621
+    Path: event:/UI/UI_LevelUnlock
+  levelClick:
+    Guid:
+      Data1: 1183923612
+      Data2: 1315837575
+      Data3: -1790511686
+      Data4: -291283314
+    Path: event:/UI/UI_SelectedLevel
+  genericClick:
+    Guid:
+      Data1: 1583012742
+      Data2: 1324114536
+      Data3: 362279059
+      Data4: -1966017238
+    Path: event:/UI/UI_ButtonClick_1
 --- !u!1001 &747363002848213718
 PrefabInstance:
   m_ObjectHideFlags: 0
