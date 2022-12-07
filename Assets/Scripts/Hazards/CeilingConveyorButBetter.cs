@@ -53,6 +53,13 @@ public class CeilingConveyorButBetter : MonoBehaviour
 
         GameObject _selectedObject = train;
 
+        if(Random.Range(0, 100) > 5)
+        {
+
+            _selectedObject = conveyorObjects[Random.Range(0, conveyorObjects.Length)];
+
+        }
+
         Transform _tempItem = Instantiate(_selectedObject, points[0].position, Quaternion.identity).transform;
 
         spawnedItems.Add(_tempItem);
