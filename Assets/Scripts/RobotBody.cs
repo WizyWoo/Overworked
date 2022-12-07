@@ -62,10 +62,15 @@ public class RobotBody : MonoBehaviour
                 //if (item.GetComponentInParent<PlayerController>() != null
                 //    && TutorialManager.GetInstance().currentPhase != TutorialManager.tutorialPhase.assembleArm)
                 //    return;
-
+                
+                //Just to bypass the code incase we need to use the emergency fix
+                if (TutorialManager.GetInstance() == null)
+                {
+                    goto wecouldntfixit;
+                }
                 // Inform tutorial manager
                 TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.assembleArm);
-
+            wecouldntfixit:
                 if (!leftArmAssembled)
                 {
                     newSpot = leftArm_Spot;
@@ -83,9 +88,12 @@ public class RobotBody : MonoBehaviour
                 else return;
             }
             else if (item.typeOfItem == CraftableItem.TypeOfRepairableItem.wheel)
-            {
+            {if(TutorialManager.GetInstance() == null)
+                {
+                    goto wecouldntfixit;
+                }
                 TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.assembleOtherRobot);
-
+                wecouldntfixit:
                 if (!wheelAssembled)
                 {
                     newSpot = wheel_Spot;

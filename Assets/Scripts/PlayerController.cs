@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float staminaCooldown;
     [SerializeField] float regainStaminaWhenExhausted;
     [HideInInspector] public bool exhausted;
-    [SerializeField] float regainStaminaSpeed;
+    [SerializeField] public float regainStaminaSpeed;
     [SerializeField] Color zeroStamina;
     [SerializeField] Color midStamina;
     [SerializeField] Color fullStamina;

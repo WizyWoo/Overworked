@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool isPaused;
+    public  bool isPaused;
     bool ShowSettings, ShowTutorial;
     public GameObject PauseMenuPrefab;
     public KeyCode PauseMenuKey;
@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     //  which is enabled / disabled while "browsing" the menu
     public GameObject SettingsUI, PauseMenuUI, TutorialUI;
 
-    void Start()
+    void Awake()
     {
         isPaused = false;
         PauseMenuPrefab.SetActive(false);

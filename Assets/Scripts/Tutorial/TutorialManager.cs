@@ -58,14 +58,14 @@ public class TutorialManager : MonoBehaviour
         tutorialPhase.grabWheelFromConveyor, tutorialPhase.throwWheel_p1, tutorialPhase.grabWheelFromFloor_p2, tutorialPhase.repairWheel, tutorialPhase.grabWheelFromRepairTable,
         tutorialPhase.throwWheel_p2, tutorialPhase.grabWheelFromFloor_p1, tutorialPhase.assembleOtherRobot, tutorialPhase.tutorialDone
     };
-
+    /*
     tutorialPhase[] tutPhasesOneplayer =
     {
         tutorialPhase.grabArmFromConveyor, tutorialPhase.repairArm,
         tutorialPhase.grabArmFromRepairTable, tutorialPhase.assembleArm,
         tutorialPhase.assembleOtherRobot, tutorialPhase.tutorialDone
     };
-
+    */
 
     tutorialPhase[] usingThisTutorialPhases;
 
@@ -123,9 +123,9 @@ public class TutorialManager : MonoBehaviour
     {
         duringTutorial = true;
 
-        if (GameManager.instance.onlyOnePlayer)
-            usingThisTutorialPhases = tutPhasesOneplayer;
-        else
+       // if (GameManager.instance.onlyOnePlayer)
+           // usingThisTutorialPhases = tutPhasesOneplayer;
+     //   else
             usingThisTutorialPhases = tutPhasesMultiplayer;
 
         currentPhase = usingThisTutorialPhases[0];

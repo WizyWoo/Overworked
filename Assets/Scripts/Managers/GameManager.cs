@@ -130,10 +130,12 @@ public class GameManager : MonoBehaviour
     }
     public void JustStartTheReset()
     {
+        
         StartCoroutine(FakeResetVoid());
     }
     private IEnumerator FakeResetVoid()
     {
+        
         SceneManager.LoadScene("MainMenu");
         StartCoroutine(ResetPart2());
         yield return new WaitForSeconds(0);
@@ -142,6 +144,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ResetPart2()
     {
         SceneManager.LoadScene(CurrentLevel);
+        
         yield return new WaitForSeconds(0);
     }
     //IEnumerator LoadScene_IEnum()

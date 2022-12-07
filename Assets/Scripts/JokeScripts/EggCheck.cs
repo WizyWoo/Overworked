@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EggCheck : MonoBehaviour
 {
     public GameObject Egg, Dog;
@@ -24,6 +24,10 @@ public class EggCheck : MonoBehaviour
         {
             Egg.SetActive(false);
             Dog.SetActive(true);
+        }
+        if(SceneManager.GetActiveScene().name != "MainMenu" && GameManager.instance.KonamiCode == true)
+        {
+            gameObject.GetComponent<PlayerController>().regainStaminaSpeed = 200;
         }
     }
 }
