@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalLoss;
     public bool FirstTimeRent, Overtime;
     static private int levelNumberPlaying = 0;
+    static private bool activateNextButton = false;
+    public FMODUnity.EventReference unlockLevelSound, levelClick, genericClick, backFromMenu;
     private void Awake()
     {
         // Singleton
@@ -175,7 +177,12 @@ public class GameManager : MonoBehaviour
         string levelName = GetSceneName();
         char levelNumberName = levelName[levelName.Length - 1];
         //I have to substract 48 because in ASCII 1 in char is kept as 49, 2 as 50....
-        levelNumberPlaying = levelNumberName - 48;
+        if (levelNumberPlaying < levelNumberName - 48)
+        {
+            activateNextButton = true;
+            levelNumberPlaying = levelNumberName - 48;
+        }
+        else activateNextButton = false;
     }
     private void activateNextLevelButton(int levelNumber)
     {
@@ -185,12 +192,43 @@ public class GameManager : MonoBehaviour
             if(!buttons[i].isActiveAndEnabled) buttons[i].enabled = true;
         }
         //Disable the locker and black screen of levels unlocked
-        for (int i = 1; i < levelNumber + 1; i++)
+        for (int i = 1; i < levelNumber; i++)
         {
             if (animators[i - 1].gameObject.activeSelf)
             {
-                animators[i - 1].enabled = true;
+                animators[i - 1].gameObject.SetActive(false);
             }
+        }
+        if(levelNumber - 1 >= 0)
+        {
+            if (activateNextButton) {
+                animators[levelNumber - 1].enabled = true;
+            }
+               
+            else
+                animators[levelNumber - 1].gameObject.SetActive(false);
+        }
+    }
+
+    public void reproduceSound(string sound)
+    {
+        switch (sound)
+        {
+            case "unlockLevelSound":
+                if(activateNextButton)
+                    SoundManager.Instance.PlaySound(unlockLevelSound, gameObject);
+                break;
+            case "levelClickDefault":
+                SoundManager.Instance.PlaySound(levelClick, gameObject);
+                break;
+            case "genericClick":
+                SoundManager.Instance.PlaySound(genericClick, gameObject);
+                break;
+            case "backFromMenu":
+                SoundManager.Instance.PlaySound(backFromMenu, gameObject);
+                break;
+            default:
+                break;
         }
     }
 }
