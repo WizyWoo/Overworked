@@ -584,7 +584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BusPath: bus:/G_VO
-  VolSlider: {fileID: 778065689244742105}
 --- !u!1 &778065689249922466
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +971,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BusPath: bus:/G_MUS
-  VolSlider: {fileID: 778065689525076632}
 --- !u!1 &778065689555454330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BusPath: bus:/G_SFX
-  VolSlider: {fileID: 778065689852282552}
 --- !u!1 &778065689909098365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BusPath: bus:/G_AMBX
-  VolSlider: {fileID: 778065689936911726}
 --- !u!1 &778065690059448001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,6 +2420,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8482794919417174578, guid: 76edd319476361e4eab620a03f5ffb2e,
+          type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: reproduceSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: genericClick
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4534948224405278343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,7 +2796,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BusPath: bus:/
-  VolSlider: {fileID: 6483608282894560233}
 --- !u!1 &8165739034861668112
 GameObject:
   m_ObjectHideFlags: 0
