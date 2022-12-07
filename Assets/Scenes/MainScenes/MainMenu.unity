@@ -11561,7 +11561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1558965375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11580,7 +11580,7 @@ MonoBehaviour:
   Rent: 0
   LeftoverMoney: 0
   bonusDebt: 0
-  MoneyText: {fileID: 0}
+  MoneyText: {fileID: 1623426293}
   TaxText: {fileID: 0}
   DebtText: {fileID: 0}
   RentText: {fileID: 0}
