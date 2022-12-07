@@ -515,18 +515,39 @@ public class PlayerController : MonoBehaviour
 
 
         itemGrabbed.transform.SetParent(grabSpot);
-        itemGrabbed.transform.DOMove(grabSpot.position, grabTime);
+        //itemGrabbed.transform.DOMove(grabSpot.position, grabTime);
+
+        StartCoroutine(MoveItemToAssembledSpot(itemGrabbed.transform, grabSpot.transform, .5f));
+
         itemGrabbed.GrabItem();
 
         // Take it out of the inrange grabbable items list
         // Do no take into account this object for grabbing
         RemoveItem(itemGrabbed);
 
-        currentlyGrabbingAnItem = true;
+        //currentlyGrabbingAnItem = true;
         yield return new WaitForSeconds(grabTime);
         currentlyGrabbingAnItem = false;
     }
-   public void DropItem(float throwForce)
+
+    [SerializeField] AnimationCurve animationCurve;
+    float assembleVelocity = 2;
+    IEnumerator MoveItemToAssembledSpot(Transform item, Transform assembleSpot, float seconds)
+    {
+        Vector3 initialPosition = item.position;
+
+        float c = 0;
+        while (Vector3.Distance(assembleSpot.position, item.position) > 0.001f)
+        {
+            item.transform.position = Vector3.Lerp(initialPosition, assembleSpot.position, animationCurve.Evaluate(c));
+            //item.transform.position = Vector3.Lerp(initialPosition, assembleSpot.position, c);
+            c += (Time.deltaTime / seconds);
+            c = Mathf.Clamp(c, 0, 1);
+            yield return new WaitForSeconds(0);
+        }
+    }
+
+    public void DropItem(float throwForce)
     {
         Debug.Log("DropItem");
         grabDelay = true;
@@ -557,7 +578,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     
-
     #region Movement
 
     private void FixedUpdate()
