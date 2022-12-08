@@ -16,13 +16,14 @@ public class PauseMenu : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         isPaused = false;
         PauseMenuPrefab.SetActive(false);
     }
 
     public void RestartScene()
     {
-
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
