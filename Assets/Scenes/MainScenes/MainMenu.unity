@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414738, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12436,6 +12436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1695975832}
+  - component: {fileID: 1695975833}
   m_Layer: 5
   m_Name: LevelSelect
   m_TagString: Untagged
@@ -12464,6 +12465,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1695975833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695975831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079f9d8998c3712458b394fa8de6f2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LockedButtons:
+  - {fileID: 1444279101}
+  - {fileID: 1862971584}
+  - {fileID: 982356395}
+  - {fileID: 268908439}
+  - {fileID: 977353754}
+  - {fileID: 937585383}
+  - {fileID: 30739692}
+  - {fileID: 1373546655}
+  LockedLevels:
+  - {fileID: 683959796}
+  - {fileID: 1238408036}
+  - {fileID: 1476505403}
+  - {fileID: 1756583596}
+  - {fileID: 2008783335}
+  - {fileID: 803619902}
+  - {fileID: 536211189}
+  - {fileID: 975480432}
 --- !u!1 &1721906331
 GameObject:
   m_ObjectHideFlags: 0
@@ -14593,6 +14624,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411715059244659139, guid: 7a0c3049776bb1b43be9ee13364bbe6c,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411715059244659139, guid: 7a0c3049776bb1b43be9ee13364bbe6c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411715059244659139, guid: 7a0c3049776bb1b43be9ee13364bbe6c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411715059244659139, guid: 7a0c3049776bb1b43be9ee13364bbe6c,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -14629,12 +14675,12 @@ PrefabInstance:
     - target: {fileID: 6411715059244659139, guid: 7a0c3049776bb1b43be9ee13364bbe6c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 6411715059244659139, guid: 7a0c3049776bb1b43be9ee13364bbe6c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -110
+      value: -109.99996
       objectReference: {fileID: 0}
     - target: {fileID: 6411715059244659139, guid: 7a0c3049776bb1b43be9ee13364bbe6c,
         type: 3}
