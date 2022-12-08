@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Time.timeScale = 1;
+        }
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             CurrentLevel = SceneManager.GetActiveScene().name;
@@ -112,6 +116,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
     public void Easymode()
@@ -135,7 +140,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator FakeResetVoid()
     {
-        
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
         StartCoroutine(ResetPart2());
         yield return new WaitForSeconds(0);
