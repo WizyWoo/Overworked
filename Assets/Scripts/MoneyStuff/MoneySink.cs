@@ -54,6 +54,7 @@ public class MoneySink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         MoneyText.text = "Money: " + Money;
         TaxText.text = "Tax: " + Tax;
         DebtText.text = "Debt: " + Debt;
@@ -63,7 +64,7 @@ public class MoneySink : MonoBehaviour
         {
             GameManager.instance.Overtime = true;
         }
-        
+        */
     }
     //we pay off rent here using PayPal, jokes aside it just checks if you have paid the landlord "today"
     //and if not it doesnt remove what's left of your money
