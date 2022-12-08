@@ -418,7 +418,7 @@ public class PlayerController : MonoBehaviour
                 itemGrabbed = nearestItem;
                 StartCoroutine("GrabItem");
 
-                if(SceneManager.GetActiveScene().name == "Level_01")
+                if(SceneManager.GetActiveScene().name == "Level_420GetFucked")
                 {
 
                     if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)

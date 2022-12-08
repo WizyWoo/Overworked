@@ -137,10 +137,10 @@ public class CraftableItem : GrabbableItem
         if(ResizeWhenDone)
             ItemSprite.transform.localScale = NewSize;
 
-        if (typeOfItem == TypeOfRepairableItem.arm)
+        /*if (typeOfItem == TypeOfRepairableItem.arm)
             TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairArm);
         else if (typeOfItem == TypeOfRepairableItem.wheel)
-            TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairWheel);
+            TutorialManager.GetInstance().TryToChangePhase(TutorialManager.tutorialPhase.repairWheel);*/
     }
 
     public void ItemAssembled(Sprite finalSprite = null)
