@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     [Header("REFERENCES")]
     public static LevelManager Instance;
     [Header("FMOD SOUNDS")]
-    public FMODUnity.EventReference levelCompleted;
+    public FMODUnity.EventReference levelCompleted, timerShaking;
     public bool loseMoney, incrementOnce, StarGainOnce;
     public SimpleFade Fadeout;
     [Header("MONEY STUFF")]
@@ -108,8 +108,9 @@ public class LevelManager : MonoBehaviour
 
         if((currentTime / maxTime) * 0.49f > 0.004f)
             topTimerPart.fillAmount = (currentTime / maxTime) * 0.49f + 0.51f;
-        else
+        else    
             timerEndAnimation.Play();
+            
 
         bottomTimerPart.fillAmount = 1 - (currentTime / maxTime);
 
@@ -119,11 +120,13 @@ public class LevelManager : MonoBehaviour
         }
         else if (currentTime <= 30) //hope this means 30 last seconds
         {
+            SoundManager.Instance.PlaySound(timerShaking, gameObject, SoundManager.SoundType.Loop);
             timerShakeAnimation.Play();
         }
         // Check win/lose condition
         if (currentTime <= 0)
         {
+            SoundManager.Instance.StopSound(timerShaking, gameObject);
             currentTime = 0;
 
             GameManager.instance.finishedMoneyLevel = money;

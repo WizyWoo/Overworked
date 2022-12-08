@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6508072206982985238}
   - component: {fileID: 5106738672704497803}
   - component: {fileID: 8306085785107553787}
+  - component: {fileID: 6510647667885938756}
   m_Layer: 0
   m_Name: Lava_Splash_ParticleSystem
   m_TagString: Untagged
@@ -4870,3 +4871,22 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6510647667885938756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7433332644357482773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2c678445fc7714b9fba4a982973188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lavaSplashSound:
+    Guid:
+      Data1: 134104747
+      Data2: 1281496497
+      Data3: -614403150
+      Data4: -1209014730
+    Path: event:/SFX/SFX_Envior/SFX_Envior_LavaSplash
