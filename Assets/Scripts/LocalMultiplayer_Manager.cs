@@ -97,7 +97,7 @@ public class LocalMultiplayer_Manager : MonoBehaviour
             currentTime -= Time.deltaTime;
 
             spawnText[spawnPoint].text = Mathf.CeilToInt(currentTime).ToString();
-            spawnRadialImage[spawnPoint].fillAmount = 1 - (currentTime / 5);
+            spawnRadialImage[spawnPoint].fillAmount = 1 - (currentTime / 3);
 
             yield return 0;
         }

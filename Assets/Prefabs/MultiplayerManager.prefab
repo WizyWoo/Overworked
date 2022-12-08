@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allPlayers: []
-  fallDistanceBeforeRespawning: -10
+  fallDistanceBeforeRespawning: -5
   playerContainer: {fileID: 5718706634494998751}
   spawnpoints:
   - {fileID: 5718706635163498406}

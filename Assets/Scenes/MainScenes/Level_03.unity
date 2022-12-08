@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06321067, g: 0.0852921, b: 0.1325617, a: 1}
+  m_IndirectSpecularColor: {r: 0.063215464, g: 0.08529005, b: 0.13257438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1850,6 +1850,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisLevelsManager: {fileID: 1058643987}
   Penalty: -5
+  lavaSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &528720841
 BoxCollider:
   m_ObjectHideFlags: 0
