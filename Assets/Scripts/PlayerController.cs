@@ -464,7 +464,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
             if (itemGrabbed != null)
             {
-                if(SceneManager.GetActiveScene().name == "Level_01")
+                if(SceneManager.GetActiveScene().name == "Level_420FuckkenHell")
                 {
 
                     if (itemGrabbed.GetComponent<CraftableItem>().typeOfItem == CraftableItem.TypeOfRepairableItem.arm)
