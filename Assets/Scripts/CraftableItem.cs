@@ -58,6 +58,7 @@ public class CraftableItem : GrabbableItem
     public SpriteRenderer ItemSprite;
     public Sprite AssembledItemSprite;
     [SerializeField] protected bool assembled;
+    public bool OnCooldown {get; private set;}
     public bool delivered;
     virtual public bool Assembled
     {
@@ -69,7 +70,12 @@ public class CraftableItem : GrabbableItem
         {
             //It's all good ;)
             assembled = value;
-            if (value) ItemAssembled();
+            if(value)
+            {   
+                ItemAssembled();
+                OnCooldown = true;
+                Invoke(nameof(FinishCooldown), 3f);
+            }
         }
     }
 
@@ -105,6 +111,8 @@ public class CraftableItem : GrabbableItem
             }
         }
     }
+
+    private void FinishCooldown() => OnCooldown = false;
 
     public EventReference BrokenSound;
 

@@ -109,7 +109,7 @@ public class FreezingStation : WorkStation
 
         freezing = false;
 
-        if(CraftingItem && CraftingItem.typeOfItem == itemToFreeze)
+        if(CraftingItem && CraftingItem.typeOfItem == itemToFreeze && !CraftingItem.OnCooldown)
         {
 
             freezing = true;
@@ -127,8 +127,10 @@ public class FreezingStation : WorkStation
                 FinishedCraftingParticle.Play();
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                 SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
-                SoundManager.Instance.PlaySound(overcraftSound, gameObject, SoundManager.SoundType.Loop);
+                
             }
+            else if(CraftingItem.Progress > 100)
+                SoundManager.Instance.PlaySound(overcraftSound, gameObject, SoundManager.SoundType.Loop);
 
         }
         else

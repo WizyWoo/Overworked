@@ -89,7 +89,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     [SerializeField] protected Outline outlineScript;
     //This shite happens when the player interacts with the station
     public virtual void Activate(Transform _player = null, bool _buttonDown = true)
-    {
+    {/*
 
         if(!_player)
         {
@@ -130,7 +130,7 @@ public class WorkStation : MonoBehaviour , IInteractable
 
         }
 
-    }
+    */}
 
     //Places item on station if it hits the trigger :)
     private void OnTriggerEnter(Collider _col)
@@ -165,8 +165,7 @@ public class WorkStation : MonoBehaviour , IInteractable
             ItemOnStation.transform.SetParent(null);
             ItemOnStation.transform.position = DisplayPoint.position;
             ItemOnStation.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            ItemOnStation.OnWorkstation = this;          
-
+            ItemOnStation.OnWorkstation = this;
 
         }
         

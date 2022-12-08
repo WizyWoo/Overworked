@@ -239,7 +239,7 @@ public class CraftingStation : WorkStation
 
         }
 
-        if(CraftingItem.NeedsCrafting)
+        if(CraftingItem.NeedsCrafting && !CraftingItem.OnCooldown)
         {
 
             SoundManager.Instance.PlaySound(CraftingSoundEvent, gameObject, SoundManager.SoundType.Loop);
@@ -267,8 +267,10 @@ public class CraftingStation : WorkStation
                 FinishedCraftingParticle.Play();
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
                 SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
-                SoundManager.Instance.PlaySound(overcraftSound, gameObject, SoundManager.SoundType.Loop);
+
             }
+            else if(CraftingItem.Progress > 100)
+                SoundManager.Instance.PlaySound(overcraftSound, gameObject, SoundManager.SoundType.Loop);
 
         }
         else
