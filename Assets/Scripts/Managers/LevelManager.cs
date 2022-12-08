@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float maxTime;
     [SerializeField] Image topTimerPart, bottomTimerPart;
     [SerializeField] Animation timerEndAnimation, timerShakeAnimation;
-    float currentTime;
+    public float currentTime;
 
     [Header(stringLine + "CONVEYOR BELTS SPEEDS" + stringLine + "\n")]
     [SerializeField] float slow_conveyorBeltSpeed;

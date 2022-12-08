@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public InputDevice[] currentPlayerDevices;
     public string CurrentLevel;
     public bool onlyOnePlayer;
-    public bool FakeReset;
+    public bool FakeReset, UnlockEverything;
     public bool KonamiCode, ArcadeMode, ArcadeModeApp, AMAHardMode, AMAEasyMode, Easy,Hard; 
     public int finishedMoneyLevel, amountOfStars, minimumMoney, TotalMoney, TotalDebt, TrainPercent, TotalStars, TotalLoss;
     public bool FirstTimeRent, Overtime;
