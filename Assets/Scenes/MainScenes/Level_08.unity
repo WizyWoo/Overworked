@@ -1818,7 +1818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327b3186ac5c67d48b4eee004d8f76dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisLevelsManager: {fileID: 0}
+  ThisLevelsManager: {fileID: 1058643987}
   Penalty: -5
   lavaSound:
     Guid:
