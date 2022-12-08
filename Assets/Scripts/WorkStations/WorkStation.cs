@@ -10,6 +10,7 @@ public class WorkStation : MonoBehaviour , IInteractable
     protected PlayerController[] playersInScene;
     [SerializeField]
     protected LocalMultiplayer_Manager localMultiplayer;
+    public FMODUnity.EventReference overcraftSound;
     private void Start()
     {
 

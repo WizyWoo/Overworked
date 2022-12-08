@@ -233,6 +233,7 @@ public class CraftingStation : WorkStation
 
             Crafting = false;
             OverCrafting = false;
+            SoundManager.Instance.StopSound(overcraftSound, gameObject);
             SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
             return;
 
@@ -265,7 +266,8 @@ public class CraftingStation : WorkStation
                 CraftingItem.Assembled = true;
                 FinishedCraftingParticle.Play();
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
-
+                SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
+                SoundManager.Instance.PlaySound(overcraftSound, gameObject, SoundManager.SoundType.Loop);
             }
 
         }
@@ -274,8 +276,8 @@ public class CraftingStation : WorkStation
 
             Crafting = false;
             OverCrafting = false;
+            SoundManager.Instance.StopSound(overcraftSound, gameObject);
             SoundManager.Instance.StopSound(CraftingSoundEvent, gameObject);
-
         }
 
 

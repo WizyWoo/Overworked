@@ -126,7 +126,8 @@ public class FreezingStation : WorkStation
                 CraftingItem.Assembled = true;
                 FinishedCraftingParticle.Play();
                 SoundManager.Instance.PlaySound(CompletedSoundEvent, gameObject);
-
+                SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
+                SoundManager.Instance.PlaySound(overcraftSound, gameObject, SoundManager.SoundType.Loop);
             }
 
         }
@@ -134,7 +135,7 @@ public class FreezingStation : WorkStation
         {
 
             SoundManager.Instance.StopSound(FreezeSoundEvent, gameObject);
-
+            SoundManager.Instance.StopSound(overcraftSound, gameObject);
         }
         
         /*if (!UsedBy && !AutoRepair || OutOfPower)

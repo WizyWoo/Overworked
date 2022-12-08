@@ -211,6 +211,13 @@ MonoBehaviour:
     m_Bits: 128
   radiusRangeOfSphere: 1.6
   localMultiplayer: {fileID: 0}
+  overcraftSound:
+    Guid:
+      Data1: -1693307226
+      Data2: 1230800191
+      Data3: -751312728
+      Data4: -1974809150
+    Path: event:/SFX/SFX_Int/SFX_Int_Workbench_ItemBeingOvercrafted
   DisplayPoint: {fileID: 1299811073026984507}
   InRangePopup: {fileID: 8296731647950888218}
   CraftingParticle: {fileID: 2948111589647571968}
