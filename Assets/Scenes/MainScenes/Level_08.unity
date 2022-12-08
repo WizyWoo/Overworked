@@ -1820,6 +1820,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisLevelsManager: {fileID: 0}
   Penalty: -5
+  lavaSound:
+    Guid:
+      Data1: 134104747
+      Data2: 1281496497
+      Data3: -614403150
+      Data4: -1209014730
+    Path: event:/SFX/SFX_Envior/SFX_Envior_LavaSplash
 --- !u!65 &528720841
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3062,6 +3069,8 @@ GameObject:
   - component: {fileID: 1003587124}
   - component: {fileID: 1003587127}
   - component: {fileID: 1003587126}
+  - component: {fileID: 1003587129}
+  - component: {fileID: 1003587128}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -3134,6 +3143,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003587123}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!50 &1003587128
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003587123}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1003587129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003587123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633581bd3a0308c4882048fb4d181c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1021048575
 GameObject:
   m_ObjectHideFlags: 0

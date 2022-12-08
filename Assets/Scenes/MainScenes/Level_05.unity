@@ -1679,6 +1679,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisLevelsManager: {fileID: 1058643987}
   Penalty: -5
+  lavaSound:
+    Guid:
+      Data1: 134104747
+      Data2: 1281496497
+      Data3: -614403150
+      Data4: -1209014730
+    Path: event:/SFX/SFX_Envior/SFX_Envior_LavaSplash
 --- !u!65 &528720841
 BoxCollider:
   m_ObjectHideFlags: 0
