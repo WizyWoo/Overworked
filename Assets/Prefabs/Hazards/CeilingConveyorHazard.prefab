@@ -454,7 +454,9 @@ MonoBehaviour:
   maxDelay: 4
   curveResolution: 10
   conveyorObjects:
-  - {fileID: 8308186615632149146, guid: cb6dd7b46092f2c44b36043da6f86425, type: 3}
+  - {fileID: 8173250538388149926, guid: 6c3381178a3fd104cbab2e11d41f8274, type: 3}
+  - {fileID: 8173250538388149926, guid: 6edef32315b2b3341a07b7246ba188f8, type: 3}
+  - {fileID: 8173250538388149926, guid: be7a34acdc8cc4f4ea3c1631cec36d31, type: 3}
   train: {fileID: 8173250538388149926, guid: 51a03d87fcd97644a93e25a97f706c81, type: 3}
   trainSound:
     Guid:
